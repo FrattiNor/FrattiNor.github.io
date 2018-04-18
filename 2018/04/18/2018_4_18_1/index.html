@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<html lang="">
+<head prefix="og: http://ogp.me/ns#">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <title>使用CSS实现折叠面板 | Hexo</title>
+
+    <!-- Open Graph -->
+    <meta name="description" content="&amp;#x6548;&amp;#x679C;&amp;#xFF1A;&amp;#x4F7F;&amp;#x7528;input&amp;#x7684;radio&amp;#x5355;&amp;#x9009;&amp;#x6846;&amp;#x7279;&amp;#x6027;&amp;#x7ED3;&amp;#x5408;CSS&amp;#x4E2D;&amp;#x7684;&amp;#x4F2A;&amp;#x5143;&amp;#x7D20;&amp;#x5B9E;&amp;#x73B0;bootstrap&amp;#x4E2D;&amp;#x6298;&amp;">
+<meta name="keywords" content="html,css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用CSS实现折叠面板">
+<meta property="og:url" content="http://yoursite.com/2018/04/18/2018_4_18_1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="&amp;#x6548;&amp;#x679C;&amp;#xFF1A;&amp;#x4F7F;&amp;#x7528;input&amp;#x7684;radio&amp;#x5355;&amp;#x9009;&amp;#x6846;&amp;#x7279;&amp;#x6027;&amp;#x7ED3;&amp;#x5408;CSS&amp;#x4E2D;&amp;#x7684;&amp;#x4F2A;&amp;#x5143;&amp;#x7D20;&amp;#x5B9E;&amp;#x73B0;bootstrap&amp;#x4E2D;&amp;#x6298;&amp;">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-04-18T07:55:17.845Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用CSS实现折叠面板">
+<meta name="twitter:description" content="&amp;#x6548;&amp;#x679C;&amp;#xFF1A;&amp;#x4F7F;&amp;#x7528;input&amp;#x7684;radio&amp;#x5355;&amp;#x9009;&amp;#x6846;&amp;#x7279;&amp;#x6027;&amp;#x7ED3;&amp;#x5408;CSS&amp;#x4E2D;&amp;#x7684;&amp;#x4F2A;&amp;#x5143;&amp;#x7D20;&amp;#x5B9E;&amp;#x73B0;bootstrap&amp;#x4E2D;&amp;#x6298;&amp;">
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "email": "mailto:",
+  "image": "",
+  "name": "John Doe",
+  "url": "http://yoursite.com"
+}
+</script>
+    <script>
+    var algoliaEnabled = false;
+    
+</script>
+
+    
+
+    
+    
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    
+    
+    
+        <!-- stylesheets list from config.yml -->
+        
+        <link rel="stylesheet" href="/css/aloha.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css">
+        
+    
+
+</head>
+<body id="body" style="margin-bottom: 0;" class="pushable">
+
+    <div class="ui top fixed menu">
+        <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
+    </div>
+
+    <div id="menu-sidebar" class="ui left vertical sidebar menu">
+
+    <div id="sidebar-top">
+        <div class="content">
+            <h3>Hexo</h3>
+        </div>
+    </div>
+    <div class="ui container sidebar-card">
+    <div class="ui people shape content">
+        <div class="active side">
+            <div class="ui card">
+                <div class="image">
+                    <img class="ui medium bordered image" src="/images/avatar.jpg">
+                </div>
+                <div class="content">
+                    <a class="header">John Doe</a>
+                    
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                        
+                    </div>
+
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+    
+    
+
+    
+
+    
+    <a href="/index.html" class="item" >
+        <i class="home icon"></i>
+        HOME
+    </a>
+
+    
+
+    
+</div>
+
+    <div class="pusher body-content">
+        <div id="content" class="ui main container">
+            <!--<div class="ui one column grid">-->
+                <!--<div class="column">-->
+                    <!--<div class="ui main container">-->
+                        <div id="post-2018_4_18_1" class="ui main container article-type-post">
+
+    
+
+    <div class="ui divided grid">
+
+        <div class="two column row" id="article-content">
+
+            <div class="thirteen wide computer thirteen wide tablet sixteen wide mobile column">
+                
+
+<h1 class="ui header">
+    
+    使用CSS实现折叠面板
+</h1>
+
+
+
+                <div class="article-inner">
+
+                    <div class="article-entry" itemprop="articleBody">
+                        
+                        <hr>
+<p>&#x6548;&#x679C;&#xFF1A;&#x4F7F;&#x7528;input&#x7684;radio&#x5355;&#x9009;&#x6846;&#x7279;&#x6027;&#x7ED3;&#x5408;CSS&#x4E2D;&#x7684;&#x4F2A;&#x5143;&#x7D20;&#x5B9E;&#x73B0;bootstrap&#x4E2D;&#x6298;&#x53E0;&#x9762;&#x677F;&#xFF0C;&#x8981;&#x6C42;&#x6837;&#x5F0F;&#x4E00;&#x81F4;&#x3002;</p>
+<hr>
+<p>&#x8981;&#x4F7F;&#x7528;&#x5230;&#x7684;&#x662F; radio&#xFF0C;label&#xFF0C;&#x4F2A;&#x7C7B;&#xFF0C;&#x5144;&#x5F1F;&#x76F8;&#x90BB;&#x9009;&#x62E9;&#x5668;</p>
+<hr>
+<p> radio&#xFF1A;&#x5355;&#x9009;&#x6846;<br> label&#xFF1A;&#x6587;&#x672C;&#x6846;<br> &#x4F2A;&#x7C7B;&#xFF1A;:checked   &#x2014;&#x9009;&#x4E2D;&#x65F6;&#x6DFB;&#x52A0;&#x7684;&#x7C7B;<br>&#x5144;&#x5F1F;&#x76F8;&#x90BB;&#x9009;&#x62E9;&#x5668;&#xFF1A;li+li {&#x2026;}</p>
+<hr>
+<p>&#x6211;&#x7684;&#x601D;&#x8DEF;&#xFF1A;<br>1<code>&#x521B;&#x5EFA;&#x533A;&#x57DF;section</code><br>2<code>&#x5728;section&#x4E2D;&#x5EFA;&#x7ACB;3&#x4E2A;radio&#xFF0C;css&#x8BBE;&#x7F6E;radio&#x7684;&#x6837;&#x5F0F;&#xFF1A;dispaly:none</code><br>3<code>&#x518D;&#x521B;&#x5EFA;3&#x4E2A;label&#xFF0C;&#x7ED1;&#x5B9A;&#x5BF9;&#x5E94;&#x7684;radio</code><br>4<code>&#x5728;label&#x91CC;&#x5199;&#x4E0A;&#x6807;&#x9898;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x91CC;&#x9762;&#x521B;&#x5EFA;div&#x6807;&#x7B7E;&#xFF0C;&#x518D;&#x5EFA;&#x7ACB;p&#x6807;&#x7B7E;&#xFF0C;&#x5199;&#x5165;&#x5BF9;&#x5E94;&#x7684;&#x5185;&#x5BB9;</code><br>5<code>&#x6700;&#x540E;&#x5728;css&#x91CC;&#x7ED9;&#x7ED9;div&#x7ED1;&#x5B9A;&#x5BF9;&#x5E94;&#x7684;css3&#x52A8;&#x753B;</code><br>&#x5230;&#x8FD9;&#x91CC;&#x4E3A;&#x6B62;&#x5DEE;&#x4E0D;&#x591A;&#x5C31;&#x6210;&#x578B;&#x4E86;</p>
+<p>&#x6211;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;&#xFF1A;<br>1<code>radio&#x6CA1;&#x6709;&#x5355;&#x9009;&#x6846;&#x6548;&#x679C;</code><br>&#x4EA7;&#x751F;&#x7684;&#x539F;&#x56E0;&#xFF1A;&#x6CA1;&#x6709;&#x7ED9;3&#x4E2A;radio&#x7ED9;&#x5B9A;&#x76F8;&#x540C;&#x7684;name&#x5C5E;&#x6027;<br>&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#xFF1A;<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;radio&quot; id=&quot;one&quot; name=&quot;cascade&quot; /&gt;</span><br><span class="line">&lt;input type=&quot;radio&quot; id=&quot;two&quot; name=&quot;cascade&quot; /&gt;</span><br><span class="line">&lt;input type=&quot;radio&quot; id=&quot;three&quot; name=&quot;cascade&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
+<p>2<code>&#x7ED1;&#x5B9A;&#x7684;&#x52A8;&#x753B;&#x6CA1;&#x6709;&#x52A8;&#x753B;&#x7684;&#x8FC7;&#x5EA6;&#x6548;&#x679C;</code><br>&#x4EA7;&#x751F;&#x539F;&#x56E0;&#xFF1A;&#x9AD8;&#x5EA6;&#x518D;&#x6CA1;&#x6709;&#x5177;&#x4F53;&#x6570;&#x503C;&#x65F6;&#xFF0C;&#x4E0D;&#x4F1A;&#x4EA7;&#x751F;&#x52A8;&#x753B;<br>&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#xFF1A;<br>&#x7ED9;&#x9AD8;&#x5EA6;&#x4E00;&#x4E2A;&#x56FA;&#x5B9A;&#x6570;&#x503C;<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">height</span>: 250<span class="selector-tag">px</span>;</span><br></pre></td></tr></table></figure></p>
+<p>&#x5EFA;&#x8BAE;div&#x9AD8;&#x5EA6;&#x548C;section&#x5BBD;&#x5EA6;&#xFF0C;&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x767E;&#x5206;&#x6BD4;&#xFF0C;&#x4EE5;&#x514D;&#x51FA;&#x73B0;&#x663E;&#x793A;&#x4E0D;&#x5168;&#x6216;&#x7A7A;&#x767D;&#x592A;&#x591A;&#x7684;&#x60C5;&#x51B5;</p>
+<p>3<code>&#x7ED1;&#x5B9A;&#x52A8;&#x753B;&#x540E;&#xFF0C;&#x5237;&#x65B0;&#x9875;&#x9762;&#x4F1A;&#x4EA7;&#x751F;&#x6298;&#x53E0;&#x52A8;&#x753B;</code><br>&#x4EA7;&#x751F;&#x7684;&#x539F;&#x56E0;&#xFF1A;&#x6211;&#x7ED9;div&#x7ED1;&#x5B9A;&#x4E86;&#x6298;&#x53E0;&#x52A8;&#x753B;&#xFF0C;&#x56E0;&#x4E3A;&#x4E0D;&#x7ED1;&#x5B9A;&#x4F1A;&#x518D;&#x5931;&#x53BB;checked&#x65F6;&#x76F4;&#x63A5;&#x6D88;&#x5931;&#xFF0C;&#x4F46;&#x662F;&#x7ED1;&#x5B9A;&#x4E86;&#x6298;&#x53E0;&#x52A8;&#x753B;&#x4F1A;&#x5728;&#x5F00;&#x59CB;&#x65F6;&#x5C31;&#x5148;&#x64AD;&#x653E;&#x52A8;&#x753B;&#x3002;<br>&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#xFF1A;<br>&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;css3&#x7684;&#x8FC7;&#x6EE4;<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">transition</span>: <span class="selector-tag">height</span> 1<span class="selector-tag">s</span> <span class="selector-tag">linear</span>;</span><br></pre></td></tr></table></figure></p>
+<p>&#x8FC7;&#x6EE4;&#x53EA;&#x5728;&#x5BF9;&#x5E94;&#x5C5E;&#x6027;&#x6539;&#x53D8;&#x65F6;&#x624D;&#x4F1A;&#x4EA7;&#x751F;&#x52A8;&#x753B;&#x3002;</p>
+<p>4<code>&#x6298;&#x53E0;&#x6846;&#x6CA1;&#x529E;&#x6CD5;&#x5168;&#x90E8;&#x6298;&#x53E0;</code><br>&#x4EA7;&#x751F;&#x7684;&#x539F;&#x56E0;&#xFF1A;radio&#x9009;&#x62E9;&#x540E;&#x5FC5;&#x987B;&#x6709;&#x4E00;&#x4E2A;&#x9009;&#x4E2D;<br>&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#xFF1A;<br>&#x4F7F;&#x7528;js&#x6539;&#x53D8;radio&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x88AB;&#x9009;&#x4E2D;&#x7684;&#x60C5;&#x51B5;<br>&#xFF08;&#x8FD8;&#x662F;&#x7528;&#x5230;&#x4E86;js&#x2026;&#xFF0C;&#x6211;&#x611F;&#x89C9;&#x8FD8;&#x4E0D;&#x5982;&#x7528;js&#x8BA9;&#x591A;&#x9009;&#x6846;&#x53EA;&#x80FD;&#x5355;&#x9009;&#x6765;&#x7684;&#x7B80;&#x5355;&#xFF09;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x4EE3;&#x7801;&#x90E8;&#x5206;&#x8FD8;&#x4E0D;&#x4F1A;&#xFF0C;&#x6240;&#x4EE5;&#x501F;&#x9274;&#x522B;&#x4EBA;&#x7684;</span><br><span class="line">    <span class="built_in">document</span>.body.onmousedown = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>{</span><br><span class="line">        event = event || <span class="built_in">window</span>.event;</span><br><span class="line">        <span class="keyword">var</span> target = event.target || event.srcElement;</span><br><span class="line">        <span class="keyword">if</span> (target.type === <span class="string">&apos;radio&apos;</span>) {</span><br><span class="line">            target.previousValue = target.checked;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">document</span>.body.onclick = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>{</span><br><span class="line">        event = event || <span class="built_in">window</span>.event;</span><br><span class="line">        <span class="keyword">var</span> target = event.target || event.srcElement;</span><br><span class="line">        <span class="keyword">if</span> (target.type === <span class="string">&apos;radio&apos;</span>) {</span><br><span class="line">            <span class="keyword">if</span> (target.previousValue) {</span><br><span class="line">                target.checked = <span class="literal">false</span>;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br></pre></td></tr></table></figure></p>
+<p>&#x4F46;&#x53EA;&#x5BF9;&#x70B9;&#x51FB;radio&#x6709;&#x6548;&#x3002;&#x3002;&#x3002;</p>
+<hr>
+<p>&#x6700;&#x540E;&#x8D34;&#x51FA;&#x6211;&#x7684;&#x4EE3;&#x7801;&#xFF1A;</p>
+<p>index.html &#xFF08;html&#x6587;&#x4EF6;&#xFF09;<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/mycss.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;section&gt;</span><br><span class="line">        &lt;input type=&quot;radio&quot; id=&quot;one&quot; name=&quot;cascade&quot; /&gt;</span><br><span class="line">        &lt;label for=&quot;one&quot;&gt;Collapsible Group Item #1</span><br><span class="line">        &lt;div&gt;&lt;p&gt;Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single- origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&apos;t heard of them accusamus labore sustainable VHS.</span><br><span class="line">        &lt;/p&gt;&lt;/div&gt;</span><br><span class="line">        &lt;/label&gt;</span><br><span class="line">        &lt;input type=&quot;radio&quot; id=&quot;two&quot; name=&quot;cascade&quot; /&gt;</span><br><span class="line">        &lt;label for=&quot;two&quot;&gt;Collapsible Group Item #2</span><br><span class="line">        &lt;div&gt;&lt;p&gt;Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single- origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&apos;t heard of them accusamus labore sustainable VHS.</span><br><span class="line">        &lt;/p&gt;&lt;/div&gt;</span><br><span class="line">        &lt;/label&gt;</span><br><span class="line">        &lt;input type=&quot;radio&quot; id=&quot;three&quot; name=&quot;cascade&quot; /&gt;</span><br><span class="line">        &lt;label for=&quot;three&quot;&gt;Collapsible Group Item #3</span><br><span class="line">        &lt;div&gt;&lt;p&gt;Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single- origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&apos;t heard of them accusamus labore sustainable VHS.</span><br><span class="line">        &lt;/p&gt;&lt;/div&gt;</span><br><span class="line">        &lt;/label&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/section&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script src=&quot;js/myjs.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>mycss.css&#xFF08;css&#x6587;&#x4EF6;&#xFF09;<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">*{</span><br><span class="line">        <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="selector-tag">body</span>,<span class="selector-tag">html</span>{</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">/*&#x6298;&#x53E0;&#x6846;&#x5C40;&#x57DF;*/</span></span><br><span class="line">    <span class="selector-tag">section</span>{</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">        <span class="attribute">margin</span>: auto;</span><br><span class="line">        <span class="attribute">margin-top</span>: <span class="number">20px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">        <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">/*&#x8BBE;&#x7F6E;&#x5355;&#x9009;&#x6846;&#x4E0D;&#x53EF;&#x89C1;*/</span></span><br><span class="line">    <span class="selector-tag">input</span><span class="selector-attr">[type=&quot;radio&quot;]</span> {</span><br><span class="line">        <span class="attribute">display</span>: none;</span><br><span class="line">    }</span><br><span class="line">    <span class="selector-tag">label</span>{</span><br><span class="line">        <span class="attribute">display</span>: block;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">        <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span><br><span class="line">        <span class="attribute">margin</span>: <span class="number">10px</span>;</span><br><span class="line">        <span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line">        <span class="attribute">background-color</span>: <span class="number">#f5f5f5</span>;</span><br><span class="line">        <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    }</span><br><span class="line">    <span class="selector-tag">div</span>{</span><br><span class="line">        <span class="attribute">font-size</span>: <span class="number">15px</span>;</span><br><span class="line">        <span class="attribute">overflow</span>: hidden;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">display</span>: block;</span><br><span class="line">        <span class="attribute">margin</span>: -<span class="number">12px</span>;</span><br><span class="line">        <span class="attribute">margin-top</span>: <span class="number">10px</span>;</span><br><span class="line">        <span class="attribute">background-color</span>: <span class="number">#fff</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">        <span class="attribute">border-radius</span>: <span class="number">0px</span> <span class="number">0px</span> <span class="number">4px</span> <span class="number">4px</span>;</span><br><span class="line">        <span class="attribute">transition</span>: height <span class="number">1s</span> linear;</span><br><span class="line">    }</span><br><span class="line">    <span class="selector-tag">p</span>{</span><br><span class="line">        <span class="attribute">margin</span>: <span class="number">10px</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">/*&#x5355;&#x9009;&#x5BBD;&#x9009;&#x4E2D;&#x65F6;&#x6539;&#x53D8;&#x9AD8;&#x5EA6;*/</span></span><br><span class="line">    <span class="selector-tag">input</span><span class="selector-attr">[type=&quot;radio&quot;]</span><span class="selector-pseudo">:checked+label</span> <span class="selector-tag">div</span>{</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">250px</span>;</span><br><span class="line">    }</span><br></pre></td></tr></table></figure></p>
+<p>myjs.js&#xFF08;javascript&#x6587;&#x4EF6;&#xFF09;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.body.onmousedown = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>{</span><br><span class="line">    event = event || <span class="built_in">window</span>.event;</span><br><span class="line">    <span class="keyword">var</span> target = event.target || event.srcElement;</span><br><span class="line">    <span class="keyword">if</span> (target.type === <span class="string">&apos;radio&apos;</span>) {</span><br><span class="line">        target.previousValue = target.checked;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="built_in">document</span>.body.onclick = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>{</span><br><span class="line">    event = event || <span class="built_in">window</span>.event;</span><br><span class="line">    <span class="keyword">var</span> target = event.target || event.srcElement;</span><br><span class="line">    <span class="keyword">if</span> (target.type === <span class="string">&apos;radio&apos;</span>) {</span><br><span class="line">        <span class="keyword">if</span> (target.previousValue) {</span><br><span class="line">            target.checked = <span class="literal">false</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+
+                        
+                    </div>
+
+                    
+                    
+                    
+
+                    <div class="description post-description">
+    <span class="post-description-item">
+        <time datetime="2018-04-18T09:18:22.662Z" itemprop="datePublished">2018-04-18</time>
+
+    </span>
+    <span class="post-description-item">
+        
+
+    <span>
+        <i class="tags icon"></i>
+    </span>
+
+    
+    <span class="ui tiny label">
+        <a href="/tags/html/">html</a>
+    </span>
+
+    
+    <span class="ui tiny label">
+        <a href="/tags/css/">css</a>
+    </span>
+
+    
+
+    </span>
+</div>
+
+                </div>
+                
+                <div id="pagination" class="nav-web ui text container pagination">
+
+    <div class="ui stackable two column divided grid container">
+        <div class="row">
+            <div class="column nav-left">
+                
+
+                <a class="ui tiny button disabled"><i class="angle left icon"></i>Previous</a>
+
+                
+            </div>
+            <div class="column nav-right">
+                
+
+                <a href="/2018/04/17/2018_4_17_2/" class="ui tiny button">
+                    
+                    自定义网页右键菜单
+                    
+                    <i class="angle right icon"></i></a>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+                
+            </div>
+
+            
+            <div class="three wide computer three wide tablet column">
+
+                <div class="ui sticky article-toc" id="article-toc">
+                    <!-- toc -->
+                    
+                </div>
+
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+
+
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="ui vertical footer segment">
+    <div class="ui center aligned container">
+        <div class="ui inverted section divider"></div>
+        &copy; 2018 <a href="/">John Doe</a>,
+        Powered by <a href="https://github.com/henryhuang/hexo-theme-aloha" target="_blank">Aloha</a> and <a
+                href="http://hexo.io/" target="_blank">Hexo</a>.
+    </div>
+</div>
+
+    </div>
+
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+<script src="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch/3.18.1/algoliasearch.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch-helper-js/2.13.0/algoliasearch.helper.min.js"></script>
+
+<script src="/js/semantic-ui-algolia.js"></script>
+
+<script src="/js/aloha-events.js"></script>
+
+
+
+</body>
+</html>
