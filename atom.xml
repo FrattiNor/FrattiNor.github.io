@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-19T12:56:53.131Z</updated>
+  <updated>2018-04-19T13:00:23.223Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于事件冒泡和事件捕获（二）</title>
+    <link href="http://yoursite.com/2018/04/19/2018_4_19_5/"/>
+    <id>http://yoursite.com/2018/04/19/2018_4_19_5/</id>
+    <published>2018-04-19T13:00:34.520Z</published>
+    <updated>2018-04-19T13:00:23.223Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;附上集团看见的非常形象的事件冒泡代码&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line
+      
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>关于事件冒泡和事件捕获</title>

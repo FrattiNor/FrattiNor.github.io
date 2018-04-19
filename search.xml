@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[关于事件冒泡和事件捕获（二）]]></title>
+    <url>%2F2018%2F04%2F19%2F2018_4_19_5%2F</url>
+    <content type="text"><![CDATA[附上集团看见的非常形象的事件冒泡代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt; &lt;meta charset=&quot;UTF-8&quot;&gt; &lt;title&gt;Title&lt;/title&gt; &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.jsdelivr.net/vue/2.1.3/vue.js&quot;&gt;&lt;/script&gt; &lt;style&gt; * &#123; box-sizing: border-box; margin: 0; padding: 20px; transition: background 800ms; &#125; ul &#123; height: 100%; list-style: none; background: hsl(193, 66%, 85%); &#125; li &#123; height: 100%; background: hsl(193, 66%, 95%); &#125; .highlight &#123; background: red; &#125; &lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;div id=&quot;app&quot;&gt; &lt;ul @click=&quot;callback($event)&quot;&gt; &lt;li @click=&quot;callback($event)&quot;&gt;One&lt;/li&gt; &lt;ul @click=&quot;callback($event)&quot;&gt; &lt;li @click=&quot;callback($event)&quot;&gt;Two&lt;/li&gt; &lt;ul @click=&quot;callback($event)&quot;&gt; &lt;li @click=&quot;callback($event)&quot;&gt;Three. Click Me!!!&lt;/li&gt; &lt;/ul&gt; &lt;/ul&gt; &lt;/ul&gt;&lt;/div&gt;&lt;script&gt; var pause = 200; new Vue(&#123; el: &quot;#app&quot;, methods: &#123; callback(event) &#123; var ms = event.timeout = (event.timeout + pause) || 0; var target = event.currentTarget; console.log(target); setTimeout(function() &#123; target.classList.add(&apos;highlight&apos;); setTimeout(function() &#123; target.classList.remove(&apos;highlight&apos;); &#125;, pause); &#125;, ms); &#125; &#125; &#125;)&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;]]></content>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[关于事件冒泡和事件捕获]]></title>
     <url>%2F2018%2F04%2F19%2F2018_4_19_4%2F</url>
     <content type="text"><![CDATA[今天在学习Vue,js时接触到了事件修饰符.capture，意思为添加事件侦听器时使用事件捕获模式，不太明白，所以搜索了一下捕获模式，才明白原生是事件冒泡和事件捕获，虽然很早之前就已经接触过事件冒泡和事件捕获，但是一直都是一个很模糊的概念，没有去了解过，所以这次我就好好的了解了一下关于事件冒泡和事件捕获 事件冒泡：即事件由子元素向祖先元素传播事件捕获：即事件由祖先元素向子元素传播要说明的是在IE浏览器和opera浏览器中，是不存在这个阶段的。 addEventListener(type,fn,boolean)，前面两个参数不用解释，第三个参数boolean，就是决定注册事件发生在捕 获阶段还是冒泡阶段，具体参考如下：true : 捕获阶段false : 冒泡阶段 在默认情况下，发生在一个子元素上的单击事件（或者其他事件），如果在其父级元素绑定了一个同样的事件，此时点击子元素，click事件会首先被子元素捕获，执行绑定的事件程序，之后会被父级元素捕获，再次激发一段脚本的执行，这就是所谓的“事件冒泡”。 我个人的理解所谓的事件冒泡和事件捕获就是事件发生的顺序，冒泡是从小向大发生，也就是先子元素发生事件，再父元素发生事件，捕获则相反，一般来说，事件冒泡比较多，我个人接触的也都是事件冒泡，以前遇到过事件冒泡相关的问题，就是子元素触发了事件，父元素也同样触发了事件，因为都绑定了click事件，只要给子元素的事件添加阻止冒泡即可1event.stopPropagation() event.stopPropagation()方法这是阻止事件的冒泡方法，不让事件向documen上蔓延，但是默认事件任然会执行event.preventDefault()方法这是阻止默认事件的方法return false ；这个方法比较暴力，他会同事阻止事件冒泡也会阻止默认事件]]></content>
