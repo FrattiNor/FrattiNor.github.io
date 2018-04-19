@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-19T10:05:30.397Z</updated>
+  <updated>2018-04-19T09:53:38.723Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue.js 学习（二）</title>
+    <link href="http://yoursite.com/2018/04/19/2018_4_19_2/"/>
+    <id>http://yoursite.com/2018/04/19/2018_4_19_2/</id>
+    <published>2018-04-19T10:09:00.107Z</published>
+    <updated>2018-04-19T09:53:38.723Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;6&lt;code&gt;Vue.js 条件语句&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;条件判断&lt;/strong&gt;&lt;br&gt;v-if&lt;br&gt;根据表达式的值(true 或 false )来决定是否插入对应的元素。&lt;br&gt;v-else&lt;br&gt;可以用 v-els
+      
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue.js 学习（一）</title>
