@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-19T12:39:50.215Z</updated>
+  <updated>2018-04-19T12:56:53.131Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于事件冒泡和事件捕获</title>
+    <link href="http://yoursite.com/2018/04/19/2018_4_19_4/"/>
+    <id>http://yoursite.com/2018/04/19/2018_4_19_4/</id>
+    <published>2018-04-19T12:57:19.413Z</published>
+    <updated>2018-04-19T12:56:53.131Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天在学习Vue,js时接触到了事件修饰符.capture，意思为&lt;strong&gt;添加事件侦听器时使用事件捕获模式&lt;/strong&gt;，不太明白，所以搜索了一下捕获模式，才明白原生是事件冒泡和事件捕获，虽然很早之前就已经接触过事件冒泡和事件捕获，但是一直都是一个很模糊的概念，
+      
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue.js 学习（三）</title>
