@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-20T11:21:24.519Z</updated>
+  <updated>2018-04-20T11:35:00.041Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>javascript闭包问题</title>
+    <link href="http://yoursite.com/2018/04/20/2018_4_20_5/"/>
+    <id>http://yoursite.com/2018/04/20/2018_4_20_5/</id>
+    <published>2018-04-20T11:35:12.942Z</published>
+    <updated>2018-04-20T11:35:00.041Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;闭包这个问题，其实是我一直没有搞懂的，到现在为止也没有，但是我很早之前就遇到过闭包的问题，当时要给多个li绑定事件，为了方便我使用了for循环一个一个的给每个li绑定事件，但是，结果发现只有最后一个li绑定了事件，这个问题一直困扰着我，后来问了学长才知道，这个是闭包问题。后
+      
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>git 基本命令</title>
