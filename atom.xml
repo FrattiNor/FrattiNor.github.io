@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-20T07:58:04.000Z</updated>
+  <updated>2018-04-20T08:14:14.435Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>github 创建本地仓库以及上传到github仓库</title>
+    <link href="http://yoursite.com/2018/04/20/2018_4_20_3/"/>
+    <id>http://yoursite.com/2018/04/20/2018_4_20_3/</id>
+    <published>2018-04-20T08:14:40.785Z</published>
+    <updated>2018-04-20T08:14:14.435Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;1 注册github账号&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;2 新建仓库&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;3 安装git&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquot
+      
+    
+    </summary>
+    
+    
+      <category term="github" scheme="http://yoursite.com/tags/github/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue.js 学习总结</title>
