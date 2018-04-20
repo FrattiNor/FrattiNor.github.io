@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-19T13:00:23.223Z</updated>
+  <updated>2018-04-20T04:34:16.274Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,13 +21,13 @@
     <link href="http://yoursite.com/2018/04/19/2018_4_19_5/"/>
     <id>http://yoursite.com/2018/04/19/2018_4_19_5/</id>
     <published>2018-04-19T13:00:34.520Z</published>
-    <updated>2018-04-19T13:00:23.223Z</updated>
+    <updated>2018-04-20T04:34:16.274Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;附上集团看见的非常形象的事件冒泡代码&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line
+        &lt;p&gt;附上今天看见的非常形象的事件冒泡代码&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line
       
     
     </summary>
@@ -42,13 +42,13 @@
     <link href="http://yoursite.com/2018/04/19/2018_4_19_4/"/>
     <id>http://yoursite.com/2018/04/19/2018_4_19_4/</id>
     <published>2018-04-19T12:57:19.413Z</published>
-    <updated>2018-04-19T12:56:53.131Z</updated>
+    <updated>2018-04-20T04:34:43.976Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;今天在学习Vue,js时接触到了事件修饰符.capture，意思为&lt;strong&gt;添加事件侦听器时使用事件捕获模式&lt;/strong&gt;，不太明白，所以搜索了一下捕获模式，才明白原生是事件冒泡和事件捕获，虽然很早之前就已经接触过事件冒泡和事件捕获，但是一直都是一个很模糊的概念，
+        &lt;p&gt;今天在学习Vue,js时接触到了事件修饰符.capture，意思为&lt;strong&gt;添加事件侦听器时使用事件捕获模式&lt;/strong&gt;，不太明白，所以搜索了一下捕获模式，才明白原来是事件冒泡和事件捕获，虽然很早之前就已经接触过事件冒泡和事件捕获，但是一直都是一个很模糊的概念，
       
     
     </summary>
