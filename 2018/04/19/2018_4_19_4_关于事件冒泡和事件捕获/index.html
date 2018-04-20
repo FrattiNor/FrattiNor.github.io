@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="javascript," />
 
 
 
@@ -96,13 +96,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="FrattiNor&#39;s Bolg">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+<meta name="description" content="今天在学习Vue,js时接触到了事件修饰符.capture，意思为添加事件侦听器时使用事件捕获模式，不太明白，所以搜索了一下捕获模式，才明白原来是事件冒泡和事件捕获，虽然很早之前就已经接触过事件冒泡和事件捕获，但是一直都是一个很模糊的概念，没有去了解过，所以这次我就好好的了解了一下关于事件冒泡和事件捕获  事件冒泡：即事件由子元素向祖先元素传播事件捕获：即事件由祖先元素向子元素传播要说明的是在IE">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于事件冒泡和事件捕获">
+<meta property="og:url" content="http://yoursite.com/2018/04/19/2018_4_19_4_关于事件冒泡和事件捕获/index.html">
 <meta property="og:site_name" content="FrattiNor&#39;s Bolg">
+<meta property="og:description" content="今天在学习Vue,js时接触到了事件修饰符.capture，意思为添加事件侦听器时使用事件捕获模式，不太明白，所以搜索了一下捕获模式，才明白原来是事件冒泡和事件捕获，虽然很早之前就已经接触过事件冒泡和事件捕获，但是一直都是一个很模糊的概念，没有去了解过，所以这次我就好好的了解了一下关于事件冒泡和事件捕获  事件冒泡：即事件由子元素向祖先元素传播事件捕获：即事件由祖先元素向子元素传播要说明的是在IE">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-04-20T11:46:16.802Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="FrattiNor&#39;s Bolg">
+<meta name="twitter:title" content="关于事件冒泡和事件捕获">
+<meta name="twitter:description" content="今天在学习Vue,js时接触到了事件修饰符.capture，意思为添加事件侦听器时使用事件捕获模式，不太明白，所以搜索了一下捕获模式，才明白原来是事件冒泡和事件捕获，虽然很早之前就已经接触过事件冒泡和事件捕获，但是一直都是一个很模糊的概念，没有去了解过，所以这次我就好好的了解了一下关于事件冒泡和事件捕获  事件冒泡：即事件由子元素向祖先元素传播事件捕获：即事件由祖先元素向子元素传播要说明的是在IE">
 
 
 
@@ -131,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2018/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/19/2018_4_19_4_关于事件冒泡和事件捕获/"/>
 
 
 
 
 
-  <title>Archive | FrattiNor's Bolg</title>
+  <title>关于事件冒泡和事件捕获 | FrattiNor's Bolg</title>
   
 
 
@@ -162,7 +167,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -280,411 +285,158 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/19/2018_4_19_4_关于事件冒泡和事件捕获/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">关于事件冒泡和事件捕获</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-19T20:57:19+08:00">
+                2018-04-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        Um..! 14 posts in total. Keep on posting.
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2018">2018</h2>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/20/2018_4_20_5_Javascript闭包问题/" itemprop="url">
-              
-                <span itemprop="name">javascript闭包问题</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-20T19:35:12+08:00"
-              content="2018-04-20" >
-          04-20
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+        </div>
+      </header>
+    
 
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/20/2018_4_20_4_git基本命令/" itemprop="url">
-              
-                <span itemprop="name">git 基本命令</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-20T19:21:42+08:00"
-              content="2018-04-20" >
-          04-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/20/2018_4_20_3_github创建本地仓库以及上传到github仓库/" itemprop="url">
-              
-                <span itemprop="name">github 创建本地仓库以及上传到github仓库</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-20T16:14:40+08:00"
-              content="2018-04-20" >
-          04-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>今天在学习Vue,js时接触到了事件修饰符.capture，意思为<strong>添加事件侦听器时使用事件捕获模式</strong>，不太明白，所以搜索了一下捕获模式，才明白原来是事件冒泡和事件捕获，虽然很早之前就已经接触过事件冒泡和事件捕获，但是一直都是一个很模糊的概念，没有去了解过，所以这次我就好好的了解了一下关于事件冒泡和事件捕获</p>
+<blockquote>
+<p>事件冒泡：即事件由子元素向祖先元素传播<br>事件捕获：即事件由祖先元素向子元素传播<br>要说明的是在<strong>IE</strong>浏览器和<strong>opera</strong>浏览器中，是不存在这个阶段的。</p>
+<p>addEventListener(type,fn,boolean)，前面两个参数不用解释，第三个参数boolean，就是决定注册事件发生在捕 获阶段还是冒泡阶段，具体参考如下：<br>true : 捕获阶段<br>false : 冒泡阶段</p>
+<p>在默认情况下，发生在一个子元素上的单击事件（或者其他事件），如果在其父级元素绑定了一个同样的事件，此时点击子元素，click事件会首先被子元素捕获，执行绑定的事件程序，之后会被父级元素捕获，再次激发一段脚本的执行，这就是所谓的“事件冒泡”。</p>
+</blockquote>
+<p>我个人的理解所谓的事件冒泡和事件捕获就是事件发生的顺序，冒泡是从小向大发生，也就是先子元素发生事件，再父元素发生事件，捕获则相反，一般来说，事件冒泡比较多，我个人接触的也都是事件冒泡，以前遇到过事件冒泡相关的问题，就是子元素触发了事件，父元素也同样触发了事件，因为都绑定了click事件，只要给子元素的事件添加阻止冒泡即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">event.stopPropagation()</span><br></pre></td></tr></table></figure></p>
+<p>event.stopPropagation()方法<br>这是阻止事件的冒泡方法，不让事件向documen上蔓延，但是默认事件任然会执行<br>event.preventDefault()方法<br>这是阻止默认事件的方法<br>return false ；<br>这个方法比较暴力，他会同事阻止事件冒泡也会阻止默认事件</p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/20/2018_4_20_2_Vue.js学习总结/" itemprop="url">
-              
-                <span itemprop="name">Vue.js 学习总结</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-20T15:59:33+08:00"
-              content="2018-04-20" >
-          04-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/20/2018_4_20_1_Vue.js学习（四）/" itemprop="url">
-              
-                <span itemprop="name">Vue.js 学习（四）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-20T14:10:36+08:00"
-              content="2018-04-20" >
-          04-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/19/2018_4_19_5_关于事件冒泡和事件捕获（二）/" itemprop="url">
-              
-                <span itemprop="name">关于事件冒泡和事件捕获（二）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-19T21:00:34+08:00"
-              content="2018-04-19" >
-          04-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/19/2018_4_19_4_关于事件冒泡和事件捕获/" itemprop="url">
-              
-                <span itemprop="name">关于事件冒泡和事件捕获</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-19T20:57:19+08:00"
-              content="2018-04-19" >
-          04-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/19/2018_4_19_3_Vue.js学习（三）/" itemprop="url">
-              
-                <span itemprop="name">Vue.js 学习（三）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-19T20:33:02+08:00"
-              content="2018-04-19" >
-          04-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/19/2018_4_19_2_Vue.js学习（二）/" itemprop="url">
-              
-                <span itemprop="name">Vue.js 学习（二）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-19T18:09:00+08:00"
-              content="2018-04-19" >
-          04-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/19/2018_4_19_1_Vue.js学习（一）/" itemprop="url">
-              
-                <span itemprop="name">Vue.js 学习（一）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-19T17:53:42+08:00"
-              content="2018-04-19" >
-          04-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/19/2018_4_19_3_Vue.js学习（三）/" rel="next" title="Vue.js 学习（三）">
+                <i class="fa fa-chevron-left"></i> Vue.js 学习（三）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/19/2018_4_19_5_关于事件冒泡和事件捕获（二）/" rel="prev" title="关于事件冒泡和事件捕获（二）">
+                关于事件冒泡和事件捕获（二） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -692,6 +444,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -888,11 +644,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
 
 
   
