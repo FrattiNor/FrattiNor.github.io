@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-20T04:34:16.274Z</updated>
+  <updated>2018-04-20T06:09:38.917Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue.js 学习（四）</title>
+    <link href="http://yoursite.com/2018/04/20/2018_4_20_1/"/>
+    <id>http://yoursite.com/2018/04/20/2018_4_20_1/</id>
+    <published>2018-04-20T06:10:36.785Z</published>
+    <updated>2018-04-20T06:09:38.917Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;14&lt;code&gt;Vue.js 自定义指令&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Vue 允许注册自定义指令。&lt;br&gt;指令（v-model v-show 等。。）&lt;br&gt;使用 directives 来注册指令&lt;br&gt;我们也可以在实例使用 directives 
+      
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
+  </entry>
   
   <entry>
     <title>关于事件冒泡和事件捕获（二）</title>
