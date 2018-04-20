@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[git 基本命令]]></title>
+    <url>%2F2018%2F04%2F20%2F2018_4_20_4%2F</url>
+    <content type="text"><![CDATA[1git init 本地创建git仓库 1git remote add origin https://github.com/xxxxxx/xxxxx.git 关联本地仓库到对应的github仓库 1git add 文件名/文件夹名 添加文件到本地仓库 1git commit -m &quot;形容这次操作&quot; 提交信息 1git push origin master 上传到github仓库 1git rm -r --cached idea 删除本地仓库的idea文件，cached不会删除本地文件，去掉会删除本地文件 我目前就知道这么多 然后今天还看见了一个比较全面的git命令表格 我就照搬过来了 个人本地使用| 行为 | 命令 | 备注 || :——–: | :——–:| :–: || 初始化 | init | 在本地的当前目录里初始化git仓库 || | clone https://…. | 从网络上某个地址拷贝仓库(repository)到本地 || 查看当前状态 | status | 查看当前仓库的状态。碰到问题不知道怎么办的时候，可以通过看它给出的提示来解决问题 ||查看不同|diff|查看当前状态和最新的commit之间不同的地方||添加文件|add -A|这算是相当通用的了。在commit之前要先add||撤回stage的东西|checkout - - .|这里用小数点表示撤回所有修改，在- -的前后都有空格||提交| commit -m “提交信息”|提交信息最好能体现更改了什么||删除未tracked|clean -xf|删除当前目录下所有没有track过的文件。不管它是否是.gitignore文件里面指定的文件夹和文件||查看提交记录|log|查看当前版本及之前的commit记录||| reflog|HEAD的变更记录||版本回退|reset –hard 版本号|回退到指定版本号的版本，该版本之后的修改都被删除。同时也是通过这个命令回到最新版本。需要reflog配合| 个人使用远程仓库| 行为 | 命令 | 备注 || :——–: | :——–:| :–: ||设置用户名|config - -global user.name “你的用户名”|||设置邮箱|config - -global user.email “你的邮箱”|||生成ssh key|ssh-keygen -t rsa -C “你的邮箱”|这条命令前面不用加git||添加远程仓库|remote add origin 你复制的地址|设置origin||上传并指定默认|push -u origin master|指定origin为默认主机，以后push默认上传到origin上||提交到远程仓库|push|将当前分支增加的commit提交到远程仓库||从远程仓库同步|pull|在本地版本低于远程仓库版本的时候，获取远程仓库的commit|]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[github 创建本地仓库以及上传到github仓库]]></title>
     <url>%2F2018%2F04%2F20%2F2018_4_20_3%2F</url>
     <content type="text"><![CDATA[1 注册github账号 2 新建仓库 3 安装git 4 打开Git Bash，输入以下命令生成密钥来验证身份1ssh-keygen -C &apos;your@email.address&apos; -t rsa 之后会要求输入密码，输入正确后会在windows当前用户目录下生成.ssh文件夹 5 把文件夹下的id_rsa.pub文件内容全部复制 6 然后打开github账户设置 7 打开ssh keys，右上角点击add ssh key，key栏粘贴刚才的密钥。 8 在你想要文件夹下打开Git Bash，输入1git init 会在文件夹下创建.git文件夹（隐藏的） 9 添加单个文件（test.txt）本地仓库1git add test.txt 10 把添加的文件提交到仓库1git commit -m &quot;add test.txt&quot; 命令行引号里面是我们用来描述这次操作，方便以后我们查记录的时候能清楚这次操作主要修改 到这里本地仓库已经完成了 最后提交到github仓库12git remote add origin https://github.com/xxxxxx/xxxxx.gitgit push origin master 完成]]></content>

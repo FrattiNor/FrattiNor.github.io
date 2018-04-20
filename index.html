@@ -296,6 +296,147 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/20/2018_4_20_4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/20/2018_4_20_4/" itemprop="url">git 基本命令</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-20T19:21:42+08:00">
+                2018-04-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<p>本地创建git仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://github.com/xxxxxx/xxxxx.git</span><br></pre></td></tr></table></figure>
+<p>关联本地仓库到对应的github仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add 文件名/文件夹名</span><br></pre></td></tr></table></figure>
+<p>添加文件到本地仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;形容这次操作&quot;</span><br></pre></td></tr></table></figure>
+<p>提交信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+<p>上传到github仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm -r --cached idea</span><br></pre></td></tr></table></figure>
+<p>删除本地仓库的idea文件，cached不会删除本地文件，去掉会删除本地文件</p>
+<p>我目前就知道这么多</p>
+<hr>
+<p>然后今天还看见了一个比较全面的git命令表格</p>
+<p>我就照搬过来了</p>
+<blockquote>
+<p>个人本地使用<br>| 行为      |    命令 | 备注  |<br>| :——–: | :——–:| :–: |<br>| 初始化  | init |  在本地的当前目录里初始化git仓库   |<br>|      |   clone https://…. |  从网络上某个地址拷贝仓库(repository)到本地  |<br>| 查看当前状态      |    status | 查看当前仓库的状态。碰到问题不知道怎么办的时候，可以通过看它给出的提示来解决问题  |<br>|查看不同|diff|查看当前状态和最新的commit之间不同的地方|<br>|添加文件|add -A|这算是相当通用的了。在commit之前要先add|<br>|撤回stage的东西|checkout - - .|这里用小数点表示撤回所有修改，在- -的前后都有空格|<br>|提交|    commit -m “提交信息”|提交信息最好能体现更改了什么|<br>|删除未tracked|clean -xf|删除当前目录下所有没有track过的文件。不管它是否是.gitignore文件里面指定的文件夹和文件|<br>|查看提交记录|log|查看当前版本及之前的commit记录|<br>||    reflog|HEAD的变更记录|<br>|版本回退|reset –hard 版本号|回退到指定版本号的版本，该版本之后的修改都被删除。同时也是通过这个命令回到最新版本。需要reflog配合|</p>
+</blockquote>
+<blockquote>
+<p>个人使用远程仓库<br>| 行为      |    命令 | 备注  |<br>| :——–: | :——–:| :–: |<br>|设置用户名|config - -global user.name “你的用户名”||<br>|设置邮箱|config - -global user.email “你的邮箱”||<br>|生成ssh key|ssh-keygen -t rsa -C “你的邮箱”|这条命令前面不用加git|<br>|添加远程仓库|remote add origin 你复制的地址|设置origin|<br>|上传并指定默认|push -u origin master|指定origin为默认主机，以后push默认上传到origin上|<br>|提交到远程仓库|push|将当前分支增加的commit提交到远程仓库|<br>|从远程仓库同步|pull|在本地版本低于远程仓库版本的时候，获取远程仓库的commit|</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/20/2018_4_20_3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1028,137 +1169,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/19/2018_4_19_4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/19/2018_4_19_4/" itemprop="url">关于事件冒泡和事件捕获</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-19T20:57:19+08:00">
-                2018-04-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>今天在学习Vue,js时接触到了事件修饰符.capture，意思为<strong>添加事件侦听器时使用事件捕获模式</strong>，不太明白，所以搜索了一下捕获模式，才明白原来是事件冒泡和事件捕获，虽然很早之前就已经接触过事件冒泡和事件捕获，但是一直都是一个很模糊的概念，没有去了解过，所以这次我就好好的了解了一下关于事件冒泡和事件捕获</p>
-<blockquote>
-<p>事件冒泡：即事件由子元素向祖先元素传播<br>事件捕获：即事件由祖先元素向子元素传播<br>要说明的是在<strong>IE</strong>浏览器和<strong>opera</strong>浏览器中，是不存在这个阶段的。</p>
-</blockquote>
-<blockquote>
-<p>addEventListener(type,fn,boolean)，前面两个参数不用解释，第三个参数boolean，就是决定注册事件发生在捕 获阶段还是冒泡阶段，具体参考如下：<br>true : 捕获阶段<br>false : 冒泡阶段</p>
-</blockquote>
-<blockquote>
-<p>在默认情况下，发生在一个子元素上的单击事件（或者其他事件），如果在其父级元素绑定了一个同样的事件，此时点击子元素，click事件会首先被子元素捕获，执行绑定的事件程序，之后会被父级元素捕获，再次激发一段脚本的执行，这就是所谓的“事件冒泡”。</p>
-</blockquote>
-<p>我个人的理解所谓的事件冒泡和事件捕获就是事件发生的顺序，冒泡是从小向大发生，也就是先子元素发生事件，再父元素发生事件，捕获则相反，一般来说，事件冒泡比较多，我个人接触的也都是事件冒泡，以前遇到过事件冒泡相关的问题，就是子元素触发了事件，父元素也同样触发了事件，因为都绑定了click事件，只要给子元素的事件添加阻止冒泡即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">event.stopPropagation()</span><br></pre></td></tr></table></figure></p>
-<p>event.stopPropagation()方法<br>这是阻止事件的冒泡方法，不让事件向documen上蔓延，但是默认事件任然会执行<br>event.preventDefault()方法<br>这是阻止默认事件的方法<br>return false ；<br>这个方法比较暴力，他会同事阻止事件冒泡也会阻止默认事件</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1209,7 +1219,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1222,7 +1232,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
