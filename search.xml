@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[github 创建本地仓库以及上传到github仓库]]></title>
     <url>%2F2018%2F04%2F20%2F2018_4_20_3%2F</url>
-    <content type="text"><![CDATA[1 注册github账号 2 新建仓库 3 安装git 4 打开Git Bash，输入以下命令生成密钥来验证身份1ssh-keygen -C &apos;your@email.address&apos; -t rsa 会在windows当前用户目录下生成.ssh文件夹 5 把文件夹下的id_rsa.pub文件内容全部复制 6 然后打开github账户设置 7 打开ssh keys，右上角点击add ssh key，key栏粘贴刚才的密钥。 8 在你想要文件夹下打开Git Bash，输入1git init 会在文件夹下创建.git文件夹（隐藏的） 9 添加单个文件（test.txt）本地仓库1git add test.txt 10 把添加的文件提交到仓库1git commit -m &quot;add test.txt&quot; 命令行引号里面是我们用来描述这次操作，方便以后我们查记录的时候能清楚这次操作主要修改 到这里本地仓库已经完成了 最后提交到github仓库12git remote add origin https://github.com/xxxxxx/xxxxx.gitgit push origin master 完成]]></content>
+    <content type="text"><![CDATA[1 注册github账号 2 新建仓库 3 安装git 4 打开Git Bash，输入以下命令生成密钥来验证身份1ssh-keygen -C &apos;your@email.address&apos; -t rsa 之后会要求输入密码，输入正确后会在windows当前用户目录下生成.ssh文件夹 5 把文件夹下的id_rsa.pub文件内容全部复制 6 然后打开github账户设置 7 打开ssh keys，右上角点击add ssh key，key栏粘贴刚才的密钥。 8 在你想要文件夹下打开Git Bash，输入1git init 会在文件夹下创建.git文件夹（隐藏的） 9 添加单个文件（test.txt）本地仓库1git add test.txt 10 把添加的文件提交到仓库1git commit -m &quot;add test.txt&quot; 命令行引号里面是我们用来描述这次操作，方便以后我们查记录的时候能清楚这次操作主要修改 到这里本地仓库已经完成了 最后提交到github仓库12git remote add origin https://github.com/xxxxxx/xxxxx.gitgit push origin master 完成]]></content>
       <tags>
         <tag>github</tag>
       </tags>
