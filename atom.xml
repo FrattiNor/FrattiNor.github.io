@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-20T06:09:38.917Z</updated>
+  <updated>2018-04-20T07:58:04.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue.js 学习总结</title>
+    <link href="http://yoursite.com/2018/04/20/2018_4_20_2/"/>
+    <id>http://yoursite.com/2018/04/20/2018_4_20_2/</id>
+    <published>2018-04-20T07:59:33.166Z</published>
+    <updated>2018-04-20T07:58:04.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;已经学习了基本的Vue.js&lt;br&gt;我来总结一下具体学了什么&lt;br&gt;我把Vue.js分成几类&lt;br&gt;1&lt;code&gt;Vue实例&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Vue实例写在js文件里&lt;br&gt;Vue实例有以下的属性&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p
+      
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue.js 学习（四）</title>
