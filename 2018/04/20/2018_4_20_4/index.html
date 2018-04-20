@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="FrattiNor&#39;s Bolg">
 <meta property="og:description" content="1git init 本地创建git仓库 1git remote add origin https://github.com/xxxxxx/xxxxx.git 关联本地仓库到对应的github仓库 1git add 文件名/文件夹名 添加文件到本地仓库 1git commit -m &amp;quot;形容这次操作&amp;quot; 提交信息 1git push origin master 上传到github仓库">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-20T11:21:24.519Z">
+<meta property="og:updated_time" content="2018-04-20T11:40:49.102Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git 基本命令">
 <meta name="twitter:description" content="1git init 本地创建git仓库 1git remote add origin https://github.com/xxxxxx/xxxxx.git 关联本地仓库到对应的github仓库 1git add 文件名/文件夹名 添加文件到本地仓库 1git commit -m &amp;quot;形容这次操作&amp;quot; 提交信息 1git push origin master 上传到github仓库">
@@ -383,11 +383,123 @@
 <p>然后今天还看见了一个比较全面的git命令表格</p>
 <p>我就照搬过来了</p>
 <blockquote>
-<p>个人本地使用<br>| 行为      |    命令 | 备注  |<br>| :——–: | :——–:| :–: |<br>| 初始化  | init |  在本地的当前目录里初始化git仓库   |<br>|      |   clone https://…. |  从网络上某个地址拷贝仓库(repository)到本地  |<br>| 查看当前状态      |    status | 查看当前仓库的状态。碰到问题不知道怎么办的时候，可以通过看它给出的提示来解决问题  |<br>|查看不同|diff|查看当前状态和最新的commit之间不同的地方|<br>|添加文件|add -A|这算是相当通用的了。在commit之前要先add|<br>|撤回stage的东西|checkout - - .|这里用小数点表示撤回所有修改，在- -的前后都有空格|<br>|提交|    commit -m “提交信息”|提交信息最好能体现更改了什么|<br>|删除未tracked|clean -xf|删除当前目录下所有没有track过的文件。不管它是否是.gitignore文件里面指定的文件夹和文件|<br>|查看提交记录|log|查看当前版本及之前的commit记录|<br>||    reflog|HEAD的变更记录|<br>|版本回退|reset –hard 版本号|回退到指定版本号的版本，该版本之后的修改都被删除。同时也是通过这个命令回到最新版本。需要reflog配合|</p>
+<p>个人本地使用</p>
 </blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">行为</th>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">初始化</td>
+<td style="text-align:center">init</td>
+<td style="text-align:center">在本地的当前目录里初始化git仓库</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">clone https://….</td>
+<td style="text-align:center">从网络上某个地址拷贝仓库(repository)到本地</td>
+</tr>
+<tr>
+<td style="text-align:center">查看当前状态</td>
+<td style="text-align:center">status</td>
+<td style="text-align:center">查看当前仓库的状态。碰到问题不知道怎么办的时候，可以通过看它给出的提示来解决问题</td>
+</tr>
+<tr>
+<td style="text-align:center">查看不同</td>
+<td style="text-align:center">diff</td>
+<td style="text-align:center">查看当前状态和最新的commit之间不同的地方</td>
+</tr>
+<tr>
+<td style="text-align:center">添加文件</td>
+<td style="text-align:center">add -A</td>
+<td style="text-align:center">这算是相当通用的了。在commit之前要先add</td>
+</tr>
+<tr>
+<td style="text-align:center">撤回stage的东西</td>
+<td style="text-align:center">checkout - - .</td>
+<td style="text-align:center">这里用小数点表示撤回所有修改，在- -的前后都有空格</td>
+</tr>
+<tr>
+<td style="text-align:center">提交</td>
+<td style="text-align:center">commit -m “提交信息”</td>
+<td style="text-align:center">提交信息最好能体现更改了什么</td>
+</tr>
+<tr>
+<td style="text-align:center">删除未tracked</td>
+<td style="text-align:center">clean -xf</td>
+<td style="text-align:center">删除当前目录下所有没有track过的文件。不管它是否是.gitignore文件里面指定的文件夹和文件</td>
+</tr>
+<tr>
+<td style="text-align:center">查看提交记录</td>
+<td style="text-align:center">log</td>
+<td style="text-align:center">查看当前版本及之前的commit记录</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">reflog</td>
+<td style="text-align:center">HEAD的变更记录</td>
+</tr>
+<tr>
+<td style="text-align:center">版本回退</td>
+<td style="text-align:center">reset –hard 版本号</td>
+<td style="text-align:center">回退到指定版本号的版本，该版本之后的修改都被删除。同时也是通过这个命令回到最新版本。需要reflog配合</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
-<p>个人使用远程仓库<br>| 行为      |    命令 | 备注  |<br>| :——–: | :——–:| :–: |<br>|设置用户名|config - -global user.name “你的用户名”||<br>|设置邮箱|config - -global user.email “你的邮箱”||<br>|生成ssh key|ssh-keygen -t rsa -C “你的邮箱”|这条命令前面不用加git|<br>|添加远程仓库|remote add origin 你复制的地址|设置origin|<br>|上传并指定默认|push -u origin master|指定origin为默认主机，以后push默认上传到origin上|<br>|提交到远程仓库|push|将当前分支增加的commit提交到远程仓库|<br>|从远程仓库同步|pull|在本地版本低于远程仓库版本的时候，获取远程仓库的commit|</p>
+<p>个人使用远程仓库</p>
 </blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">行为</th>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">设置用户名</td>
+<td style="text-align:center">config - -global user.name “你的用户名”</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">设置邮箱</td>
+<td style="text-align:center">config - -global user.email “你的邮箱”</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">生成ssh key</td>
+<td style="text-align:center">ssh-keygen -t rsa -C “你的邮箱”</td>
+<td style="text-align:center">这条命令前面不用加git</td>
+</tr>
+<tr>
+<td style="text-align:center">添加远程仓库</td>
+<td style="text-align:center">remote add origin 你复制的地址</td>
+<td style="text-align:center">设置origin</td>
+</tr>
+<tr>
+<td style="text-align:center">上传并指定默认</td>
+<td style="text-align:center">push -u origin master</td>
+<td style="text-align:center">指定origin为默认主机，以后push默认上传到origin上</td>
+</tr>
+<tr>
+<td style="text-align:center">提交到远程仓库</td>
+<td style="text-align:center">push</td>
+<td style="text-align:center">将当前分支增加的commit提交到远程仓库</td>
+</tr>
+<tr>
+<td style="text-align:center">从远程仓库同步</td>
+<td style="text-align:center">pull</td>
+<td style="text-align:center">在本地版本低于远程仓库版本的时候，获取远程仓库的commit</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
