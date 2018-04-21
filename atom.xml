@@ -45,18 +45,13 @@
     <link href="http://yoursite.com/2018/04/21/2018_4_21_1_vue%E7%BB%83%E4%B9%A0_%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86/"/>
     <id>http://yoursite.com/2018/04/21/2018_4_21_1_vue练习_图书管理/</id>
     <published>2018-04-21T08:17:45.767Z</published>
-    <updated>2018-04-21T08:07:54.000Z</updated>
+    <updated>2018-04-21T08:29:25.683Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;昨天学习看完了基本的Vue.js的知识点，今天开始做一些vue小练习&lt;/p&gt;
-&lt;p&gt;小练习目标：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;实现动态渲染html页面的图书&lt;br&gt;实现图书的添加和删除&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;差不多就这样吧，&lt;br&gt;这个练习刚
+        &lt;p&gt;这个是最后完成的样子[demo]&lt;br&gt;[ref]: &lt;a href=&quot;https://frattinor.github.io/practice/Vue练习_图书管理&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://frattinor.git
       
     
     </summary>
