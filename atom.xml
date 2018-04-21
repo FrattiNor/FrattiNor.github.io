@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-20T11:40:27.669Z</updated>
+  <updated>2018-04-21T08:15:32.422Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js数组函数</title>
+    <link href="http://yoursite.com/2018/04/21/2018_4_21_2_%E6%95%B0%E7%BB%84%E5%87%BD%E6%95%B0/"/>
+    <id>http://yoursite.com/2018/04/21/2018_4_21_2_数组函数/</id>
+    <published>2018-04-21T08:17:49.119Z</published>
+    <updated>2018-04-21T08:15:32.422Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;push：将参数添加到原数组末尾，并返回数组的长度   &lt;/p&gt;
+&lt;p&gt;concat：返回一个新数组，是将参数添加到原数组中构成的   &lt;/p&gt;
+&lt;p&gt;splice(start,deleteCount,val1,val2,…)：从start位置开始
+      
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue小练习_图书管理</title>
+    <link href="http://yoursite.com/2018/04/21/2018_4_21_1_vue%E7%BB%83%E4%B9%A0_%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86/"/>
+    <id>http://yoursite.com/2018/04/21/2018_4_21_1_vue练习_图书管理/</id>
+    <published>2018-04-21T08:17:45.767Z</published>
+    <updated>2018-04-21T08:07:54.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;昨天学习看完了基本的Vue.js的知识点，今天开始做一些vue小练习&lt;/p&gt;
+&lt;p&gt;小练习目标：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;实现动态渲染html页面的图书&lt;br&gt;实现图书的添加和删除&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;差不多就这样吧，&lt;br&gt;这个练习刚
+      
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
+  </entry>
   
   <entry>
     <title>javascript闭包问题</title>
