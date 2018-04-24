@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="鼠标点击事件," />
+  <meta name="keywords" content="webpack,vue-cli," />
 
 
 
@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="鼠标事件 button值 备注     click 0 单击鼠标左键   click 1 单击鼠标中键   mousedown 0 按下鼠标左键   mousedown 1 按下鼠标中键   mousedown 2 按下鼠标右键">
-<meta name="keywords" content="鼠标点击事件">
+<meta name="description" content="前几天学习了Vue.js，使用起来确实是非常的便捷，不需要自己手动的去操作DOM，只需要改变数据就能实现DOM的改变。然后我搜了一下Vue相关的项目，本来是打算自己先做着试试的，结果发现完全看不懂啊，一个完整的项目涉及到的东西还是非常的多。  首先我看到的就是Vue-cli，这是一个vue官方提供的vue项目的脚手架工具，emmm。。。，看不懂，脚手架工具是个什么玩意，然后我就去搜了一下vue-c">
+<meta name="keywords" content="webpack,vue-cli">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自定义网页右键菜单（补充）">
-<meta property="og:url" content="http://yoursite.com/2018/04/18/2018_4_18_2_自定义网页右键菜单（补充） /index.html">
+<meta property="og:title" content="webpack和vue-cli学习">
+<meta property="og:url" content="http://yoursite.com/2018/04/24/2018_4_24_1_vue-cli和webpack学习/index.html">
 <meta property="og:site_name" content="FrattiNor&#39;s Bolg">
-<meta property="og:description" content="鼠标事件 button值 备注     click 0 单击鼠标左键   click 1 单击鼠标中键   mousedown 0 按下鼠标左键   mousedown 1 按下鼠标中键   mousedown 2 按下鼠标右键">
+<meta property="og:description" content="前几天学习了Vue.js，使用起来确实是非常的便捷，不需要自己手动的去操作DOM，只需要改变数据就能实现DOM的改变。然后我搜了一下Vue相关的项目，本来是打算自己先做着试试的，结果发现完全看不懂啊，一个完整的项目涉及到的东西还是非常的多。  首先我看到的就是Vue-cli，这是一个vue官方提供的vue项目的脚手架工具，emmm。。。，看不懂，脚手架工具是个什么玩意，然后我就去搜了一下vue-c">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-18T09:37:40.110Z">
+<meta property="og:updated_time" content="2018-04-24T06:42:40.487Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自定义网页右键菜单（补充）">
-<meta name="twitter:description" content="鼠标事件 button值 备注     click 0 单击鼠标左键   click 1 单击鼠标中键   mousedown 0 按下鼠标左键   mousedown 1 按下鼠标中键   mousedown 2 按下鼠标右键">
+<meta name="twitter:title" content="webpack和vue-cli学习">
+<meta name="twitter:description" content="前几天学习了Vue.js，使用起来确实是非常的便捷，不需要自己手动的去操作DOM，只需要改变数据就能实现DOM的改变。然后我搜了一下Vue相关的项目，本来是打算自己先做着试试的，结果发现完全看不懂啊，一个完整的项目涉及到的东西还是非常的多。  首先我看到的就是Vue-cli，这是一个vue官方提供的vue项目的脚手架工具，emmm。。。，看不懂，脚手架工具是个什么玩意，然后我就去搜了一下vue-c">
 
 
 
@@ -136,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/18/2018_4_18_2_自定义网页右键菜单（补充） /"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/24/2018_4_24_1_vue-cli和webpack学习/"/>
 
 
 
 
 
-  <title>自定义网页右键菜单（补充） | FrattiNor's Bolg</title>
+  <title>webpack和vue-cli学习 | FrattiNor's Bolg</title>
   
 
 
@@ -299,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/18/2018_4_18_2_自定义网页右键菜单（补充） /">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/24/2018_4_24_1_vue-cli和webpack学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="FrattiNor">
@@ -316,7 +316,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">自定义网页右键菜单（补充）</h1>
+          <h1 class="post-title" itemprop="name headline">webpack和vue-cli学习</h1>
         
 
         <div class="post-meta">
@@ -328,8 +328,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-18T17:32:13+08:00">
-                2018-04-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-24T14:43:24+08:00">
+                2018-04-24
               </time>
             
 
@@ -366,43 +366,75 @@
       
 
       
-        <hr>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">鼠标事件</th>
-<th style="text-align:center">button值</th>
-<th style="text-align:center">备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">click</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">单击鼠标左键</td>
-</tr>
-<tr>
-<td style="text-align:center">click</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">单击鼠标中键</td>
-</tr>
-<tr>
-<td style="text-align:center">mousedown</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">按下鼠标左键</td>
-</tr>
-<tr>
-<td style="text-align:center">mousedown</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">按下鼠标中键</td>
-</tr>
-<tr>
-<td style="text-align:center">mousedown</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">按下鼠标右键</td>
-</tr>
-</tbody>
-</table>
+        <p>前几天学习了Vue.js，使用起来确实是非常的便捷，不需要自己手动的去操作DOM，只需要改变数据就能实现DOM的改变。<br>然后我搜了一下Vue相关的项目，本来是打算自己先做着试试的，结果发现完全看不懂啊，一个完整的项目涉及到的东西还是非常的多。</p>
+<hr>
+<p>首先我看到的就是<strong>Vue-cli</strong>，这是一个vue官方提供的vue项目的脚手架工具，emmm。。。，看不懂，脚手架工具是个什么玩意，然后我就去搜了一下vue-cli相关的知识，大概的意思应该是<strong>快捷的创建好一个vue项目模板</strong>，差不多就是一个样本，你照着修改就行了。</p>
+<p>接下来就是要创建模板了，官方提供了2种模板使用：</p>
+<blockquote>
+<p>基于vue cli和browserify的项目模板<br>基于vue cli和webpack的项目模板</p>
+</blockquote>
+<p>emmm。。。<br>browserify是个什么东西，我还清楚，webpack呢有听说过，是个打包工具来着，所以我决定要创建webpack的项目模板</p>
+<p>安装vue-cli脚手架工具<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-cli -g</span><br></pre></td></tr></table></figure></p>
+<p>安装webpack打包工具<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack -g</span><br></pre></td></tr></table></figure></p>
+<p>创建webpack-simple模板<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue init webpack-simple my-webpack-simple-demo</span><br></pre></td></tr></table></figure></p>
+<p>会产生对应的my-webpack-simple-demo项目文件夹</p>
+<p>打开文件夹<br>文件树结构如下：</p>
+<blockquote>
+<p>├─.babelrc        // babel配置文件<br>├─.gitignore<br>├─index.html        // 主页<br>├─package.json        // 项目配置文件<br>├─README.md<br>├─webpack.config.js    // webpack配置文件<br>├─dist            // 发布目录<br>│   ├─.gitkeep<br>├─src            // 开发目录<br>│   ├─App.vue        // App.vue组件<br>│   ├─main.js        // 预编译入口</p>
+</blockquote>
+<p>。。。还是看不懂项目里的都是些啥，我只知道<br>index.html 是首页<br>README.md 是展示的makedown文件<br>package.josn 是json文件具体什么用也不清楚<br>其他一概不知，一个完整的项目东西也太多了，和做一个单独的网页配上css和js完全不一样</p>
+<p>所以大概还得一样一样学过来</p>
+<p>那么既然这个是基于vue-cli和webpack的项目模板，所以就先从webpack学起吧！</p>
+<p>跟着别人的教程走吧</p>
+<p>首先webpack是什么<br>1.一个打包工具<br>2.一个模块加载工具<br>3.各种资源都可以当成模块来处理</p>
+<blockquote>
+<p>emmm。。。，说真的，每次学新的东西的时候，都是看着这种很专业的术语来学习真的是非常的不明觉厉啊，前面看git命令的时候也是一样，所以还是先看后面的例子吧</p>
+</blockquote>
+<p>对于模块的组织，通常有如下几种方法：<br>1.通过书写在不同的文件中，使用script标签进行加载</p>
+<blockquote>
+<p>这个是我目前会的那种。。。</p>
+</blockquote>
+<p>2.CommonJS进行加载（NodeJS就是使用这种方式）</p>
+<blockquote>
+<p>CommonJS又是什么，nodejs还没开始看呢。。</p>
+</blockquote>
+<p>3.AMD进行加载（require.js使用这种方式）</p>
+<blockquote>
+<p>emmm…</p>
+</blockquote>
+<p>4.ES6模块</p>
+<blockquote>
+<p>es6也没怎么看</p>
+</blockquote>
+<p>算了，慢慢来吧</p>
+<p>webpack的特点</p>
+<p>1.丰富的插件，方便进行开发工作<br>2.大量的加载器，包括加载各种静态资源<br>3.代码分割，提供按需加载的能力<br>4.发布工具</p>
+<p>webpack的优势<br>1.webpack 是以 commonJS 的形式来书写脚本滴，但对 AMD/CMD 的支持也很全面，方便旧项目进行代码迁移。<br>2.能被模块化的不仅仅是 JS 了。<br>3.开发便捷，能替代部分 grunt/gulp 的工作，比如打包、压缩混淆、图片转base64等。<br>4.扩展性强，插件机制完善，特别是支持 React 热插拔（见 react-hot-loader ）的功能让人眼前一亮。</p>
+<blockquote>
+<p>大概是意思就是我要使用webpack还得先去学CommonJS</p>
+</blockquote>
+<p>ok！开始webpack的例子了<br>还是实际的代码比较容易理解</p>
+<p>安装webpack，前面安装过了</p>
+<p>使用webpack<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm init # 会自动生成一个package.json文件</span><br><span class="line">npm install webpack --save-dev #将webpack增加到package.json文件中</span><br></pre></td></tr></table></figure></p>
+<p>如果要安装开发工具<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack-dev-server --save-dev</span><br></pre></td></tr></table></figure></p>
+<p>webpack的配置<br>每个项目下都必须配置有一个webpack.config.js，它的作用如同常规的gulpfile.js/Gruntfile.js，就是一个配置项，告诉webpack他需要做什么<br>下面是个例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">var webpack = require(&apos;webpack&apos;);</span><br><span class="line">var commonsPlugin = new webpack.optimize.CommonsChunkPlugin(&apos;common.js&apos;);</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    //插件项</span><br><span class="line">    plugins: [commonsPlugin],</span><br><span class="line">    //页面入口文件配置</span><br><span class="line">    entry: &#123;</span><br><span class="line">        index : &apos;./src/js/page/index.js&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    //入口文件输出配置</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: &apos;dist/js/page&apos;,</span><br><span class="line">        filename: &apos;[name].js&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    module: &#123;</span><br><span class="line">        //加载器配置</span><br><span class="line">        loaders: [</span><br><span class="line">            &#123; test: /\.css$/, loader: &apos;style-loader!css-loader&apos; &#125;,</span><br><span class="line">            &#123; test: /\.js$/, loader: &apos;jsx-loader?harmony&apos; &#125;,</span><br><span class="line">            &#123; test: /\.scss$/, loader: &apos;style!css!sass?sourceMap&apos;&#125;,</span><br><span class="line">            &#123; test: /\.(png|jpg)$/, loader: &apos;url-loader?limit=8192&apos;&#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    //其它解决方案配置</span><br><span class="line">    resolve: &#123;</span><br><span class="line">        //查找module的话从这里开始查找</span><br><span class="line">        root: &apos;E:/github/flux-example/src&apos;, //绝对路径</span><br><span class="line">        //自动扩展文件后缀名，意味着我们require模块可以省略不写后缀名</span><br><span class="line">        extensions: [&apos;&apos;, &apos;.js&apos;, &apos;.json&apos;, &apos;.scss&apos;],</span><br><span class="line">        //模块别名定义，方便后续直接引用别名，无须多写长长的地址</span><br><span class="line">        alias: &#123;</span><br><span class="line">            AppStore : &apos;js/stores/AppStores.js&apos;,</span><br><span class="line">            ActionType : &apos;js/actions/ActionType.js&apos;,</span><br><span class="line">            AppAction : &apos;js/actions/AppAction.js&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>plugins 是插件项，这里我们使用了一个CommonsChunkPlugin的插件，它用于提取多个入口文件的公共脚本部分，然后生成一个common.js来方便多页面之间进行复用<br>entry 是页面的入口文件配置，output是对应的输出配置文件<br>（既入口文件最终要生成什么名字的文件，存放在哪里）<br>module.loaders 是最关键的一块配置，它告诉webpack每种文件都需要使用什么加载器来处理。加载器需要使用npm来加载<br>resolve模块 是查找模块的路径和扩展名和别名</p>
+<p>webpack开始使用<br>1.正确安装webpack<br>2.书写entry.js文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.write(&quot;entry&quot;);</span><br></pre></td></tr></table></figure></p>
+<p>3.书写index.html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line"> &lt;head&gt;</span><br><span class="line"> &lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line"> &lt;/head&gt;</span><br><span class="line"> &lt;body&gt;</span><br><span class="line"> &lt;script type=&quot;text/javascript&quot; src=&quot;bundle.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</span><br><span class="line"> &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>4.执行命令，生成bundle.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ webpack ./entry.js bundle.js</span><br></pre></td></tr></table></figure></p>
+<p>5.打开html文件，显示entry<br>6.增加content.js文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &quot;content&quot;</span><br></pre></td></tr></table></figure></p>
+<p>7.修改entry.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.write(require(&quot;./content.js&quot;));</span><br></pre></td></tr></table></figure></p>
+<p>8.打开html文件，显示content<br>9.增加css.css文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">	background:yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>10.修改entry.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">require(&quot;!style-loader!css-loader!./style.css&quot;);</span><br><span class="line">document.write(require(&quot;./content.js&quot;));</span><br></pre></td></tr></table></figure></p>
+<p>11.执行命令，安装加载器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install css-loader style-loader</span><br></pre></td></tr></table></figure></p>
+<p>12.执行webpack命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ webpack ./entry.js bundle.js --module-bind &quot;css=style-loader!css-loader&quot;</span><br></pre></td></tr></table></figure></p>
+<p>14.打开html文件，显示背景黄色<br>15.使用配置文件<br>默认配置文件为webpack.config.js<br>增加webpack.config.js文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">    entry: &quot;./entry.js&quot;,</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: __dirname,</span><br><span class="line">        filename: &quot;bundle.js&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    module: &#123;</span><br><span class="line">        loaders: [</span><br><span class="line">            &#123; test: /\.css$/, loader: &quot;style-loader!css-loader&quot; &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ webpack</span><br></pre></td></tr></table></figure></p>
+<p>16.发布服务器<br>安装服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install webpack-dev-server -g</span><br><span class="line">$ webpack-dev-server --progress --colors</span><br></pre></td></tr></table></figure></p>
+<p>服务器可以自动生成和刷新，修改代码保持后自动更新画面<br><a href="http://localhost:8080/webpack-dev-server/bundle" target="_blank" rel="noopener">http://localhost:8080/webpack-dev-server/bundle</a></p>
+<p>17.webpack常用命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ webpack --display-error-details</span><br></pre></td></tr></table></figure></p>
+<p>后面的参数“–display-error-details”是推荐加上的，方便出错时能查阅更详尽的信息（比如 webpack 寻找模块的过程），从而更好定位到问题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ webpack --config XXX.js //使用另一份配置文件（比如webpack.config2.js）来打包</span><br><span class="line">$ webpack --watch //监听变动并自动打包</span><br><span class="line">$ webpack -p //压缩混淆脚本，这个非常非常重要！</span><br><span class="line">$ webpack -d //生成map映射文件，告知哪些模块被最终打包到哪里了</span><br></pre></td></tr></table></figure></p>
+<p>总结一下吧：vue-cli是脚手架工具，用来创建vue项目模板，webpack是打包工具，总的来说就是把多个文件打包成一个文件，不仅仅是js文件，静态资源也可以打包，学习webpack有那么一点感觉，但又很模糊，先到这里吧。</p>
 
       
     </div>
@@ -420,7 +452,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/鼠标点击事件/" rel="tag"># 鼠标点击事件</a>
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
+          
+            <a href="/tags/vue-cli/" rel="tag"># vue-cli</a>
           
         </div>
       
@@ -433,8 +467,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/18/2018_4_18_1_使用css实现折叠面板/" rel="next" title="使用CSS实现折叠面板">
-                <i class="fa fa-chevron-left"></i> 使用CSS实现折叠面板
+              <a href="/2018/04/21/2018_4_21_2_数组函数/" rel="next" title="js数组函数">
+                <i class="fa fa-chevron-left"></i> js数组函数
               </a>
             
           </div>
@@ -443,8 +477,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/19/2018_4_19_1_Vue.js学习（一）/" rel="prev" title="Vue.js 学习（一）">
-                Vue.js 学习（一） <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/24/2018_4_24_2_CommonJS学习/" rel="prev" title="CommonJS学习">
+                CommonJS学习 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
