@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-24T13:28:44.874Z</updated>
+  <updated>2018-04-25T09:13:54.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue项目入门和vue-router部分学习</title>
+    <link href="http://yoursite.com/2018/04/25/2018_4_25_1_vue%E9%A1%B9%E7%9B%AE%E5%85%A5%E9%97%A8%E5%92%8Cvue-router%E9%83%A8%E5%88%86%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://yoursite.com/2018/04/25/2018_4_25_1_vue项目入门和vue-router部分学习/</id>
+    <published>2018-04-25T09:17:00.223Z</published>
+    <updated>2018-04-25T09:13:54.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;前段时间看的vue.js，然后也写了一个小页面来练练手，总的来说不是很难，再然后，我就看到了vue项目，接触到了vue-cli，webpack等等的，于是乎就看了很久的相关文档，说真的看文档真的看的我有点难受了，看文档确实是知道了具体的代码怎么实现等等的，虽然不能全部记住，
+      
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
+      <category term="vue-router" scheme="http://yoursite.com/tags/vue-router/"/>
+    
+  </entry>
   
   <entry>
     <title>CommonJS学习</title>
