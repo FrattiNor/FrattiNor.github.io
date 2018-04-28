@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-25T09:13:54.000Z</updated>
+  <updated>2018-04-28T06:25:52.618Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue项目-豆瓣电影搜索</title>
+    <link href="http://yoursite.com/2018/04/28/2018_4_28_1_vue%E9%A1%B9%E7%9B%AE-%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1%E6%90%9C%E7%B4%A2/"/>
+    <id>http://yoursite.com/2018/04/28/2018_4_28_1_vue项目-豆瓣电影搜索/</id>
+    <published>2018-04-28T06:26:25.085Z</published>
+    <updated>2018-04-28T06:25:52.618Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在写了第一次Vue项目todo list之后，总算是了解了vue项目大概的编写方法&lt;br&gt;然后我就在网络上找一些简单的Vue项目来做&lt;br&gt;然后就看到了这个基于豆瓣API的电影搜索项目（&lt;a href=&quot;https://github.com/superman66/vue2.
+      
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
+      <category term="vue-router" scheme="http://yoursite.com/tags/vue-router/"/>
+    
+      <category term="vue-infinite-scroll" scheme="http://yoursite.com/tags/vue-infinite-scroll/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue项目入门和vue-router部分学习</title>
