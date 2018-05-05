@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-03T13:54:51.390Z</updated>
+  <updated>2018-05-05T14:24:00.421Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,9 +17,119 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>vue项目-豆瓣电影搜索-完善</title>
+    <link href="http://yoursite.com/2018/05/05/2018_5_5_3_%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1%E6%90%9C%E7%B4%A2vue%E9%A1%B9%E7%9B%AE%E6%94%B9%E5%96%84/"/>
+    <id>http://yoursite.com/2018/05/05/2018_5_5_3_豆瓣电影搜索vue项目改善/</id>
+    <published>2018-05-05T14:24:00.092Z</published>
+    <updated>2018-05-05T14:24:00.421Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;上次我写了这个豆瓣电影搜索的vue项目，最后完成的时候，发现打包后放到github上，不能获取到ajax的结果，原因呢我具体也不明白，大概就是存在跨域问题，上次我搜索跨域问题怎么解决，都是说反向代理什么的，我完全一脸懵逼啊，今天得知有另一种解决跨域问题的方法jsonp，所以
+      
+    
+    </summary>
+    
+    
+      <category term="vue，jsonp" scheme="http://yoursite.com/tags/vue%EF%BC%8Cjsonp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ife_2018 MVVM学院 2-1</title>
+    <link href="http://yoursite.com/2018/05/05/2018_5_5_2_ife_2018_mvvm%E5%AD%A6%E9%99%A2_2.1/"/>
+    <id>http://yoursite.com/2018/05/05/2018_5_5_2_ife_2018_mvvm学院_2.1/</id>
+    <published>2018-05-05T14:06:25.469Z</published>
+    <updated>2018-05-05T14:06:25.668Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;ife 的 mvvm使用的是百度的san框架，我不太了解，同时这个也不太火，所以我还是使用我在学习的vue框架&lt;/p&gt;
+&lt;p&gt;1.x是看文档和安装环境我就没做了&lt;/p&gt;
+&lt;p&gt;2.1 数据操作&lt;br&gt;1参考下方设计图，使用san实现一个功能&lt;br&gt;2输入姓名、年龄和简介信息
+      
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ife_2018 设计师学院 No.7</title>
+    <link href="http://yoursite.com/2018/05/05/2018_5_5_1_ife_2018_%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E9%99%A2_No.7/"/>
+    <id>http://yoursite.com/2018/05/05/2018_5_5_1_ife_2018_设计师学院_No.7/</id>
+    <published>2018-05-05T13:55:06.984Z</published>
+    <updated>2018-05-05T13:55:07.151Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;No.7 - 使用 animate.css 实现一个优雅的登录框&lt;/p&gt;
+&lt;p&gt;任务七&lt;br&gt;&lt;a href=&quot;https://frattinor.github.io/IFE_2018/css/No.7/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;de
+      
+    
+    </summary>
+    
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ife_2018 设计师学院 No.6</title>
+    <link href="http://yoursite.com/2018/05/05/2018_5_4_2_ife_2018_%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E9%99%A2_No.6/"/>
+    <id>http://yoursite.com/2018/05/05/2018_5_4_2_ife_2018_设计师学院_No.6/</id>
+    <published>2018-05-05T13:42:55.357Z</published>
+    <updated>2018-05-05T13:42:55.520Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;No.6 - 利用 CSS animation 制作一个炫酷的 Slider&lt;/p&gt;
+&lt;p&gt;任务六&lt;br&gt;&lt;a href=&quot;https://frattinor.github.io/IFE_2018/css/No.6/&quot; target=&quot;_blank&quot; rel=&quot;noopen
+      
+    
+    </summary>
+    
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ife_2018 设计师学院 No.5</title>
+    <link href="http://yoursite.com/2018/05/05/2018_5_4_1_ife_2018_%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E9%99%A2_No.5/"/>
+    <id>http://yoursite.com/2018/05/05/2018_5_4_1_ife_2018_设计师学院_No.5/</id>
+    <published>2018-05-05T13:26:52.791Z</published>
+    <updated>2018-05-05T13:26:53.016Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;No.5 - 纯 CSS 制作绕中轴旋转的立方体&lt;/p&gt;
+&lt;p&gt;任务五&lt;br&gt;&lt;a href=&quot;https://frattinor.github.io/IFE_2018/css/No.5/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;demo&lt;/a&gt;&lt;/
+      
+    
+    </summary>
+    
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ife_2018 设计师学院 No.4</title>
-    <link href="http://yoursite.com/2018/05/03/2018_5_3_1_ife_2018_%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E9%99%A2_No.4/"/>
-    <id>http://yoursite.com/2018/05/03/2018_5_3_1_ife_2018_设计师学院_No.4/</id>
+    <link href="http://yoursite.com/2018/05/03/2018_5_3_3_ife_2018_%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E9%99%A2_No.4/"/>
+    <id>http://yoursite.com/2018/05/03/2018_5_3_3_ife_2018_设计师学院_No.4/</id>
     <published>2018-05-03T13:54:51.127Z</published>
     <updated>2018-05-03T13:54:51.390Z</updated>
     
@@ -41,8 +151,8 @@
   
   <entry>
     <title>ife_2018 设计师学院 No.3</title>
-    <link href="http://yoursite.com/2018/05/03/2018_5_3_1_ife_2018_%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E9%99%A2_No.3/"/>
-    <id>http://yoursite.com/2018/05/03/2018_5_3_1_ife_2018_设计师学院_No.3/</id>
+    <link href="http://yoursite.com/2018/05/03/2018_5_3_2_ife_2018_%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E9%99%A2_No.3/"/>
+    <id>http://yoursite.com/2018/05/03/2018_5_3_2_ife_2018_设计师学院_No.3/</id>
     <published>2018-05-03T13:36:26.642Z</published>
     <updated>2018-05-03T13:36:35.788Z</updated>
     
@@ -358,123 +468,6 @@
     
     
       <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于事件冒泡和事件捕获</title>
-    <link href="http://yoursite.com/2018/04/19/2018_4_19_4_%E5%85%B3%E4%BA%8E%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1%E5%92%8C%E4%BA%8B%E4%BB%B6%E6%8D%95%E8%8E%B7/"/>
-    <id>http://yoursite.com/2018/04/19/2018_4_19_4_关于事件冒泡和事件捕获/</id>
-    <published>2018-04-19T12:57:19.413Z</published>
-    <updated>2018-04-20T11:46:16.802Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;今天在学习Vue,js时接触到了事件修饰符.capture，意思为&lt;strong&gt;添加事件侦听器时使用事件捕获模式&lt;/strong&gt;，不太明白，所以搜索了一下捕获模式，才明白原来是事件冒泡和事件捕获，虽然很早之前就已经接触过事件冒泡和事件捕获，但是一直都是一个很模糊的概念，
-      
-    
-    </summary>
-    
-    
-      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue.js 学习（三）</title>
-    <link href="http://yoursite.com/2018/04/19/2018_4_19_3_Vue.js%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89/"/>
-    <id>http://yoursite.com/2018/04/19/2018_4_19_3_Vue.js学习（三）/</id>
-    <published>2018-04-19T12:33:02.736Z</published>
-    <updated>2018-04-20T11:47:17.593Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;11&lt;code&gt;Vue.js 事件处理器&lt;/code&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;事件监听可以使用 v-on 指令&lt;br&gt;通常情况下，我们需要使用一个方法来调用 JavaScript 方法。&lt;br&gt;v-on 可以接收一个定义的方法来调用。&lt;br&gt;&lt;figure
-      
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue.js 学习（二）</title>
-    <link href="http://yoursite.com/2018/04/19/2018_4_19_2_Vue.js%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>http://yoursite.com/2018/04/19/2018_4_19_2_Vue.js学习（二）/</id>
-    <published>2018-04-19T10:09:00.107Z</published>
-    <updated>2018-04-19T09:53:38.723Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;6&lt;code&gt;Vue.js 条件语句&lt;/code&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;条件判断&lt;/strong&gt;&lt;br&gt;v-if&lt;br&gt;根据表达式的值(true 或 false )来决定是否插入对应的元素。&lt;br&gt;v-else&lt;br&gt;可以用 v-els
-      
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue.js 学习（一）</title>
-    <link href="http://yoursite.com/2018/04/19/2018_4_19_1_Vue.js%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://yoursite.com/2018/04/19/2018_4_19_1_Vue.js学习（一）/</id>
-    <published>2018-04-19T09:53:42.207Z</published>
-    <updated>2018-04-19T10:05:30.397Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;1&lt;code&gt;Vue.js 安装&lt;/code&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;1.本地安装&lt;br&gt;在 Vue.js 的官网上直接下载 vue.min.js 并用 script 标签引入。&lt;br&gt;2.CDN 方法&lt;br&gt;unpkg：&lt;a href=&quot;https://
-      
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自定义网页右键菜单（补充）</title>
-    <link href="http://yoursite.com/2018/04/18/2018_4_18_2_%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BD%91%E9%A1%B5%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%EF%BC%88%E8%A1%A5%E5%85%85%EF%BC%89%20/"/>
-    <id>http://yoursite.com/2018/04/18/2018_4_18_2_自定义网页右键菜单（补充） /</id>
-    <published>2018-04-18T09:32:13.336Z</published>
-    <updated>2018-04-18T09:37:40.110Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;hr&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;鼠标事件&lt;/th&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;button值&lt;/th&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;备
-      
-    
-    </summary>
-    
-    
-      <category term="鼠标点击事件" scheme="http://yoursite.com/tags/%E9%BC%A0%E6%A0%87%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/"/>
     
   </entry>
   
