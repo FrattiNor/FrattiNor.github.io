@@ -296,6 +296,145 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/05/2018_5_4_1_ife_2018_设计师学院_No.5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/05/2018_5_4_1_ife_2018_设计师学院_No.5/" itemprop="url">ife_2018 设计师学院 No.5</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-05T21:26:52+08:00">
+                2018-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>No.5 - 纯 CSS 制作绕中轴旋转的立方体</p>
+<p>任务五<br><a href="https://frattinor.github.io/IFE_2018/css/No.5/" target="_blank" rel="noopener">demo</a></p>
+<p>任务要求：<br>通过纯CSS 实现一个立方体翻转的效果</p>
+<p><strong>我的思路</strong></p>
+<ol>
+<li>用绝对定位在同一个地方设置6个正方形div</li>
+<li>通过css3的3d效果去把上下左右后5块div进行旋转和3d位移</li>
+<li>在以底部为圆心写无穷旋转动画效果</li>
+</ol>
+<p>完成</p>
+<p><strong>遇到的问题</strong><br>1.旋转后div上的字也会翻转</p>
+<p>解决办法：<br>前面，上面，和下面这3块不动，左右2块都向后位移200px，再进行旋转，后面一块先向后位移200px然后原地转180度<br>这样从6个面看过去都是正的字</p>
+<p>2。无穷旋转动画以前面这块的中轴为中心旋转</p>
+<p>解决办法：<br>在这6块div外加一个div，然后前面这块向前移100px，后面那块向后移100px，其他4块以这2块为基准位移和旋转，然后把无穷旋转的动画加载在外部这个div里，这样就可以围绕底面的中心旋转了</p>
+<p>3.看起来没有3d效果，只有2d效果</p>
+<p>解决办法：<br>昨天使用过的perspective属性，简单的说就是增加屏幕到元素的距离，产生距离感</p>
+<p>4.使用perspective属性后，旋转起来，前大后小，不是立方体</p>
+<p>解决办法：<br>其实，这个问题是我自己还不太理解perspective属性，现在我对perspective属性的理解就是在元素的前方加了一对眼睛，然后改元素旋转的同时，眼睛也在旋转，也就是说本来是屏幕到元素的距离旋转后变成了侧面到元素产生了距离，emmm。。。，我自己也说不明白，反正就是这个意思，解决办法是在外部div的外部加个div，在最外面的这个div加上perspective属性，这样里面div旋转不会影响到外部的perspective属性。</p>
+<p>最后贴出我的代码<br>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/mycss.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;box0&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;box front&quot;&gt;front&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;box back&quot;&gt;back&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;box left&quot;&gt;left&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;box right&quot;&gt;right&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;box top&quot;&gt;top&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;box bottom&quot;&gt;bottom&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;js/myjs.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">    margin: 0;</span><br><span class="line">    padding: 0;</span><br><span class="line">&#125;</span><br><span class="line">.container&#123;</span><br><span class="line">    height: 200px;</span><br><span class="line">    text-align: center;</span><br><span class="line">    margin-top: 100px;</span><br><span class="line">    perspective: 400px;</span><br><span class="line">&#125;</span><br><span class="line">.box0&#123;</span><br><span class="line">    transform-style: preserve-3d;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 200px;</span><br><span class="line">    transform-origin: 50% 50%;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    animation: ani 4s infinite linear;</span><br><span class="line">    animation-play-state:paused;</span><br><span class="line">&#125;</span><br><span class="line">.box0:hover&#123;</span><br><span class="line">    animation-play-state:running;</span><br><span class="line">&#125;</span><br><span class="line">@keyframes ani&#123;</span><br><span class="line">    0%&#123;</span><br><span class="line">        transform: rotateY(0deg);</span><br><span class="line">    &#125;</span><br><span class="line">    100%&#123;</span><br><span class="line">        transform: rotateY(360deg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">.box&#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 200px;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    border: 2px solid #09f;</span><br><span class="line">    text-align: center;</span><br><span class="line">    line-height: 200px;</span><br><span class="line">    font-size: 30px;</span><br><span class="line">    color: RGBA(0,0,0,0.6);</span><br><span class="line">&#125;</span><br><span class="line">.front&#123;</span><br><span class="line">    transform: translateZ(102px);</span><br><span class="line">    background-color: RGBA(255,0,0,0.5);</span><br><span class="line">&#125;</span><br><span class="line">.top&#123;</span><br><span class="line">    transform-origin: 0% 0%;</span><br><span class="line">    transform: translateZ(102px) rotateX(270deg) ;</span><br><span class="line">    background-color: RGBA(0,255,0,0.5);</span><br><span class="line">&#125;</span><br><span class="line">.bottom&#123;</span><br><span class="line">    transform-origin: 0% 100%;</span><br><span class="line">    transform:translateZ(102px) rotateX(90deg);</span><br><span class="line">    background-color: RGBA(0,0,255,0.5);</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">    transform-origin: 0% 50%;</span><br><span class="line">    transform:translateZ(-102px) rotateY(270deg);</span><br><span class="line">    background-color: RGBA(255,255,0,0.5);</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">    transform-origin: 100% 0%;</span><br><span class="line">    transform:translateZ(-102px) rotateY(90deg);</span><br><span class="line">    background-color: RGBA(0,255,255,0.5);</span><br><span class="line">&#125;</span><br><span class="line">.back&#123;</span><br><span class="line">    transform: translateZ(-102px) rotateY(180deg);</span><br><span class="line">    background-color: RGBA(200,0,200,0.5);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/03/2018_5_3_3_ife_2018_设计师学院_No.4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -829,151 +968,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/25/2018_4_25_1_vue项目入门和vue-router部分学习/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/25/2018_4_25_1_vue项目入门和vue-router部分学习/" itemprop="url">Vue项目入门和vue-router部分学习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-25T17:17:00+08:00">
-                2018-04-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>前段时间看的vue.js，然后也写了一个小页面来练练手，总的来说不是很难，再然后，我就看到了vue项目，接触到了vue-cli，webpack等等的，于是乎就看了很久的相关文档，说真的看文档真的看的我有点难受了，看文档确实是知道了具体的代码怎么实现等等的，虽然不能全部记住，但也能记个大概了。<br>今天又看了vuex，vue-router，axios的相关文档，但都没怎么仔细看，可能最近看文档看的有点烦了吧，看不太进去，也不想把看的都写一遍下来了。</p>
-<p>关于vuex<br>官方文档是这样介绍的：</p>
-<blockquote>
-<p>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 也集成到 Vue 的官方调试工具 devtools extension，提供了诸如零配置的 time-travel 调试、状态快照导入导出等高级调试功能。</p>
-</blockquote>
-<p>说真的完全完全完全看不懂是什么，后面讲的也不明觉厉，可能我还没到可以使用它的时候吧，跳过了。</p>
-<p>关于vue-router<br>前面学习vue的时候在最后有接触过，明白大概的意思，就是实现单页面的跳转效果，不是跳转页面，而是重新渲染页面来实现的<br>大概有那么6个步骤：<br>1 创建组件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var Home = Vue.extend(&#123;</span><br><span class="line">    template: &apos;&lt;div&gt;&lt;h1&gt;Home&lt;/h1&gt;&lt;p&gt;&#123;&#123;msg&#125;&#125;&lt;/p&gt;&lt;/div&gt;&apos;,</span><br><span class="line">    data: function() &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            msg: &apos;Hello, vue router!&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">var About = Vue.extend(&#123;</span><br><span class="line">    template: &apos;&lt;div&gt;&lt;h1&gt;About&lt;/h1&gt;&lt;p&gt;This is the tutorial about vue-router.&lt;/p&gt;&lt;/div&gt;&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>2 创建Router<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var router = new VueRouter()</span><br></pre></td></tr></table></figure></p>
-<p>调用构造器VueRouter，创建一个路由器实例router。</p>
-<p>3 映射路由<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">router.map(&#123;</span><br><span class="line">    &apos;/home&apos;: &#123; component: Home &#125;,</span><br><span class="line">    &apos;/about&apos;: &#123; component: About &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>4 使用v-link指令<br>在a元素上使用v-link指令跳转到指定路径。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;list-group&quot;&gt;</span><br><span class="line">    &lt;a class=&quot;list-group-item&quot; v-link=&quot;&#123; path: &apos;/home&apos;&#125;&quot;&gt;Home&lt;/a&gt;</span><br><span class="line">    &lt;a class=&quot;list-group-item&quot; v-link=&quot;&#123; path: &apos;/about&apos;&#125;&quot;&gt;About&lt;/a&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>5 使用<router-view>标签<br>在页面上使用<code>&lt;router-view&gt;&lt;/router-view&gt;</code>标签，它用于渲染匹配的组件。</router-view></p>
-<p>6 启动路由<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var App = Vue.extend(&#123;&#125;)</span><br><span class="line">router.start(App, &apos;#app&apos;)</span><br></pre></td></tr></table></figure></p>
-<p><strong>编写单页面的步骤</strong><br><img src="https://raw.githubusercontent.com/FrattiNor/picture/master/vue-router.png" alt="enter image description here"></p>
-<p>router.redirect<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.redirect(&#123;</span><br><span class="line">    &apos;/&apos;: &apos;/home&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>router.redirect方法用于为路由器定义全局的重定向规则，全局的重定向会在匹配当前路径之前执行。</p>
-<p>后面还有 嵌套路由，具名路径 等等，我没全部看，就不列举了</p>
-<p>关于axios<br>特色：</p>
-<blockquote>
-<p>浏览器端发起XMLHttpRequests请求<br>node端发起http请求<br>支持Promise API<br>拦截请求和返回<br>转化请求和返回（数据）<br>取消请求<br>自动转化json数据<br>客户端支持抵御XSRF（跨站请求伪造）</p>
-</blockquote>
-<p>具体的我也没仔细看，大概就是发起http请求以及获取结果吧。。。</p>
-<hr>
-<p>说真的看了这么多，都不知道应该写在哪，vue-cli创建的项目令我无从下手，不过今天总算是找到了最最基础的教程了，才知道原来是在app.vue文件下操作的。。。<br>这是一个慕课网的视频，讲的很基础，我也不知道讲的好不好，反正至少我知道vue的项目应该从哪下手了，也算是非常的有收获吧<br>视频网址：<a href="http://www.imooc.com/learn/694" target="_blank" rel="noopener">http://www.imooc.com/learn/694</a><br>然后我跟着做了一个todo list的小项目（可能也说不上是个项目吧。。）<br>怎么做的我就不多讲了，视频里讲的还算挺清楚的了<br>最后附上todolist的内容：<br>app.vue<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;title&#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; v-model=&quot;newItem&quot; v-on:keyup.enter=&quot;addNew&quot; /&gt;</span><br><span class="line">    &lt;li v-for=&quot;item in items&quot; v-bind:class=&quot;&#123;finished:item.isFinished&#125;&quot;&gt;&#123;&#123;item.label&#125;&#125;&lt;/li&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import store from &quot;./storage.js&quot;</span><br><span class="line">export default &#123;</span><br><span class="line">  data: function() &#123;</span><br><span class="line">  return&#123;</span><br><span class="line">    title: &quot;this is a todo list&quot;,</span><br><span class="line">    items: store.fetch(),</span><br><span class="line">    newItem: &quot;&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    addNew: function()&#123;</span><br><span class="line">      this.items.push(&#123;</span><br><span class="line">        label: this.newItem,</span><br><span class="line">        isFinished: false</span><br><span class="line">      &#125;);</span><br><span class="line">      this.newItem = &quot;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  watch: &#123;</span><br><span class="line">    items: &#123;</span><br><span class="line">      handler:function(val,oldval)&#123;</span><br><span class="line">        store.save(this.items)</span><br><span class="line">      &#125;,</span><br><span class="line">      deep: true</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.finished&#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line">#app &#123;</span><br><span class="line">  font-family: &apos;Avenir&apos;, Helvetica, Arial, sans-serif;</span><br><span class="line">  -webkit-font-smoothing: antialiased;</span><br><span class="line">  -moz-osx-font-smoothing: grayscale;</span><br><span class="line">  text-align: center;</span><br><span class="line">  color: #2c3e50;</span><br><span class="line">  margin-top: 60px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
-<p>storage.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">// const STORAGE_KEY = &quot;todo-vue.js&quot;</span><br><span class="line">// export default &#123;</span><br><span class="line">//     fetch() &#123;</span><br><span class="line">//         return JOSN.parse(window.localStorage.getItem(STORAGE_KEY) || &quot;[]&quot;)</span><br><span class="line">//     &#125;,</span><br><span class="line">//     save(items) &#123;</span><br><span class="line">//         window.localStorage.setItem(STORAGE_KEY,JSON.stringify(items))</span><br><span class="line">//     &#125;</span><br><span class="line">// &#125;</span><br><span class="line"></span><br><span class="line">const STORAGE_KEY=&quot;todos-vuejs&quot;</span><br><span class="line"></span><br><span class="line">export default&#123;</span><br><span class="line"></span><br><span class="line">fetch()&#123;</span><br><span class="line"></span><br><span class="line">return JSON.parse(window.localStorage.getItem(STORAGE_KEY)||&apos;[]&apos;)</span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">save (items)&#123;</span><br><span class="line"></span><br><span class="line">window.localStorage.setItem(STORAGE_KEY,JSON.stringify(</span><br><span class="line"></span><br><span class="line">      items))</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>也可以在我的github上查看<a href="https://github.com/FrattiNor/vue-project/tree/master/my-first-vue-project" target="_blank" rel="noopener">https://github.com/FrattiNor/vue-project/tree/master/my-first-vue-project</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1024,7 +1018,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

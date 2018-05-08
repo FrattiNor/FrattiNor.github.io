@@ -296,6 +296,140 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/08/2018_5_8_1_ife_2018 MVVM学院 2-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/08/2018_5_8_1_ife_2018 MVVM学院 2-2/" itemprop="url">ife_2018 MVVM学院 2-2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-08T23:06:43+08:00">
+                2018-05-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>2.2 条件和循环</p>
+<p><a href="https://frattinor.github.io/IFE_2018/mvvm/myDist-2-2/" target="_blank" rel="noopener">demo</a></p>
+<p>使用循环指令渲染表格<br>根据不同的审核状态值，显示对应的状态文案和操作按钮<br>点击「添加」按钮，增加一条数据项；点击「删除」按钮，删除该条数据；点击「审核」按钮，将审核状态修改为合格</p>
+<p><strong>我的思路</strong></p>
+<ol>
+<li>先建立一个添加button，绑定add_1函数，add_1显示新建的tr</li>
+<li>再建立一个table，tbody里用v-for循环渲染数据</li>
+<li>在tbody最后建一个tr，tr第一个td写input，第二个写select，第三个写添加button，绑定add_2函数，add_2把输入的数据添加到data里</li>
+<li>最后给循环的数据的每个button绑定del函数，del函数判断按钮的值来实现修改审核状态或删除数据</li>
+</ol>
+<p><strong>我遇到的问题</strong><br>1 其实我在写添加最后一行tr也就是要填写数据的哪一行，我想了很多种办法，但是都不可行，第一种给数据里多添加一个read数据，然后在td里写input，用v-bind绑定readonly，但是发现去除readonly太麻烦了，而且在vue可以去除但是还是会报错，我不是很明白，而且select不知道应该怎么加。所以被排除了，第二种我是动态创建tr元素 ，在tr里添加啊3个td，最后把tr添加到tbody里，但是发现新建的元素不能继承css里样式，而且一个一个新建元素也是非常的麻烦，尤其是select，所以排除，修改这2个方法我就用了块一个晚上了。</p>
+<p>解决办法：<br>最后决定在循环下面加一个tr，用v-if=“show”隐藏掉，给上面的添加按钮修改this.show = true，在下面的添加按钮修改this.show = false，这样代码也短也易于修改。</p>
+<p>2 获取select被选中的数值麻烦而且报错</p>
+<p>解决办法：<br>我是重新自己用ul和li模仿了一个select来显示的，而且获取值比较容易</p>
+<p>最后附上我的代码<br>vue<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;div class=&quot;mvvm22&quot;&gt;</span><br><span class="line">  &lt;button v-on:click=&quot;add_1&quot; class=&quot;mvvm22_button&quot;&gt;添加&lt;/button&gt;</span><br><span class="line">  &lt;table class=&quot;mvvm22_table&quot;&gt;</span><br><span class="line">    &lt;thead&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;姓名&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;审核状态&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;操作&lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">    &lt;/thead&gt;</span><br><span class="line">    &lt;tbody&gt;</span><br><span class="line">      &lt;tr v-for=&quot;item in mvvm22&quot;&gt;</span><br><span class="line">        &lt;td&gt;&#123;&#123;item.name&#125;&#125;&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;&#123;&#123;item.status&#125;&#125;&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;&lt;button  v-bind:id=&quot;item.index&quot; v-on:click=&quot;shordel&quot; class=&quot;mvvm22_button&quot;&gt;&#123;&#123;item.operating&#125;&#125;&lt;/button&gt;&lt;/td&gt;</span><br><span class="line">      &lt;/tr&gt;</span><br><span class="line">      &lt;tr id=&quot;new_tr&quot;  v-if=&quot;show&quot;&gt;</span><br><span class="line">        &lt;td&gt;&lt;input type=&quot;text&quot; /&gt;&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;</span><br><span class="line">            &lt;div v-on:click=&quot;more&quot; class=&quot;mvvm22_select&quot;&gt;</span><br><span class="line">                &lt;span class=&quot;mvvm22_span right&quot;&gt;&amp;lt&lt;/span&gt;</span><br><span class="line">                &lt;ul class=&quot;mvvm22_ul&quot;&gt;</span><br><span class="line">                    &lt;li id=&quot;selected&quot;&gt;&lt;/li&gt;</span><br><span class="line">                    &lt;li v-on:click=&quot;mm22_select&quot; v-for=&quot;option in select&quot;&gt;&#123;&#123;option&#125;&#125;&lt;/li&gt;</span><br><span class="line">                &lt;/ul&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/td&gt;</span><br><span class="line">        &lt;td&gt;&lt;button v-on:click=&quot;add_2&quot; class=&quot;mvvm22_button&quot;&gt;添加&lt;/button&gt;&lt;/td&gt;</span><br><span class="line">      &lt;/tr&gt;</span><br><span class="line">    &lt;/tbody&gt;</span><br><span class="line">  &lt;/table&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">            index: &quot;6&quot;,</span><br><span class="line">            show: false,</span><br><span class="line">            mvvm22:[</span><br><span class="line">                &#123;</span><br><span class="line">                    name: &quot;张三&quot;,</span><br><span class="line">                    status: &quot;合格&quot;,</span><br><span class="line">                    operating: &quot;删除&quot;,</span><br><span class="line">                    index: &quot;1&quot;,</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    name: &quot;李四&quot;,</span><br><span class="line">                    status: &quot;不合格&quot;,</span><br><span class="line">                    operating: &quot;删除&quot;,</span><br><span class="line">                    index: &quot;2&quot;,</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    name: &quot;王五&quot;,</span><br><span class="line">                    status: &quot;待审核&quot;,</span><br><span class="line">                    operating: &quot;审核&quot;,</span><br><span class="line">                    index: &quot;3&quot;,</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    name: &quot;赵六&quot;,</span><br><span class="line">                    status: &quot;待审核&quot;,</span><br><span class="line">                    operating: &quot;审核&quot;,</span><br><span class="line">                    index: &quot;4&quot;,</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    name: &quot;孙七&quot;,</span><br><span class="line">                    status: &quot;待审核&quot;,</span><br><span class="line">                    operating: &quot;审核&quot;,</span><br><span class="line">                    index: &quot;5&quot;,</span><br><span class="line">                &#125;,</span><br><span class="line">            ],</span><br><span class="line">            select:[</span><br><span class="line">                &quot;合格&quot;,</span><br><span class="line">                &quot;不合格&quot;,</span><br><span class="line">                &quot;待审核&quot;,</span><br><span class="line">            ],</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        add_1()&#123;</span><br><span class="line">            this.show = true;</span><br><span class="line">        &#125;,</span><br><span class="line">        add_2()&#123;</span><br><span class="line">            let mvvm22_new = new Object();</span><br><span class="line">            let new_tr = document.getElementById(&quot;new_tr&quot;);</span><br><span class="line">            let new_name = new_tr.getElementsByTagName(&quot;td&quot;)[0].getElementsByTagName(&quot;input&quot;)[0].value;</span><br><span class="line">            let new_status = document.getElementById(&quot;selected&quot;);</span><br><span class="line">            mvvm22_new.name = new_name;</span><br><span class="line">            mvvm22_new.status = new_status.innerHTML;</span><br><span class="line">            if(mvvm22_new.status == &quot;合格&quot; || mvvm22_new.status == &quot;不合格&quot;)&#123;</span><br><span class="line">                mvvm22_new.operating = &quot;删除&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                mvvm22_new.operating = &quot;审核&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">            if(mvvm22_new.name == &quot;&quot;|| mvvm22_new.status == &quot;&quot;)&#123;</span><br><span class="line">                alert(&quot;姓名为空或审核状态没有选择&quot;);</span><br><span class="line">                return;</span><br><span class="line">            &#125;</span><br><span class="line">            mvvm22_new.index = this.index;</span><br><span class="line">            this.mvvm22.push(mvvm22_new);</span><br><span class="line">            this.index++;</span><br><span class="line">            this.show = false;</span><br><span class="line">        &#125;,</span><br><span class="line">        more()&#123;</span><br><span class="line">            let span = document.getElementsByClassName(&quot;mvvm22_span&quot;)[0];</span><br><span class="line">            if(span.getAttribute(&quot;class&quot;) == &quot;mvvm22_span right&quot;)&#123;</span><br><span class="line">                span.setAttribute(&quot;class&quot;,&quot;mvvm22_span down&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                span.setAttribute(&quot;class&quot;,&quot;mvvm22_span right&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            let ull = document.getElementsByClassName(&quot;mvvm22_ul&quot;)[0];</span><br><span class="line">            if(ull.style.height != &quot;112px&quot;)&#123;</span><br><span class="line">                ull.style.height = &quot;112px&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                ull.style.height = &quot;26px&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        mm22_select(event)&#123;</span><br><span class="line">            let _this = event.target;</span><br><span class="line">            let select = document.getElementById(&quot;selected&quot;);</span><br><span class="line">            select.innerHTML = _this.innerHTML;</span><br><span class="line">        &#125;,</span><br><span class="line">        shordel(event)&#123;</span><br><span class="line">            let _this = event.target;</span><br><span class="line">            if(_this.innerHTML == &quot;删除&quot;)&#123;</span><br><span class="line">                let new_index;</span><br><span class="line">                for(let i = 0;i &lt; this.mvvm22.length;i++)&#123;</span><br><span class="line">                    if(this.mvvm22[i].index == _this.id)&#123;</span><br><span class="line">                        this.mvvm22.splice(i,1);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                let new_index;</span><br><span class="line">                for(let i = 0;i &lt; this.mvvm22.length;i++)&#123;</span><br><span class="line">                    if(this.mvvm22[i].index == _this.id)&#123;</span><br><span class="line">                        this.mvvm22[i].status = &quot;合格&quot;;</span><br><span class="line">                        this.mvvm22[i].operating = &quot;删除&quot;;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    watch:&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- Add &quot;scoped&quot; attribute to limit CSS to this component only --&gt;</span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">.mvvm22&#123;</span><br><span class="line">    margin: auto;</span><br><span class="line">    width: 600px;</span><br><span class="line">    border: 1px;</span><br><span class="line">    text-align: left;</span><br><span class="line">    padding: 10px;</span><br><span class="line">    height: 600px;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm22_button&#123;</span><br><span class="line">    padding: 5px 15px;</span><br><span class="line">    margin: 5px;</span><br><span class="line">    border: 1px solid #ddd;</span><br><span class="line">    outline: none;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm22_button:active&#123;</span><br><span class="line">    border: 1px solid #36f;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm22_table&#123;</span><br><span class="line">    margin: 5px;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm22_table,.mvvm22_table td&#123;</span><br><span class="line">    border: 1px solid #ddd;</span><br><span class="line">    border-collapse: collapse;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm22_table thead td&#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    text-align: center;</span><br><span class="line">    padding: 5px;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm22_table tbody td&#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    text-align: center;</span><br><span class="line">    padding: 10px;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm22 input[type=&quot;text&quot;]&#123;</span><br><span class="line">    font-size: 16px;</span><br><span class="line">    width: 120px;</span><br><span class="line">    border: 0;</span><br><span class="line">    text-align: center;</span><br><span class="line">    outline: none;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm22_select&#123;</span><br><span class="line">    cursor: pointer;</span><br><span class="line">    font-size: 16px;</span><br><span class="line">    border: 1px solid #ddd;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 16px;</span><br><span class="line">    margin: auto;</span><br><span class="line">    padding: 5px;</span><br><span class="line">    text-align: right;</span><br><span class="line">    /*overflow: hidden;*/</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm22_span&#123;</span><br><span class="line">    display: block;</span><br><span class="line">    width: 10px;</span><br><span class="line">    float: right;</span><br><span class="line">    user-select: none;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">    transform: rotate(0deg);</span><br><span class="line">&#125;</span><br><span class="line">.down&#123;</span><br><span class="line">    transform: rotate(-90deg);</span><br><span class="line">&#125;</span><br><span class="line">.mvvm22_ul&#123;</span><br><span class="line">    list-style-type: none;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    height: 26px;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    background-color: #fff;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm22_ul li&#123;</span><br><span class="line">    display: block;</span><br><span class="line">    width: 80px;</span><br><span class="line">    height: 16px;</span><br><span class="line">    padding: 5px;</span><br><span class="line">    border: 1px solid #ddd;</span><br><span class="line">    border-top: 0;</span><br><span class="line">    text-align: center;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/05/2018_5_5_3_豆瓣电影搜索vue项目改善/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -837,145 +971,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/05/2018_5_4_1_ife_2018_设计师学院_No.5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/05/2018_5_4_1_ife_2018_设计师学院_No.5/" itemprop="url">ife_2018 设计师学院 No.5</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-05T21:26:52+08:00">
-                2018-05-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>No.5 - 纯 CSS 制作绕中轴旋转的立方体</p>
-<p>任务五<br><a href="https://frattinor.github.io/IFE_2018/css/No.5/" target="_blank" rel="noopener">demo</a></p>
-<p>任务要求：<br>通过纯CSS 实现一个立方体翻转的效果</p>
-<p><strong>我的思路</strong></p>
-<ol>
-<li>用绝对定位在同一个地方设置6个正方形div</li>
-<li>通过css3的3d效果去把上下左右后5块div进行旋转和3d位移</li>
-<li>在以底部为圆心写无穷旋转动画效果</li>
-</ol>
-<p>完成</p>
-<p><strong>遇到的问题</strong><br>1.旋转后div上的字也会翻转</p>
-<p>解决办法：<br>前面，上面，和下面这3块不动，左右2块都向后位移200px，再进行旋转，后面一块先向后位移200px然后原地转180度<br>这样从6个面看过去都是正的字</p>
-<p>2。无穷旋转动画以前面这块的中轴为中心旋转</p>
-<p>解决办法：<br>在这6块div外加一个div，然后前面这块向前移100px，后面那块向后移100px，其他4块以这2块为基准位移和旋转，然后把无穷旋转的动画加载在外部这个div里，这样就可以围绕底面的中心旋转了</p>
-<p>3.看起来没有3d效果，只有2d效果</p>
-<p>解决办法：<br>昨天使用过的perspective属性，简单的说就是增加屏幕到元素的距离，产生距离感</p>
-<p>4.使用perspective属性后，旋转起来，前大后小，不是立方体</p>
-<p>解决办法：<br>其实，这个问题是我自己还不太理解perspective属性，现在我对perspective属性的理解就是在元素的前方加了一对眼睛，然后改元素旋转的同时，眼睛也在旋转，也就是说本来是屏幕到元素的距离旋转后变成了侧面到元素产生了距离，emmm。。。，我自己也说不明白，反正就是这个意思，解决办法是在外部div的外部加个div，在最外面的这个div加上perspective属性，这样里面div旋转不会影响到外部的perspective属性。</p>
-<p>最后贴出我的代码<br>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/mycss.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;box0&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;box front&quot;&gt;front&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;box back&quot;&gt;back&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;box left&quot;&gt;left&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;box right&quot;&gt;right&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;box top&quot;&gt;top&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;box bottom&quot;&gt;bottom&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;js/myjs.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
-<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">    margin: 0;</span><br><span class="line">    padding: 0;</span><br><span class="line">&#125;</span><br><span class="line">.container&#123;</span><br><span class="line">    height: 200px;</span><br><span class="line">    text-align: center;</span><br><span class="line">    margin-top: 100px;</span><br><span class="line">    perspective: 400px;</span><br><span class="line">&#125;</span><br><span class="line">.box0&#123;</span><br><span class="line">    transform-style: preserve-3d;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 200px;</span><br><span class="line">    transform-origin: 50% 50%;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    animation: ani 4s infinite linear;</span><br><span class="line">    animation-play-state:paused;</span><br><span class="line">&#125;</span><br><span class="line">.box0:hover&#123;</span><br><span class="line">    animation-play-state:running;</span><br><span class="line">&#125;</span><br><span class="line">@keyframes ani&#123;</span><br><span class="line">    0%&#123;</span><br><span class="line">        transform: rotateY(0deg);</span><br><span class="line">    &#125;</span><br><span class="line">    100%&#123;</span><br><span class="line">        transform: rotateY(360deg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">.box&#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 200px;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    border: 2px solid #09f;</span><br><span class="line">    text-align: center;</span><br><span class="line">    line-height: 200px;</span><br><span class="line">    font-size: 30px;</span><br><span class="line">    color: RGBA(0,0,0,0.6);</span><br><span class="line">&#125;</span><br><span class="line">.front&#123;</span><br><span class="line">    transform: translateZ(102px);</span><br><span class="line">    background-color: RGBA(255,0,0,0.5);</span><br><span class="line">&#125;</span><br><span class="line">.top&#123;</span><br><span class="line">    transform-origin: 0% 0%;</span><br><span class="line">    transform: translateZ(102px) rotateX(270deg) ;</span><br><span class="line">    background-color: RGBA(0,255,0,0.5);</span><br><span class="line">&#125;</span><br><span class="line">.bottom&#123;</span><br><span class="line">    transform-origin: 0% 100%;</span><br><span class="line">    transform:translateZ(102px) rotateX(90deg);</span><br><span class="line">    background-color: RGBA(0,0,255,0.5);</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">    transform-origin: 0% 50%;</span><br><span class="line">    transform:translateZ(-102px) rotateY(270deg);</span><br><span class="line">    background-color: RGBA(255,255,0,0.5);</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">    transform-origin: 100% 0%;</span><br><span class="line">    transform:translateZ(-102px) rotateY(90deg);</span><br><span class="line">    background-color: RGBA(0,255,255,0.5);</span><br><span class="line">&#125;</span><br><span class="line">.back&#123;</span><br><span class="line">    transform: translateZ(-102px) rotateY(180deg);</span><br><span class="line">    background-color: RGBA(200,0,200,0.5);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1026,7 +1021,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

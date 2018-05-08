@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-05T14:24:00.421Z</updated>
+  <updated>2018-05-08T15:07:35.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ife_2018 MVVM学院 2-2</title>
+    <link href="http://yoursite.com/2018/05/08/2018_5_8_1_ife_2018%20MVVM%E5%AD%A6%E9%99%A2%202-2/"/>
+    <id>http://yoursite.com/2018/05/08/2018_5_8_1_ife_2018 MVVM学院 2-2/</id>
+    <published>2018-05-08T15:06:43.776Z</published>
+    <updated>2018-05-08T15:07:35.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;2.2 条件和循环&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://frattinor.github.io/IFE_2018/mvvm/myDist-2-2/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;demo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;使用循环指令渲染表
+      
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
+  </entry>
   
   <entry>
     <title>vue项目-豆瓣电影搜索-完善</title>
@@ -447,27 +470,6 @@
     
     
       <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于事件冒泡和事件捕获（二）</title>
-    <link href="http://yoursite.com/2018/04/19/2018_4_19_5_%E5%85%B3%E4%BA%8E%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1%E5%92%8C%E4%BA%8B%E4%BB%B6%E6%8D%95%E8%8E%B7%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>http://yoursite.com/2018/04/19/2018_4_19_5_关于事件冒泡和事件捕获（二）/</id>
-    <published>2018-04-19T13:00:34.520Z</published>
-    <updated>2018-04-20T04:34:16.274Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;附上今天看见的非常形象的事件冒泡代码&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line
-      
-    
-    </summary>
-    
-    
-      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
     
   </entry>
   
