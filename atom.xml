@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-08T15:07:35.000Z</updated>
+  <updated>2018-05-11T07:44:51.771Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,96 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ife_2018 MVVM学院 3-1</title>
+    <link href="http://yoursite.com/2018/05/11/2018_5_10_1ife_2018%20MVVM%E5%AD%A6%E9%99%A2%203-1/"/>
+    <id>http://yoursite.com/2018/05/11/2018_5_10_1ife_2018 MVVM学院 3-1/</id>
+    <published>2018-05-11T07:44:51.597Z</published>
+    <updated>2018-05-11T07:44:51.771Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;3.1 用递归的方式实现级联组件&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://frattinor.github.io/IFE_2018/mvvm/myDist-3-1/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;demo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;实现
+      
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ife_2018 MVVM学院 2-4</title>
+    <link href="http://yoursite.com/2018/05/11/2018_5_9_2ife_2018%20MVVM%E5%AD%A6%E9%99%A2%202-4/"/>
+    <id>http://yoursite.com/2018/05/11/2018_5_9_2ife_2018 MVVM学院 2-4/</id>
+    <published>2018-05-11T07:30:15.956Z</published>
+    <updated>2018-05-11T07:30:16.142Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;2.4事件处理&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://frattinor.github.io/IFE_2018/mvvm/myDist-2-4/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;demo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;对mvvm双向绑定以及
+      
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ife_2018 MVVM学院 2-3</title>
+    <link href="http://yoursite.com/2018/05/11/2018_5_9_1ife_2018%20MVVM%E5%AD%A6%E9%99%A2%202-3/"/>
+    <id>http://yoursite.com/2018/05/11/2018_5_9_1ife_2018 MVVM学院 2-3/</id>
+    <published>2018-05-11T07:28:22.926Z</published>
+    <updated>2018-05-11T07:28:23.096Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;2.3 样式控制&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://frattinor.github.io/IFE_2018/mvvm/myDist-2-3/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;demo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;点击方块，修改方块的
+      
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vuex学习</title>
+    <link href="http://yoursite.com/2018/05/11/2018_5_11_1_Vuex%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://yoursite.com/2018/05/11/2018_5_11_1_Vuex学习/</id>
+    <published>2018-05-11T07:11:13.642Z</published>
+    <updated>2018-05-11T07:11:14.083Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;昨天写了一个vue-router嵌套的小练习&lt;br&gt;昨天练习写完后觉得应该差不多了，今天看了别人写的例子，发现少了一个步骤就是把最终结果返回到选择栏里&lt;br&gt;vue-router的本质应该是自定义组件的切换&lt;br&gt;嵌套后就形成了组件的嵌套&lt;br&gt;也就是说父组件传递值给子组件
+      
+    
+    </summary>
+    
+    
+      <category term="Vuex" scheme="http://yoursite.com/tags/Vuex/"/>
+    
+  </entry>
   
   <entry>
     <title>ife_2018 MVVM学院 2-2</title>
@@ -376,100 +466,6 @@
     
     
       <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git 基本命令</title>
-    <link href="http://yoursite.com/2018/04/20/2018_4_20_4_git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"/>
-    <id>http://yoursite.com/2018/04/20/2018_4_20_4_git基本命令/</id>
-    <published>2018-04-20T11:21:42.957Z</published>
-    <updated>2018-04-20T11:59:19.682Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span cla
-      
-    
-    </summary>
-    
-    
-      <category term="git" scheme="http://yoursite.com/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>github 创建本地仓库以及上传到github仓库</title>
-    <link href="http://yoursite.com/2018/04/20/2018_4_20_3_github%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E4%BB%A5%E5%8F%8A%E4%B8%8A%E4%BC%A0%E5%88%B0github%E4%BB%93%E5%BA%93/"/>
-    <id>http://yoursite.com/2018/04/20/2018_4_20_3_github创建本地仓库以及上传到github仓库/</id>
-    <published>2018-04-20T08:14:40.785Z</published>
-    <updated>2018-04-20T12:01:59.650Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;1 注册github账号&lt;/p&gt;
-&lt;p&gt;2 新建仓库&lt;/p&gt;
-&lt;p&gt;3 安装git&lt;/p&gt;
-&lt;p&gt;4 打开Git Bash，输入以下命令生成密钥来验证身份&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;
-      
-    
-    </summary>
-    
-    
-      <category term="github" scheme="http://yoursite.com/tags/github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue.js 学习总结</title>
-    <link href="http://yoursite.com/2018/04/20/2018_4_20_2_Vue.js%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/"/>
-    <id>http://yoursite.com/2018/04/20/2018_4_20_2_Vue.js学习总结/</id>
-    <published>2018-04-20T07:59:33.166Z</published>
-    <updated>2018-04-20T11:43:29.810Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;已经学习了基本的Vue.js&lt;br&gt;我来总结一下具体学了什么&lt;br&gt;我把Vue.js分成几类&lt;br&gt;1&lt;code&gt;Vue实例&lt;/code&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Vue实例写在js文件里&lt;br&gt;Vue实例有以下的属性&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p
-      
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue.js 学习（四）</title>
-    <link href="http://yoursite.com/2018/04/20/2018_4_20_1_Vue.js%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
-    <id>http://yoursite.com/2018/04/20/2018_4_20_1_Vue.js学习（四）/</id>
-    <published>2018-04-20T06:10:36.785Z</published>
-    <updated>2018-04-20T06:09:38.917Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;14&lt;code&gt;Vue.js 自定义指令&lt;/code&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Vue 允许注册自定义指令。&lt;br&gt;指令（v-model v-show 等。。）&lt;br&gt;使用 directives 来注册指令&lt;br&gt;我们也可以在实例使用 directives 
-      
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
     
   </entry>
   
