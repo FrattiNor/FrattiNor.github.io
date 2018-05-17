@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Vuex," />
+  <meta name="keywords" content="ECMAScript 6," />
 
 
 
@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="昨天写了一个vue-router嵌套的小练习昨天练习写完后觉得应该差不多了，今天看了别人写的例子，发现少了一个步骤就是把最终结果返回到选择栏里vue-router的本质应该是自定义组件的切换嵌套后就形成了组件的嵌套也就是说父组件传递值给子组件显示子组件的数据，最后子组件把最终的数据再返回给父组件父组件传值给子组件比较简单的，但是子组件传递数据给父组件完全不知道怎么做，今天搜索了一下，好像使用bus">
-<meta name="keywords" content="Vuex">
+<meta name="description" content="ES6新特性 1.箭头操作符（=&amp;gt;）操作符左边为输入的参数，而右边则是进行的操作以及返回的值Inputs=&amp;gt;outputs。2.类的支持ES6中添加了对类的支持，引入了class关键字。JS本身就是面向对象的，ES6中提供的类实际上只是JS原型模式的包装。现在提供原生的class支持后，对象的创建，继承更加直观了，并且父类方法的调用，实例化，静态方法和构造函数等概念都更加形象化。123">
+<meta name="keywords" content="ECMAScript 6">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vuex学习">
-<meta property="og:url" content="http://yoursite.com/2018/05/11/2018_5_11_1_Vuex学习/index.html">
+<meta property="og:title" content="ES6学习（二）">
+<meta property="og:url" content="http://yoursite.com/2018/05/17/2018_5_17_1_ES6学习（二）/index.html">
 <meta property="og:site_name" content="FrattiNor&#39;s Bolg">
-<meta property="og:description" content="昨天写了一个vue-router嵌套的小练习昨天练习写完后觉得应该差不多了，今天看了别人写的例子，发现少了一个步骤就是把最终结果返回到选择栏里vue-router的本质应该是自定义组件的切换嵌套后就形成了组件的嵌套也就是说父组件传递值给子组件显示子组件的数据，最后子组件把最终的数据再返回给父组件父组件传值给子组件比较简单的，但是子组件传递数据给父组件完全不知道怎么做，今天搜索了一下，好像使用bus">
+<meta property="og:description" content="ES6新特性 1.箭头操作符（=&amp;gt;）操作符左边为输入的参数，而右边则是进行的操作以及返回的值Inputs=&amp;gt;outputs。2.类的支持ES6中添加了对类的支持，引入了class关键字。JS本身就是面向对象的，ES6中提供的类实际上只是JS原型模式的包装。现在提供原生的class支持后，对象的创建，继承更加直观了，并且父类方法的调用，实例化，静态方法和构造函数等概念都更加形象化。123">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-11T07:11:14.083Z">
+<meta property="og:updated_time" content="2018-05-17T06:14:24.244Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vuex学习">
-<meta name="twitter:description" content="昨天写了一个vue-router嵌套的小练习昨天练习写完后觉得应该差不多了，今天看了别人写的例子，发现少了一个步骤就是把最终结果返回到选择栏里vue-router的本质应该是自定义组件的切换嵌套后就形成了组件的嵌套也就是说父组件传递值给子组件显示子组件的数据，最后子组件把最终的数据再返回给父组件父组件传值给子组件比较简单的，但是子组件传递数据给父组件完全不知道怎么做，今天搜索了一下，好像使用bus">
+<meta name="twitter:title" content="ES6学习（二）">
+<meta name="twitter:description" content="ES6新特性 1.箭头操作符（=&amp;gt;）操作符左边为输入的参数，而右边则是进行的操作以及返回的值Inputs=&amp;gt;outputs。2.类的支持ES6中添加了对类的支持，引入了class关键字。JS本身就是面向对象的，ES6中提供的类实际上只是JS原型模式的包装。现在提供原生的class支持后，对象的创建，继承更加直观了，并且父类方法的调用，实例化，静态方法和构造函数等概念都更加形象化。123">
 
 
 
@@ -136,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/11/2018_5_11_1_Vuex学习/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/17/2018_5_17_1_ES6学习（二）/"/>
 
 
 
 
 
-  <title>Vuex学习 | FrattiNor's Bolg</title>
+  <title>ES6学习（二） | FrattiNor's Bolg</title>
   
 
 
@@ -299,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/11/2018_5_11_1_Vuex学习/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/17/2018_5_17_1_ES6学习（二）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="FrattiNor">
@@ -316,7 +316,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Vuex学习</h1>
+          <h1 class="post-title" itemprop="name headline">ES6学习（二）</h1>
         
 
         <div class="post-meta">
@@ -328,8 +328,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-11T15:11:13+08:00">
-                2018-05-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-17T14:14:24+08:00">
+                2018-05-17
               </time>
             
 
@@ -366,27 +366,23 @@
       
 
       
-        <p>昨天写了一个vue-router嵌套的小练习<br>昨天练习写完后觉得应该差不多了，今天看了别人写的例子，发现少了一个步骤就是把最终结果返回到选择栏里<br>vue-router的本质应该是自定义组件的切换<br>嵌套后就形成了组件的嵌套<br>也就是说父组件传递值给子组件显示子组件的数据，最后子组件把最终的数据再返回给父组件<br>父组件传值给子组件比较简单的，但是子组件传递数据给父组件完全不知道怎么做，今天搜索了一下，好像使用bus或vuex可以实现<br>所以决定开始学习vuex</p>
-<p>那么什么vuex呢，vue官方的介绍是状态管理器，我原来写豆瓣电影搜索的vue应用时看到过，但是完全不知所云，所以暂时放弃了，现在再回过头来看好像又有那么一点明白。</p>
-<p>我个人的理解是在vue项目里，使用vue-router做到切换页面，本质是切换自定义组件，然后自定义组件之间的数据又是独立的，所以想要在组件之间进行数据传递比较难实现，vuex则提供了一个全局变量，所有组件都可以获得其中的数据，从而做到组件之间的数据传递</p>
-<p>安装vuex<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vuex --save</span><br></pre></td></tr></table></figure></p>
-<p>在src目录下创建store目录，其中新建index.js（这就是vuex，一个项目只有一个vuex）</p>
-<p>通过在根实例中注册 store 选项，该 store 实例会注入到根组件下的所有子组件中，且子组件能通过 this.$store 访问到。</p>
-<p>vuex实例属性</p>
-<p><strong>State</strong>：<br>Vuex 使用单一状态树，用一个对象就包含了全部的应用层级状态。至此它便作为一个“唯一数据源 (SSOT)”而存在。这也意味着，每个应用将仅仅包含一个 store 实例。<br>state应该就是存放唯一数据的地方</p>
-<p>从 store 实例中读取状态最简单的方法就是在计算属性中返回某个状态</p>
-<p>mapState 辅助函数：<br>当一个组件需要获取多个状态时候，将这些状态都声明为计算属性会有些重复和冗余。为了解决这个问题，我们可以使用 mapState 辅助函数帮助我们生成计算属性。<br>当映射的计算属性的名称与 state 的子节点名称相同时，我们也可以给 mapState 传一个字符串数组。</p>
-<p><strong>Getter</strong>：<br>如果有多个组件需要用到同一属性，vuex提供了getter来过滤state，<br>Getter 接受 state 作为其第一个参数<br>Getter 也可以接受其他 getter 作为第二个参数<br>mapGetters 辅助函数：<br>mapGetters 辅助函数仅仅是将 store 中的 getter 映射到局部计算属性</p>
-<p>我个人觉得getter就像是提供了一个过滤state的函数，供组件使用</p>
-<p><strong>Mutation</strong>：<br>更改 Vuex 的 store 中的状态的唯一方法是提交 mutation。<br>调用 store.commit 方法来调用 mutation<br>你可以向 store.commit 传入额外的参数，即 mutation 的 载荷（payload）<br>使用常量替代 mutation 事件类型在各种 Flux 实现中是很常见的模式。这样可以使 linter 之类的工具发挥作用，同时把这些常量放在单独的文件中可以让你的代码合作者对整个 app 包含的 mutation 一目了然<br>Mutation 必须是同步函数（占时还不清楚什么是同步什么是异步）<br>我大概看了一下同步和异步的概念，但不是很理解<br><strong>同步</strong>：当一个函数是同步执行时，那么当该函数被调用时不会立即返回，直到该函数所要做的事情全都做完了才返回。<br><strong>异步</strong>：如果一个异步函数被调用时，该函数会立即返回尽管该函数规定的操作任务还没有完成。</p>
-<p>mutation是唯一修改state的手段</p>
-<p><strong>Action</strong>：<br>Action 类似于 mutation，不同在于：</p>
-<blockquote>
-<p>Action 提交的是 mutation，而不是直接变更状态。<br>Action 可以包含任意异步操作。</p>
-</blockquote>
-<p>Action 函数接受一个与 store 实例具有相同方法和属性的 context 对象。<br>Action 通过 store.dispatch 方法触发</p>
-<p><strong>Module</strong>：<br>由于使用单一状态树，应用的所有状态会集中到一个比较大的对象。当应用变得非常复杂时，store 对象就有可能变得相当臃肿。<br>为了解决以上问题，Vuex 允许我们将 store 分割成模块（module）。每个模块拥有自己的 state、mutation、action、getter、甚至是嵌套子模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">const moduleA = &#123;</span><br><span class="line">  state: &#123; ... &#125;,</span><br><span class="line">  mutations: &#123; ... &#125;,</span><br><span class="line">  actions: &#123; ... &#125;,</span><br><span class="line">  getters: &#123; ... &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const moduleB = &#123;</span><br><span class="line">  state: &#123; ... &#125;,</span><br><span class="line">  mutations: &#123; ... &#125;,</span><br><span class="line">  actions: &#123; ... &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const store = new Vuex.Store(&#123;</span><br><span class="line">  modules: &#123;</span><br><span class="line">    a: moduleA,</span><br><span class="line">    b: moduleB</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">store.state.a // -&gt; moduleA 的状态</span><br><span class="line">store.state.b // -&gt; moduleB 的状态</span><br></pre></td></tr></table></figure></p>
-<p>大概就怎么多了吧，vuex，怎么说呢，感觉就是一个全局的数据存储的文件</p>
+        <p>ES6新特性</p>
+<p><strong>1.箭头操作符（=&gt;）</strong><br>操作符左边为输入的参数，而右边则是进行的操作以及返回的值Inputs=&gt;outputs。<br><strong>2.类的支持</strong><br>ES6中添加了对类的支持，引入了class关键字。JS本身就是面向对象的，ES6中提供的类实际上只是JS原型模式的包装。现在提供原生的class支持后，对象的创建，继承更加直观了，并且父类方法的调用，实例化，静态方法和构造函数等概念都更加形象化。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Animal &#123;</span><br><span class="line">	//ES6中新型构造器</span><br><span class="line">    constructor(name) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    //实例方法</span><br><span class="line">    sayName() &#123;</span><br><span class="line">        console.log(&apos;My name is &apos;+this.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//类的继承</span><br><span class="line">class Programmer extends Animal &#123;</span><br><span class="line">    constructor(name) &#123;</span><br><span class="line">    	//直接调用父类构造器进行初始化</span><br><span class="line">        super(name);</span><br><span class="line">    &#125;</span><br><span class="line">    program() &#123;</span><br><span class="line">        console.log(&quot;I&apos;m coding...&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//测试我们的类</span><br><span class="line">var animal=new Animal(&apos;dummy&apos;),</span><br><span class="line">wayou=new Programmer(&apos;wayou&apos;);</span><br><span class="line">animal.sayName();//输出 ‘My name is dummy’</span><br><span class="line">wayou.sayName();//输出 ‘My name is wayou’</span><br><span class="line">wayou.program();//输出 ‘I&apos;m coding...’</span><br></pre></td></tr></table></figure></p>
+<p><strong>3.增强的对象字面量</strong></p>
+<ol>
+<li>可以在对象字面量里面定义原型</li>
+<li>定义方法可以不用function关键字</li>
+<li>直接调用父类方法</li>
+</ol>
+<p><strong>4.字符串模板</strong><br>ES6中允许使用反引号 ` 来创建字符串，此种方法创建的字符串里面可以包含由美元符号加花括号包裹的变量${vraible}</p>
+<p><strong>5.解构</strong><br>自动解析数组或对象中的值。<br>变量和对应值互相匹配</p>
+<p><strong>6.参数默认值，不定参数，拓展参数</strong><br>1.默认参数值<br>现在可以在定义函数的时候指定参数的默认值了，而不用像以前那样通过逻辑或操作符来达到目的了。<br>2.不定参数<br>不定参数是在函数中使用命名参数同时接收不定数量的未命名参数。这只是一种语法糖，在以前的JavaScript代码中我们可以通过arguments变量来达到这一目的。不定参数的格式是三个句点后跟代表所有不定参数的变量名。<br>3.拓展参数<br>拓展参数则是另一种形式的语法糖，它允许传递数组或者类数组直接做为函数的参数而不用通过apply。</p>
+<p><strong>7.let与const 关键字</strong><br>可以把let看成var，只是它定义的变量被限定在了特定范围内才能使用，而离开这个范围则无效。const则很直观，用来定义常量，即无法被更改值的变量。</p>
+<p><strong>8.for of 值遍历</strong><br>我们都知道for in 循环用于遍历数组，类数组或对象，ES6中新引入的for of循环功能相似，不同的是每次循环它提供的不是序号而是值。</p>
+<p><strong>9.模块</strong><br>在ES6标准中，JavaScript原生支持module了</p>
+<p><strong>10.Map，Set 和 WeakMap，WeakSet</strong><br>这些是新加的集合类型，提供了更加方便的获取属性值的方法，不用像以前一样用hasOwnProperty来检查某个属性是属于原型链上的呢还是当前对象的。同时，在进行属性值添加与获取时有专门的get，set 方法。</p>
+<p><strong>11.Proxies</strong><br>Proxy可以监听对象身上发生了什么事情，并在这些事情发生后执行一些相应的操作。一下子让我们对一个对象有了很强的追踪能力，同时在数据绑定方面也很有用处。</p>
+<p>还有很多我看不懂的，先放一放吧。。。</p>
 
       
     </div>
@@ -404,7 +400,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Vuex/" rel="tag"># Vuex</a>
+            <a href="/tags/ECMAScript-6/" rel="tag"># ECMAScript 6</a>
           
         </div>
       
@@ -417,8 +413,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/08/2018_5_8_1_ife_2018 MVVM学院 2-2/" rel="next" title="ife_2018 MVVM学院 2-2">
-                <i class="fa fa-chevron-left"></i> ife_2018 MVVM学院 2-2
+              <a href="/2018/05/17/2018_5_15_1_ES6学习/" rel="next" title="ES6学习">
+                <i class="fa fa-chevron-left"></i> ES6学习
               </a>
             
           </div>
@@ -427,8 +423,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/11/2018_5_9_1ife_2018 MVVM学院 2-3/" rel="prev" title="ife_2018 MVVM学院 2-3">
-                ife_2018 MVVM学院 2-3 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/17/2018_5_17_2_less学习/" rel="prev" title="less学习">
+                less学习 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

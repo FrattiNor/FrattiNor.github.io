@@ -296,6 +296,427 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/03/2018_5_3_1_ife_2018_设计师学院_No.1_No.2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/03/2018_5_3_1_ife_2018_设计师学院_No.1_No.2/" itemprop="url">ife_2018 设计师学院 No.1 No.2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-03T21:36:17+08:00">
+                2018-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>No.1 - 制作一个简单的菜单动画效果<br>任务要求：点击按钮使文字产生动画效果，再点击返回原样<br>No.2 - 初步接触 CSS 2D 变形<br>任务要求：通过 CSS transform 实现设计图所示效果，要求达到对设计稿的百分百的还原。<br><img src="https://raw.githubusercontent.com/FrattiNor/picture/master/ife_css_2.jpg" alt="enter image description here"></p>
+<p>这个2个任务不是很难，我说一下思路，因为基本没有遇到什么问题</p>
+<p>任务一<br><a href="https://frattinor.github.io/IFE_2018/css/No.1/" target="_blank" rel="noopener">demo</a><br>点击按钮改变文字颜色和加上下划线（下划线要有动画效果）</p>
+<ol>
+<li>首先在body里写p和button标签p里写进文字，模板就这样了</li>
+<li>然后给p写2个类font和font2</li>
+<li>font类写动画颜色由蓝变黑，动画保留最后结果，</li>
+<li>给font类写一个伪元素:after，after里写下划线，并给非after写消失的动画</li>
+<li>font2类写动画颜色由黑变蓝，动画保留最后结果，</li>
+<li>给font2类写一个伪元素:after，after里写下划线，并给非after写出现的动画</li>
+<li>js给按钮写改变p的class的效果</li>
+</ol>
+<p>这样就完成了</p>
+<p>代码如下<br>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/mycss.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;box&quot;&gt;</span><br><span class="line">        &lt;span id=&quot;font&quot; class=&quot;font&quot;&gt;前端学院&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;button class=&quot;button&quot;&gt;切换样式&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;js/myjs.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">    margin: 0;</span><br><span class="line">    padding: 0;</span><br><span class="line">&#125;</span><br><span class="line">.box&#123;</span><br><span class="line">    text-align: center;</span><br><span class="line">    margin: 20px;</span><br><span class="line">&#125;</span><br><span class="line">.font2&#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    padding: 5px;</span><br><span class="line">    animation: change3 1s both;</span><br><span class="line">&#125;</span><br><span class="line">@keyframes change3 &#123;</span><br><span class="line">    0%&#123;</span><br><span class="line">        color: #36f;</span><br><span class="line">    &#125;</span><br><span class="line">    100%&#123;</span><br><span class="line">        color: #000;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">.font2::after&#123;</span><br><span class="line">    content: &quot;&quot;;</span><br><span class="line">    position: relative;</span><br><span class="line">    left: -10%;</span><br><span class="line">    width: 120%;</span><br><span class="line">    display: block;</span><br><span class="line">    height: 5px;</span><br><span class="line">    border-bottom: 2px solid #36f;</span><br><span class="line">    animation: change4 1s both;</span><br><span class="line">&#125;</span><br><span class="line">@keyframes change4 &#123;</span><br><span class="line">    0%&#123;</span><br><span class="line">        left: -10%;</span><br><span class="line">        width: 120%;</span><br><span class="line">    &#125;</span><br><span class="line">    100%&#123;</span><br><span class="line">        left: 50%;</span><br><span class="line">        width: 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">.font&#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    padding: 5px;</span><br><span class="line">    /*border-bottom: 2px solid #36f;*/</span><br><span class="line">    animation: change 1s both;</span><br><span class="line">&#125;</span><br><span class="line">@keyframes change &#123;</span><br><span class="line">    0%&#123;</span><br><span class="line">        color: #000;</span><br><span class="line">    &#125;</span><br><span class="line">    100%&#123;</span><br><span class="line">        color: #36f;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">.font::after&#123;</span><br><span class="line">    content: &quot;&quot;;</span><br><span class="line">    position: relative;</span><br><span class="line">    left: -10%;</span><br><span class="line">    width: 120%;</span><br><span class="line">    display: block;</span><br><span class="line">    height: 5px;</span><br><span class="line">    border-bottom: 2px solid #36f;</span><br><span class="line">    animation: change2 1s both;</span><br><span class="line">&#125;</span><br><span class="line">@keyframes change2 &#123;</span><br><span class="line">    0%&#123;</span><br><span class="line">        left: 50%;</span><br><span class="line">        width: 0;</span><br><span class="line">    &#125;</span><br><span class="line">    100%&#123;</span><br><span class="line">        left: -10%;</span><br><span class="line">        width: 120%;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.button&#123;</span><br><span class="line">    padding: 5px;</span><br><span class="line">    display: block;</span><br><span class="line">    margin: auto;</span><br><span class="line">    border: 1px solid #ddd;</span><br><span class="line">    background-color: #fff;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    outline: none;</span><br><span class="line">&#125;</span><br><span class="line">.button:active&#123;</span><br><span class="line">    color: #fff;</span><br><span class="line">    background-color: #3E74B5;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;.button&quot;).click(function()&#123;</span><br><span class="line">    let c = $(&quot;#font&quot;).attr(&quot;class&quot;);</span><br><span class="line">    if(c == &quot;font&quot;)&#123;</span><br><span class="line">        $(&quot;#font&quot;).attr(&quot;class&quot;,&quot;font2&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        $(&quot;#font&quot;).attr(&quot;class&quot;,&quot;font&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>突然发现有个错误就是初始的颜色是黑色，使用动画效果会从蓝色变成黑色，这个是因为动画一点会播放一次，所以我决定使用css3的过渡来写动画，过渡值会在改变样式时产生动画（感觉比transtion好用啊）</p>
+</blockquote>
+<p>修改后代码如下<br>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/mycss.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;box&quot;&gt;</span><br><span class="line">        &lt;span id=&quot;font&quot; class=&quot;font color1&quot;&gt;</span><br><span class="line">            前端学院</span><br><span class="line">            &lt;div id=&quot;bottom&quot; class=&quot;bottom bottom1&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;button class=&quot;button&quot;&gt;切换样式&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;js/myjs.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">    margin: 0;</span><br><span class="line">    padding: 0;</span><br><span class="line">&#125;</span><br><span class="line">.box&#123;</span><br><span class="line">    text-align: center;</span><br><span class="line">    margin: 20px;</span><br><span class="line">&#125;</span><br><span class="line">.bottom&#123;</span><br><span class="line">    border-bottom: 2px solid #36f;</span><br><span class="line">    transition: 2s;</span><br><span class="line">    margin-top: 5px;</span><br><span class="line">&#125;</span><br><span class="line">.bottom1&#123;</span><br><span class="line">    width: 0%;</span><br><span class="line">    margin-left: 50%;</span><br><span class="line">&#125;</span><br><span class="line">.bottom2&#123;</span><br><span class="line">    width: 120%;</span><br><span class="line">    margin-left: -10%;</span><br><span class="line">&#125;</span><br><span class="line">.font&#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    padding: 5px;</span><br><span class="line">    transition: 2s;</span><br><span class="line">&#125;</span><br><span class="line">.color1&#123;</span><br><span class="line">    color: #000;</span><br><span class="line">&#125;</span><br><span class="line">.color2&#123;</span><br><span class="line">    color: #36f;</span><br><span class="line">&#125;</span><br><span class="line">.button&#123;</span><br><span class="line">    padding: 5px;</span><br><span class="line">    display: block;</span><br><span class="line">    margin: auto;</span><br><span class="line">    border: 1px solid #ddd;</span><br><span class="line">    background-color: #fff;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    outline: none;</span><br><span class="line">&#125;</span><br><span class="line">.button:active&#123;</span><br><span class="line">    color: #fff;</span><br><span class="line">    background-color: #3E74B5;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;.button&quot;).click(function()&#123;</span><br><span class="line">    let c = $(&quot;#font&quot;).attr(&quot;class&quot;);</span><br><span class="line">    if(c == &quot;font color1&quot;)&#123;</span><br><span class="line">        $(&quot;#font&quot;).removeClass(&quot;color1&quot;);</span><br><span class="line">        $(&quot;#font&quot;).addClass(&quot;color2&quot;);</span><br><span class="line">        $(&quot;#bottom&quot;).removeClass(&quot;bottom1&quot;);</span><br><span class="line">        $(&quot;#bottom&quot;).addClass(&quot;bottom2&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        $(&quot;#font&quot;).removeClass(&quot;color2&quot;);</span><br><span class="line">        $(&quot;#font&quot;).addClass(&quot;color1&quot;);</span><br><span class="line">        $(&quot;#bottom&quot;).removeClass(&quot;bottom2&quot;);</span><br><span class="line">        $(&quot;#bottom&quot;).addClass(&quot;bottom1&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>任务二<br><a href="https://frattinor.github.io/IFE_2018/css/No.2/" target="_blank" rel="noopener">demo</a><br>做出设计图样式</p>
+<p>这个就更简单了<br>只要使用css3 的transform就可以简单解决<br>图1<br>skew（）翻转给定角度<br>图2<br>scale（）减少尺寸<br>图3<br>rotate（）旋转给定角度<br>图4<br>translate（）移动给定距离<br>图5<br>图1234合在一起</p>
+<p>代码如下<br>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/mycss.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;box0&quot;&gt;box0&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;box0 box1&quot;&gt;box1&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;box0 box2&quot;&gt;box2&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;box0 box3&quot;&gt;box3&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;box0 box4&quot;&gt;box4&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;box0 box5&quot;&gt;box5&lt;/div&gt;</span><br><span class="line">    &lt;script src=&quot;js/myjs.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">    margin: 0;</span><br><span class="line">    padding: 0;</span><br><span class="line">&#125;</span><br><span class="line">.box0&#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    border: 1px solid #aaa;</span><br><span class="line">    text-align: center;</span><br><span class="line">    line-height: 100px;</span><br><span class="line">    margin: 30px;</span><br><span class="line">    float: left;</span><br><span class="line">&#125;</span><br><span class="line">.box1&#123;</span><br><span class="line">    transform: skew(30deg,0deg);</span><br><span class="line">&#125;</span><br><span class="line">.box2&#123;</span><br><span class="line">    transform: scale(0.5,1);</span><br><span class="line">&#125;</span><br><span class="line">.box3&#123;</span><br><span class="line">    transform: rotate(45deg);</span><br><span class="line">&#125;</span><br><span class="line">.box4&#123;</span><br><span class="line">    transform: translate(10px,20px);</span><br><span class="line">&#125;</span><br><span class="line">.box5&#123;</span><br><span class="line">    transform: skew(30deg,0deg) scale(0.5,1) rotate(45deg) translate(10px,20px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/28/2018_4_28_1_vue项目-豆瓣电影搜索/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/28/2018_4_28_1_vue项目-豆瓣电影搜索/" itemprop="url">Vue项目-豆瓣电影搜索</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-28T14:26:25+08:00">
+                2018-04-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在写了第一次Vue项目todo list之后，总算是了解了vue项目大概的编写方法<br>然后我就在网络上找一些简单的Vue项目来做<br>然后就看到了这个基于豆瓣API的电影搜索项目（<a href="https://github.com/superman66/vue2.x-douban）" target="_blank" rel="noopener">https://github.com/superman66/vue2.x-douban）</a><br>老实说，看一起来并不难，就是一个主页面，一个电影搜索结果页面，一个更多页面以及一个电影详情页面。<br>但是实际上并不简单吧，只能这样说了，因为在完成这个项目期间我修改了错误的次数可能不下100次了，这个项目里还有我完全没有学习过的http知识，虽然就是一个axios的get请求。</p>
+<hr>
+<p>接下来就介绍一下项目吧。<br>项目要求：使用vue，vue-router，vue-infinite-scroll，axios知识编写基于豆瓣API的电影搜索应用，包含主页面，电影搜索结果页面，更多页面以及电影详情页面。</p>
+<p>原项目还包含vuex的使用，但是因为我完全不知道vuex是使用方法，所以就去掉了，感觉没有太大的影响，然后就是我在原项目的基础上修改了部分样式以及一个bug吧。</p>
+<p>代码就不贴上来了，比较的多，可以访问我的github查看代码（<a href="https://github.com/FrattiNor/vue-project/tree/master/douban-movie-api）" target="_blank" rel="noopener">https://github.com/FrattiNor/vue-project/tree/master/douban-movie-api）</a><br>因为不明白代理和反向代理以及http方面的知识，build完项目存在跨域问题，所以不能在线访问，想要查看效果请：<br>clone代码到本地<br>bash here<br>npm install<br>npm run dev来运行</p>
+<p>因为遇到的问题太多，然后又没记住几个，遇到的问题就不多说了<br>我就讲一下收获吧</p>
+<blockquote>
+<p>1.vue编写html是完全的模块化的，一个vue文件就是一个木模块<br>2.模块的使用依赖export和require（import）<br>3.要在一个模块引入另一个模块要import另一个模块以及在export里用components声明组件<br>4.使用路由要在route.js中引入模块并申明组件，path，name<br>5.路由显示在router-view标签中<br>6.路由跳转可以携带参数，使用query来传递参数，this.$route.query来获取参数<br>7.import时的路径里有个“@/”指的是”src/“，”../“代表返回上一级</p>
+</blockquote>
+<p>最后讲一下原项目的一个bug吧，原项目在第二次搜索电影也就是在搜索结果页面搜索电影时不能返回结果。<br>原因是：原项目把返回数据的函数写在mounted里，只会执行一次，但是重新搜索后把参数再传给搜索结果页面，由于router-view的页面没有改动，所以不会再次执行mounted里的函数<br>解决办法：在watch里观察传递的参数是否改变来执行函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">	&quot;$route&quot;(to, from)&#123;</span><br><span class="line">		xxx</span><br><span class="line">	&#125;.</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<p>to.query是新的参数<br>from.query是旧的参数</p>
+<p>最后的总结：这次vue项目给我最大的收获肯定是正真对模块化的了解吧，模块化真的给人一种层次分明的感觉。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/25/2018_4_25_1_vue项目入门和vue-router部分学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/25/2018_4_25_1_vue项目入门和vue-router部分学习/" itemprop="url">Vue项目入门和vue-router部分学习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-25T17:17:00+08:00">
+                2018-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>前段时间看的vue.js，然后也写了一个小页面来练练手，总的来说不是很难，再然后，我就看到了vue项目，接触到了vue-cli，webpack等等的，于是乎就看了很久的相关文档，说真的看文档真的看的我有点难受了，看文档确实是知道了具体的代码怎么实现等等的，虽然不能全部记住，但也能记个大概了。<br>今天又看了vuex，vue-router，axios的相关文档，但都没怎么仔细看，可能最近看文档看的有点烦了吧，看不太进去，也不想把看的都写一遍下来了。</p>
+<p>关于vuex<br>官方文档是这样介绍的：</p>
+<blockquote>
+<p>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 也集成到 Vue 的官方调试工具 devtools extension，提供了诸如零配置的 time-travel 调试、状态快照导入导出等高级调试功能。</p>
+</blockquote>
+<p>说真的完全完全完全看不懂是什么，后面讲的也不明觉厉，可能我还没到可以使用它的时候吧，跳过了。</p>
+<p>关于vue-router<br>前面学习vue的时候在最后有接触过，明白大概的意思，就是实现单页面的跳转效果，不是跳转页面，而是重新渲染页面来实现的<br>大概有那么6个步骤：<br>1 创建组件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var Home = Vue.extend(&#123;</span><br><span class="line">    template: &apos;&lt;div&gt;&lt;h1&gt;Home&lt;/h1&gt;&lt;p&gt;&#123;&#123;msg&#125;&#125;&lt;/p&gt;&lt;/div&gt;&apos;,</span><br><span class="line">    data: function() &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            msg: &apos;Hello, vue router!&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">var About = Vue.extend(&#123;</span><br><span class="line">    template: &apos;&lt;div&gt;&lt;h1&gt;About&lt;/h1&gt;&lt;p&gt;This is the tutorial about vue-router.&lt;/p&gt;&lt;/div&gt;&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>2 创建Router<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var router = new VueRouter()</span><br></pre></td></tr></table></figure></p>
+<p>调用构造器VueRouter，创建一个路由器实例router。</p>
+<p>3 映射路由<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">router.map(&#123;</span><br><span class="line">    &apos;/home&apos;: &#123; component: Home &#125;,</span><br><span class="line">    &apos;/about&apos;: &#123; component: About &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>4 使用v-link指令<br>在a元素上使用v-link指令跳转到指定路径。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;list-group&quot;&gt;</span><br><span class="line">    &lt;a class=&quot;list-group-item&quot; v-link=&quot;&#123; path: &apos;/home&apos;&#125;&quot;&gt;Home&lt;/a&gt;</span><br><span class="line">    &lt;a class=&quot;list-group-item&quot; v-link=&quot;&#123; path: &apos;/about&apos;&#125;&quot;&gt;About&lt;/a&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>5 使用<router-view>标签<br>在页面上使用<code>&lt;router-view&gt;&lt;/router-view&gt;</code>标签，它用于渲染匹配的组件。</router-view></p>
+<p>6 启动路由<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var App = Vue.extend(&#123;&#125;)</span><br><span class="line">router.start(App, &apos;#app&apos;)</span><br></pre></td></tr></table></figure></p>
+<p><strong>编写单页面的步骤</strong><br><img src="https://raw.githubusercontent.com/FrattiNor/picture/master/vue-router.png" alt="enter image description here"></p>
+<p>router.redirect<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.redirect(&#123;</span><br><span class="line">    &apos;/&apos;: &apos;/home&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>router.redirect方法用于为路由器定义全局的重定向规则，全局的重定向会在匹配当前路径之前执行。</p>
+<p>后面还有 嵌套路由，具名路径 等等，我没全部看，就不列举了</p>
+<p>关于axios<br>特色：</p>
+<blockquote>
+<p>浏览器端发起XMLHttpRequests请求<br>node端发起http请求<br>支持Promise API<br>拦截请求和返回<br>转化请求和返回（数据）<br>取消请求<br>自动转化json数据<br>客户端支持抵御XSRF（跨站请求伪造）</p>
+</blockquote>
+<p>具体的我也没仔细看，大概就是发起http请求以及获取结果吧。。。</p>
+<hr>
+<p>说真的看了这么多，都不知道应该写在哪，vue-cli创建的项目令我无从下手，不过今天总算是找到了最最基础的教程了，才知道原来是在app.vue文件下操作的。。。<br>这是一个慕课网的视频，讲的很基础，我也不知道讲的好不好，反正至少我知道vue的项目应该从哪下手了，也算是非常的有收获吧<br>视频网址：<a href="http://www.imooc.com/learn/694" target="_blank" rel="noopener">http://www.imooc.com/learn/694</a><br>然后我跟着做了一个todo list的小项目（可能也说不上是个项目吧。。）<br>怎么做的我就不多讲了，视频里讲的还算挺清楚的了<br>最后附上todolist的内容：<br>app.vue<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;title&#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; v-model=&quot;newItem&quot; v-on:keyup.enter=&quot;addNew&quot; /&gt;</span><br><span class="line">    &lt;li v-for=&quot;item in items&quot; v-bind:class=&quot;&#123;finished:item.isFinished&#125;&quot;&gt;&#123;&#123;item.label&#125;&#125;&lt;/li&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import store from &quot;./storage.js&quot;</span><br><span class="line">export default &#123;</span><br><span class="line">  data: function() &#123;</span><br><span class="line">  return&#123;</span><br><span class="line">    title: &quot;this is a todo list&quot;,</span><br><span class="line">    items: store.fetch(),</span><br><span class="line">    newItem: &quot;&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    addNew: function()&#123;</span><br><span class="line">      this.items.push(&#123;</span><br><span class="line">        label: this.newItem,</span><br><span class="line">        isFinished: false</span><br><span class="line">      &#125;);</span><br><span class="line">      this.newItem = &quot;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  watch: &#123;</span><br><span class="line">    items: &#123;</span><br><span class="line">      handler:function(val,oldval)&#123;</span><br><span class="line">        store.save(this.items)</span><br><span class="line">      &#125;,</span><br><span class="line">      deep: true</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.finished&#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line">#app &#123;</span><br><span class="line">  font-family: &apos;Avenir&apos;, Helvetica, Arial, sans-serif;</span><br><span class="line">  -webkit-font-smoothing: antialiased;</span><br><span class="line">  -moz-osx-font-smoothing: grayscale;</span><br><span class="line">  text-align: center;</span><br><span class="line">  color: #2c3e50;</span><br><span class="line">  margin-top: 60px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+<p>storage.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">// const STORAGE_KEY = &quot;todo-vue.js&quot;</span><br><span class="line">// export default &#123;</span><br><span class="line">//     fetch() &#123;</span><br><span class="line">//         return JOSN.parse(window.localStorage.getItem(STORAGE_KEY) || &quot;[]&quot;)</span><br><span class="line">//     &#125;,</span><br><span class="line">//     save(items) &#123;</span><br><span class="line">//         window.localStorage.setItem(STORAGE_KEY,JSON.stringify(items))</span><br><span class="line">//     &#125;</span><br><span class="line">// &#125;</span><br><span class="line"></span><br><span class="line">const STORAGE_KEY=&quot;todos-vuejs&quot;</span><br><span class="line"></span><br><span class="line">export default&#123;</span><br><span class="line"></span><br><span class="line">fetch()&#123;</span><br><span class="line"></span><br><span class="line">return JSON.parse(window.localStorage.getItem(STORAGE_KEY)||&apos;[]&apos;)</span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">save (items)&#123;</span><br><span class="line"></span><br><span class="line">window.localStorage.setItem(STORAGE_KEY,JSON.stringify(</span><br><span class="line"></span><br><span class="line">      items))</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>也可以在我的github上查看<a href="https://github.com/FrattiNor/vue-project/tree/master/my-first-vue-project" target="_blank" rel="noopener">https://github.com/FrattiNor/vue-project/tree/master/my-first-vue-project</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/24/2018_4_24_2_CommonJS学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -683,442 +1104,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/21/2018_4_21_2_数组函数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/21/2018_4_21_2_数组函数/" itemprop="url">js数组函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-21T16:17:49+08:00">
-                2018-04-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>push：将参数添加到原数组末尾，并返回数组的长度   </p>
-<p>concat：返回一个新数组，是将参数添加到原数组中构成的   </p>
-<p>splice(start,deleteCount,val1,val2,…)：从start位置开始删除deleteCount项，并从该位置起插入val1,val2,…   </p>
-<p>reverse：将数组反序   </p>
-<p>sort(orderfunction)：按指定的参数对数组进行排序   </p>
-<p>slice(start,end)：返回从原数组中指定开始下标到结束下标之间的项组成的新数组 </p>
-</blockquote>
-<p>实例：  </p>
-<p>1、数组的创建<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arrayObj = new Array();　//创建一个数组  </span><br><span class="line">var arrayObj = new Array([size]);　//创建一个数组并指定长度，注意不是上限，是长度  </span><br><span class="line">var arrayObj = new Array([element0[, element1[, ...[, elementN]]]]);　创建一个数组并赋值</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>要说明的是，虽然第二种方法创建数组指定了长度，但实际上所有情况下数组都是变长的，也就是说即使指定了长度为5，仍然可以将元素存储在规定长度以外的，注意：这时长度会随之改变。  </p>
-</blockquote>
-<p>2、数组的元素的访问<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var testGetArrValue=arrayObj[1]; //获取数组的元素值  </span><br><span class="line">arrayObj[1]= &quot;这是新值&quot;; //给数组元素赋予新的值</span><br></pre></td></tr></table></figure></p>
-<p>3、数组元素的添加  </p>
-<blockquote>
-<p>arrayObj. push([item1 [item2 [. . . [itemN ]]]]);// 将一个或多个新元素添加到数组结尾，并返回数组新长度<br>arrayObj.unshift([item1 [item2 [. . . [itemN ]]]]);// 将一个或多个新元素添加到数组开始，数组中的元素自动后移，返回数组新长度<br>arrayObj.splice(insertPos,0,[item1[, item2[, . . . [,itemN]]]]);//将一个或多个新元素插入到数组的指定位置，插入位置的元素自动后移，返回””。  </p>
-</blockquote>
-<p>4、数组元素的删除<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arrayObj.pop(); //移除最后一个元素并返回该元素值  </span><br><span class="line">arrayObj.shift(); //移除最前一个元素并返回该元素值，数组中元素自动前移  </span><br><span class="line">arrayObj.splice(deletePos,deleteCount); //删除从指定位置deletePos开始的指定数量deleteCount的元素，数组形式返回所移除的元素</span><br></pre></td></tr></table></figure></p>
-<p>5、数组的截取和合并  </p>
-<blockquote>
-<p>arrayObj.slice(start, [end]); //以数组的形式返回数组的一部分，注意不包括 end 对应的元素，如果省略 end 将复制 start 之后的所有元素<br>arrayObj.concat([item1[, item2[, . . . [,itemN]]]]); //将多个数组（也可以是字符串，或者是数组和字符串的混合）连接为一个数组，返回连接好的新的数组  </p>
-</blockquote>
-<p>6、数组的拷贝<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arrayObj.slice(0); //返回数组的拷贝数组，注意是一个新的数组，不是指向  </span><br><span class="line">arrayObj.concat(); //返回数组的拷贝数组，注意是一个新的数组，不是指向</span><br></pre></td></tr></table></figure></p>
-<p>7、数组元素的排序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arrayObj.reverse(); //反转元素（最前的排到最后、最后的排到最前），返回数组地址  </span><br><span class="line">arrayObj.sort(); //对数组元素排序，返回数组地址</span><br></pre></td></tr></table></figure></p>
-<p>8、数组元素的字符串化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arrayObj.join(separator); //返回字符串，这个字符串将数组的每一个元素值连接在一起，中间用 separator 隔开。  </span><br><span class="line">toLocaleString 、toString 、valueOf：可以看作是join的特殊用法，不常用</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/21/2018_4_21_1_vue练习_图书管理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/21/2018_4_21_1_vue练习_图书管理/" itemprop="url">vue小练习_图书管理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-21T16:17:45+08:00">
-                2018-04-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这个是最后完成的样子<br><a href="https://frattinor.github.io/practice/Vue练习_图书管理" target="_blank" rel="noopener">demo</a></p>
-<p>昨天学习看完了基本的Vue.js的知识点，今天开始做一些vue小练习</p>
-<p>小练习目标：</p>
-<blockquote>
-<p>实现动态渲染html页面的图书<br>实现图书的添加和删除</p>
-</blockquote>
-<p>差不多就这样吧，<br>这个练习刚刚看到是时候还是觉得挺简单的，但是实际写起来就是觉得无从下手，大概是刚刚看完vue吧，没办法直接使用。<br>所以我就先写了html和css<br>大概这样吧<br><img src="https://raw.githubusercontent.com/FrattiNor/picture/master/picture_2.png" alt="Alt text"></p>
-<p>接下来就是写js了</p>
-<p>我的想法如下:<br>1 写一个vue实例vm对应图书的div<br>2 在vm里写一个books数组，数组里写图书的信息，<br>3 然后在html里通过v-for渲染<br>4 然后创建一个对象（newBook），然后给newBook写上书名（bookName），作者（author），价格（price）等属性<br>5 给删除按钮写删除对应行的函数（del），写在methods里<br>6 添加书籍里的书名，作者，价格用v-model对应起newBook.bookName，newBook.author，newBook.price。<br>7 给添加按钮写添加函数（add）</p>
-<p>大概的想法是这样的</p>
-<p>然后我开始实现我的想法<br>遇到了很多问题，这大概就是第一使用vue吧</p>
-<p>遇到的问题如下:<br>1 js文件里的vue实例或在html属性里写错，可能会导致实例对应的DOM元素直接消失。我接二连三的遇到这个问题，一直不知道错在哪，然后就浪费了很多时间，比如v-model=”newbook.bookname”这个大小写问题，我一直没有发现</p>
-<blockquote>
-<p>解决办法：不要写错咯</p>
-</blockquote>
-<p>2 在写del函数的时候没办法删除对应行，暂时还不知道怎么解决，不过同时也学会了一个新的js的数组操作函数<strong>Array.splice(x,y)</strong>x对应的是数组的位置，y是要删除的数量，想到解决办法我会写上去的。</p>
-<blockquote>
-<p>解决办法：目前的想法是在渲染的时候给button添加一个index属性，来确定是哪一行<br>前面的想法不知道可不可行，我给books添加了index属性，我是用event.target确定当前button的，但是target.index不能使用，所以我把button的index属性改为了id属性，通过target.id确定是数组的哪个位置，然后把删除掉数组对应的位置<br>不过只是删除数组元素还是会产生问题，就是删除一个元素后，会打乱原来的index，产生断层，所以还要在del函数里给数组对应位置后面的所有对象的index都减一，才能保证index不会产生断层。</p>
-</blockquote>
-<p>3 在写add函数的时候，遇到这样一个问题，就是把newBook对象通过push函数添加进books数组里的时候，我再改变newBook对象的属性，books数组里对应的位置也会发生改变，这大概就是响应式吧，原来还会这样的。</p>
-<blockquote>
-<p>解决办法：在add函数里重新let一个对象，把newBook的属性全部copy一份给新对象，然后把新对象push进数组就没有这个问题了</p>
-</blockquote>
-<p>4 在写add函数的时候，还有遇到了一个问题，就是明明我在data里申明了newBook这个对象，但是在push的时候使用this.books.push(newBook)时报错说newBook没有申明，后来我想了想，大概是newBook不是全局变量的原因吧</p>
-<blockquote>
-<p>解决办法：使用时要用this.newBook，this代表当前实例</p>
-</blockquote>
-<p>最后附上我的代码<br>index.html（html）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;book&quot;&gt;</span><br><span class="line">        &lt;table&gt;</span><br><span class="line">            &lt;thead&gt;</span><br><span class="line">                &lt;tr&gt;&lt;td&gt;书名&lt;/td&gt;&lt;td&gt;作者&lt;/td&gt;&lt;td&gt;价格&lt;/td&gt;&lt;td&gt;操作&lt;/td&gt;&lt;/tr&gt;</span><br><span class="line">            &lt;/thead&gt;</span><br><span class="line">            &lt;tbody&gt;</span><br><span class="line">                &lt;tr  v-for=&quot;book in books&quot;&gt;</span><br><span class="line">                    &lt;td&gt;&#123;&#123; book.bookName &#125;&#125;&lt;/td&gt;</span><br><span class="line">                    &lt;td&gt;&#123;&#123; book.author &#125;&#125;&lt;/td&gt;</span><br><span class="line">                    &lt;td&gt;&#123;&#123; book.price &#125;&#125;&lt;/td&gt;</span><br><span class="line">                    &lt;td&gt;&lt;button v-bind:id=&quot;book.index&quot; v-on:click=&quot;del&quot;&gt;删除&lt;/button&gt;&lt;/td&gt;</span><br><span class="line">                &lt;/tr&gt;</span><br><span class="line">            &lt;/tbody&gt;</span><br><span class="line">        &lt;/table&gt;</span><br><span class="line">        &lt;p&gt;添加书籍&lt;/p&gt;</span><br><span class="line">        &lt;label&gt;书名&lt;/label&gt;</span><br><span class="line">        &lt;input v-model=&quot;bookName&quot; type=&quot;text&quot; /&gt;</span><br><span class="line">        &lt;label&gt;作者&lt;/label&gt;</span><br><span class="line">        &lt;input v-model=&quot;author&quot; type=&quot;text&quot; /&gt;</span><br><span class="line">        &lt;label&gt;价格&lt;/label&gt;</span><br><span class="line">        &lt;input v-model.number=&quot;price&quot; type=&quot;number&quot; /&gt;</span><br><span class="line">        &lt;button v-on:click=&quot;add&quot;&gt;添加&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;script src=&quot;js/myjs.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
-<p>mycss.css（css）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">    margin: 0;</span><br><span class="line">    padding: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">html,body&#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#book&#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">h1&#123;</span><br><span class="line">    margin: 20px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">div&#123;</span><br><span class="line">    margin: 20px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">table&#123;</span><br><span class="line">    width: 95%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">tr&#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">td&#123;</span><br><span class="line">    width: 25%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">td,table&#123;</span><br><span class="line">    border-collapse: collapse;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">thead td&#123;</span><br><span class="line">    font-weight:bold;</span><br><span class="line">    font-size: 18px;</span><br><span class="line">    height: 30px;</span><br><span class="line">    border-bottom: 2px solid #ddd;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">tbody td&#123;</span><br><span class="line">    padding-bottom: 10px;</span><br><span class="line">    font-size: 13px;</span><br><span class="line">    height: 40px;</span><br><span class="line">    border-top: 1px solid #ddd;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">label&#123;</span><br><span class="line">    /*display: block;*/</span><br><span class="line">    font-weight:bold;</span><br><span class="line">    /*margin: 5px 0;*/</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">p&#123;</span><br><span class="line">    margin: 20px 0 10px 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">input::-webkit-outer-spin-button,</span><br><span class="line">input::-webkit-inner-spin-button &#123;</span><br><span class="line">    -webkit-appearance: none !important;</span><br><span class="line">    margin: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">input[type=&quot;text&quot;],input[type=&quot;number&quot;]&#123;</span><br><span class="line">    display: block;</span><br><span class="line">    margin: 3px 0 10px 0;</span><br><span class="line">    width: 95%;</span><br><span class="line">    padding: 8px;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    border: 1px solid #ddd;</span><br><span class="line">    outline:none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">input[type=&quot;text&quot;]:focus,input[type=&quot;number&quot;]:focus&#123;</span><br><span class="line">    border: 1px solid #3af;</span><br><span class="line">    box-shadow: 0 0 10px 1px #ddd;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">button&#123;</span><br><span class="line">    background-color: #3E74B5;</span><br><span class="line">    border: 1px solid #3868A3;</span><br><span class="line">    padding: 7px 14px;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    color: #fff;</span><br><span class="line">    outline: none;</span><br><span class="line">&#125;</span><br><span class="line">button:hover&#123;</span><br><span class="line">    background-color:#325C8F;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>myjs.js（js）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">var vm = new Vue(&#123;</span><br><span class="line">    el: &quot;#book&quot;,</span><br><span class="line">    data: &#123;</span><br><span class="line">        bookName:&quot;&quot;,</span><br><span class="line">        author:&quot;&quot;,</span><br><span class="line">        price:&quot;&quot;,</span><br><span class="line">        index: &quot;3&quot;,</span><br><span class="line">        books: [</span><br><span class="line">            &#123;</span><br><span class="line">                bookName: &quot;红楼梦&quot;,</span><br><span class="line">                author: &quot;曹雪芹&quot;,</span><br><span class="line">                price: &quot;32&quot;,</span><br><span class="line">                index: &quot;0&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                bookName: &quot;水浒传&quot;,</span><br><span class="line">                author: &quot;施耐庵&quot;,</span><br><span class="line">                price: &quot;30&quot;,</span><br><span class="line">                index: &quot;1&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                bookName: &quot;三国演义&quot;,</span><br><span class="line">                author: &quot;罗贯中&quot;,</span><br><span class="line">                price: &quot;24&quot;,</span><br><span class="line">                index: &quot;2&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                bookName: &quot;西游记&quot;,</span><br><span class="line">                author: &quot;吴承恩&quot;,</span><br><span class="line">                price: &quot;20&quot;,</span><br><span class="line">                index: &quot;3&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        del: function(event)&#123;</span><br><span class="line">            let tar = event.target;</span><br><span class="line">            this.books.splice(tar.id,1);</span><br><span class="line">            for(let i = tar.id;i &lt; this.index;i++)&#123;</span><br><span class="line">                this.books[i].index--;</span><br><span class="line">            &#125;</span><br><span class="line">            this.index--;</span><br><span class="line">        &#125;,</span><br><span class="line">        add: function()&#123;</span><br><span class="line">            this.index++;</span><br><span class="line">            let newBook = new Object();</span><br><span class="line">            newBook.bookName = this.bookName;</span><br><span class="line">            newBook.author = this.author;</span><br><span class="line">            newBook.price = this.price;</span><br><span class="line">            newBook.index = this.index;</span><br><span class="line">            if(newBook.bookName == &quot;&quot;)&#123;</span><br><span class="line">                alert(&quot;书名为空&quot;);</span><br><span class="line">                return;</span><br><span class="line">            &#125;</span><br><span class="line">            if(newBook.author == &quot;&quot;)&#123;</span><br><span class="line">                alert(&quot;作者为空&quot;);</span><br><span class="line">                return;</span><br><span class="line">            &#125;</span><br><span class="line">            this.books.push(newBook);</span><br><span class="line">            this.bookName = &quot;&quot;;</span><br><span class="line">            this.author = &quot;&quot;;</span><br><span class="line">            this.price = &quot;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>最后总结一下吧：<br>1.vue的响应式渲染确实非常的好用，改变实例的属性就能动态渲染html页面<br>2.我还不太熟悉vue的写法，经常漏写逗号，写多了就好<br>3.今天还知道了一些新的数组函数，过会我把今天看的数组函数都列一下吧<br>4.总的来说vue还是非常便利的</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/20/2018_4_20_5_Javascript闭包问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/20/2018_4_20_5_Javascript闭包问题/" itemprop="url">javascript闭包问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-20T19:35:12+08:00">
-                2018-04-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>闭包这个问题，其实是我一直没有搞懂的，到现在为止也没有，但是我很早之前就遇到过闭包的问题，当时要给多个li绑定事件，为了方便我使用了for循环一个一个的给每个li绑定事件，但是，结果发现只有最后一个li绑定了事件，这个问题一直困扰着我，后来问了学长才知道，这个是闭包问题。后来用了立即执行函数才解决问题<br>直到现在我也不太明白闭包到底是个什么东西，但大概有个概念<br>就是变量作用域的问题，在函数外面访问不到函数内部变量，函数内部可以访问函数外部的变量，从而导致了闭包问题的产生<br>那么要怎么样才能在访问函数内部的变量呢，这里就是闭包的概念了，在函数内部写一个函数，当然能访问到函数的变量，然后再将变量做为返回值，这样函数外部就能访问到函数内部的变量了。。。。emmm，大概是这么个意思吧。</p>
-<p>前面是我个人对闭包的简单理解</p>
-<hr>
-<p>下面是借鉴dalao对闭包的理解:</p>
-<blockquote>
-<p>我的理解是，闭包就是能够读取其他函数内部变量的函数。</p>
-<p>由于在Javascript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解成”定义在一个函数内部的函数”。</p>
-<p>所以，在本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。</p>
-<p>闭包可以用在许多地方。它的最大用处有两个，一个是前面提到的可以读取函数内部的变量，另一个就是让这些变量的值始终保持在内存中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function f1()&#123;</span><br><span class="line"></span><br><span class="line">　　　　var n=999;</span><br><span class="line"></span><br><span class="line">　　　　nAdd=function()&#123;n+=1&#125;</span><br><span class="line"></span><br><span class="line">　　　　function f2()&#123;</span><br><span class="line">　　　　　　alert(n);</span><br><span class="line">　　　　&#125;</span><br><span class="line"></span><br><span class="line">　　　　return f2;</span><br><span class="line"></span><br><span class="line">　　&#125;</span><br><span class="line"></span><br><span class="line">　　var result=f1();</span><br><span class="line"></span><br><span class="line">　　result(); // 999</span><br><span class="line"></span><br><span class="line">　　nAdd();</span><br><span class="line"></span><br><span class="line">　　result(); // 1000</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>在这段代码中，result实际上就是闭包f2函数。它一共运行了两次，第一次的值是999，第二次的值是1000。这证明了，函数f1中的局部变量n一直保存在内存中，并没有在f1调用后被自动清除。</p>
-<p>为什么会这样呢？原因就在于f1是f2的父函数，而f2被赋给了一个全局变量，这导致f2始终在内存中，而f2的存在依赖于f1，因此f1也始终在内存中，不会在调用结束后，被垃圾回收机制（garbage collection）回收。</p>
-<p>这段代码中另一个值得注意的地方，就是”nAdd=function(){n+=1}”这一行，首先在nAdd前面没有使用var关键字，因此nAdd是一个全局变量，而不是局部变量。其次，nAdd的值是一个匿名函数（anonymous function），而这个匿名函数本身也是一个闭包，所以nAdd相当于是一个setter，可以在函数外部对函数内部的局部变量进行操作。</p>
-<p><strong>使用闭包的注意点</strong><br>1）由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。</p>
-<p>2）闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1164,7 +1154,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1177,7 +1167,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

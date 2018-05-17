@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-11T07:44:51.771Z</updated>
+  <updated>2018-05-17T06:55:59.829Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,77 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>less学习</title>
+    <link href="http://yoursite.com/2018/05/17/2018_5_17_2_less%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://yoursite.com/2018/05/17/2018_5_17_2_less学习/</id>
+    <published>2018-05-17T06:55:59.670Z</published>
+    <updated>2018-05-17T06:55:59.829Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Less 是一门 CSS 预处理语言，它扩充了 CSS 语言，增加了诸如变量、混合（mixin）、函数等功能，让 CSS 更易维护、方便制作主题、扩充。&lt;/p&gt;
+&lt;p&gt;Less 可以通过 npm 在命令行上运行；在浏览器上作为脚本文件下载；或者集成在广大的第三方工具内。&lt;/
+      
+    
+    </summary>
+    
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+      <category term="less" scheme="http://yoursite.com/tags/less/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ES6学习（二）</title>
+    <link href="http://yoursite.com/2018/05/17/2018_5_17_1_ES6%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <id>http://yoursite.com/2018/05/17/2018_5_17_1_ES6学习（二）/</id>
+    <published>2018-05-17T06:14:24.089Z</published>
+    <updated>2018-05-17T06:14:24.244Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;ES6新特性&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.箭头操作符（=&amp;gt;）&lt;/strong&gt;&lt;br&gt;操作符左边为输入的参数，而右边则是进行的操作以及返回的值Inputs=&amp;gt;outputs。&lt;br&gt;&lt;strong&gt;2.类的支持&lt;/strong&gt;&lt;br&gt;ES6中添加了对类的
+      
+    
+    </summary>
+    
+    
+      <category term="ECMAScript 6" scheme="http://yoursite.com/tags/ECMAScript-6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ES6学习</title>
+    <link href="http://yoursite.com/2018/05/17/2018_5_15_1_ES6%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://yoursite.com/2018/05/17/2018_5_15_1_ES6学习/</id>
+    <published>2018-05-17T06:03:57.765Z</published>
+    <updated>2018-05-17T06:03:57.980Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;ES6学习&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.let&lt;/strong&gt;&lt;br&gt;let与var都是变量声明的方式&lt;br&gt;let与var的区别&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;let是只在块级作用域（花括号）起作用&lt;/li&gt;
+&lt;li&gt;let不存在变量提升&lt;br&gt;“函数声明和变量声明总
+      
+    
+    </summary>
+    
+    
+      <category term="ECMAScript 6" scheme="http://yoursite.com/tags/ECMAScript-6/"/>
+    
+  </entry>
   
   <entry>
     <title>ife_2018 MVVM学院 3-1</title>
@@ -399,73 +470,6 @@
       <category term="webpack" scheme="http://yoursite.com/tags/webpack/"/>
     
       <category term="vue-cli" scheme="http://yoursite.com/tags/vue-cli/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>js数组函数</title>
-    <link href="http://yoursite.com/2018/04/21/2018_4_21_2_%E6%95%B0%E7%BB%84%E5%87%BD%E6%95%B0/"/>
-    <id>http://yoursite.com/2018/04/21/2018_4_21_2_数组函数/</id>
-    <published>2018-04-21T08:17:49.119Z</published>
-    <updated>2018-04-21T08:15:32.422Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;push：将参数添加到原数组末尾，并返回数组的长度   &lt;/p&gt;
-&lt;p&gt;concat：返回一个新数组，是将参数添加到原数组中构成的   &lt;/p&gt;
-&lt;p&gt;splice(start,deleteCount,val1,val2,…)：从start位置开始
-      
-    
-    </summary>
-    
-    
-      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue小练习_图书管理</title>
-    <link href="http://yoursite.com/2018/04/21/2018_4_21_1_vue%E7%BB%83%E4%B9%A0_%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86/"/>
-    <id>http://yoursite.com/2018/04/21/2018_4_21_1_vue练习_图书管理/</id>
-    <published>2018-04-21T08:17:45.767Z</published>
-    <updated>2018-04-21T08:32:29.972Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;这个是最后完成的样子&lt;br&gt;&lt;a href=&quot;https://frattinor.github.io/practice/Vue练习_图书管理&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;demo&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;昨天学习看完了基本的Vue.js的知
-      
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>javascript闭包问题</title>
-    <link href="http://yoursite.com/2018/04/20/2018_4_20_5_Javascript%E9%97%AD%E5%8C%85%E9%97%AE%E9%A2%98/"/>
-    <id>http://yoursite.com/2018/04/20/2018_4_20_5_Javascript闭包问题/</id>
-    <published>2018-04-20T11:35:12.942Z</published>
-    <updated>2018-04-20T11:40:27.669Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;闭包这个问题，其实是我一直没有搞懂的，到现在为止也没有，但是我很早之前就遇到过闭包的问题，当时要给多个li绑定事件，为了方便我使用了for循环一个一个的给每个li绑定事件，但是，结果发现只有最后一个li绑定了事件，这个问题一直困扰着我，后来问了学长才知道，这个是闭包问题。后
-      
-    
-    </summary>
-    
-    
-      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
     
   </entry>
   
