@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-24T11:38:47.485Z</updated>
+  <updated>2018-05-24T12:33:54.168Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>css定义高宽成比例</title>
+    <link href="http://yoursite.com/2018/05/24/2018_5_24_2_css%E5%81%9Adiv%E9%AB%98%E5%AE%BD%E6%88%90%E6%AF%94%E4%BE%8B/"/>
+    <id>http://yoursite.com/2018/05/24/2018_5_24_2_css做div高宽成比例/</id>
+    <published>2018-05-24T12:33:53.969Z</published>
+    <updated>2018-05-24T12:33:54.168Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天突然想写一个无缝的轮播图了，因为以前写的轮播图都不是无缝的，在结尾的地方会回滚回第一张图，所以就想试试除了设置外边距的方法来解决这个办法。&lt;br&gt;然后我就想啊，用绝对定位来把图片都放一起，然后要用到什么图片就给什么图片添加动画就好，然后发现一个问题，因为是绝对定位，所以
+      
+    
+    </summary>
+    
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+  </entry>
   
   <entry>
     <title>react学习</title>
@@ -445,30 +466,6 @@
       <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
     
       <category term="vue-router" scheme="http://yoursite.com/tags/vue-router/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CommonJS学习</title>
-    <link href="http://yoursite.com/2018/04/24/2018_4_24_2_CommonJS%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://yoursite.com/2018/04/24/2018_4_24_2_CommonJS学习/</id>
-    <published>2018-04-24T13:29:28.824Z</published>
-    <updated>2018-04-24T13:28:44.874Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;今天学习了webpack的使用，虽然一知半解，但也还算有所收获，同时了解到webpack是以commonjs的形式来书写脚本的，然后node应用也采用commonjs模块规范，所以就来学习一下commonjs&lt;/p&gt;
-&lt;p&gt;1.概述&lt;br&gt;每个文件就是一个模块，有自己的作用
-      
-    
-    </summary>
-    
-    
-      <category term="node" scheme="http://yoursite.com/tags/node/"/>
-    
-      <category term="commonjs" scheme="http://yoursite.com/tags/commonjs/"/>
     
   </entry>
   

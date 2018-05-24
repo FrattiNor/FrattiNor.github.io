@@ -296,6 +296,142 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/05/2018_5_5_3_豆瓣电影搜索vue项目改善/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/05/2018_5_5_3_豆瓣电影搜索vue项目改善/" itemprop="url">vue项目-豆瓣电影搜索-完善</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-05T22:24:00+08:00">
+                2018-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>上次我写了这个豆瓣电影搜索的vue项目，最后完成的时候，发现打包后放到github上，不能获取到ajax的结果，原因呢我具体也不明白，大概就是存在跨域问题，上次我搜索跨域问题怎么解决，都是说反向代理什么的，我完全一脸懵逼啊，今天得知有另一种解决跨域问题的方法jsonp，所以我就对我的代码进行了完善，功夫不负有心人，终于能在github上正常访问我这个项目了<br><a href="https://frattinor.github.io/vue-project/douban-movie-api/myDist/#/" target="_blank" rel="noopener">demo</a></p>
+<p>首先呢说一下什么是jsonp，我只明白大概的意思<br>就是普通的ajax跨域请求会存在跨域问题，但是通过src来获取跨域资源不存在跨域问题，就像cdn，jsonp就是类似于这种的这个方法，我就知道怎么多了<br>我原来是用的axios来进行请求的，但是axios不支持jsonp格式，所以我就打算使用jquery的ajax来实现jsonp格式资源返回，<br>然后遇到一个问题，就是vue项目里直接在html里引入jquery.js是不行的，解决办法如下，具体什么意思，我还不明白</p>
+<blockquote>
+<p>1：首先安装jquery<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install jquery --save</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>2：在webpack.base.conf.js里加入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var webpack = require(&quot;webpack&quot;)</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>3：在module.exports的最后加入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">plugins: [  </span><br><span class="line"> new webpack.optimize.CommonsChunkPlugin(&apos;common.js&apos;),  </span><br><span class="line"> new webpack.ProvidePlugin(&#123;  </span><br><span class="line">     jQuery: &quot;jquery&quot;,  </span><br><span class="line">     $: &quot;jquery&quot;  </span><br><span class="line"> &#125;)  </span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>4：在main.js中引入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import $ from &apos;jquery&apos;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>然后就可以正常使用jquery了</p>
+<p>然后就是重写api.js文件（这里写了如何请求）<br>我其实对ajax完全不会的<br>今天也是看着文档写的，然后有了一个大概的认识<br>最后是对Promise的认识，Promise好像在网络传输方面是个神器<br>看来我还是需要对http这一块好好的学一下</p>
+<p>最后附上我的ajax请求jsonp格式的函数吧<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function fetch(url) &#123;</span><br><span class="line">    return new Promise((resolve, reject)=&gt; &#123;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">           type: &quot;GET&quot;,</span><br><span class="line">           url: url,</span><br><span class="line">           async: false,</span><br><span class="line">           dataType: &quot;jsonp&quot;,</span><br><span class="line">           success: function(msg)&#123;</span><br><span class="line">                resolve(msg);</span><br><span class="line">                console.log(msg);</span><br><span class="line">           &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/05/2018_5_5_2_ife_2018_mvvm学院_2.1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -840,142 +976,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/03/2018_5_3_3_ife_2018_设计师学院_No.4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/03/2018_5_3_3_ife_2018_设计师学院_No.4/" itemprop="url">ife_2018 设计师学院 No.4</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-03T21:54:51+08:00">
-                2018-05-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>No.4 - 3D 空间的卡片翻转动效</p>
-<p>任务四<br><a href="https://frattinor.github.io/IFE_2018/css/No.4/" target="_blank" rel="noopener">demo</a></p>
-<p>任务要求：<br>通过 CSS 实现一个卡片翻转的效果。</p>
-<p><strong>我的思路</strong></p>
-<ol>
-<li>首先先写一个div装“卡牌”</li>
-<li>在div里写一个div代表卡牌</li>
-<li>在卡牌div里写2个div代表卡牌的正面和反面</li>
-<li>在css里给卡牌div加个hover翻转180度</li>
-</ol>
-<p>我觉得差不多就完成了</p>
-<p><strong>遇到的问题</strong><br>翻转前后反面一直被覆盖，所以翻转前后都是正面</p>
-<p><strong>解决办法</strong><br>这个问题我修改了很多的css样式都不行，要不是没有效果就是效果突兀，没办法过渡，最后去百度了一下发现需要加2个属性<br>给卡牌添加<br>transform-style: preserve-3d;<br>使被转换的子元素保留其 3D 转换<br>给正面div加<br>backface-visibility:hidden;<br>时其背面变透明<br>缺一不可<br>因为需要在3d状态背面透明才会生效</p>
-<p><strong>遇到的问题2</strong><br>前面确实可以实现翻转效果<br>但是非常的平面，2d的感觉，没有3d的感觉</p>
-<p><strong>解决办法</strong><br>这个问题我以前也遇到过，当时我的解决办法是使其3d状态沿x轴转30度，但是会产生上小下大的视觉效果，但确实是有3d的效果，但肯定不是最好的<br>然后今天看见了更好的解决办法是给卡牌添加属性<br>perspective: 1200px;<br>设置元素被查看位置的视图，大概是让元素和屏幕产生距离的视觉效果吧<br>这样看起来有3d的效果</p>
-<p>最后附上代码<br>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/mycss.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;box&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;card&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;false&quot;&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;true&quot;&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;js/myjs.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
-<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">    margin: 0;</span><br><span class="line">    padding: 0;</span><br><span class="line">&#125;</span><br><span class="line">.box&#123;</span><br><span class="line">    perspective: 1200px;</span><br><span class="line">    margin: 20px;</span><br><span class="line">    text-align: center;</span><br><span class="line">&#125;</span><br><span class="line">.card&#123;</span><br><span class="line">    transform-style: preserve-3d;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    width: 250px;</span><br><span class="line">    height: 350px;</span><br><span class="line">    transition:transform 1s ease-in-out;</span><br><span class="line">&#125;</span><br><span class="line">.true&#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    width: 250px;</span><br><span class="line">    height: 350px;</span><br><span class="line">    background: url(../img/true.jpg);</span><br><span class="line">    backface-visibility:hidden;</span><br><span class="line">&#125;</span><br><span class="line">.false&#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    width: 250px;</span><br><span class="line">    height: 350px;</span><br><span class="line">    transform: rotateY(180deg);</span><br><span class="line">    background: url(../img/false.jpg);</span><br><span class="line">&#125;</span><br><span class="line">.card:hover&#123;</span><br><span class="line">    transform: rotateY(180deg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1026,7 +1026,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
