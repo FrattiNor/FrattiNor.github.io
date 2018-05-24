@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-17T06:55:59.829Z</updated>
+  <updated>2018-05-24T11:38:47.485Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>react学习</title>
+    <link href="http://yoursite.com/2018/05/24/2018_5_24_1_React%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://yoursite.com/2018/05/24/2018_5_24_1_React学习/</id>
+    <published>2018-05-24T11:38:47.179Z</published>
+    <updated>2018-05-24T11:38:47.485Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;React&lt;br&gt;React 是一个用于构建用户界面的 JAVASCRIPT 库&lt;br&gt;React主要用于构建UI&lt;br&gt;React 拥有较高的性能，代码逻辑非常简单&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;React 特点&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;声明式设计 −
+      
+    
+    </summary>
+    
+    
+      <category term="react" scheme="http://yoursite.com/tags/react/"/>
+    
+  </entry>
   
   <entry>
     <title>less学习</title>
@@ -445,31 +469,6 @@
       <category term="node" scheme="http://yoursite.com/tags/node/"/>
     
       <category term="commonjs" scheme="http://yoursite.com/tags/commonjs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>webpack和vue-cli学习</title>
-    <link href="http://yoursite.com/2018/04/24/2018_4_24_1_vue-cli%E5%92%8Cwebpack%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://yoursite.com/2018/04/24/2018_4_24_1_vue-cli和webpack学习/</id>
-    <published>2018-04-24T06:43:24.600Z</published>
-    <updated>2018-04-24T06:42:40.487Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;前几天学习了Vue.js，使用起来确实是非常的便捷，不需要自己手动的去操作DOM，只需要改变数据就能实现DOM的改变。&lt;br&gt;然后我搜了一下Vue相关的项目，本来是打算自己先做着试试的，结果发现完全看不懂啊，一个完整的项目涉及到的东西还是非常的多。&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;
-      
-    
-    </summary>
-    
-    
-      <category term="webpack" scheme="http://yoursite.com/tags/webpack/"/>
-    
-      <category term="vue-cli" scheme="http://yoursite.com/tags/vue-cli/"/>
     
   </entry>
   
