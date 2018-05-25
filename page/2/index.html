@@ -296,6 +296,201 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/17/2018_5_15_1_ES6学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/17/2018_5_15_1_ES6学习/" itemprop="url">ES6学习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-17T14:03:57+08:00">
+                2018-05-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>ES6学习</p>
+<p><strong>1.let</strong><br>let与var都是变量声明的方式<br>let与var的区别</p>
+<ol>
+<li>let是只在块级作用域（花括号）起作用</li>
+<li>let不存在变量提升<br>“函数声明和变量声明总是会被解释器悄悄地被”提升”到方法体的最顶部”</li>
+<li><p>let存在暂时性死区<br>“要块级作用域存在let命令，它所声明的变量就绑定在这个区域，不再受外部影响”<br>（外部声明的相同变量不会影响到块级作用域内部）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">&#123;</span><br><span class="line">	var a;</span><br><span class="line">	&#123;</span><br><span class="line">		console.log(a) //undefined</span><br><span class="line">		let a = 100;</span><br><span class="line">		console.log(a) //100</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>let不允许重复声明<br>“同一个块级作用域内不允许声明相同变量”</p>
+</li>
+</ol>
+<p><strong>2.块级作用域</strong><br>es5只有全局作用域和函数作用域<br>es6多了块级作用域（let实际上为js新增了块级作用域）<br>没有块级作用域时可能造成的不合理现象：</p>
+<ol>
+<li>内层变量覆盖外层变量</li>
+<li>计数的变量泄露为全局变量（浪费内存）</li>
+</ol>
+<p>块级作用域的作用：<br>有块级作用域不用立即执行函数了</p>
+<p><strong>3.const</strong></p>
+<ol>
+<li>const用来声明常量</li>
+<li>const也会产生块级作用域</li>
+<li>const也存在暂时性死区</li>
+<li>const也不可重复声明</li>
+<li>const一旦声明不可改变，但是const数组和对象，可以对内部的值进行赋值。</li>
+<li>const对象冻结</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cosnt obj = Object.freeze(&#123;</span><br><span class="line">		name: &quot;ZhangSan&quot;,</span><br><span class="line">		age: 30</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>彻底冻结对象<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var constantize = (obj) =&gt; &#123;</span><br><span class="line">        Object.freeze(obj);</span><br><span class="line">        Object.keys(obj).forEach(</span><br><span class="line">            (key,value) =&gt; &#123;</span><br><span class="line">                if(typeof obj[key] === &apos;object&apos;)&#123;</span><br><span class="line">                    constantize(obj[key]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>即对象的属性也是对象时重新调用函数，冻结对象的对象属性并且检查对象属性的属性</p>
+<p><strong>4.跨模块常量</strong><br>module.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export const Name = &quot;name&quot;;</span><br><span class="line">export const Age = 30;</span><br></pre></td></tr></table></figure></p>
+<p>use_1.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import * as Use from &quot;./module&quot;;</span><br><span class="line">console.log(Use.Name);</span><br><span class="line">console.log(Use.Age);</span><br></pre></td></tr></table></figure></p>
+<p>use_2.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import &#123;Name&#125; as Use from &quot;./module&quot;;</span><br><span class="line">console.log(Use.Name);</span><br></pre></td></tr></table></figure></p>
+<p>这个跟vue里的模块一样的用法</p>
+<p><strong>5.全局变量的属性</strong><br>全局对象是最顶层的对象，浏览器环境指的是window对象，在Node.js指的是global对象。<br>ES6规定，var命令和function命令声明的全局变量，属于全局对象的属性，let，const和class命令声明的全局变量，不属于全局对象的属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var newName = &quot;name&quot;;</span><br><span class="line">console.log(window.newName); //name</span><br><span class="line">let newName_2 = &quot;name2&quot;;</span><br><span class="line">console.log(window.newName_2); //undefined</span><br></pre></td></tr></table></figure>
+<p><strong>6.解构赋值</strong><br>ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构赋值（Destructuring）</p>
+<p>数组结构赋值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let [x,y] = [1,2];</span><br><span class="line">console.log(x); // 1</span><br><span class="line">console.log(y); // 2</span><br></pre></td></tr></table></figure></p>
+<p>也就是说左边的变量匹配右边的值</p>
+<p><strong>7.不完全解构</strong><br>等号左边的模式，只匹配一部分的等号右边的数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let [x,y] = [1,2,3];</span><br><span class="line">    console.log(x); // 1</span><br><span class="line">    console.log(y); // 2</span><br><span class="line">    let [a,b,c] = [1,2];</span><br><span class="line">    console.log(a); // 1</span><br><span class="line">    console.log(b); // 2</span><br><span class="line">    console.log(c); // undefined</span><br></pre></td></tr></table></figure>
+<p><strong>8.指定默认值</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let [temp = &quot;string&quot;] = [];</span><br><span class="line">console.log(temp); // string</span><br><span class="line">let [temp2 = &quot;string&quot;] = [&quot;newString&quot;];</span><br><span class="line">console.log(temp2); // newString</span><br></pre></td></tr></table></figure>
+<p>只要某种数据解构具有lterator借口，都可以采用数组形式的结构赋值</p>
+<p><strong>9.对象的结构赋值</strong><br>对象的属性没有次序，变量必须与属性名同名才能取到正确的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let node = &#123;</span><br><span class="line">    type: &quot;Identifier&quot;,</span><br><span class="line">    name: &quot;foo&quot;</span><br><span class="line">&#125;,</span><br><span class="line">(&#123; type, name &#125; = node);</span><br><span class="line">console.log(type); // &quot;Identifier&quot;</span><br><span class="line">console.log(name); // &quot;foo&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>10.对象的结构赋值指定默认值</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var &#123;x = 3&#125; = &#123;&#125;;</span><br><span class="line">console.log(x); // 3</span><br><span class="line">var &#123;msg = &quot;you are a person&quot;&#125; = &#123;&#125;;</span><br><span class="line">console.log(msg);// you are a person</span><br></pre></td></tr></table></figure></p>
+<p>默认值生效的条件是，对象的属性严格等于undefined</p>
+<p><strong>11.现有对象的方法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">console.log(Math.sin(Math.PI/6)); // 0.4999999</span><br><span class="line"></span><br><span class="line">let &#123;sin,cos,tan,log&#125; = Math;</span><br><span class="line">console.log(sin(Math.PI/6)); // 0.4999999</span><br></pre></td></tr></table></figure>
+<p><strong>12.字符串的解构赋值</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const [a,b,c,d,c] = &quot;hello&quot;;</span><br><span class="line">console.log(a); // h</span><br><span class="line">console.log(b); // e</span><br><span class="line">console.log(c); // l</span><br><span class="line">console.log(d); // l</span><br><span class="line">console.log(e); // o</span><br></pre></td></tr></table></figure></p>
+<p>类似与数组的解构赋值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const &#123;length: len&#125; = &quot;HELLO&quot;;</span><br><span class="line">console.log(len); // 5</span><br><span class="line">const &#123;length&#125; = &quot;</span><br><span class="line">HELLO WORLD&quot; ;</span><br><span class="line">console.log(length); // 12</span><br></pre></td></tr></table></figure></p>
+<p>字符串解构赋值可以取出长度</p>
+<p><strong>13.函数参数的解构赋值</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function sum ([x,y]) &#123;</span><br><span class="line">	return x+y;</span><br><span class="line">&#125;;</span><br><span class="line">console.log(sum([1,2])); // 3</span><br></pre></td></tr></table></figure></p>
+<p>函数声明时的参数和对应使用时赋予的参数是对应的，就可以解构赋值</p>
+<p><strong>14.函数参数的解构赋值的默认值</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function fun (&#123;x = 0, y = 0&#125; = &#123;&#125;)&#123;</span><br><span class="line">        return [x,y];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(fun(&#123;x:100, y:200&#125;)); // [100,200]</span><br><span class="line">console.log(fun(&#123;x:100&#125;)); // [100,0]</span><br><span class="line">console.log(fun(&#123;&#125;)); // [0,0]</span><br><span class="line">console.log(fun()); // [0,0]</span><br></pre></td></tr></table></figure>
+<p><strong>15.解构赋值的用途</strong></p>
+<ol>
+<li><p>交换变量的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let x = 100;</span><br><span class="line">let y = 200;</span><br><span class="line">[x,y] = [y,x]; </span><br><span class="line">console.log(x); // 200</span><br><span class="line">console.log(y); // 100</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数返回多个值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function fun()&#123;</span><br><span class="line">	return [1,2,3];</span><br><span class="line">&#125;</span><br><span class="line">let [x,y,z] = fun();</span><br><span class="line">console.log(x); // 1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数参数的定义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function fun ([x,y,z])&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br><span class="line">function fun2 (&#123;id, name, age&#125;)&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>提取json数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let jsonDate = &#123;</span><br><span class="line">	id: &quot;007&quot;,</span><br><span class="line">	age: &quot;30&quot;,</span><br><span class="line">	number: &quot;200&quot;</span><br><span class="line">&#125;</span><br><span class="line">let &#123;id, age, number&#125; = jsonDate;</span><br><span class="line">console.log(id); // 007</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>遍历map解构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">let map = new Map();</span><br><span class="line">map.set(&quot;id&quot;,&quot;007&quot;);</span><br><span class="line">map.set(&quot;name&quot;,&quot;myName&quot;);</span><br><span class="line"></span><br><span class="line">console.log(map);</span><br><span class="line">console.log(typeof(map));</span><br><span class="line">for(let [key, value] of map)&#123;</span><br><span class="line">	console.log(key + &quot;:&quot; + value);</span><br><span class="line">&#125;;</span><br><span class="line">for(let [key] of map) &#123;</span><br><span class="line">	console.log(key);</span><br><span class="line">&#125;</span><br><span class="line">for(let [,value] of map) &#123;</span><br><span class="line">	console.log(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/11/2018_5_10_1ife_2018 MVVM学院 3-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -820,140 +1015,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/08/2018_5_8_1_ife_2018 MVVM学院 2-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/08/2018_5_8_1_ife_2018 MVVM学院 2-2/" itemprop="url">ife_2018 MVVM学院 2-2</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-08T23:06:43+08:00">
-                2018-05-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>2.2 条件和循环</p>
-<p><a href="https://frattinor.github.io/IFE_2018/mvvm/myDist-2-2/" target="_blank" rel="noopener">demo</a></p>
-<p>使用循环指令渲染表格<br>根据不同的审核状态值，显示对应的状态文案和操作按钮<br>点击「添加」按钮，增加一条数据项；点击「删除」按钮，删除该条数据；点击「审核」按钮，将审核状态修改为合格</p>
-<p><strong>我的思路</strong></p>
-<ol>
-<li>先建立一个添加button，绑定add_1函数，add_1显示新建的tr</li>
-<li>再建立一个table，tbody里用v-for循环渲染数据</li>
-<li>在tbody最后建一个tr，tr第一个td写input，第二个写select，第三个写添加button，绑定add_2函数，add_2把输入的数据添加到data里</li>
-<li>最后给循环的数据的每个button绑定del函数，del函数判断按钮的值来实现修改审核状态或删除数据</li>
-</ol>
-<p><strong>我遇到的问题</strong><br>1 其实我在写添加最后一行tr也就是要填写数据的哪一行，我想了很多种办法，但是都不可行，第一种给数据里多添加一个read数据，然后在td里写input，用v-bind绑定readonly，但是发现去除readonly太麻烦了，而且在vue可以去除但是还是会报错，我不是很明白，而且select不知道应该怎么加。所以被排除了，第二种我是动态创建tr元素 ，在tr里添加啊3个td，最后把tr添加到tbody里，但是发现新建的元素不能继承css里样式，而且一个一个新建元素也是非常的麻烦，尤其是select，所以排除，修改这2个方法我就用了块一个晚上了。</p>
-<p>解决办法：<br>最后决定在循环下面加一个tr，用v-if=“show”隐藏掉，给上面的添加按钮修改this.show = true，在下面的添加按钮修改this.show = false，这样代码也短也易于修改。</p>
-<p>2 获取select被选中的数值麻烦而且报错</p>
-<p>解决办法：<br>我是重新自己用ul和li模仿了一个select来显示的，而且获取值比较容易</p>
-<p>最后附上我的代码<br>vue<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;div class=&quot;mvvm22&quot;&gt;</span><br><span class="line">  &lt;button v-on:click=&quot;add_1&quot; class=&quot;mvvm22_button&quot;&gt;添加&lt;/button&gt;</span><br><span class="line">  &lt;table class=&quot;mvvm22_table&quot;&gt;</span><br><span class="line">    &lt;thead&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;姓名&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;审核状态&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;操作&lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">    &lt;/thead&gt;</span><br><span class="line">    &lt;tbody&gt;</span><br><span class="line">      &lt;tr v-for=&quot;item in mvvm22&quot;&gt;</span><br><span class="line">        &lt;td&gt;&#123;&#123;item.name&#125;&#125;&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;&#123;&#123;item.status&#125;&#125;&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;&lt;button  v-bind:id=&quot;item.index&quot; v-on:click=&quot;shordel&quot; class=&quot;mvvm22_button&quot;&gt;&#123;&#123;item.operating&#125;&#125;&lt;/button&gt;&lt;/td&gt;</span><br><span class="line">      &lt;/tr&gt;</span><br><span class="line">      &lt;tr id=&quot;new_tr&quot;  v-if=&quot;show&quot;&gt;</span><br><span class="line">        &lt;td&gt;&lt;input type=&quot;text&quot; /&gt;&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;</span><br><span class="line">            &lt;div v-on:click=&quot;more&quot; class=&quot;mvvm22_select&quot;&gt;</span><br><span class="line">                &lt;span class=&quot;mvvm22_span right&quot;&gt;&amp;lt&lt;/span&gt;</span><br><span class="line">                &lt;ul class=&quot;mvvm22_ul&quot;&gt;</span><br><span class="line">                    &lt;li id=&quot;selected&quot;&gt;&lt;/li&gt;</span><br><span class="line">                    &lt;li v-on:click=&quot;mm22_select&quot; v-for=&quot;option in select&quot;&gt;&#123;&#123;option&#125;&#125;&lt;/li&gt;</span><br><span class="line">                &lt;/ul&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/td&gt;</span><br><span class="line">        &lt;td&gt;&lt;button v-on:click=&quot;add_2&quot; class=&quot;mvvm22_button&quot;&gt;添加&lt;/button&gt;&lt;/td&gt;</span><br><span class="line">      &lt;/tr&gt;</span><br><span class="line">    &lt;/tbody&gt;</span><br><span class="line">  &lt;/table&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">            index: &quot;6&quot;,</span><br><span class="line">            show: false,</span><br><span class="line">            mvvm22:[</span><br><span class="line">                &#123;</span><br><span class="line">                    name: &quot;张三&quot;,</span><br><span class="line">                    status: &quot;合格&quot;,</span><br><span class="line">                    operating: &quot;删除&quot;,</span><br><span class="line">                    index: &quot;1&quot;,</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    name: &quot;李四&quot;,</span><br><span class="line">                    status: &quot;不合格&quot;,</span><br><span class="line">                    operating: &quot;删除&quot;,</span><br><span class="line">                    index: &quot;2&quot;,</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    name: &quot;王五&quot;,</span><br><span class="line">                    status: &quot;待审核&quot;,</span><br><span class="line">                    operating: &quot;审核&quot;,</span><br><span class="line">                    index: &quot;3&quot;,</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    name: &quot;赵六&quot;,</span><br><span class="line">                    status: &quot;待审核&quot;,</span><br><span class="line">                    operating: &quot;审核&quot;,</span><br><span class="line">                    index: &quot;4&quot;,</span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    name: &quot;孙七&quot;,</span><br><span class="line">                    status: &quot;待审核&quot;,</span><br><span class="line">                    operating: &quot;审核&quot;,</span><br><span class="line">                    index: &quot;5&quot;,</span><br><span class="line">                &#125;,</span><br><span class="line">            ],</span><br><span class="line">            select:[</span><br><span class="line">                &quot;合格&quot;,</span><br><span class="line">                &quot;不合格&quot;,</span><br><span class="line">                &quot;待审核&quot;,</span><br><span class="line">            ],</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        add_1()&#123;</span><br><span class="line">            this.show = true;</span><br><span class="line">        &#125;,</span><br><span class="line">        add_2()&#123;</span><br><span class="line">            let mvvm22_new = new Object();</span><br><span class="line">            let new_tr = document.getElementById(&quot;new_tr&quot;);</span><br><span class="line">            let new_name = new_tr.getElementsByTagName(&quot;td&quot;)[0].getElementsByTagName(&quot;input&quot;)[0].value;</span><br><span class="line">            let new_status = document.getElementById(&quot;selected&quot;);</span><br><span class="line">            mvvm22_new.name = new_name;</span><br><span class="line">            mvvm22_new.status = new_status.innerHTML;</span><br><span class="line">            if(mvvm22_new.status == &quot;合格&quot; || mvvm22_new.status == &quot;不合格&quot;)&#123;</span><br><span class="line">                mvvm22_new.operating = &quot;删除&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                mvvm22_new.operating = &quot;审核&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">            if(mvvm22_new.name == &quot;&quot;|| mvvm22_new.status == &quot;&quot;)&#123;</span><br><span class="line">                alert(&quot;姓名为空或审核状态没有选择&quot;);</span><br><span class="line">                return;</span><br><span class="line">            &#125;</span><br><span class="line">            mvvm22_new.index = this.index;</span><br><span class="line">            this.mvvm22.push(mvvm22_new);</span><br><span class="line">            this.index++;</span><br><span class="line">            this.show = false;</span><br><span class="line">        &#125;,</span><br><span class="line">        more()&#123;</span><br><span class="line">            let span = document.getElementsByClassName(&quot;mvvm22_span&quot;)[0];</span><br><span class="line">            if(span.getAttribute(&quot;class&quot;) == &quot;mvvm22_span right&quot;)&#123;</span><br><span class="line">                span.setAttribute(&quot;class&quot;,&quot;mvvm22_span down&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                span.setAttribute(&quot;class&quot;,&quot;mvvm22_span right&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            let ull = document.getElementsByClassName(&quot;mvvm22_ul&quot;)[0];</span><br><span class="line">            if(ull.style.height != &quot;112px&quot;)&#123;</span><br><span class="line">                ull.style.height = &quot;112px&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                ull.style.height = &quot;26px&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        mm22_select(event)&#123;</span><br><span class="line">            let _this = event.target;</span><br><span class="line">            let select = document.getElementById(&quot;selected&quot;);</span><br><span class="line">            select.innerHTML = _this.innerHTML;</span><br><span class="line">        &#125;,</span><br><span class="line">        shordel(event)&#123;</span><br><span class="line">            let _this = event.target;</span><br><span class="line">            if(_this.innerHTML == &quot;删除&quot;)&#123;</span><br><span class="line">                let new_index;</span><br><span class="line">                for(let i = 0;i &lt; this.mvvm22.length;i++)&#123;</span><br><span class="line">                    if(this.mvvm22[i].index == _this.id)&#123;</span><br><span class="line">                        this.mvvm22.splice(i,1);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                let new_index;</span><br><span class="line">                for(let i = 0;i &lt; this.mvvm22.length;i++)&#123;</span><br><span class="line">                    if(this.mvvm22[i].index == _this.id)&#123;</span><br><span class="line">                        this.mvvm22[i].status = &quot;合格&quot;;</span><br><span class="line">                        this.mvvm22[i].operating = &quot;删除&quot;;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    watch:&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- Add &quot;scoped&quot; attribute to limit CSS to this component only --&gt;</span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">.mvvm22&#123;</span><br><span class="line">    margin: auto;</span><br><span class="line">    width: 600px;</span><br><span class="line">    border: 1px;</span><br><span class="line">    text-align: left;</span><br><span class="line">    padding: 10px;</span><br><span class="line">    height: 600px;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm22_button&#123;</span><br><span class="line">    padding: 5px 15px;</span><br><span class="line">    margin: 5px;</span><br><span class="line">    border: 1px solid #ddd;</span><br><span class="line">    outline: none;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm22_button:active&#123;</span><br><span class="line">    border: 1px solid #36f;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm22_table&#123;</span><br><span class="line">    margin: 5px;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm22_table,.mvvm22_table td&#123;</span><br><span class="line">    border: 1px solid #ddd;</span><br><span class="line">    border-collapse: collapse;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm22_table thead td&#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    text-align: center;</span><br><span class="line">    padding: 5px;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm22_table tbody td&#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    text-align: center;</span><br><span class="line">    padding: 10px;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm22 input[type=&quot;text&quot;]&#123;</span><br><span class="line">    font-size: 16px;</span><br><span class="line">    width: 120px;</span><br><span class="line">    border: 0;</span><br><span class="line">    text-align: center;</span><br><span class="line">    outline: none;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm22_select&#123;</span><br><span class="line">    cursor: pointer;</span><br><span class="line">    font-size: 16px;</span><br><span class="line">    border: 1px solid #ddd;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 16px;</span><br><span class="line">    margin: auto;</span><br><span class="line">    padding: 5px;</span><br><span class="line">    text-align: right;</span><br><span class="line">    /*overflow: hidden;*/</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm22_span&#123;</span><br><span class="line">    display: block;</span><br><span class="line">    width: 10px;</span><br><span class="line">    float: right;</span><br><span class="line">    user-select: none;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">    transform: rotate(0deg);</span><br><span class="line">&#125;</span><br><span class="line">.down&#123;</span><br><span class="line">    transform: rotate(-90deg);</span><br><span class="line">&#125;</span><br><span class="line">.mvvm22_ul&#123;</span><br><span class="line">    list-style-type: none;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    height: 26px;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    background-color: #fff;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm22_ul li&#123;</span><br><span class="line">    display: block;</span><br><span class="line">    width: 80px;</span><br><span class="line">    height: 16px;</span><br><span class="line">    padding: 5px;</span><br><span class="line">    border: 1px solid #ddd;</span><br><span class="line">    border-top: 0;</span><br><span class="line">    text-align: center;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1004,7 +1065,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
