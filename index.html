@@ -296,6 +296,159 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/25/2018_5_25_2_react-router学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/25/2018_5_25_2_react-router学习/" itemprop="url">React-router</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-25T18:17:35+08:00">
+                2018-05-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>react-router应该是react的路由插件吧，就跟vue-router一样，用来实现页面的跳转功能</p>
+<p><strong>安装</strong><br>React Router已被拆分成三个包：react-router,react-router-dom和react-router-native。你不需要直接安装react-router，react-router包提供核心的路由组件与函数。其余两个提供运行环境（浏览器与react-native）所需的特定组件，但是他们都暴露出react-router中暴露的对象与方法。你应该为你的环境选择正确的包。我们进行的是网站（将会运行在浏览器）构建，所以应安装react-router-dom。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -save react-router-dom</span><br></pre></td></tr></table></figure></p>
+<p><strong>Router</strong><br>当进行新项目时，你需要选择使用哪种路由。对于浏览器项目（网站），react-router4提供了<code>&lt;BrowserRouter&gt;</code>和<code>&lt;HashRouter&gt;</code>两个组件。前者在你有服务器处理动态请求的时候使用，后者在静态网站的时候使用。<br>通常我们选择使用<code>&lt;BrowserRouter&gt;</code>，但是如果你的网站将运行在只有静态文件的服务器上，<code>&lt;HashRouter&gt;</code>是一个不错的方案。</p>
+<p>区别：</p>
+<blockquote>
+<p>hashHistory 使用 URL 中的 hash（#）部分去创建路由，举例来说，用户访问<a href="http://www.example.com/，实际会看到的是http://www.example.com/#/。" target="_blank" rel="noopener">http://www.example.com/，实际会看到的是http://www.example.com/#/。</a></p>
+<p>browserHistory 是使用 React-Router 的应用推荐的 history方案。它使用浏览器中的 History API 用于处理 URL，创建一个像example.com/list/123这样真实的 URL 。</p>
+</blockquote>
+<p>虽然不是太懂，大概的意思就是hash是跟原来学vue-router一样的，browser是实际存在的url。。。</p>
+<p><strong>History</strong><br>每种路由都会创建history对象，用来追踪当前的location<br>并在网站变化的时候重新渲染。React Router提供的其它的组件都依赖于上下文中的history对象，所以必须在组件内部渲染。<br>一个React Router组件如果没有父级组件将不会工作。</p>
+<p><strong>渲染一个<code>&lt;Router&gt;</code></strong></p>
+<p>由于Router组件只能接收一个子元素，因为这个限制，我们创建一个<code>&lt;App&gt;</code>组件来渲染我们的应用（从路由中分离应用对于服务器端渲染也是很重要的，因为在服务器端渲染，切换到<code>&lt;MemoryRouter&gt;</code>的时候可以复用<code>&lt;App&gt;</code>）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import &#123; BrowserRouter &#125; from &apos;react-router-dom&apos;</span><br><span class="line">ReactDOM.render((</span><br><span class="line">    &lt;BrowserRouter&gt;</span><br><span class="line">        &lt;App &gt;&lt;/App&gt;</span><br><span class="line">    &lt;/BrowserRouter&gt;</span><br><span class="line">), document.getElementById(&apos;root&apos;))</span><br></pre></td></tr></table></figure>
+<p>=<br>我们的应用写在<code>&lt;App&gt;</code>组件中。为了简化，我们将分离我们的应用到两部分，<code>&lt;Header&gt;</code>组件将包含网站的导航链接，<code>&lt;Main&gt;</code>组件用于渲染剩下的内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// this component will be rendered by our &lt;___Router&gt;</span><br><span class="line">const App = () =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;Header /&gt;</span><br><span class="line">    &lt;Main /&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<p><strong>路由 Route</strong><br><code>&lt;Route&gt;</code>组件是React Router的主要构件模块，任何你想渲染的与pathname匹配的地方，你都应该创建一个<code>&lt;Route&gt;</code>元素。</p>
+<p><strong>路径 Path</strong><br>一个<code>&lt;Route&gt;</code>需要一个path的字符串参数来描述路由匹配的路径名类型，例如，<route path="/roster">应该匹配以/roster开头的路径名。 当前位置的路径与path匹配时，路由将渲染一个React元素。 当路径不匹配时，路由将不会渲染任何东西。</route></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route path=&apos;/roster&apos; /&gt;</span><br><span class="line">// 当前路径是   &apos;/&apos;, 不满足匹配</span><br><span class="line">// 当前路径是   &apos;/roster&apos; 或 &apos;/roster/2&apos;, 满足匹配</span><br><span class="line">// 如果只想匹配 &apos;/roster&apos;, 需要使用&quot;exact&quot;参数</span><br><span class="line">// 下面的会匹配 &apos;/roster&apos;, 但是不会匹配&apos;/roster/2&apos;.</span><br></pre></td></tr></table></figure>
+<p><strong>匹配路径</strong><br>path-to-regexp包用于确定路径元素的path参数是否与当前位置匹配。它将path字符串编译为一个正则表达式，该正则表达式将与该位置的路径名相匹配。path字符串具有比此处所述更高级的格式选项。你可以在正则表达式文档路径中阅读它们。<br>当路径的路径匹配时，将创建一个具有以下属性的匹配对象：</p>
+<blockquote>
+<p>url - 当前位置路径名的匹配部分<br>path  - 路由的路径<br>isExact - path是否等于pathname<br>params - 一个包含path-to-regexp捕获的路径名值的对象</p>
+</blockquote>
+<p><strong>创建路由</strong><br>可以在路由内部的任何位置创建<code>&lt;Route&gt;</code>，但是通常在同一地方渲染它们。你可以使用<code>&lt;Switch&gt;</code>组件来包裹一组<code>&lt;Route&gt;</code>。 <code>&lt;Switch&gt;</code>将迭代其子元素（路由），并仅渲染与当前路径名匹配的第一个元素。</p>
+<p><strong><code>&lt;Route&gt;</code>怎么渲染？</strong><br>当path匹配时，<code>&lt;Route&gt;</code>有三个参数可用于定义什么该被渲染。但是只能提供一个给<code>&lt;Route&gt;</code>元素。</p>
+<blockquote>
+<p>component  —  一个React组件。当带有component 参数的路由匹配时，路由将返回一个新元素，其类型是一个React component （使用React.createElement创建）。<br>render  —  一个返回React元素的函数。它将在path匹配时被调用。这与component类似，但对于 内联渲染 和 更多参数传递 很有用。<br>children  — 一个返回React元素的函数。与之前的两个参数不同，无论路由的路径是否与当前位置相匹配，都将始终被渲染。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//component</span><br><span class="line">&lt;Route path=&apos;/page&apos; component=&#123;Page&#125; /&gt; </span><br><span class="line"></span><br><span class="line">const extraProps = &#123; color: &apos;red&apos; &#125;</span><br><span class="line"></span><br><span class="line">//render</span><br><span class="line">&lt;Route path=&apos;/page&apos; render=&#123;(props) =&gt; (  </span><br><span class="line">  &lt;Page &#123;...props&#125; data=&#123;extraProps&#125;/&gt;</span><br><span class="line">)&#125;/&gt;</span><br><span class="line"></span><br><span class="line">//children</span><br><span class="line">&lt;Route path=&apos;/page&apos; children=&#123;(props) =&gt; (</span><br><span class="line">  props.match</span><br><span class="line">    ? &lt;Page &#123;...props&#125;/&gt;</span><br><span class="line">    : &lt;EmptyPage &#123;...props&#125;/&gt;</span><br><span class="line">)&#125;/&gt;</span><br></pre></td></tr></table></figure>
+<p>通常，我们会选择conmponent或render。children参数偶尔会用上，但通常最好在路径不匹配时不渲染任何东西。在这里我们没有任何额外的参数传递给组件，因此我们的每个<code>&lt;Route&gt;</code>将使用component参数。<br>由<code>&lt;Route&gt;</code>渲染的元素将传递多个参数。这些将是match对象，location对象和history对象（由我们的路由创建的对象）。</p>
+<p><strong>路径参数</strong><br>有时，我们想要获得路径中的变量。例如，球员资料的路径，我们想要获得球员的号码。我们可以通过将路径参数添加到<code>&lt;Route&gt;</code>的 path参数 中来完成。</p>
+<p>路径/roster/:number中的:number部分意味着/roster/后面的路径名部分将被捕获并存储为match.params.number。</p>
+<p>例如，路径 /roster/6 将生成一个params对象：{ number: ‘6’}<br><code>&lt;Player&gt;</code>组件可以使用props.match.params对象来确定应该渲染哪个Player的数据。</p>
+<p><strong>Links</strong><br>最后，我们的应用程序需要在页面间导航。如果我们要使用锚点元素创建链接，点击它们会导致整个页面重新加载。 React Router提供了一个<code>&lt;Link&gt;</code>组件来防止这种情况发生。点击&lt;链接&gt;时，URL将被更新，并且呈现的内容将会更改，而不会重新加载页面。<br><code>&lt;Link&gt;</code>使用to参数来描述他们应该导航到的位置。这可以是字符串或位置对象（包含路径名，search，hash和state的组合）。当它是一个字符串时，它将被转换为location对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link to=&#123;&#123; pathname: &apos;/roster/7&apos; &#125;&#125;&gt;Player #7&lt;/Link&gt;</span><br></pre></td></tr></table></figure>
+<p>看的有点晕，感觉跟vue-router有比较大的区别吧。但又非常的类似。讲真的，我看了这么久，实际上依旧不会操作哎。。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/25/2018_5_25_1_无缝轮播图/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -925,142 +1078,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/17/2018_5_17_1_ES6学习（二）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/17/2018_5_17_1_ES6学习（二）/" itemprop="url">ES6学习（二）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-17T14:14:24+08:00">
-                2018-05-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>ES6新特性</p>
-<p><strong>1.箭头操作符（=&gt;）</strong><br>操作符左边为输入的参数，而右边则是进行的操作以及返回的值Inputs=&gt;outputs。<br><strong>2.类的支持</strong><br>ES6中添加了对类的支持，引入了class关键字。JS本身就是面向对象的，ES6中提供的类实际上只是JS原型模式的包装。现在提供原生的class支持后，对象的创建，继承更加直观了，并且父类方法的调用，实例化，静态方法和构造函数等概念都更加形象化。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Animal &#123;</span><br><span class="line">	//ES6中新型构造器</span><br><span class="line">    constructor(name) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    //实例方法</span><br><span class="line">    sayName() &#123;</span><br><span class="line">        console.log(&apos;My name is &apos;+this.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//类的继承</span><br><span class="line">class Programmer extends Animal &#123;</span><br><span class="line">    constructor(name) &#123;</span><br><span class="line">    	//直接调用父类构造器进行初始化</span><br><span class="line">        super(name);</span><br><span class="line">    &#125;</span><br><span class="line">    program() &#123;</span><br><span class="line">        console.log(&quot;I&apos;m coding...&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//测试我们的类</span><br><span class="line">var animal=new Animal(&apos;dummy&apos;),</span><br><span class="line">wayou=new Programmer(&apos;wayou&apos;);</span><br><span class="line">animal.sayName();//输出 ‘My name is dummy’</span><br><span class="line">wayou.sayName();//输出 ‘My name is wayou’</span><br><span class="line">wayou.program();//输出 ‘I&apos;m coding...’</span><br></pre></td></tr></table></figure></p>
-<p><strong>3.增强的对象字面量</strong></p>
-<ol>
-<li>可以在对象字面量里面定义原型</li>
-<li>定义方法可以不用function关键字</li>
-<li>直接调用父类方法</li>
-</ol>
-<p><strong>4.字符串模板</strong><br>ES6中允许使用反引号 ` 来创建字符串，此种方法创建的字符串里面可以包含由美元符号加花括号包裹的变量${vraible}</p>
-<p><strong>5.解构</strong><br>自动解析数组或对象中的值。<br>变量和对应值互相匹配</p>
-<p><strong>6.参数默认值，不定参数，拓展参数</strong><br>1.默认参数值<br>现在可以在定义函数的时候指定参数的默认值了，而不用像以前那样通过逻辑或操作符来达到目的了。<br>2.不定参数<br>不定参数是在函数中使用命名参数同时接收不定数量的未命名参数。这只是一种语法糖，在以前的JavaScript代码中我们可以通过arguments变量来达到这一目的。不定参数的格式是三个句点后跟代表所有不定参数的变量名。<br>3.拓展参数<br>拓展参数则是另一种形式的语法糖，它允许传递数组或者类数组直接做为函数的参数而不用通过apply。</p>
-<p><strong>7.let与const 关键字</strong><br>可以把let看成var，只是它定义的变量被限定在了特定范围内才能使用，而离开这个范围则无效。const则很直观，用来定义常量，即无法被更改值的变量。</p>
-<p><strong>8.for of 值遍历</strong><br>我们都知道for in 循环用于遍历数组，类数组或对象，ES6中新引入的for of循环功能相似，不同的是每次循环它提供的不是序号而是值。</p>
-<p><strong>9.模块</strong><br>在ES6标准中，JavaScript原生支持module了</p>
-<p><strong>10.Map，Set 和 WeakMap，WeakSet</strong><br>这些是新加的集合类型，提供了更加方便的获取属性值的方法，不用像以前一样用hasOwnProperty来检查某个属性是属于原型链上的呢还是当前对象的。同时，在进行属性值添加与获取时有专门的get，set 方法。</p>
-<p><strong>11.Proxies</strong><br>Proxy可以监听对象身上发生了什么事情，并在这些事情发生后执行一些相应的操作。一下子让我们对一个对象有了很强的追踪能力，同时在数据绑定方面也很有用处。</p>
-<p>还有很多我看不懂的，先放一放吧。。。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1111,7 +1128,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-count">40</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
