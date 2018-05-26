@@ -296,6 +296,151 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/03/2018_5_3_1_ife_2018_设计师学院_No.1_No.2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/03/2018_5_3_1_ife_2018_设计师学院_No.1_No.2/" itemprop="url">ife_2018 设计师学院 No.1 No.2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-03T21:36:17+08:00">
+                2018-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>No.1 - 制作一个简单的菜单动画效果<br>任务要求：点击按钮使文字产生动画效果，再点击返回原样<br>No.2 - 初步接触 CSS 2D 变形<br>任务要求：通过 CSS transform 实现设计图所示效果，要求达到对设计稿的百分百的还原。<br><img src="https://raw.githubusercontent.com/FrattiNor/picture/master/ife_css_2.jpg" alt="enter image description here"></p>
+<p>这个2个任务不是很难，我说一下思路，因为基本没有遇到什么问题</p>
+<p>任务一<br><a href="https://frattinor.github.io/IFE_2018/css/No.1/" target="_blank" rel="noopener">demo</a><br>点击按钮改变文字颜色和加上下划线（下划线要有动画效果）</p>
+<ol>
+<li>首先在body里写p和button标签p里写进文字，模板就这样了</li>
+<li>然后给p写2个类font和font2</li>
+<li>font类写动画颜色由蓝变黑，动画保留最后结果，</li>
+<li>给font类写一个伪元素:after，after里写下划线，并给非after写消失的动画</li>
+<li>font2类写动画颜色由黑变蓝，动画保留最后结果，</li>
+<li>给font2类写一个伪元素:after，after里写下划线，并给非after写出现的动画</li>
+<li>js给按钮写改变p的class的效果</li>
+</ol>
+<p>这样就完成了</p>
+<p>代码如下<br>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/mycss.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;box&quot;&gt;</span><br><span class="line">        &lt;span id=&quot;font&quot; class=&quot;font&quot;&gt;前端学院&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;button class=&quot;button&quot;&gt;切换样式&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;js/myjs.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">    margin: 0;</span><br><span class="line">    padding: 0;</span><br><span class="line">&#125;</span><br><span class="line">.box&#123;</span><br><span class="line">    text-align: center;</span><br><span class="line">    margin: 20px;</span><br><span class="line">&#125;</span><br><span class="line">.font2&#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    padding: 5px;</span><br><span class="line">    animation: change3 1s both;</span><br><span class="line">&#125;</span><br><span class="line">@keyframes change3 &#123;</span><br><span class="line">    0%&#123;</span><br><span class="line">        color: #36f;</span><br><span class="line">    &#125;</span><br><span class="line">    100%&#123;</span><br><span class="line">        color: #000;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">.font2::after&#123;</span><br><span class="line">    content: &quot;&quot;;</span><br><span class="line">    position: relative;</span><br><span class="line">    left: -10%;</span><br><span class="line">    width: 120%;</span><br><span class="line">    display: block;</span><br><span class="line">    height: 5px;</span><br><span class="line">    border-bottom: 2px solid #36f;</span><br><span class="line">    animation: change4 1s both;</span><br><span class="line">&#125;</span><br><span class="line">@keyframes change4 &#123;</span><br><span class="line">    0%&#123;</span><br><span class="line">        left: -10%;</span><br><span class="line">        width: 120%;</span><br><span class="line">    &#125;</span><br><span class="line">    100%&#123;</span><br><span class="line">        left: 50%;</span><br><span class="line">        width: 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">.font&#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    padding: 5px;</span><br><span class="line">    /*border-bottom: 2px solid #36f;*/</span><br><span class="line">    animation: change 1s both;</span><br><span class="line">&#125;</span><br><span class="line">@keyframes change &#123;</span><br><span class="line">    0%&#123;</span><br><span class="line">        color: #000;</span><br><span class="line">    &#125;</span><br><span class="line">    100%&#123;</span><br><span class="line">        color: #36f;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">.font::after&#123;</span><br><span class="line">    content: &quot;&quot;;</span><br><span class="line">    position: relative;</span><br><span class="line">    left: -10%;</span><br><span class="line">    width: 120%;</span><br><span class="line">    display: block;</span><br><span class="line">    height: 5px;</span><br><span class="line">    border-bottom: 2px solid #36f;</span><br><span class="line">    animation: change2 1s both;</span><br><span class="line">&#125;</span><br><span class="line">@keyframes change2 &#123;</span><br><span class="line">    0%&#123;</span><br><span class="line">        left: 50%;</span><br><span class="line">        width: 0;</span><br><span class="line">    &#125;</span><br><span class="line">    100%&#123;</span><br><span class="line">        left: -10%;</span><br><span class="line">        width: 120%;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.button&#123;</span><br><span class="line">    padding: 5px;</span><br><span class="line">    display: block;</span><br><span class="line">    margin: auto;</span><br><span class="line">    border: 1px solid #ddd;</span><br><span class="line">    background-color: #fff;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    outline: none;</span><br><span class="line">&#125;</span><br><span class="line">.button:active&#123;</span><br><span class="line">    color: #fff;</span><br><span class="line">    background-color: #3E74B5;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;.button&quot;).click(function()&#123;</span><br><span class="line">    let c = $(&quot;#font&quot;).attr(&quot;class&quot;);</span><br><span class="line">    if(c == &quot;font&quot;)&#123;</span><br><span class="line">        $(&quot;#font&quot;).attr(&quot;class&quot;,&quot;font2&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        $(&quot;#font&quot;).attr(&quot;class&quot;,&quot;font&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>突然发现有个错误就是初始的颜色是黑色，使用动画效果会从蓝色变成黑色，这个是因为动画一点会播放一次，所以我决定使用css3的过渡来写动画，过渡值会在改变样式时产生动画（感觉比transtion好用啊）</p>
+</blockquote>
+<p>修改后代码如下<br>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/mycss.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;box&quot;&gt;</span><br><span class="line">        &lt;span id=&quot;font&quot; class=&quot;font color1&quot;&gt;</span><br><span class="line">            前端学院</span><br><span class="line">            &lt;div id=&quot;bottom&quot; class=&quot;bottom bottom1&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;button class=&quot;button&quot;&gt;切换样式&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;js/myjs.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">    margin: 0;</span><br><span class="line">    padding: 0;</span><br><span class="line">&#125;</span><br><span class="line">.box&#123;</span><br><span class="line">    text-align: center;</span><br><span class="line">    margin: 20px;</span><br><span class="line">&#125;</span><br><span class="line">.bottom&#123;</span><br><span class="line">    border-bottom: 2px solid #36f;</span><br><span class="line">    transition: 2s;</span><br><span class="line">    margin-top: 5px;</span><br><span class="line">&#125;</span><br><span class="line">.bottom1&#123;</span><br><span class="line">    width: 0%;</span><br><span class="line">    margin-left: 50%;</span><br><span class="line">&#125;</span><br><span class="line">.bottom2&#123;</span><br><span class="line">    width: 120%;</span><br><span class="line">    margin-left: -10%;</span><br><span class="line">&#125;</span><br><span class="line">.font&#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    padding: 5px;</span><br><span class="line">    transition: 2s;</span><br><span class="line">&#125;</span><br><span class="line">.color1&#123;</span><br><span class="line">    color: #000;</span><br><span class="line">&#125;</span><br><span class="line">.color2&#123;</span><br><span class="line">    color: #36f;</span><br><span class="line">&#125;</span><br><span class="line">.button&#123;</span><br><span class="line">    padding: 5px;</span><br><span class="line">    display: block;</span><br><span class="line">    margin: auto;</span><br><span class="line">    border: 1px solid #ddd;</span><br><span class="line">    background-color: #fff;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    outline: none;</span><br><span class="line">&#125;</span><br><span class="line">.button:active&#123;</span><br><span class="line">    color: #fff;</span><br><span class="line">    background-color: #3E74B5;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;.button&quot;).click(function()&#123;</span><br><span class="line">    let c = $(&quot;#font&quot;).attr(&quot;class&quot;);</span><br><span class="line">    if(c == &quot;font color1&quot;)&#123;</span><br><span class="line">        $(&quot;#font&quot;).removeClass(&quot;color1&quot;);</span><br><span class="line">        $(&quot;#font&quot;).addClass(&quot;color2&quot;);</span><br><span class="line">        $(&quot;#bottom&quot;).removeClass(&quot;bottom1&quot;);</span><br><span class="line">        $(&quot;#bottom&quot;).addClass(&quot;bottom2&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        $(&quot;#font&quot;).removeClass(&quot;color2&quot;);</span><br><span class="line">        $(&quot;#font&quot;).addClass(&quot;color1&quot;);</span><br><span class="line">        $(&quot;#bottom&quot;).removeClass(&quot;bottom2&quot;);</span><br><span class="line">        $(&quot;#bottom&quot;).addClass(&quot;bottom1&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>任务二<br><a href="https://frattinor.github.io/IFE_2018/css/No.2/" target="_blank" rel="noopener">demo</a><br>做出设计图样式</p>
+<p>这个就更简单了<br>只要使用css3 的transform就可以简单解决<br>图1<br>skew（）翻转给定角度<br>图2<br>scale（）减少尺寸<br>图3<br>rotate（）旋转给定角度<br>图4<br>translate（）移动给定距离<br>图5<br>图1234合在一起</p>
+<p>代码如下<br>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/mycss.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;box0&quot;&gt;box0&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;box0 box1&quot;&gt;box1&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;box0 box2&quot;&gt;box2&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;box0 box3&quot;&gt;box3&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;box0 box4&quot;&gt;box4&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;box0 box5&quot;&gt;box5&lt;/div&gt;</span><br><span class="line">    &lt;script src=&quot;js/myjs.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">    margin: 0;</span><br><span class="line">    padding: 0;</span><br><span class="line">&#125;</span><br><span class="line">.box0&#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    border: 1px solid #aaa;</span><br><span class="line">    text-align: center;</span><br><span class="line">    line-height: 100px;</span><br><span class="line">    margin: 30px;</span><br><span class="line">    float: left;</span><br><span class="line">&#125;</span><br><span class="line">.box1&#123;</span><br><span class="line">    transform: skew(30deg,0deg);</span><br><span class="line">&#125;</span><br><span class="line">.box2&#123;</span><br><span class="line">    transform: scale(0.5,1);</span><br><span class="line">&#125;</span><br><span class="line">.box3&#123;</span><br><span class="line">    transform: rotate(45deg);</span><br><span class="line">&#125;</span><br><span class="line">.box4&#123;</span><br><span class="line">    transform: translate(10px,20px);</span><br><span class="line">&#125;</span><br><span class="line">.box5&#123;</span><br><span class="line">    transform: skew(30deg,0deg) scale(0.5,1) rotate(45deg) translate(10px,20px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/28/2018_4_28_1_vue项目-豆瓣电影搜索/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -959,156 +1104,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/21/2018_4_21_2_数组函数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/21/2018_4_21_2_数组函数/" itemprop="url">js数组函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-21T16:17:49+08:00">
-                2018-04-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>push：将参数添加到原数组末尾，并返回数组的长度   </p>
-<p>concat：返回一个新数组，是将参数添加到原数组中构成的   </p>
-<p>splice(start,deleteCount,val1,val2,…)：从start位置开始删除deleteCount项，并从该位置起插入val1,val2,…   </p>
-<p>reverse：将数组反序   </p>
-<p>sort(orderfunction)：按指定的参数对数组进行排序   </p>
-<p>slice(start,end)：返回从原数组中指定开始下标到结束下标之间的项组成的新数组 </p>
-</blockquote>
-<p>实例：  </p>
-<p>1、数组的创建<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arrayObj = new Array();　//创建一个数组  </span><br><span class="line">var arrayObj = new Array([size]);　//创建一个数组并指定长度，注意不是上限，是长度  </span><br><span class="line">var arrayObj = new Array([element0[, element1[, ...[, elementN]]]]);　创建一个数组并赋值</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>要说明的是，虽然第二种方法创建数组指定了长度，但实际上所有情况下数组都是变长的，也就是说即使指定了长度为5，仍然可以将元素存储在规定长度以外的，注意：这时长度会随之改变。  </p>
-</blockquote>
-<p>2、数组的元素的访问<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var testGetArrValue=arrayObj[1]; //获取数组的元素值  </span><br><span class="line">arrayObj[1]= &quot;这是新值&quot;; //给数组元素赋予新的值</span><br></pre></td></tr></table></figure></p>
-<p>3、数组元素的添加  </p>
-<blockquote>
-<p>arrayObj. push([item1 [item2 [. . . [itemN ]]]]);// 将一个或多个新元素添加到数组结尾，并返回数组新长度<br>arrayObj.unshift([item1 [item2 [. . . [itemN ]]]]);// 将一个或多个新元素添加到数组开始，数组中的元素自动后移，返回数组新长度<br>arrayObj.splice(insertPos,0,[item1[, item2[, . . . [,itemN]]]]);//将一个或多个新元素插入到数组的指定位置，插入位置的元素自动后移，返回””。  </p>
-</blockquote>
-<p>4、数组元素的删除<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arrayObj.pop(); //移除最后一个元素并返回该元素值  </span><br><span class="line">arrayObj.shift(); //移除最前一个元素并返回该元素值，数组中元素自动前移  </span><br><span class="line">arrayObj.splice(deletePos,deleteCount); //删除从指定位置deletePos开始的指定数量deleteCount的元素，数组形式返回所移除的元素</span><br></pre></td></tr></table></figure></p>
-<p>5、数组的截取和合并  </p>
-<blockquote>
-<p>arrayObj.slice(start, [end]); //以数组的形式返回数组的一部分，注意不包括 end 对应的元素，如果省略 end 将复制 start 之后的所有元素<br>arrayObj.concat([item1[, item2[, . . . [,itemN]]]]); //将多个数组（也可以是字符串，或者是数组和字符串的混合）连接为一个数组，返回连接好的新的数组  </p>
-</blockquote>
-<p>6、数组的拷贝<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arrayObj.slice(0); //返回数组的拷贝数组，注意是一个新的数组，不是指向  </span><br><span class="line">arrayObj.concat(); //返回数组的拷贝数组，注意是一个新的数组，不是指向</span><br></pre></td></tr></table></figure></p>
-<p>7、数组元素的排序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arrayObj.reverse(); //反转元素（最前的排到最后、最后的排到最前），返回数组地址  </span><br><span class="line">arrayObj.sort(); //对数组元素排序，返回数组地址</span><br></pre></td></tr></table></figure></p>
-<p>8、数组元素的字符串化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arrayObj.join(separator); //返回字符串，这个字符串将数组的每一个元素值连接在一起，中间用 separator 隔开。  </span><br><span class="line">toLocaleString 、toString 、valueOf：可以看作是join的特殊用法，不常用</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1154,7 +1154,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-25T10:17:35.745Z</updated>
+  <updated>2018-05-26T08:10:43.952Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>React-music</title>
+    <link href="http://yoursite.com/2018/05/26/2018_5_26_1_react-music%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://yoursite.com/2018/05/26/2018_5_26_1_react-music（一）/</id>
+    <published>2018-05-26T08:10:43.741Z</published>
+    <updated>2018-05-26T08:10:43.952Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本来这个 &lt;code&gt;music-player&lt;/code&gt; 的项目是打算看着vue视频，用vue来写的，后来因为要学react，所以就把原项目用react来写了。vue-music已经写了顶部，导航栏以及部分推荐页面。&lt;/p&gt;
+&lt;p&gt;所以就直接把写好的部分移植过来就好了&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="react" scheme="http://yoursite.com/tags/react/"/>
+    
+  </entry>
   
   <entry>
     <title>React-router</title>
@@ -438,27 +460,6 @@
       
         &lt;p&gt;No.3 - CSS transition 和 CSS transform 配合制作动画&lt;/p&gt;
 &lt;p&gt;任务三&lt;br&gt;&lt;a href=&quot;https://frattinor.github.io/IFE_2018/css/No.3/&quot; target=&quot;_blank&quot; rel=&quot;
-      
-    
-    </summary>
-    
-    
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ife_2018 设计师学院 No.1 No.2</title>
-    <link href="http://yoursite.com/2018/05/03/2018_5_3_1_ife_2018_%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E9%99%A2_No.1_No.2/"/>
-    <id>http://yoursite.com/2018/05/03/2018_5_3_1_ife_2018_设计师学院_No.1_No.2/</id>
-    <published>2018-05-03T13:36:17.703Z</published>
-    <updated>2018-05-03T12:43:42.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;No.1 - 制作一个简单的菜单动画效果&lt;br&gt;任务要求：点击按钮使文字产生动画效果，再点击返回原样&lt;br&gt;No.2 - 初步接触 CSS 2D 变形&lt;br&gt;任务要求：通过 CSS transform 实现设计图所示效果，要求达到对设计稿的百分百的还原。&lt;br&gt;&lt;img s
       
     
     </summary>

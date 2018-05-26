@@ -296,6 +296,147 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/26/2018_5_26_1_react-music（一）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/26/2018_5_26_1_react-music（一）/" itemprop="url">React-music</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-26T16:10:43+08:00">
+                2018-05-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>本来这个 <code>music-player</code> 的项目是打算看着vue视频，用vue来写的，后来因为要学react，所以就把原项目用react来写了。vue-music已经写了顶部，导航栏以及部分推荐页面。</p>
+<p>所以就直接把写好的部分移植过来就好了</p>
+<p>我是用 yo-react-webpack 来新建的项目。<br>然后在src目录下进行编写，在项目模板里有不少文件不知道是干什么用了，但是不干扰我进行编写</p>
+<p>首先，react的模块是用js文件的，<br>文件模板大概是这样的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component &#125; from &apos;react&apos;;</span><br><span class="line"></span><br><span class="line">class rheader extends Component &#123;</span><br><span class="line">    render () &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;div className=&quot;vheader&quot;&gt;</span><br><span class="line">                music player</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default rheader;</span><br></pre></td></tr></table></figure></p>
+<p>在return里用jsx进行编写对应的DOM<br>这个jsx让我有点不适应</p>
+<p>不过还行，今天就先记录一下移植的过程吧，首先是安装了less<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save less less-loader</span><br></pre></td></tr></table></figure></p>
+<p>然后把原项目的style.less文件移过来，引入到main.js文件里<br>对了，忘记说了，react项目跟vue项目差不多，有一个index.html文件是主文件，然后有一个index.js是入口文件，最后在模块里有一个main.js是主模块。</p>
+<p>导入less文件后，我把组件目录整个移过来了，然后先写rheader.js，很简单就是一个div而已，但是遇到了有点麻烦<br>我照着main.js 的写法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import React from &apos;react&apos;</span><br></pre></td></tr></table></figure></p>
+<p>在rheader文件里是错误的，我不清楚到底错在了哪，经过修改<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component &#125; from &apos;react&apos;;</span><br><span class="line"></span><br><span class="line">class rheader extends Component &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样的写法没有报错</p>
+<p>再然后就是导航栏tab文件了，我在vue里导航栏是用数组循环渲染的<br>在react里进行循环渲染没有v-for那样的东西<br>我查了一下<br>可以用map进行循环遍历，然后返回一个标签吧<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	this.state.theTab.map( (item) =&gt; &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;li key=&#123;item.index&#125;&gt;</span><br><span class="line">            &#123;item.word&#125;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后还有有点就是，我发现循环的组件都需要一个key</p>
+<p>又进过一番的折腾，我大概搞清楚了react模块的是怎么样的了</p>
+<p>和vue比较一下吧</p>
+<p>vue的template就是react的render<br>vue的script就是class除了render的部分<br>然后样式vue和react都可以由外部引入</p>
+<p>我是这样理解的，不清楚对错。不过总算是有点收获吧</p>
+<p>再然后就是router部分了，我目前对react的router部分有点搞不清楚，还得再试试看，写写看吧</p>
+<p>emmm…看了会视频大概了解了，但只能说还是有点问题吧</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import &#123;BrowserRouter as Router, Route&#125; from &apos;react-router-dom&apos;</span><br><span class="line"></span><br><span class="line">&lt;Router&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">      &lt;Rheader /&gt;</span><br><span class="line">      &lt;Tab /&gt;</span><br><span class="line">      &lt;Route exact path=&quot;/&quot; component=&#123;Recommend&#125; /&gt;</span><br><span class="line">      &lt;Route exact path=&quot;/Recommend&quot; component=&#123;Recommend&#125; /&gt;</span><br><span class="line">      &lt;Route exact path=&quot;/Singer&quot; component=&#123;Singer&#125; /&gt;</span><br><span class="line">      &lt;Route exact path=&quot;/Rank&quot; component=&#123;Rank&#125; /&gt;</span><br><span class="line">      &lt;Route exact path=&quot;/Search&quot; component=&#123;Search&#125; /&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/Router&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import &#123;NavLink&#125; from &apos;react-router-dom&apos;</span><br><span class="line"></span><br><span class="line">&lt;NavLink to=&#123;item.url&#125;&gt;</span><br><span class="line">    &#123;item.word&#125;</span><br><span class="line">&lt;/NavLink&gt;</span><br></pre></td></tr></table></figure>
+<p>大概就这样吧。。Router是包裹的box吧，然后Route就是vue的router-view吧，NavLink就是vue的router-link</p>
+<p>今天就先看到这吧，晚上看看有没有时间把推荐页面也移植过来</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/25/2018_5_25_2_react-router学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -937,152 +1078,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/17/2018_5_17_2_less学习/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/17/2018_5_17_2_less学习/" itemprop="url">less学习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-17T14:55:59+08:00">
-                2018-05-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Less 是一门 CSS 预处理语言，它扩充了 CSS 语言，增加了诸如变量、混合（mixin）、函数等功能，让 CSS 更易维护、方便制作主题、扩充。</p>
-<p>Less 可以通过 npm 在命令行上运行；在浏览器上作为脚本文件下载；或者集成在广大的第三方工具内。</p>
-<p><strong>使用less</strong><br>要成功的使用Less，需要一个脚本的支持，这个脚本我们把他叫做less.js。</p>
-<p>less的用法</p>
-<p><strong>1.变量</strong><br>Less中的变量充许你在样式中的某个地方对常用的值进行定义，然后应用到样式中，这样只要改变你定义的变量参数值就可以达到改变全局的效果。<br>less 使用@进行定义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">/*======= Less  ======*/</span><br><span class="line">//less用@定义变量</span><br><span class="line">@color: #4d926f;</span><br><span class="line">#header &#123;</span><br><span class="line">	color: @color;</span><br><span class="line">&#125;</span><br><span class="line">h2 &#123;</span><br><span class="line">	color: @color;</span><br><span class="line">&#125;			</span><br><span class="line">/*======= Less 编译成 css ======*/</span><br><span class="line">#header &#123;</span><br><span class="line">	color: #4d926f;</span><br><span class="line">&#125;</span><br><span class="line">h2 &#123;</span><br><span class="line">	color: #4d926f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*======= Less  ======*/	</span><br><span class="line">//less变量算数</span><br><span class="line">@nice-blue: #5b83ad;</span><br><span class="line">@light-blue: @nice-blue + #111;</span><br><span class="line">#header &#123;</span><br><span class="line">	color: @light-blue;</span><br><span class="line">&#125;			</span><br><span class="line">/*======= Less 编译成 css ======*/</span><br><span class="line">#header &#123;color: #6c94be;&#125;</span><br><span class="line"></span><br><span class="line">/*======= Less  ======*/</span><br><span class="line">//less变量定义变量			</span><br><span class="line">@color: #253636;</span><br><span class="line">@highlight: &quot;color&quot;;</span><br><span class="line">#header &#123;color: @@highlight;&#125;</span><br><span class="line">/*======= Less 编译成 css ======*/			</span><br><span class="line">#header &#123;color: #253636;&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>在Less中的变量实际上就是一个“常量”，因为它们只能被定义一次。</strong><br>优势的地方应该是修改变量可以改变所有的使用该变量的样式</p>
-<p><strong>2.混入——Mixins</strong><br>混入其实就是一种嵌套，它充许你将一个类嵌入到另一个类中，而被嵌入的这个类也称为是一个变量。换句话说，你可以用一个类定义CSS，然后把整个为当作一个变量来使用，嵌入到另一个类中当作他的属性；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/*========== 定义一个规则，并且不设置默认参数值 ============*/</span><br><span class="line">.borderRadius(@radius)&#123;</span><br><span class="line">	-moz-border-radius: @radius;</span><br><span class="line">	-webkit-border-radius: @radius;</span><br><span class="line">	border-radius: @radius;</span><br><span class="line">&#125;		</span><br><span class="line">/*============ 应用到元素中 ============*/</span><br><span class="line">#header &#123;</span><br><span class="line">	.borderRadius(10px); /*把10px传给变量@radius*/</span><br><span class="line">&#125;</span><br><span class="line">.btn &#123;</span><br><span class="line">	.borderRadius(3px);/*把3px传给变量@radius*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Mixins还有一个重要的变量：@arguments。@arguments在Mixins中具是一个很特别的参数，当Mixins引用这个参数时，他将表示所有的变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.boxShadow(@x:0,@y:0,@blur:1px,@color:#000)&#123;</span><br><span class="line">	-moz-box-shadow: @arguments;</span><br><span class="line">	-webkit-box-shadow: @arguments;</span><br><span class="line">	box-shadow: @arguments;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#header &#123;</span><br><span class="line">	.boxShadow(2px,2px,3px,#f36);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>3.嵌套规则</strong><br>嵌套规则主要是针对一多层元素的样式规则写法，以前我们在多层元素中写样式，要么从头选下来，要么另外给这个元素加上类名或id名，但在Less中我们不需要这样操作了，我们只要使用他的嵌套规则就可以完成。<br>写法就和html的DOM结构类似<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">/*============ html ============*/</span><br><span class="line">&lt;div id=&quot;header&quot;&gt;</span><br><span class="line">	&lt;h1&gt;&lt;a href=&quot;&quot;&gt;W3cplus&lt;/a&gt;&lt;/h1&gt;</span><br><span class="line">	&lt;p&gt;记述前端那些事——引领Web前沿&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">/*============ less ============*/</span><br><span class="line">#header &#123;</span><br><span class="line">	display: inline;</span><br><span class="line">	float: left;</span><br><span class="line">	h1 &#123;</span><br><span class="line">		font-size: 26px;</span><br><span class="line">		font-weight: bold;</span><br><span class="line">		a &#123;</span><br><span class="line">			text-decoration: none;</span><br><span class="line">			color: #f36;</span><br><span class="line">			&amp;:hover &#123;</span><br><span class="line">				text-decoration: underline;</span><br><span class="line">				color: #63f;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	p &#123;</span><br><span class="line">		font-size: 12px;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>4.Functions &amp; Operations</strong><br>在我们平时的样式中，有很多元素的属性都具有一定的比例或倍数。那么这两个刚好可以帮我们实现这方面的功能，首先来看Operations（直译“动作”）他可以让你对元素的属性值，颜色进行四则运算：加、减、乘、除。而Function就像javascript中的function一样可以让你进行你想要的值的操作。</p>
-<ol>
-<li><p>Operations</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/*============ less ============*/</span><br><span class="line">@base: 5%;</span><br><span class="line">@filler: @base*2;</span><br><span class="line">@other: @base + @filler;</span><br><span class="line">#header &#123;</span><br><span class="line">	color: #888 / 4;</span><br><span class="line">	height: 100% / 2 + @filler; </span><br><span class="line">&#125;</span><br><span class="line">/*============ css ============*/</span><br><span class="line">#header &#123;</span><br><span class="line">	color: #222222;</span><br><span class="line">    height: 60%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Functions<br>Less中还提供了一个Color Functions，他具有多种变换颜色的功能，先把颜色转换成HSL色，然后在此基础上进行操作，具体包括以下几种：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">lighten(@color, 10%);     // return a color which is 10% *lighter* than @color</span><br><span class="line">darken(@color, 10%);      // return a color which is 10% *darker* than @color</span><br><span class="line"></span><br><span class="line">saturate(@color, 10%);    // return a color 10% *more* saturated than @color</span><br><span class="line">desaturate(@color, 10%);  // return a color 10% *less* saturated than @color</span><br><span class="line"></span><br><span class="line">fadein(@color, 10%);      // return a color 10% *less* transparent than @color</span><br><span class="line">fadeout(@color, 10%);     // return a color 10% *more* transparent than @color</span><br><span class="line"></span><br><span class="line">spin(@color, 10);         // return a color with a 10 degree larger in hue than @color</span><br><span class="line">spin(@color, -10);        // return a color with a 10 degree smaller hue than @color</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><strong>5.命名空间</strong><br>有时候你想把一些变量或mixins组织起来，并将他封装，想用的时候就把要关的一部分取出来，那么我们将在前面的mixins基础上将其功能扩展。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#bundle &#123;</span><br><span class="line">	.button () &#123;</span><br><span class="line">		display: block;</span><br><span class="line">		border: 1px solid black;</span><br><span class="line">		background-color: grey;</span><br><span class="line">		&amp;:hover &#123; background-color: white &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	.tab &#123; ... &#125;</span><br><span class="line">	.citation &#123; ... &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#header a &#123;</span><br><span class="line">	color: orange;</span><br><span class="line">	#bundle &gt; .button;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>6.变量范围</strong><br>Less中的变量和别的程序语言一样，他的变量也有一个范围概念，这个概念就有点像局部变量和全局变量一样，只是在Less中采取的是就近原则，换句话说，元素先找本身有没有这个变量存在，如果本身存在，就取本身中的变量，如果本身不存在，就寻找父元素，依此类推，直到寻找到相对应的变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@var: red;</span><br><span class="line"></span><br><span class="line">#page &#123;</span><br><span class="line">  @var: white;</span><br><span class="line">  #header &#123;</span><br><span class="line">    color: @var; // white</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#footer &#123;</span><br><span class="line">  color: @var; // red  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>7.Less的注解</strong><br>单行：// Hi, I’m a silent comment, I won’t show up in your CSS<br>多行：/<em> Hello, I’m a CSS-style comment </em>/</p>
-<p><strong>8.引入</strong><br>Less样式文件一定要放在less脚本文件之前</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1128,7 +1128,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
