@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-26T08:10:43.952Z</updated>
+  <updated>2018-05-30T04:55:08.933Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>React-music（二）</title>
+    <link href="http://yoursite.com/2018/05/30/2018_5_29_1_react-music%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <id>http://yoursite.com/2018/05/30/2018_5_29_1_react-music（二）/</id>
+    <published>2018-05-30T04:56:07.818Z</published>
+    <updated>2018-05-30T04:55:08.933Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;继续写music-player项目&lt;br&gt;我又发现一个容易出错的地方，就是组件import的首字母必须大写，不然无效&lt;/p&gt;
+&lt;p&gt;写完头和导航栏，这几天写轮播图又有一个问题就是ajax获取数据然后传给state后不能渲染到DOM里。&lt;br&gt;然后我就看了别人项目的代码吧，算
+      
+    
+    </summary>
+    
+    
+      <category term="react" scheme="http://yoursite.com/tags/react/"/>
+    
+  </entry>
   
   <entry>
     <title>React-music</title>
@@ -438,28 +460,6 @@
         &lt;p&gt;No.4 - 3D 空间的卡片翻转动效&lt;/p&gt;
 &lt;p&gt;任务四&lt;br&gt;&lt;a href=&quot;https://frattinor.github.io/IFE_2018/css/No.4/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;demo&lt;/a&gt;&lt;/p&gt;
 &lt;p
-      
-    
-    </summary>
-    
-    
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ife_2018 设计师学院 No.3</title>
-    <link href="http://yoursite.com/2018/05/03/2018_5_3_2_ife_2018_%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E9%99%A2_No.3/"/>
-    <id>http://yoursite.com/2018/05/03/2018_5_3_2_ife_2018_设计师学院_No.3/</id>
-    <published>2018-05-03T13:36:26.642Z</published>
-    <updated>2018-05-03T13:36:35.788Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;No.3 - CSS transition 和 CSS transform 配合制作动画&lt;/p&gt;
-&lt;p&gt;任务三&lt;br&gt;&lt;a href=&quot;https://frattinor.github.io/IFE_2018/css/No.3/&quot; target=&quot;_blank&quot; rel=&quot;
       
     
     </summary>
