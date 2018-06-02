@@ -296,6 +296,145 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/18/2018_4_18_1_使用css实现折叠面板/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/18/2018_4_18_1_使用css实现折叠面板/" itemprop="url">使用CSS实现折叠面板</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-18T17:18:22+08:00">
+                2018-04-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<p>效果：使用input的radio单选框特性结合CSS中的伪元素实现bootstrap中折叠面板，要求样式一致。</p>
+<hr>
+<p>要使用到的是 radio，label，伪类，兄弟相邻选择器</p>
+<hr>
+<p> radio：单选框<br> label：文本框<br> 伪类：:checked   —选中时添加的类<br>兄弟相邻选择器：li+li {…}</p>
+<hr>
+<p>我的思路：<br>1<code>创建区域section</code><br>2<code>在section中建立3个radio，css设置radio的样式：dispaly:none</code><br>3<code>再创建3个label，绑定对应的radio</code><br>4<code>在label里写上标题，然后在里面创建div标签，再建立p标签，写入对应的内容</code><br>5<code>最后在css里给给div绑定对应的css3动画</code><br>到这里为止差不多就成型了</p>
+<p>我遇到的问题：<br>1<code>radio没有单选框效果</code><br>产生的原因：没有给3个radio给定相同的name属性<br>解决办法：<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type="radio" id="one" name="cascade" /&gt;</span><br><span class="line">&lt;input type="radio" id="two" name="cascade" /&gt;</span><br><span class="line">&lt;input type="radio" id="three" name="cascade" /&gt;</span><br></pre></td></tr></table></figure></p>
+<p>2<code>绑定的动画没有动画的过度效果</code><br>产生原因：高度再没有具体数值时，不会产生动画<br>解决办法：<br>给高度一个固定数值<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">height</span>: 250<span class="selector-tag">px</span>;</span><br></pre></td></tr></table></figure></p>
+<p>建议div高度和section宽度，不要使用百分比，以免出现显示不全或空白太多的情况</p>
+<p>3<code>绑定动画后，刷新页面会产生折叠动画</code><br>产生的原因：我给div绑定了折叠动画，因为不绑定会再失去checked时直接消失，但是绑定了折叠动画会在开始时就先播放动画。<br>解决办法：<br>建议使用css3的过滤<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">transition</span>: <span class="selector-tag">height</span> 1<span class="selector-tag">s</span> <span class="selector-tag">linear</span>;</span><br></pre></td></tr></table></figure></p>
+<p>过滤只在对应属性改变时才会产生动画。</p>
+<p>4<code>折叠框没办法全部折叠</code><br>产生的原因：radio选择后必须有一个选中<br>解决办法：<br>使用js改变radio只能有一个被选中的情况<br>（还是用到了js…，我感觉还不如用js让多选框只能单选来的简单）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">代码部分还不会，所以借鉴别人的</span><br><span class="line">    <span class="built_in">document</span>.body.onmousedown = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">        event = event || <span class="built_in">window</span>.event;</span><br><span class="line">        <span class="keyword">var</span> target = event.target || event.srcElement;</span><br><span class="line">        <span class="keyword">if</span> (target.type === <span class="string">'radio'</span>) &#123;</span><br><span class="line">            target.previousValue = target.checked;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">document</span>.body.onclick = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">        event = event || <span class="built_in">window</span>.event;</span><br><span class="line">        <span class="keyword">var</span> target = event.target || event.srcElement;</span><br><span class="line">        <span class="keyword">if</span> (target.type === <span class="string">'radio'</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (target.previousValue) &#123;</span><br><span class="line">                target.checked = <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>但只对点击radio有效。。。</p>
+<hr>
+<p>最后贴出我的代码：</p>
+<p>index.html （html文件）<br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;link rel="stylesheet" type="text/css" href="css/mycss.css"&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;section&gt;</span><br><span class="line">        &lt;input type="radio" id="one" name="cascade" /&gt;</span><br><span class="line">        &lt;label for="one"&gt;Collapsible Group Item #1</span><br><span class="line">        &lt;div&gt;&lt;p&gt;Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single- origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</span><br><span class="line">        &lt;/p&gt;&lt;/div&gt;</span><br><span class="line">        &lt;/label&gt;</span><br><span class="line">        &lt;input type="radio" id="two" name="cascade" /&gt;</span><br><span class="line">        &lt;label for="two"&gt;Collapsible Group Item #2</span><br><span class="line">        &lt;div&gt;&lt;p&gt;Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single- origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</span><br><span class="line">        &lt;/p&gt;&lt;/div&gt;</span><br><span class="line">        &lt;/label&gt;</span><br><span class="line">        &lt;input type="radio" id="three" name="cascade" /&gt;</span><br><span class="line">        &lt;label for="three"&gt;Collapsible Group Item #3</span><br><span class="line">        &lt;div&gt;&lt;p&gt;Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single- origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</span><br><span class="line">        &lt;/p&gt;&lt;/div&gt;</span><br><span class="line">        &lt;/label&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/section&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script src="js/myjs.js"&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>mycss.css（css文件）<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">        <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">body</span>,<span class="selector-tag">html</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*折叠框局域*/</span></span><br><span class="line">    <span class="selector-tag">section</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">        <span class="attribute">margin</span>: auto;</span><br><span class="line">        <span class="attribute">margin-top</span>: <span class="number">20px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">        <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*设置单选框不可见*/</span></span><br><span class="line">    <span class="selector-tag">input</span><span class="selector-attr">[type="radio"]</span> &#123;</span><br><span class="line">        <span class="attribute">display</span>: none;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">label</span>&#123;</span><br><span class="line">        <span class="attribute">display</span>: block;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">        <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span><br><span class="line">        <span class="attribute">margin</span>: <span class="number">10px</span>;</span><br><span class="line">        <span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line">        <span class="attribute">background-color</span>: <span class="number">#f5f5f5</span>;</span><br><span class="line">        <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">div</span>&#123;</span><br><span class="line">        <span class="attribute">font-size</span>: <span class="number">15px</span>;</span><br><span class="line">        <span class="attribute">overflow</span>: hidden;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">display</span>: block;</span><br><span class="line">        <span class="attribute">margin</span>: -<span class="number">12px</span>;</span><br><span class="line">        <span class="attribute">margin-top</span>: <span class="number">10px</span>;</span><br><span class="line">        <span class="attribute">background-color</span>: <span class="number">#fff</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">        <span class="attribute">border-radius</span>: <span class="number">0px</span> <span class="number">0px</span> <span class="number">4px</span> <span class="number">4px</span>;</span><br><span class="line">        <span class="attribute">transition</span>: height <span class="number">1s</span> linear;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">p</span>&#123;</span><br><span class="line">        <span class="attribute">margin</span>: <span class="number">10px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*单选宽选中时改变高度*/</span></span><br><span class="line">    <span class="selector-tag">input</span><span class="selector-attr">[type="radio"]</span><span class="selector-pseudo">:checked+label</span> <span class="selector-tag">div</span>&#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">250px</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>myjs.js（javascript文件）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.body.onmousedown = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">    event = event || <span class="built_in">window</span>.event;</span><br><span class="line">    <span class="keyword">var</span> target = event.target || event.srcElement;</span><br><span class="line">    <span class="keyword">if</span> (target.type === <span class="string">'radio'</span>) &#123;</span><br><span class="line">        target.previousValue = target.checked;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">document</span>.body.onclick = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">    event = event || <span class="built_in">window</span>.event;</span><br><span class="line">    <span class="keyword">var</span> target = event.target || event.srcElement;</span><br><span class="line">    <span class="keyword">if</span> (target.type === <span class="string">'radio'</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (target.previousValue) &#123;</span><br><span class="line">            target.checked = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/17/2018_4_17_2_自定义网页右键菜单/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -626,7 +765,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -639,7 +778,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

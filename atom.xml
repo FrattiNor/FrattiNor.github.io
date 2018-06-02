@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-30T04:55:08.933Z</updated>
+  <updated>2018-06-02T05:52:19.433Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Redux学习</title>
+    <link href="http://yoursite.com/2018/06/02/2018_6_1_1_redux%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://yoursite.com/2018/06/02/2018_6_1_1_redux学习/</id>
+    <published>2018-06-02T05:52:19.094Z</published>
+    <updated>2018-06-02T05:52:19.433Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;现在还在写react-music这个的推荐页面，最近使用qq音乐的api访问资源时都是受限的，只能获得一点点数据，然后就一直在找可以用的api，花了很多时间来找api导致现在还在写推荐页面，不过好在，使用了多个api总算是把推荐页面写完了。&lt;br&gt;现在又遇到了一个问题就是点
+      
+    
+    </summary>
+    
+    
+      <category term="redux" scheme="http://yoursite.com/tags/redux/"/>
+    
+  </entry>
   
   <entry>
     <title>React-music（二）</title>
@@ -437,29 +458,6 @@
       
         &lt;p&gt;No.5 - 纯 CSS 制作绕中轴旋转的立方体&lt;/p&gt;
 &lt;p&gt;任务五&lt;br&gt;&lt;a href=&quot;https://frattinor.github.io/IFE_2018/css/No.5/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;demo&lt;/a&gt;&lt;/
-      
-    
-    </summary>
-    
-    
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ife_2018 设计师学院 No.4</title>
-    <link href="http://yoursite.com/2018/05/03/2018_5_3_3_ife_2018_%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E9%99%A2_No.4/"/>
-    <id>http://yoursite.com/2018/05/03/2018_5_3_3_ife_2018_设计师学院_No.4/</id>
-    <published>2018-05-03T13:54:51.127Z</published>
-    <updated>2018-05-03T13:54:51.390Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;No.4 - 3D 空间的卡片翻转动效&lt;/p&gt;
-&lt;p&gt;任务四&lt;br&gt;&lt;a href=&quot;https://frattinor.github.io/IFE_2018/css/No.4/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;demo&lt;/a&gt;&lt;/p&gt;
-&lt;p
       
     
     </summary>
