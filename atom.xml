@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-02T05:52:19.433Z</updated>
+  <updated>2018-06-02T08:15:09.930Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Redux学习（三）</title>
+    <link href="http://yoursite.com/2018/06/02/2018_6_2_2_redux%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89/"/>
+    <id>http://yoursite.com/2018/06/02/2018_6_2_2_redux学习（三）/</id>
+    <published>2018-06-02T08:15:09.735Z</published>
+    <updated>2018-06-02T08:15:09.930Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;已经用redux写了一个计数器了，也对redux有了个大概的了解，所以前面的导航栏组件共用状态问题也已经解决了。&lt;br&gt;但还是有一个问题就是redux的store每次要使用都要重新引入过吗，vuex的话，感觉更加可以理解一点，在入口处定义store后，子组件就可以通过$st
+      
+    
+    </summary>
+    
+    
+      <category term="redux" scheme="http://yoursite.com/tags/redux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redux学习（二）</title>
+    <link href="http://yoursite.com/2018/06/02/2018_6_2_1_redux%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <id>http://yoursite.com/2018/06/02/2018_6_2_1_redux学习（二）/</id>
+    <published>2018-06-02T07:51:22.799Z</published>
+    <updated>2018-06-02T07:51:23.046Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;昨天学习了redux的基本知识，总感觉很迷糊。&lt;br&gt;大概就是action，reducers和store&lt;br&gt;今天跟着写了一个小例子大概有点了解了&lt;br&gt;今天写了一个计数器，大概的意思就是取出store的值，然后通过action来改变store的值&lt;br&gt;总的来说redu
+      
+    
+    </summary>
+    
+    
+      <category term="redux" scheme="http://yoursite.com/tags/redux/"/>
+    
+  </entry>
   
   <entry>
     <title>Redux学习</title>
@@ -414,50 +456,6 @@
       
         &lt;p&gt;No.7 - 使用 animate.css 实现一个优雅的登录框&lt;/p&gt;
 &lt;p&gt;任务七&lt;br&gt;&lt;a href=&quot;https://frattinor.github.io/IFE_2018/css/No.7/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;de
-      
-    
-    </summary>
-    
-    
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ife_2018 设计师学院 No.6</title>
-    <link href="http://yoursite.com/2018/05/05/2018_5_4_2_ife_2018_%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E9%99%A2_No.6/"/>
-    <id>http://yoursite.com/2018/05/05/2018_5_4_2_ife_2018_设计师学院_No.6/</id>
-    <published>2018-05-05T13:42:55.357Z</published>
-    <updated>2018-05-05T13:42:55.520Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;No.6 - 利用 CSS animation 制作一个炫酷的 Slider&lt;/p&gt;
-&lt;p&gt;任务六&lt;br&gt;&lt;a href=&quot;https://frattinor.github.io/IFE_2018/css/No.6/&quot; target=&quot;_blank&quot; rel=&quot;noopen
-      
-    
-    </summary>
-    
-    
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ife_2018 设计师学院 No.5</title>
-    <link href="http://yoursite.com/2018/05/05/2018_5_4_1_ife_2018_%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E9%99%A2_No.5/"/>
-    <id>http://yoursite.com/2018/05/05/2018_5_4_1_ife_2018_设计师学院_No.5/</id>
-    <published>2018-05-05T13:26:52.791Z</published>
-    <updated>2018-05-05T13:26:53.016Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;No.5 - 纯 CSS 制作绕中轴旋转的立方体&lt;/p&gt;
-&lt;p&gt;任务五&lt;br&gt;&lt;a href=&quot;https://frattinor.github.io/IFE_2018/css/No.5/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;demo&lt;/a&gt;&lt;/
       
     
     </summary>

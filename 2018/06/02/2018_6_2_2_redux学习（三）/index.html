@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="css," />
+  <meta name="keywords" content="redux," />
 
 
 
@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="今天突然想写一个无缝的轮播图了，因为以前写的轮播图都不是无缝的，在结尾的地方会回滚回第一张图，所以就想试试除了设置外边距的方法来解决这个办法。然后我就想啊，用绝对定位来把图片都放一起，然后要用到什么图片就给什么图片添加动画就好，然后发现一个问题，因为是绝对定位，所以不能把div撑开，所以容器div就没有高度了，这就很难受了，所以就把div自己写一个高度出来，但是图片是16:9的，然后我又想写相对宽">
-<meta name="keywords" content="css">
+<meta name="description" content="已经用redux写了一个计数器了，也对redux有了个大概的了解，所以前面的导航栏组件共用状态问题也已经解决了。但还是有一个问题就是redux的store每次要使用都要重新引入过吗，vuex的话，感觉更加可以理解一点，在入口处定义store后，子组件就可以通过$store来获得值的吧。 然后我在看redux的教程的时候也看到了什么Provider和Connect，好像就是父组件传递store给子组">
+<meta name="keywords" content="redux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="css定义高宽成比例">
-<meta property="og:url" content="http://yoursite.com/2018/05/24/2018_5_24_2_css做div高宽成比例/index.html">
+<meta property="og:title" content="Redux学习（三）">
+<meta property="og:url" content="http://yoursite.com/2018/06/02/2018_6_2_2_redux学习（三）/index.html">
 <meta property="og:site_name" content="FrattiNor&#39;s Bolg">
-<meta property="og:description" content="今天突然想写一个无缝的轮播图了，因为以前写的轮播图都不是无缝的，在结尾的地方会回滚回第一张图，所以就想试试除了设置外边距的方法来解决这个办法。然后我就想啊，用绝对定位来把图片都放一起，然后要用到什么图片就给什么图片添加动画就好，然后发现一个问题，因为是绝对定位，所以不能把div撑开，所以容器div就没有高度了，这就很难受了，所以就把div自己写一个高度出来，但是图片是16:9的，然后我又想写相对宽">
+<meta property="og:description" content="已经用redux写了一个计数器了，也对redux有了个大概的了解，所以前面的导航栏组件共用状态问题也已经解决了。但还是有一个问题就是redux的store每次要使用都要重新引入过吗，vuex的话，感觉更加可以理解一点，在入口处定义store后，子组件就可以通过$store来获得值的吧。 然后我在看redux的教程的时候也看到了什么Provider和Connect，好像就是父组件传递store给子组">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-24T12:33:54.168Z">
+<meta property="og:updated_time" content="2018-06-02T08:15:09.930Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="css定义高宽成比例">
-<meta name="twitter:description" content="今天突然想写一个无缝的轮播图了，因为以前写的轮播图都不是无缝的，在结尾的地方会回滚回第一张图，所以就想试试除了设置外边距的方法来解决这个办法。然后我就想啊，用绝对定位来把图片都放一起，然后要用到什么图片就给什么图片添加动画就好，然后发现一个问题，因为是绝对定位，所以不能把div撑开，所以容器div就没有高度了，这就很难受了，所以就把div自己写一个高度出来，但是图片是16:9的，然后我又想写相对宽">
+<meta name="twitter:title" content="Redux学习（三）">
+<meta name="twitter:description" content="已经用redux写了一个计数器了，也对redux有了个大概的了解，所以前面的导航栏组件共用状态问题也已经解决了。但还是有一个问题就是redux的store每次要使用都要重新引入过吗，vuex的话，感觉更加可以理解一点，在入口处定义store后，子组件就可以通过$store来获得值的吧。 然后我在看redux的教程的时候也看到了什么Provider和Connect，好像就是父组件传递store给子组">
 
 
 
@@ -136,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/24/2018_5_24_2_css做div高宽成比例/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/02/2018_6_2_2_redux学习（三）/"/>
 
 
 
 
 
-  <title>css定义高宽成比例 | FrattiNor's Bolg</title>
+  <title>Redux学习（三） | FrattiNor's Bolg</title>
   
 
 
@@ -299,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/24/2018_5_24_2_css做div高宽成比例/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/2018_6_2_2_redux学习（三）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="FrattiNor">
@@ -316,7 +316,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">css定义高宽成比例</h1>
+          <h1 class="post-title" itemprop="name headline">Redux学习（三）</h1>
         
 
         <div class="post-meta">
@@ -328,8 +328,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-24T20:33:53+08:00">
-                2018-05-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-02T16:15:09+08:00">
+                2018-06-02
               </time>
             
 
@@ -366,11 +366,10 @@
       
 
       
-        <p>今天突然想写一个无缝的轮播图了，因为以前写的轮播图都不是无缝的，在结尾的地方会回滚回第一张图，所以就想试试除了设置外边距的方法来解决这个办法。<br>然后我就想啊，用绝对定位来把图片都放一起，然后要用到什么图片就给什么图片添加动画就好，然后发现一个问题，因为是绝对定位，所以不能把div撑开，所以容器div就没有高度了，这就很难受了，所以就把div自己写一个高度出来，但是图片是16:9的，然后我又想写相对宽度，所以得想办法把div的高宽写成比例关系的，这就很难办了，因为高度百分比是相对父容器的高度的，宽度百分比是相对父容器的宽度的，然后把控制台拉出来，会改变宽度或高度，所以父容器的高宽比例是不定的，然后我就Bing了一下，发现一个神奇的办法</p>
-<p><strong>百分比来做,这里需要运用一个小技巧,padding用百分比做单位时是相对于容器的宽度来算的,所以你可以把高度设为0,内容自然溢出,设置个padding-bottom</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">height: 0;</span><br><span class="line">width: 50%;</span><br><span class="line">padding-bottom: 30%</span><br></pre></td></tr></table></figure>
-<p><strong>那么这个div的高宽比就是30%:50%</strong></p>
-<p>这个办法真的不错，我想可以记一下</p>
+        <p>已经用redux写了一个计数器了，也对redux有了个大概的了解，所以前面的导航栏组件共用状态问题也已经解决了。<br>但还是有一个问题就是redux的store每次要使用都要重新引入过吗，vuex的话，感觉更加可以理解一点，在入口处定义store后，子组件就可以通过$store来获得值的吧。</p>
+<p>然后我在看redux的教程的时候也看到了什么Provider和Connect，好像就是父组件传递store给子组件的方式。</p>
+<p>我大概的看了下Provider和Connect，感觉connect还是比较难理解的，然后还涉及到props，我对props也没什么理解</p>
+<p>emmm。。今天就先这样吧，反正接下来的目标就是理解Provider和Connect，然后还有props</p>
 
       
     </div>
@@ -388,7 +387,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/css/" rel="tag"># css</a>
+            <a href="/tags/redux/" rel="tag"># redux</a>
           
         </div>
       
@@ -401,8 +400,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/24/2018_5_24_1_React学习/" rel="next" title="react学习">
-                <i class="fa fa-chevron-left"></i> react学习
+              <a href="/2018/06/02/2018_6_2_1_redux学习（二）/" rel="next" title="Redux学习（二）">
+                <i class="fa fa-chevron-left"></i> Redux学习（二）
               </a>
             
           </div>
@@ -410,10 +409,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/25/2018_5_25_1_无缝轮播图/" rel="prev" title="无缝轮播图">
-                无缝轮播图 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

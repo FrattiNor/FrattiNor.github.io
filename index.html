@@ -296,6 +296,256 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/2018_6_2_2_redux学习（三）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/02/2018_6_2_2_redux学习（三）/" itemprop="url">Redux学习（三）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-02T16:15:09+08:00">
+                2018-06-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>已经用redux写了一个计数器了，也对redux有了个大概的了解，所以前面的导航栏组件共用状态问题也已经解决了。<br>但还是有一个问题就是redux的store每次要使用都要重新引入过吗，vuex的话，感觉更加可以理解一点，在入口处定义store后，子组件就可以通过$store来获得值的吧。</p>
+<p>然后我在看redux的教程的时候也看到了什么Provider和Connect，好像就是父组件传递store给子组件的方式。</p>
+<p>我大概的看了下Provider和Connect，感觉connect还是比较难理解的，然后还涉及到props，我对props也没什么理解</p>
+<p>emmm。。今天就先这样吧，反正接下来的目标就是理解Provider和Connect，然后还有props</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/2018_6_2_1_redux学习（二）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/02/2018_6_2_1_redux学习（二）/" itemprop="url">Redux学习（二）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-02T15:51:22+08:00">
+                2018-06-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>昨天学习了redux的基本知识，总感觉很迷糊。<br>大概就是action，reducers和store<br>今天跟着写了一个小例子大概有点了解了<br>今天写了一个计数器，大概的意思就是取出store的值，然后通过action来改变store的值<br>总的来说reducers和store是连在一起的，而action则是提供给组件的<br>stote通过reducers创建，然后reducers是根据action写的函数，最后组件使用action通过reducers来修改store的值，最后显示在view上<br>上个代码吧<br>main.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">'normalize.css/normalize.css'</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'styles/App.css'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">'./stote'</span></span><br><span class="line"><span class="keyword">import</span> &#123;nTHE&#125; <span class="keyword">from</span> <span class="string">'./action'</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AppComponent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div className=<span class="string">"index"</span>&gt;</span><br><span class="line">        &lt;div&gt;&#123;store.getState().n&#125;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">        &lt;button onClick=&#123;() =&gt; store.dispatch(&#123; type: 'ADD' &#125;)&#125;&gt;ADD&lt;/</span>button&gt;</span><br><span class="line">        &lt;button onClick=&#123;() =&gt; store.dispatch(&#123; <span class="attr">type</span>: <span class="string">'DEL'</span> &#125;)&#125;&gt;DEL&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">        &lt;button onClick=&#123; () =&gt; &#123;store.dispatch(nTHE(0))&#125; &#125;&gt;ClEAN&lt;/</span>button&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">AppComponent.defaultProps = &#123;</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default AppComponent;</span></span><br></pre></td></tr></table></figure>
+<p>action.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> ADD = <span class="string">'ADD'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> DEL = <span class="string">'DEL'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> THE = <span class="string">'THE'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> nADD = &#123;</span><br><span class="line">    type: ADD</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> nDEL = &#123;</span><br><span class="line">    type: DEL</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">nTHE</span> (<span class="params">text</span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">"nthe"</span>)</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        type: THE,</span><br><span class="line">        text: text</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>reducers<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> defaultState = &#123;</span><br><span class="line">    n: <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> reducer = <span class="function">(<span class="params">state = defaultState, action</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'ADD'</span>:</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            n: state.n+<span class="number">1</span></span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'DEL'</span>:</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            n: <span class="number">-1</span></span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'THE'</span>:</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            n: action.text</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">return</span> state;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> reducer</span><br></pre></td></tr></table></figure></p>
+<p>store.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> reducer <span class="keyword">from</span> <span class="string">'./reducers'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = createStore(reducer);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> store</span><br></pre></td></tr></table></figure>
+<p>说真的，我也不是很讲的清楚，有个大概的理解吧。<br>然后就是要执行<code>store.subscribe(render)</code>，不然view不会变化</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/2018_6_1_1_redux学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -698,288 +948,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/25/2018_5_25_2_react-router学习/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/25/2018_5_25_2_react-router学习/" itemprop="url">React-router</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-25T18:17:35+08:00">
-                2018-05-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>react-router应该是react的路由插件吧，就跟vue-router一样，用来实现页面的跳转功能</p>
-<p><strong>安装</strong><br>React Router已被拆分成三个包：react-router,react-router-dom和react-router-native。你不需要直接安装react-router，react-router包提供核心的路由组件与函数。其余两个提供运行环境（浏览器与react-native）所需的特定组件，但是他们都暴露出react-router中暴露的对象与方法。你应该为你的环境选择正确的包。我们进行的是网站（将会运行在浏览器）构建，所以应安装react-router-dom。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -save react-router-dom</span><br></pre></td></tr></table></figure></p>
-<p><strong>Router</strong><br>当进行新项目时，你需要选择使用哪种路由。对于浏览器项目（网站），react-router4提供了<code>&lt;BrowserRouter&gt;</code>和<code>&lt;HashRouter&gt;</code>两个组件。前者在你有服务器处理动态请求的时候使用，后者在静态网站的时候使用。<br>通常我们选择使用<code>&lt;BrowserRouter&gt;</code>，但是如果你的网站将运行在只有静态文件的服务器上，<code>&lt;HashRouter&gt;</code>是一个不错的方案。</p>
-<p>区别：</p>
-<blockquote>
-<p>hashHistory 使用 URL 中的 hash（#）部分去创建路由，举例来说，用户访问<a href="http://www.example.com/，实际会看到的是http://www.example.com/#/。" target="_blank" rel="noopener">http://www.example.com/，实际会看到的是http://www.example.com/#/。</a></p>
-<p>browserHistory 是使用 React-Router 的应用推荐的 history方案。它使用浏览器中的 History API 用于处理 URL，创建一个像example.com/list/123这样真实的 URL 。</p>
-</blockquote>
-<p>虽然不是太懂，大概的意思就是hash是跟原来学vue-router一样的，browser是实际存在的url。。。</p>
-<p><strong>History</strong><br>每种路由都会创建history对象，用来追踪当前的location<br>并在网站变化的时候重新渲染。React Router提供的其它的组件都依赖于上下文中的history对象，所以必须在组件内部渲染。<br>一个React Router组件如果没有父级组件将不会工作。</p>
-<p><strong>渲染一个<code>&lt;Router&gt;</code></strong></p>
-<p>由于Router组件只能接收一个子元素，因为这个限制，我们创建一个<code>&lt;App&gt;</code>组件来渲染我们的应用（从路由中分离应用对于服务器端渲染也是很重要的，因为在服务器端渲染，切换到<code>&lt;MemoryRouter&gt;</code>的时候可以复用<code>&lt;App&gt;</code>）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import &#123; BrowserRouter &#125; from &apos;react-router-dom&apos;</span><br><span class="line">ReactDOM.render((</span><br><span class="line">    &lt;BrowserRouter&gt;</span><br><span class="line">        &lt;App &gt;&lt;/App&gt;</span><br><span class="line">    &lt;/BrowserRouter&gt;</span><br><span class="line">), document.getElementById(&apos;root&apos;))</span><br></pre></td></tr></table></figure>
-<p>=<br>我们的应用写在<code>&lt;App&gt;</code>组件中。为了简化，我们将分离我们的应用到两部分，<code>&lt;Header&gt;</code>组件将包含网站的导航链接，<code>&lt;Main&gt;</code>组件用于渲染剩下的内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// this component will be rendered by our &lt;___Router&gt;</span><br><span class="line">const App = () =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;Header /&gt;</span><br><span class="line">    &lt;Main /&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
-<p><strong>路由 Route</strong><br><code>&lt;Route&gt;</code>组件是React Router的主要构件模块，任何你想渲染的与pathname匹配的地方，你都应该创建一个<code>&lt;Route&gt;</code>元素。</p>
-<p><strong>路径 Path</strong><br>一个<code>&lt;Route&gt;</code>需要一个path的字符串参数来描述路由匹配的路径名类型，例如，<route path="/roster">应该匹配以/roster开头的路径名。 当前位置的路径与path匹配时，路由将渲染一个React元素。 当路径不匹配时，路由将不会渲染任何东西。</route></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route path=&apos;/roster&apos; /&gt;</span><br><span class="line">// 当前路径是   &apos;/&apos;, 不满足匹配</span><br><span class="line">// 当前路径是   &apos;/roster&apos; 或 &apos;/roster/2&apos;, 满足匹配</span><br><span class="line">// 如果只想匹配 &apos;/roster&apos;, 需要使用&quot;exact&quot;参数</span><br><span class="line">// 下面的会匹配 &apos;/roster&apos;, 但是不会匹配&apos;/roster/2&apos;.</span><br></pre></td></tr></table></figure>
-<p><strong>匹配路径</strong><br>path-to-regexp包用于确定路径元素的path参数是否与当前位置匹配。它将path字符串编译为一个正则表达式，该正则表达式将与该位置的路径名相匹配。path字符串具有比此处所述更高级的格式选项。你可以在正则表达式文档路径中阅读它们。<br>当路径的路径匹配时，将创建一个具有以下属性的匹配对象：</p>
-<blockquote>
-<p>url - 当前位置路径名的匹配部分<br>path  - 路由的路径<br>isExact - path是否等于pathname<br>params - 一个包含path-to-regexp捕获的路径名值的对象</p>
-</blockquote>
-<p><strong>创建路由</strong><br>可以在路由内部的任何位置创建<code>&lt;Route&gt;</code>，但是通常在同一地方渲染它们。你可以使用<code>&lt;Switch&gt;</code>组件来包裹一组<code>&lt;Route&gt;</code>。 <code>&lt;Switch&gt;</code>将迭代其子元素（路由），并仅渲染与当前路径名匹配的第一个元素。</p>
-<p><strong><code>&lt;Route&gt;</code>怎么渲染？</strong><br>当path匹配时，<code>&lt;Route&gt;</code>有三个参数可用于定义什么该被渲染。但是只能提供一个给<code>&lt;Route&gt;</code>元素。</p>
-<blockquote>
-<p>component  —  一个React组件。当带有component 参数的路由匹配时，路由将返回一个新元素，其类型是一个React component （使用React.createElement创建）。<br>render  —  一个返回React元素的函数。它将在path匹配时被调用。这与component类似，但对于 内联渲染 和 更多参数传递 很有用。<br>children  — 一个返回React元素的函数。与之前的两个参数不同，无论路由的路径是否与当前位置相匹配，都将始终被渲染。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//component</span><br><span class="line">&lt;Route path=&apos;/page&apos; component=&#123;Page&#125; /&gt; </span><br><span class="line"></span><br><span class="line">const extraProps = &#123; color: &apos;red&apos; &#125;</span><br><span class="line"></span><br><span class="line">//render</span><br><span class="line">&lt;Route path=&apos;/page&apos; render=&#123;(props) =&gt; (  </span><br><span class="line">  &lt;Page &#123;...props&#125; data=&#123;extraProps&#125;/&gt;</span><br><span class="line">)&#125;/&gt;</span><br><span class="line"></span><br><span class="line">//children</span><br><span class="line">&lt;Route path=&apos;/page&apos; children=&#123;(props) =&gt; (</span><br><span class="line">  props.match</span><br><span class="line">    ? &lt;Page &#123;...props&#125;/&gt;</span><br><span class="line">    : &lt;EmptyPage &#123;...props&#125;/&gt;</span><br><span class="line">)&#125;/&gt;</span><br></pre></td></tr></table></figure>
-<p>通常，我们会选择conmponent或render。children参数偶尔会用上，但通常最好在路径不匹配时不渲染任何东西。在这里我们没有任何额外的参数传递给组件，因此我们的每个<code>&lt;Route&gt;</code>将使用component参数。<br>由<code>&lt;Route&gt;</code>渲染的元素将传递多个参数。这些将是match对象，location对象和history对象（由我们的路由创建的对象）。</p>
-<p><strong>路径参数</strong><br>有时，我们想要获得路径中的变量。例如，球员资料的路径，我们想要获得球员的号码。我们可以通过将路径参数添加到<code>&lt;Route&gt;</code>的 path参数 中来完成。</p>
-<p>路径/roster/:number中的:number部分意味着/roster/后面的路径名部分将被捕获并存储为match.params.number。</p>
-<p>例如，路径 /roster/6 将生成一个params对象：{ number: ‘6’}<br><code>&lt;Player&gt;</code>组件可以使用props.match.params对象来确定应该渲染哪个Player的数据。</p>
-<p><strong>Links</strong><br>最后，我们的应用程序需要在页面间导航。如果我们要使用锚点元素创建链接，点击它们会导致整个页面重新加载。 React Router提供了一个<code>&lt;Link&gt;</code>组件来防止这种情况发生。点击&lt;链接&gt;时，URL将被更新，并且呈现的内容将会更改，而不会重新加载页面。<br><code>&lt;Link&gt;</code>使用to参数来描述他们应该导航到的位置。这可以是字符串或位置对象（包含路径名，search，hash和state的组合）。当它是一个字符串时，它将被转换为location对象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link to=&#123;&#123; pathname: &apos;/roster/7&apos; &#125;&#125;&gt;Player #7&lt;/Link&gt;</span><br></pre></td></tr></table></figure>
-<p>看的有点晕，感觉跟vue-router有比较大的区别吧。但又非常的类似。讲真的，我看了这么久，实际上依旧不会操作哎。。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/25/2018_5_25_1_无缝轮播图/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/25/2018_5_25_1_无缝轮播图/" itemprop="url">无缝轮播图</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-25T16:34:07+08:00">
-                2018-05-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://frattinor.github.io/practice/RotationMap/" target="_blank" rel="noopener">demo</a><br>昨天想做一个轮播图，无缝的那种，然后就想了一种办法<br>首先我原来的写法是把图片摆成一排，然后修改左右外边距来使图片的位置得到修改，然后给图片加上过渡，就有动画效果了，有一个缺陷就是最右边的图片回到最左边是回滚回去的，没办法做到无缝，取消过渡效果，到是可以无缝，但是没有动画效果就更加不行了</p>
-<p>然后我今天想的一种方法是把图片全部绝对定位到一起，然后修改z-index属性来让需要使用的图片来显示在最上面，动画效果就写好左右移动，给需要的2张图片加上就可以了。简单的说就是用哪张取哪张图片来添加动画就好。</p>
-<p>还挺简单的吧，也没有什么问题，最后就是把几个函数整合在一起缩减了一下代码量。</p>
-<p>然后我还遇到了一个问题就是子类的上外边距影响父类的高度，。。。大概是这个意思吧，我百度了一下，得到几种解决办法我这里记录一下</p>
-<p><strong>1、修改父元素的高度，增加padding-top样式模拟（padding-top：1px；常用）</strong><br><strong>2、为父元素添加overflow：hidden；样式即可（完美）</strong><br><strong>3、为父元素或者子元素声明浮动（float：left；可用）</strong><br><strong>4、为父元素添加border（border:1px solid transparent可用）</strong><br><strong>5、为父元素或者子元素声明绝对定位</strong></p>
-<p>最后附上我的代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/mycss.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;box&quot;&gt;</span><br><span class="line">        &lt;img index=&quot;1&quot; src=&quot;img/1.jpg&quot; /&gt;</span><br><span class="line">        &lt;img index=&quot;2&quot; src=&quot;img/2.jpg&quot; /&gt;</span><br><span class="line">        &lt;img index=&quot;3&quot; src=&quot;img/3.jpg&quot; /&gt;</span><br><span class="line">        &lt;img index=&quot;4&quot; src=&quot;img/4.jpg&quot; /&gt;</span><br><span class="line">        &lt;img index=&quot;5&quot; src=&quot;img/5.jpg&quot; /&gt;</span><br><span class="line"></span><br><span class="line">        &lt;div class=&quot;button_box next&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;button_box prev&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">        &lt;div class=&quot;point_box&quot;&gt;</span><br><span class="line">            &lt;div index=&quot;1&quot; class=&quot;on&quot;&gt;&lt;/div&gt;</span><br><span class="line">            &lt;div index=&quot;2&quot;&gt;&lt;/div&gt;</span><br><span class="line">            &lt;div index=&quot;3&quot;&gt;&lt;/div&gt;</span><br><span class="line">            &lt;div index=&quot;4&quot;&gt;&lt;/div&gt;</span><br><span class="line">            &lt;div index=&quot;5&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script src=&quot;js/myjs.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">    margin: 0;</span><br><span class="line">    padding: 0;</span><br><span class="line">&#125;</span><br><span class="line">body, html &#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.box &#123;</span><br><span class="line">    box-sizing: content-box;</span><br><span class="line">    height: 0;</span><br><span class="line">    width: 50%;</span><br><span class="line">    padding-bottom: 28.125%;</span><br><span class="line">    margin: auto;</span><br><span class="line">    margin-top: 10%;</span><br><span class="line">    margin-bottom: 10%;</span><br><span class="line">    border: 1px solid #aaa;</span><br><span class="line">    position: relative;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">&#125;</span><br><span class="line">.box img &#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    z-index: 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.button_box &#123;</span><br><span class="line">    cursor: pointer;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 50%;</span><br><span class="line">    width: 6%;</span><br><span class="line">    height: 0;</span><br><span class="line">    padding-bottom: 6%;</span><br><span class="line">    margin-top: -3%;</span><br><span class="line">    /*border: 1px solid #999;*/</span><br><span class="line">    background: url(../img/arrow_2.png);</span><br><span class="line">    background-color: RGBA(0,0,0,0.3);</span><br><span class="line">    background-size: 100% 100%;</span><br><span class="line">    z-index: 10;</span><br><span class="line">&#125;</span><br><span class="line">.next &#123;</span><br><span class="line">    right: 0;</span><br><span class="line">    transform: rotate(90deg);</span><br><span class="line">&#125;</span><br><span class="line">.prev &#123;</span><br><span class="line">    left: 0;</span><br><span class="line">    transform: rotate(-90deg);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.point_box &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    bottom: 10%;</span><br><span class="line">    left: 50%;</span><br><span class="line">    margin-left: -10%;</span><br><span class="line">    width: 20%;</span><br><span class="line">    height: 0;</span><br><span class="line">    padding-bottom: 2%;</span><br><span class="line">    z-index: 10;</span><br><span class="line">    /*border: 1px solid #000;*/</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.point_box div &#123;</span><br><span class="line">    box-sizing: border-box;</span><br><span class="line">    cursor: pointer;</span><br><span class="line">    position: relative;</span><br><span class="line">    float: left;</span><br><span class="line">    height: 0;</span><br><span class="line">    width: 10%;</span><br><span class="line">    padding-bottom: 10%;</span><br><span class="line">    margin-right: 10%;</span><br><span class="line">    border-radius: 50%;</span><br><span class="line">    border: 0.5px solid #aaa;</span><br><span class="line">    background-color: #aaa;</span><br><span class="line">    transition: 1s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.on&#123;</span><br><span class="line">    background-color: #fff !important;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.next_ani_1 &#123;</span><br><span class="line">    animation: next_one 1s both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@keyframes next_one &#123;</span><br><span class="line">    0% &#123;</span><br><span class="line">        margin-left: 0;</span><br><span class="line">    &#125;</span><br><span class="line">    100% &#123;</span><br><span class="line">        margin-left: -100%;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.next_ani_2 &#123;</span><br><span class="line">    animation: next_two 1s both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@keyframes next_two &#123;</span><br><span class="line">    0% &#123;</span><br><span class="line">        margin-left: 100%;</span><br><span class="line">    &#125;</span><br><span class="line">    100% &#123;</span><br><span class="line">        margin-left: 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.prev_ani_1 &#123;</span><br><span class="line">    animation: prev_one 1s both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@keyframes prev_one &#123;</span><br><span class="line">    0% &#123;</span><br><span class="line">        margin-left: 0;</span><br><span class="line">    &#125;</span><br><span class="line">    100% &#123;</span><br><span class="line">        margin-left: 100%;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.prev_ani_2 &#123;</span><br><span class="line">    animation: prev_two 1s both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@keyframes prev_two &#123;</span><br><span class="line">    0% &#123;</span><br><span class="line">        margin-left: -100%;</span><br><span class="line">    &#125;</span><br><span class="line">    100% &#123;</span><br><span class="line">        margin-left: 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line">// 获得对应节点</span><br><span class="line">let img = document.getElementsByClassName(&quot;box&quot;)[0].getElementsByTagName(&quot;img&quot;)</span><br><span class="line">let next = document.getElementsByClassName(&quot;next&quot;)[0]</span><br><span class="line">let prev = document.getElementsByClassName(&quot;prev&quot;)[0]</span><br><span class="line">let point = document.getElementsByClassName(&quot;point_box&quot;)[0].getElementsByTagName(&quot;div&quot;)</span><br><span class="line"></span><br><span class="line">// 定义各项数据</span><br><span class="line">let state = 0  // 定义状态</span><br><span class="line">let index = 0  // 定义图片当前位置</span><br><span class="line">let nextIndex = 1 // 定义图片跳转的位置</span><br><span class="line"></span><br><span class="line">// 定义函数</span><br><span class="line">// 跳转完成后获得重新获得当前位置</span><br><span class="line">function getIndex () &#123;</span><br><span class="line">    index = nextIndex</span><br><span class="line">&#125;</span><br><span class="line">// 获得跳转位置</span><br><span class="line">function getNextIndex (i) &#123;</span><br><span class="line">    // 没传入参数为左右跳转，传入参数为间隔多点跳转</span><br><span class="line">    if (i == undefined) &#123;</span><br><span class="line">        if (state === 0) &#123;</span><br><span class="line">            if ((index + 1) &gt; 4) &#123;</span><br><span class="line">                nextIndex = 0;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                nextIndex = index + 1</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if (state === 1) &#123;</span><br><span class="line">            if ((index - 1) &lt; 0) &#123;</span><br><span class="line">                nextIndex = 4;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                nextIndex = index - 1</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        nextIndex = i</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 修改当前位置和跳转位置的图层</span><br><span class="line">function changeZIndex () &#123;</span><br><span class="line">    img[index].style.zIndex = &quot;2&quot;</span><br><span class="line">    img[nextIndex].style.zIndex = &quot;2&quot;</span><br><span class="line">    for (let i = 0; i &lt; img.length; i++) &#123;</span><br><span class="line">        if (i != index &amp;&amp; i != nextIndex) &#123;</span><br><span class="line">            img[i].style.zIndex = &quot;1&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 设置点跟随图片位置跳转</span><br><span class="line">function showPiont () &#123;</span><br><span class="line">    for (let i = 0; i &lt; point.length; i++) &#123;</span><br><span class="line">        if (i === index) &#123;</span><br><span class="line">            point[i].className = &apos;on&apos;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            point[i].className = &apos;&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 动画函数</span><br><span class="line">function ani (i) &#123;</span><br><span class="line">    img[index].className = &apos;&apos;</span><br><span class="line">    img[nextIndex].className = &apos;&apos;</span><br><span class="line">    getNextIndex(i)</span><br><span class="line">    changeZIndex()</span><br><span class="line">    if (state === 0) &#123;</span><br><span class="line">        img[index].className = &apos;next_ani_1&apos;</span><br><span class="line">        img[nextIndex].className = &apos;next_ani_2&apos;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        img[index].className = &apos;prev_ani_1&apos;</span><br><span class="line">        img[nextIndex].className = &apos;prev_ani_2&apos;</span><br><span class="line">    &#125;</span><br><span class="line">    getIndex()</span><br><span class="line">    showPiont()</span><br><span class="line">&#125;</span><br><span class="line">// 5s自动轮播</span><br><span class="line">function autoPlay () &#123;</span><br><span class="line">    state = 0</span><br><span class="line">    setInterval(() =&gt; &#123;</span><br><span class="line">        ani()</span><br><span class="line">    &#125;,5000)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 添加监听器</span><br><span class="line">// 右按钮添加点击事件</span><br><span class="line">next.addEventListener(&quot;click&quot;, () =&gt; &#123;</span><br><span class="line">    state = 0</span><br><span class="line">    ani()</span><br><span class="line">&#125;, false)</span><br><span class="line">// 左按钮添加点击事件</span><br><span class="line">prev.addEventListener(&quot;click&quot;, () =&gt; &#123;</span><br><span class="line">    state = 1</span><br><span class="line">    ani()</span><br><span class="line">&#125;, false)</span><br><span class="line">// 对应点添加点击事件</span><br><span class="line">for (let i = 0; i &lt; point.length; i++) &#123;</span><br><span class="line">    point[i].addEventListener(&quot;click&quot;, () =&gt; &#123;</span><br><span class="line">        if (i &gt; index) &#123;</span><br><span class="line">            state = 0</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            state = 1</span><br><span class="line">        &#125;</span><br><span class="line">        ani(i)</span><br><span class="line">    &#125;, false)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 初始化执行</span><br><span class="line">// 修改第一张图片为最上层</span><br><span class="line">img[0].style.zIndex = 2</span><br><span class="line">// 自动轮播函数执行</span><br><span class="line">autoPlay()</span><br></pre></td></tr></table></figure>
-<p><strong>最后我知道那个摆成一排的轮播图怎么无缝了，只是我的想法太局限了，动画效果只想到了css方面，如果是js给dom添加的动画，那么你直接修改样式是不会产生动画的，所以就可以解决这个问题。</strong></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1030,7 +998,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

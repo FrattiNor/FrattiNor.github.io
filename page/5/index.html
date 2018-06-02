@@ -296,6 +296,289 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/05/2018_5_4_2_ife_2018_设计师学院_No.6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/05/2018_5_4_2_ife_2018_设计师学院_No.6/" itemprop="url">ife_2018 设计师学院 No.6</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-05T21:42:55+08:00">
+                2018-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>No.6 - 利用 CSS animation 制作一个炫酷的 Slider</p>
+<p>任务六<br><a href="https://frattinor.github.io/IFE_2018/css/No.6/" target="_blank" rel="noopener">demo</a></p>
+<p>任务要求：<br>通过 CSS animation 实现一个 全屏 Image Slider 的效果</p>
+<p><strong>我的思路</strong></p>
+<ol>
+<li>选择5张图片</li>
+<li>在html写一个大的div</li>
+<li>在div底部加ul里面的li写5个li里面放5张图片</li>
+<li>然后在大div重叠放置5张图片</li>
+<li>给5张图片写好css动画</li>
+<li>js给5个li添加click事件，动态删除和添加动画class</li>
+</ol>
+<p>差不多就是这样</p>
+<p><strong>遇到的问题</strong><br>1首先呢是图片的重叠问题，后面的图片会覆盖前面的图片</p>
+<p>解决办法：<br>给图片添加z-index属性，刚打开是第二张图片，所以第二张图片的z-index为2，其他为1</p>
+<p>2.li的hover时变亮特效</p>
+<p>解决办法：<br>不是hover变亮，而是不hover变暗，我是通过给li加背景颜色为黑色，然后设置opcaity为0.5，就是半透明效果，然后写hover时，opcaity=1，不透明时就感觉变亮了</p>
+<p>3.还是图片覆盖问题，添加动画class时也看不见图片</p>
+<p>解决办法：<br>js给需要添加动画class的z-index设置为3，需要删除的z-index设置为1，然后还有一个问题，就是z-index都为1，背景一直都是最后的图片，所以还需要给上次z-index为3的z-index为2，这样背景就会是上次最上面的图片</p>
+<p>4.点击同一个会一直有动画</p>
+<p>解决办法：<br>js设置z-index为2和需要z-index为3的图片为同一个时，直接return就好</p>
+<p>最后附上我的代码</p>
+<p>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/mycss.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;show&quot;&gt;</span><br><span class="line">        &lt;img class=&quot;img1&quot; src=&quot;img/1.jpg&quot;&gt;</span><br><span class="line">        &lt;img class=&quot;img2&quot; src=&quot;img/2.jpg&quot;&gt;</span><br><span class="line">        &lt;img class=&quot;img3&quot; src=&quot;img/3.jpg&quot;&gt;</span><br><span class="line">        &lt;img class=&quot;img4&quot; src=&quot;img/4.jpg&quot;&gt;</span><br><span class="line">        &lt;img class=&quot;img5&quot; src=&quot;img/5.jpg&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;five&quot;&gt;</span><br><span class="line">            &lt;ul class=&quot;ull&quot;&gt;</span><br><span class="line">                &lt;li&gt;&lt;img src=&quot;img/1.jpg&quot;&gt;&lt;/li&gt;</span><br><span class="line">                &lt;li&gt;&lt;img src=&quot;img/2.jpg&quot;&gt;&lt;/li&gt;</span><br><span class="line">                &lt;li&gt;&lt;img src=&quot;img/3.jpg&quot;&gt;&lt;/li&gt;</span><br><span class="line">                &lt;li&gt;&lt;img src=&quot;img/4.jpg&quot;&gt;&lt;/li&gt;</span><br><span class="line">                &lt;li&gt;&lt;img src=&quot;img/5.jpg&quot;&gt;&lt;/li&gt;</span><br><span class="line">            &lt;/ul&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;js/myjs.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/mycss.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;show&quot;&gt;</span><br><span class="line">        &lt;img class=&quot;img1&quot; src=&quot;img/1.jpg&quot;&gt;</span><br><span class="line">        &lt;img class=&quot;img2&quot; src=&quot;img/2.jpg&quot;&gt;</span><br><span class="line">        &lt;img class=&quot;img3&quot; src=&quot;img/3.jpg&quot;&gt;</span><br><span class="line">        &lt;img class=&quot;img4&quot; src=&quot;img/4.jpg&quot;&gt;</span><br><span class="line">        &lt;img class=&quot;img5&quot; src=&quot;img/5.jpg&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;five&quot;&gt;</span><br><span class="line">            &lt;ul class=&quot;ull&quot;&gt;</span><br><span class="line">                &lt;li&gt;&lt;img src=&quot;img/1.jpg&quot;&gt;&lt;/li&gt;</span><br><span class="line">                &lt;li&gt;&lt;img src=&quot;img/2.jpg&quot;&gt;&lt;/li&gt;</span><br><span class="line">                &lt;li&gt;&lt;img src=&quot;img/3.jpg&quot;&gt;&lt;/li&gt;</span><br><span class="line">                &lt;li&gt;&lt;img src=&quot;img/4.jpg&quot;&gt;&lt;/li&gt;</span><br><span class="line">                &lt;li&gt;&lt;img src=&quot;img/5.jpg&quot;&gt;&lt;/li&gt;</span><br><span class="line">            &lt;/ul&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;js/myjs.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;li&quot;).click(function()&#123;</span><br><span class="line">    let x = $(this).find(&quot;img&quot;).attr(&quot;src&quot;);</span><br><span class="line">    for(let i = 0; i &lt; 5; i++)&#123;</span><br><span class="line">        let y = $(&quot;.show&quot;).find(&quot;img&quot;).eq(i);</span><br><span class="line">        y.removeClass(&quot;ani&quot;+(i+1));</span><br><span class="line">        if(y.css(&quot;z-index&quot;) == &quot;3&quot; &amp;&amp; y.attr(&quot;src&quot;) == x)&#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        if(y.css(&quot;z-index&quot;) == &quot;3&quot;)&#123;</span><br><span class="line">            y.css(&quot;z-index&quot;,&quot;2&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            y.css(&quot;z-index&quot;,&quot;1&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        if(y.attr(&quot;src&quot;) == x)&#123;</span><br><span class="line">            y.css(&quot;z-index&quot;,&quot;3&quot;);</span><br><span class="line">            y.addClass(&quot;ani&quot;+(i+1));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/05/2018_5_4_1_ife_2018_设计师学院_No.5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/05/2018_5_4_1_ife_2018_设计师学院_No.5/" itemprop="url">ife_2018 设计师学院 No.5</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-05T21:26:52+08:00">
+                2018-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>No.5 - 纯 CSS 制作绕中轴旋转的立方体</p>
+<p>任务五<br><a href="https://frattinor.github.io/IFE_2018/css/No.5/" target="_blank" rel="noopener">demo</a></p>
+<p>任务要求：<br>通过纯CSS 实现一个立方体翻转的效果</p>
+<p><strong>我的思路</strong></p>
+<ol>
+<li>用绝对定位在同一个地方设置6个正方形div</li>
+<li>通过css3的3d效果去把上下左右后5块div进行旋转和3d位移</li>
+<li>在以底部为圆心写无穷旋转动画效果</li>
+</ol>
+<p>完成</p>
+<p><strong>遇到的问题</strong><br>1.旋转后div上的字也会翻转</p>
+<p>解决办法：<br>前面，上面，和下面这3块不动，左右2块都向后位移200px，再进行旋转，后面一块先向后位移200px然后原地转180度<br>这样从6个面看过去都是正的字</p>
+<p>2。无穷旋转动画以前面这块的中轴为中心旋转</p>
+<p>解决办法：<br>在这6块div外加一个div，然后前面这块向前移100px，后面那块向后移100px，其他4块以这2块为基准位移和旋转，然后把无穷旋转的动画加载在外部这个div里，这样就可以围绕底面的中心旋转了</p>
+<p>3.看起来没有3d效果，只有2d效果</p>
+<p>解决办法：<br>昨天使用过的perspective属性，简单的说就是增加屏幕到元素的距离，产生距离感</p>
+<p>4.使用perspective属性后，旋转起来，前大后小，不是立方体</p>
+<p>解决办法：<br>其实，这个问题是我自己还不太理解perspective属性，现在我对perspective属性的理解就是在元素的前方加了一对眼睛，然后改元素旋转的同时，眼睛也在旋转，也就是说本来是屏幕到元素的距离旋转后变成了侧面到元素产生了距离，emmm。。。，我自己也说不明白，反正就是这个意思，解决办法是在外部div的外部加个div，在最外面的这个div加上perspective属性，这样里面div旋转不会影响到外部的perspective属性。</p>
+<p>最后贴出我的代码<br>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/mycss.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;box0&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;box front&quot;&gt;front&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;box back&quot;&gt;back&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;box left&quot;&gt;left&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;box right&quot;&gt;right&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;box top&quot;&gt;top&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;box bottom&quot;&gt;bottom&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;js/myjs.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">    margin: 0;</span><br><span class="line">    padding: 0;</span><br><span class="line">&#125;</span><br><span class="line">.container&#123;</span><br><span class="line">    height: 200px;</span><br><span class="line">    text-align: center;</span><br><span class="line">    margin-top: 100px;</span><br><span class="line">    perspective: 400px;</span><br><span class="line">&#125;</span><br><span class="line">.box0&#123;</span><br><span class="line">    transform-style: preserve-3d;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 200px;</span><br><span class="line">    transform-origin: 50% 50%;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    animation: ani 4s infinite linear;</span><br><span class="line">    animation-play-state:paused;</span><br><span class="line">&#125;</span><br><span class="line">.box0:hover&#123;</span><br><span class="line">    animation-play-state:running;</span><br><span class="line">&#125;</span><br><span class="line">@keyframes ani&#123;</span><br><span class="line">    0%&#123;</span><br><span class="line">        transform: rotateY(0deg);</span><br><span class="line">    &#125;</span><br><span class="line">    100%&#123;</span><br><span class="line">        transform: rotateY(360deg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">.box&#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 200px;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    border: 2px solid #09f;</span><br><span class="line">    text-align: center;</span><br><span class="line">    line-height: 200px;</span><br><span class="line">    font-size: 30px;</span><br><span class="line">    color: RGBA(0,0,0,0.6);</span><br><span class="line">&#125;</span><br><span class="line">.front&#123;</span><br><span class="line">    transform: translateZ(102px);</span><br><span class="line">    background-color: RGBA(255,0,0,0.5);</span><br><span class="line">&#125;</span><br><span class="line">.top&#123;</span><br><span class="line">    transform-origin: 0% 0%;</span><br><span class="line">    transform: translateZ(102px) rotateX(270deg) ;</span><br><span class="line">    background-color: RGBA(0,255,0,0.5);</span><br><span class="line">&#125;</span><br><span class="line">.bottom&#123;</span><br><span class="line">    transform-origin: 0% 100%;</span><br><span class="line">    transform:translateZ(102px) rotateX(90deg);</span><br><span class="line">    background-color: RGBA(0,0,255,0.5);</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">    transform-origin: 0% 50%;</span><br><span class="line">    transform:translateZ(-102px) rotateY(270deg);</span><br><span class="line">    background-color: RGBA(255,255,0,0.5);</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">    transform-origin: 100% 0%;</span><br><span class="line">    transform:translateZ(-102px) rotateY(90deg);</span><br><span class="line">    background-color: RGBA(0,255,255,0.5);</span><br><span class="line">&#125;</span><br><span class="line">.back&#123;</span><br><span class="line">    transform: translateZ(-102px) rotateY(180deg);</span><br><span class="line">    background-color: RGBA(200,0,200,0.5);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/03/2018_5_3_3_ife_2018_设计师学院_No.4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -698,282 +981,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/28/2018_4_28_1_vue项目-豆瓣电影搜索/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/28/2018_4_28_1_vue项目-豆瓣电影搜索/" itemprop="url">Vue项目-豆瓣电影搜索</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-28T14:26:25+08:00">
-                2018-04-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在写了第一次Vue项目todo list之后，总算是了解了vue项目大概的编写方法<br>然后我就在网络上找一些简单的Vue项目来做<br>然后就看到了这个基于豆瓣API的电影搜索项目（<a href="https://github.com/superman66/vue2.x-douban）" target="_blank" rel="noopener">https://github.com/superman66/vue2.x-douban）</a><br>老实说，看一起来并不难，就是一个主页面，一个电影搜索结果页面，一个更多页面以及一个电影详情页面。<br>但是实际上并不简单吧，只能这样说了，因为在完成这个项目期间我修改了错误的次数可能不下100次了，这个项目里还有我完全没有学习过的http知识，虽然就是一个axios的get请求。</p>
-<hr>
-<p>接下来就介绍一下项目吧。<br>项目要求：使用vue，vue-router，vue-infinite-scroll，axios知识编写基于豆瓣API的电影搜索应用，包含主页面，电影搜索结果页面，更多页面以及电影详情页面。</p>
-<p>原项目还包含vuex的使用，但是因为我完全不知道vuex是使用方法，所以就去掉了，感觉没有太大的影响，然后就是我在原项目的基础上修改了部分样式以及一个bug吧。</p>
-<p>代码就不贴上来了，比较的多，可以访问我的github查看代码（<a href="https://github.com/FrattiNor/vue-project/tree/master/douban-movie-api）" target="_blank" rel="noopener">https://github.com/FrattiNor/vue-project/tree/master/douban-movie-api）</a><br>因为不明白代理和反向代理以及http方面的知识，build完项目存在跨域问题，所以不能在线访问，想要查看效果请：<br>clone代码到本地<br>bash here<br>npm install<br>npm run dev来运行</p>
-<p>因为遇到的问题太多，然后又没记住几个，遇到的问题就不多说了<br>我就讲一下收获吧</p>
-<blockquote>
-<p>1.vue编写html是完全的模块化的，一个vue文件就是一个木模块<br>2.模块的使用依赖export和require（import）<br>3.要在一个模块引入另一个模块要import另一个模块以及在export里用components声明组件<br>4.使用路由要在route.js中引入模块并申明组件，path，name<br>5.路由显示在router-view标签中<br>6.路由跳转可以携带参数，使用query来传递参数，this.$route.query来获取参数<br>7.import时的路径里有个“@/”指的是”src/“，”../“代表返回上一级</p>
-</blockquote>
-<p>最后讲一下原项目的一个bug吧，原项目在第二次搜索电影也就是在搜索结果页面搜索电影时不能返回结果。<br>原因是：原项目把返回数据的函数写在mounted里，只会执行一次，但是重新搜索后把参数再传给搜索结果页面，由于router-view的页面没有改动，所以不会再次执行mounted里的函数<br>解决办法：在watch里观察传递的参数是否改变来执行函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">	&quot;$route&quot;(to, from)&#123;</span><br><span class="line">		xxx</span><br><span class="line">	&#125;.</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
-<p>to.query是新的参数<br>from.query是旧的参数</p>
-<p>最后的总结：这次vue项目给我最大的收获肯定是正真对模块化的了解吧，模块化真的给人一种层次分明的感觉。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/25/2018_4_25_1_vue项目入门和vue-router部分学习/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/25/2018_4_25_1_vue项目入门和vue-router部分学习/" itemprop="url">Vue项目入门和vue-router部分学习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-25T17:17:00+08:00">
-                2018-04-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>前段时间看的vue.js，然后也写了一个小页面来练练手，总的来说不是很难，再然后，我就看到了vue项目，接触到了vue-cli，webpack等等的，于是乎就看了很久的相关文档，说真的看文档真的看的我有点难受了，看文档确实是知道了具体的代码怎么实现等等的，虽然不能全部记住，但也能记个大概了。<br>今天又看了vuex，vue-router，axios的相关文档，但都没怎么仔细看，可能最近看文档看的有点烦了吧，看不太进去，也不想把看的都写一遍下来了。</p>
-<p>关于vuex<br>官方文档是这样介绍的：</p>
-<blockquote>
-<p>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 也集成到 Vue 的官方调试工具 devtools extension，提供了诸如零配置的 time-travel 调试、状态快照导入导出等高级调试功能。</p>
-</blockquote>
-<p>说真的完全完全完全看不懂是什么，后面讲的也不明觉厉，可能我还没到可以使用它的时候吧，跳过了。</p>
-<p>关于vue-router<br>前面学习vue的时候在最后有接触过，明白大概的意思，就是实现单页面的跳转效果，不是跳转页面，而是重新渲染页面来实现的<br>大概有那么6个步骤：<br>1 创建组件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var Home = Vue.extend(&#123;</span><br><span class="line">    template: &apos;&lt;div&gt;&lt;h1&gt;Home&lt;/h1&gt;&lt;p&gt;&#123;&#123;msg&#125;&#125;&lt;/p&gt;&lt;/div&gt;&apos;,</span><br><span class="line">    data: function() &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            msg: &apos;Hello, vue router!&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">var About = Vue.extend(&#123;</span><br><span class="line">    template: &apos;&lt;div&gt;&lt;h1&gt;About&lt;/h1&gt;&lt;p&gt;This is the tutorial about vue-router.&lt;/p&gt;&lt;/div&gt;&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>2 创建Router<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var router = new VueRouter()</span><br></pre></td></tr></table></figure></p>
-<p>调用构造器VueRouter，创建一个路由器实例router。</p>
-<p>3 映射路由<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">router.map(&#123;</span><br><span class="line">    &apos;/home&apos;: &#123; component: Home &#125;,</span><br><span class="line">    &apos;/about&apos;: &#123; component: About &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>4 使用v-link指令<br>在a元素上使用v-link指令跳转到指定路径。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;list-group&quot;&gt;</span><br><span class="line">    &lt;a class=&quot;list-group-item&quot; v-link=&quot;&#123; path: &apos;/home&apos;&#125;&quot;&gt;Home&lt;/a&gt;</span><br><span class="line">    &lt;a class=&quot;list-group-item&quot; v-link=&quot;&#123; path: &apos;/about&apos;&#125;&quot;&gt;About&lt;/a&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>5 使用<router-view>标签<br>在页面上使用<code>&lt;router-view&gt;&lt;/router-view&gt;</code>标签，它用于渲染匹配的组件。</router-view></p>
-<p>6 启动路由<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var App = Vue.extend(&#123;&#125;)</span><br><span class="line">router.start(App, &apos;#app&apos;)</span><br></pre></td></tr></table></figure></p>
-<p><strong>编写单页面的步骤</strong><br><img src="https://raw.githubusercontent.com/FrattiNor/picture/master/vue-router.png" alt="enter image description here"></p>
-<p>router.redirect<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.redirect(&#123;</span><br><span class="line">    &apos;/&apos;: &apos;/home&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>router.redirect方法用于为路由器定义全局的重定向规则，全局的重定向会在匹配当前路径之前执行。</p>
-<p>后面还有 嵌套路由，具名路径 等等，我没全部看，就不列举了</p>
-<p>关于axios<br>特色：</p>
-<blockquote>
-<p>浏览器端发起XMLHttpRequests请求<br>node端发起http请求<br>支持Promise API<br>拦截请求和返回<br>转化请求和返回（数据）<br>取消请求<br>自动转化json数据<br>客户端支持抵御XSRF（跨站请求伪造）</p>
-</blockquote>
-<p>具体的我也没仔细看，大概就是发起http请求以及获取结果吧。。。</p>
-<hr>
-<p>说真的看了这么多，都不知道应该写在哪，vue-cli创建的项目令我无从下手，不过今天总算是找到了最最基础的教程了，才知道原来是在app.vue文件下操作的。。。<br>这是一个慕课网的视频，讲的很基础，我也不知道讲的好不好，反正至少我知道vue的项目应该从哪下手了，也算是非常的有收获吧<br>视频网址：<a href="http://www.imooc.com/learn/694" target="_blank" rel="noopener">http://www.imooc.com/learn/694</a><br>然后我跟着做了一个todo list的小项目（可能也说不上是个项目吧。。）<br>怎么做的我就不多讲了，视频里讲的还算挺清楚的了<br>最后附上todolist的内容：<br>app.vue<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;title&#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; v-model=&quot;newItem&quot; v-on:keyup.enter=&quot;addNew&quot; /&gt;</span><br><span class="line">    &lt;li v-for=&quot;item in items&quot; v-bind:class=&quot;&#123;finished:item.isFinished&#125;&quot;&gt;&#123;&#123;item.label&#125;&#125;&lt;/li&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import store from &quot;./storage.js&quot;</span><br><span class="line">export default &#123;</span><br><span class="line">  data: function() &#123;</span><br><span class="line">  return&#123;</span><br><span class="line">    title: &quot;this is a todo list&quot;,</span><br><span class="line">    items: store.fetch(),</span><br><span class="line">    newItem: &quot;&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    addNew: function()&#123;</span><br><span class="line">      this.items.push(&#123;</span><br><span class="line">        label: this.newItem,</span><br><span class="line">        isFinished: false</span><br><span class="line">      &#125;);</span><br><span class="line">      this.newItem = &quot;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  watch: &#123;</span><br><span class="line">    items: &#123;</span><br><span class="line">      handler:function(val,oldval)&#123;</span><br><span class="line">        store.save(this.items)</span><br><span class="line">      &#125;,</span><br><span class="line">      deep: true</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.finished&#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line">#app &#123;</span><br><span class="line">  font-family: &apos;Avenir&apos;, Helvetica, Arial, sans-serif;</span><br><span class="line">  -webkit-font-smoothing: antialiased;</span><br><span class="line">  -moz-osx-font-smoothing: grayscale;</span><br><span class="line">  text-align: center;</span><br><span class="line">  color: #2c3e50;</span><br><span class="line">  margin-top: 60px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
-<p>storage.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">// const STORAGE_KEY = &quot;todo-vue.js&quot;</span><br><span class="line">// export default &#123;</span><br><span class="line">//     fetch() &#123;</span><br><span class="line">//         return JOSN.parse(window.localStorage.getItem(STORAGE_KEY) || &quot;[]&quot;)</span><br><span class="line">//     &#125;,</span><br><span class="line">//     save(items) &#123;</span><br><span class="line">//         window.localStorage.setItem(STORAGE_KEY,JSON.stringify(items))</span><br><span class="line">//     &#125;</span><br><span class="line">// &#125;</span><br><span class="line"></span><br><span class="line">const STORAGE_KEY=&quot;todos-vuejs&quot;</span><br><span class="line"></span><br><span class="line">export default&#123;</span><br><span class="line"></span><br><span class="line">fetch()&#123;</span><br><span class="line"></span><br><span class="line">return JSON.parse(window.localStorage.getItem(STORAGE_KEY)||&apos;[]&apos;)</span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">save (items)&#123;</span><br><span class="line"></span><br><span class="line">window.localStorage.setItem(STORAGE_KEY,JSON.stringify(</span><br><span class="line"></span><br><span class="line">      items))</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>也可以在我的github上查看<a href="https://github.com/FrattiNor/vue-project/tree/master/my-first-vue-project" target="_blank" rel="noopener">https://github.com/FrattiNor/vue-project/tree/master/my-first-vue-project</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1024,7 +1031,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

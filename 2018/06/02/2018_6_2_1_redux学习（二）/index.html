@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="css," />
+  <meta name="keywords" content="redux," />
 
 
 
@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="今天突然想写一个无缝的轮播图了，因为以前写的轮播图都不是无缝的，在结尾的地方会回滚回第一张图，所以就想试试除了设置外边距的方法来解决这个办法。然后我就想啊，用绝对定位来把图片都放一起，然后要用到什么图片就给什么图片添加动画就好，然后发现一个问题，因为是绝对定位，所以不能把div撑开，所以容器div就没有高度了，这就很难受了，所以就把div自己写一个高度出来，但是图片是16:9的，然后我又想写相对宽">
-<meta name="keywords" content="css">
+<meta name="description" content="昨天学习了redux的基本知识，总感觉很迷糊。大概就是action，reducers和store今天跟着写了一个小例子大概有点了解了今天写了一个计数器，大概的意思就是取出store的值，然后通过action来改变store的值总的来说reducers和store是连在一起的，而action则是提供给组件的stote通过reducers创建，然后reducers是根据action写的函数，最后组件使">
+<meta name="keywords" content="redux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="css定义高宽成比例">
-<meta property="og:url" content="http://yoursite.com/2018/05/24/2018_5_24_2_css做div高宽成比例/index.html">
+<meta property="og:title" content="Redux学习（二）">
+<meta property="og:url" content="http://yoursite.com/2018/06/02/2018_6_2_1_redux学习（二）/index.html">
 <meta property="og:site_name" content="FrattiNor&#39;s Bolg">
-<meta property="og:description" content="今天突然想写一个无缝的轮播图了，因为以前写的轮播图都不是无缝的，在结尾的地方会回滚回第一张图，所以就想试试除了设置外边距的方法来解决这个办法。然后我就想啊，用绝对定位来把图片都放一起，然后要用到什么图片就给什么图片添加动画就好，然后发现一个问题，因为是绝对定位，所以不能把div撑开，所以容器div就没有高度了，这就很难受了，所以就把div自己写一个高度出来，但是图片是16:9的，然后我又想写相对宽">
+<meta property="og:description" content="昨天学习了redux的基本知识，总感觉很迷糊。大概就是action，reducers和store今天跟着写了一个小例子大概有点了解了今天写了一个计数器，大概的意思就是取出store的值，然后通过action来改变store的值总的来说reducers和store是连在一起的，而action则是提供给组件的stote通过reducers创建，然后reducers是根据action写的函数，最后组件使">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-24T12:33:54.168Z">
+<meta property="og:updated_time" content="2018-06-02T07:51:23.046Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="css定义高宽成比例">
-<meta name="twitter:description" content="今天突然想写一个无缝的轮播图了，因为以前写的轮播图都不是无缝的，在结尾的地方会回滚回第一张图，所以就想试试除了设置外边距的方法来解决这个办法。然后我就想啊，用绝对定位来把图片都放一起，然后要用到什么图片就给什么图片添加动画就好，然后发现一个问题，因为是绝对定位，所以不能把div撑开，所以容器div就没有高度了，这就很难受了，所以就把div自己写一个高度出来，但是图片是16:9的，然后我又想写相对宽">
+<meta name="twitter:title" content="Redux学习（二）">
+<meta name="twitter:description" content="昨天学习了redux的基本知识，总感觉很迷糊。大概就是action，reducers和store今天跟着写了一个小例子大概有点了解了今天写了一个计数器，大概的意思就是取出store的值，然后通过action来改变store的值总的来说reducers和store是连在一起的，而action则是提供给组件的stote通过reducers创建，然后reducers是根据action写的函数，最后组件使">
 
 
 
@@ -136,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/24/2018_5_24_2_css做div高宽成比例/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/02/2018_6_2_1_redux学习（二）/"/>
 
 
 
 
 
-  <title>css定义高宽成比例 | FrattiNor's Bolg</title>
+  <title>Redux学习（二） | FrattiNor's Bolg</title>
   
 
 
@@ -299,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/24/2018_5_24_2_css做div高宽成比例/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/2018_6_2_1_redux学习（二）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="FrattiNor">
@@ -316,7 +316,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">css定义高宽成比例</h1>
+          <h1 class="post-title" itemprop="name headline">Redux学习（二）</h1>
         
 
         <div class="post-meta">
@@ -328,8 +328,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-24T20:33:53+08:00">
-                2018-05-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-02T15:51:22+08:00">
+                2018-06-02
               </time>
             
 
@@ -366,11 +366,14 @@
       
 
       
-        <p>今天突然想写一个无缝的轮播图了，因为以前写的轮播图都不是无缝的，在结尾的地方会回滚回第一张图，所以就想试试除了设置外边距的方法来解决这个办法。<br>然后我就想啊，用绝对定位来把图片都放一起，然后要用到什么图片就给什么图片添加动画就好，然后发现一个问题，因为是绝对定位，所以不能把div撑开，所以容器div就没有高度了，这就很难受了，所以就把div自己写一个高度出来，但是图片是16:9的，然后我又想写相对宽度，所以得想办法把div的高宽写成比例关系的，这就很难办了，因为高度百分比是相对父容器的高度的，宽度百分比是相对父容器的宽度的，然后把控制台拉出来，会改变宽度或高度，所以父容器的高宽比例是不定的，然后我就Bing了一下，发现一个神奇的办法</p>
-<p><strong>百分比来做,这里需要运用一个小技巧,padding用百分比做单位时是相对于容器的宽度来算的,所以你可以把高度设为0,内容自然溢出,设置个padding-bottom</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">height: 0;</span><br><span class="line">width: 50%;</span><br><span class="line">padding-bottom: 30%</span><br></pre></td></tr></table></figure>
-<p><strong>那么这个div的高宽比就是30%:50%</strong></p>
-<p>这个办法真的不错，我想可以记一下</p>
+        <p>昨天学习了redux的基本知识，总感觉很迷糊。<br>大概就是action，reducers和store<br>今天跟着写了一个小例子大概有点了解了<br>今天写了一个计数器，大概的意思就是取出store的值，然后通过action来改变store的值<br>总的来说reducers和store是连在一起的，而action则是提供给组件的<br>stote通过reducers创建，然后reducers是根据action写的函数，最后组件使用action通过reducers来修改store的值，最后显示在view上<br>上个代码吧<br>main.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">'normalize.css/normalize.css'</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'styles/App.css'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">'./stote'</span></span><br><span class="line"><span class="keyword">import</span> &#123;nTHE&#125; <span class="keyword">from</span> <span class="string">'./action'</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AppComponent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div className=<span class="string">"index"</span>&gt;</span><br><span class="line">        &lt;div&gt;&#123;store.getState().n&#125;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">        &lt;button onClick=&#123;() =&gt; store.dispatch(&#123; type: 'ADD' &#125;)&#125;&gt;ADD&lt;/</span>button&gt;</span><br><span class="line">        &lt;button onClick=&#123;() =&gt; store.dispatch(&#123; <span class="attr">type</span>: <span class="string">'DEL'</span> &#125;)&#125;&gt;DEL&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">        &lt;button onClick=&#123; () =&gt; &#123;store.dispatch(nTHE(0))&#125; &#125;&gt;ClEAN&lt;/</span>button&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">AppComponent.defaultProps = &#123;</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default AppComponent;</span></span><br></pre></td></tr></table></figure>
+<p>action.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> ADD = <span class="string">'ADD'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> DEL = <span class="string">'DEL'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> THE = <span class="string">'THE'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> nADD = &#123;</span><br><span class="line">    type: ADD</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> nDEL = &#123;</span><br><span class="line">    type: DEL</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">nTHE</span> (<span class="params">text</span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">"nthe"</span>)</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        type: THE,</span><br><span class="line">        text: text</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>reducers<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> defaultState = &#123;</span><br><span class="line">    n: <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> reducer = <span class="function">(<span class="params">state = defaultState, action</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'ADD'</span>:</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            n: state.n+<span class="number">1</span></span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'DEL'</span>:</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            n: <span class="number">-1</span></span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'THE'</span>:</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            n: action.text</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">return</span> state;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> reducer</span><br></pre></td></tr></table></figure></p>
+<p>store.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> reducer <span class="keyword">from</span> <span class="string">'./reducers'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = createStore(reducer);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> store</span><br></pre></td></tr></table></figure>
+<p>说真的，我也不是很讲的清楚，有个大概的理解吧。<br>然后就是要执行<code>store.subscribe(render)</code>，不然view不会变化</p>
 
       
     </div>
@@ -388,7 +391,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/css/" rel="tag"># css</a>
+            <a href="/tags/redux/" rel="tag"># redux</a>
           
         </div>
       
@@ -401,8 +404,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/24/2018_5_24_1_React学习/" rel="next" title="react学习">
-                <i class="fa fa-chevron-left"></i> react学习
+              <a href="/2018/06/02/2018_6_1_1_redux学习/" rel="next" title="Redux学习">
+                <i class="fa fa-chevron-left"></i> Redux学习
               </a>
             
           </div>
@@ -411,8 +414,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/25/2018_5_25_1_无缝轮播图/" rel="prev" title="无缝轮播图">
-                无缝轮播图 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/02/2018_6_2_2_redux学习（三）/" rel="prev" title="Redux学习（三）">
+                Redux学习（三） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
