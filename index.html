@@ -296,6 +296,148 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/07/2018_6_7_1_redux学习（四）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/07/2018_6_7_1_redux学习（四）/" itemprop="url">Redux学习（四）-- Providor和connect学习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-07T22:35:35+08:00">
+                2018-06-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>本来不用Providor和connect也是可以实现store的改变的，但是今天在写播放器的时候遇到了在改变store的时候重新渲染DOM，所以就需要用到Providor和connect了</p>
+<p><strong>Providor</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Provider &#125; from &apos;react-redux&apos;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">        &lt;App /&gt;</span><br><span class="line">    &lt;/Provider&gt;,</span><br><span class="line">    document.getElementById(&apos;root&apos;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>Providor就是这样用，非常简单，把store通过props向子类传递，这样子类就可以通过connect来获取到store</p>
+<p><strong>connect</strong></p>
+<p>connect就比较难了，就先放个例子吧，最近看的教程都是讲coonect怎么用的，但都是部分，搞的我一直不明白</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import &#123; connect &#125; from &apos;react-redux&apos;</span><br><span class="line">import &#123;bindActionCreators&#125; from &apos;redux&apos;</span><br><span class="line"></span><br><span class="line">// 哪些 Redux 全局的 state 是我们组件想要通过 props 获取的？</span><br><span class="line">const mapStateToProps = (state) =&gt; &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">        songPlay: state.songPlay</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 哪些 action 创建函数是我们想要通过 props 获取的？</span><br><span class="line">const mapDispatchToProps = (dispatch) =&gt; &#123;</span><br><span class="line">    return bindActionCreators(&#123;</span><br><span class="line">	    // changeSong是引进的action函数</span><br><span class="line">        changeSong: (text, time) =&gt; changeSong(text, time)</span><br><span class="line">    &#125;, dispatch)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default connect(</span><br><span class="line">    mapStateToProps,</span><br><span class="line">    mapDispatchToProps</span><br><span class="line">)(songList)</span><br></pre></td></tr></table></figure>
+<p>然后来学习connect</p>
+<p>首先看下函数的签名：<br>connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])<br><code>connect()</code> 接收四个参数，它们分别是 <code>mapStateToProps</code> ， <code>mapDispatchToProps</code>， <code>mergeProps</code> 和 <code>options</code> 。</p>
+<p><strong><code>mapStateToProps(state, ownProps) : stateProps</code></strong><br>这个函数允许我们将 store 中的数据作为 props 绑定到组件上。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 哪些 Redux 全局的 state 是我们组件想要通过 props 获取的？</span><br><span class="line">const mapStateToProps = (state) =&gt; &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">        songPlay: state.songPlay</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>state是store的state<br>然后怎么去获取到这个songPlay呢<br>通过<code>this.props</code>来获取到</p>
+<p><strong><code>mapDispatchToProps(dispatch, ownProps): dispatchProps</code></strong></p>
+<p>它的功能是，将 action 作为props 绑定到   <strong>组件</strong>  上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 哪些 action 创建函数是我们想要通过 props 获取的？</span><br><span class="line">const mapDispatchToProps = (dispatch) =&gt; &#123;</span><br><span class="line">    return bindActionCreators(&#123;</span><br><span class="line">	    // changeSong是引进的action函数</span><br><span class="line">        changeSong: (text, time) =&gt; changeSong(text, time)</span><br><span class="line">    &#125;, dispatch)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我这里用到了<code>bindActionCreators</code>函数<br>不用的话就</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const mapDispatchToProps = (dispatch) =&gt; &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    changeSong: (...args) =&gt; dispatch(changeSong(...args))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>总之就是把<code>action</code>也绑到组件的<code>props</code>上</p>
+<p>然后前面2个参数的参数都有个<code>ownProps</code>加上这个参数会在，组件自己的props改变时也触发，别的具体有什么用，我还没不清楚</p>
+<p><strong><code>[mergeProps(stateProps, dispatchProps, ownProps): props]</code></strong></p>
+<p>不管是 stateProps 还是 dispatchProps ，都需要和 ownProps merge 之后才会被赋给 <strong>组件</strong> 。 connect 的第三个参数就是用来做这件事。通常情况下，你可以不传这个参数， connect 就会使用 Object.assign 替代该方法。<br>（还不太清楚这个到底什么用）</p>
+<p>最后还有一个 <code>options</code> 选项，比较简单，基本上也不大会用到（尤其是你遵循了其他的一些 React 的「最佳实践」的时候），本文就略过了。希望了解的同学可以直接看文档。<br>。。。。。。。。。好吧，我看的教程没有，就先不看了</p>
+<p>差不多会用connect了</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/2018_6_2_2_redux学习（三）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -807,152 +949,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/26/2018_5_26_1_react-music（一）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/26/2018_5_26_1_react-music（一）/" itemprop="url">React-music</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-26T16:10:43+08:00">
-                2018-05-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>本来这个 <code>music-player</code> 的项目是打算看着vue视频，用vue来写的，后来因为要学react，所以就把原项目用react来写了。vue-music已经写了顶部，导航栏以及部分推荐页面。</p>
-<p>所以就直接把写好的部分移植过来就好了</p>
-<p>我是用 yo-react-webpack 来新建的项目。<br>然后在src目录下进行编写，在项目模板里有不少文件不知道是干什么用了，但是不干扰我进行编写</p>
-<p>首先，react的模块是用js文件的，<br>文件模板大概是这样的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component &#125; from &apos;react&apos;;</span><br><span class="line"></span><br><span class="line">class rheader extends Component &#123;</span><br><span class="line">    render () &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;div className=&quot;vheader&quot;&gt;</span><br><span class="line">                music player</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default rheader;</span><br></pre></td></tr></table></figure></p>
-<p>在return里用jsx进行编写对应的DOM<br>这个jsx让我有点不适应</p>
-<p>不过还行，今天就先记录一下移植的过程吧，首先是安装了less<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save less less-loader</span><br></pre></td></tr></table></figure></p>
-<p>然后把原项目的style.less文件移过来，引入到main.js文件里<br>对了，忘记说了，react项目跟vue项目差不多，有一个index.html文件是主文件，然后有一个index.js是入口文件，最后在模块里有一个main.js是主模块。</p>
-<p>导入less文件后，我把组件目录整个移过来了，然后先写rheader.js，很简单就是一个div而已，但是遇到了有点麻烦<br>我照着main.js 的写法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import React from &apos;react&apos;</span><br></pre></td></tr></table></figure></p>
-<p>在rheader文件里是错误的，我不清楚到底错在了哪，经过修改<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component &#125; from &apos;react&apos;;</span><br><span class="line"></span><br><span class="line">class rheader extends Component &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这样的写法没有报错</p>
-<p>再然后就是导航栏tab文件了，我在vue里导航栏是用数组循环渲染的<br>在react里进行循环渲染没有v-for那样的东西<br>我查了一下<br>可以用map进行循环遍历，然后返回一个标签吧<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	this.state.theTab.map( (item) =&gt; &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;li key=&#123;item.index&#125;&gt;</span><br><span class="line">            &#123;item.word&#125;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>然后还有有点就是，我发现循环的组件都需要一个key</p>
-<p>又进过一番的折腾，我大概搞清楚了react模块的是怎么样的了</p>
-<p>和vue比较一下吧</p>
-<p>vue的template就是react的render<br>vue的script就是class除了render的部分<br>然后样式vue和react都可以由外部引入</p>
-<p>我是这样理解的，不清楚对错。不过总算是有点收获吧</p>
-<p>再然后就是router部分了，我目前对react的router部分有点搞不清楚，还得再试试看，写写看吧</p>
-<p>emmm…看了会视频大概了解了，但只能说还是有点问题吧</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import &#123;BrowserRouter as Router, Route&#125; from &apos;react-router-dom&apos;</span><br><span class="line"></span><br><span class="line">&lt;Router&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">      &lt;Rheader /&gt;</span><br><span class="line">      &lt;Tab /&gt;</span><br><span class="line">      &lt;Route exact path=&quot;/&quot; component=&#123;Recommend&#125; /&gt;</span><br><span class="line">      &lt;Route exact path=&quot;/Recommend&quot; component=&#123;Recommend&#125; /&gt;</span><br><span class="line">      &lt;Route exact path=&quot;/Singer&quot; component=&#123;Singer&#125; /&gt;</span><br><span class="line">      &lt;Route exact path=&quot;/Rank&quot; component=&#123;Rank&#125; /&gt;</span><br><span class="line">      &lt;Route exact path=&quot;/Search&quot; component=&#123;Search&#125; /&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/Router&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import &#123;NavLink&#125; from &apos;react-router-dom&apos;</span><br><span class="line"></span><br><span class="line">&lt;NavLink to=&#123;item.url&#125;&gt;</span><br><span class="line">    &#123;item.word&#125;</span><br><span class="line">&lt;/NavLink&gt;</span><br></pre></td></tr></table></figure>
-<p>大概就这样吧。。Router是包裹的box吧，然后Route就是vue的router-view吧，NavLink就是vue的router-link</p>
-<p>今天就先看到这吧，晚上看看有没有时间把推荐页面也移植过来</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -998,7 +999,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-count">46</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

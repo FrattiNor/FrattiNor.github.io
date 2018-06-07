@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-02T08:15:09.930Z</updated>
+  <updated>2018-06-07T14:35:35.332Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Redux学习（四）-- Providor和connect学习</title>
+    <link href="http://yoursite.com/2018/06/07/2018_6_7_1_redux%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
+    <id>http://yoursite.com/2018/06/07/2018_6_7_1_redux学习（四）/</id>
+    <published>2018-06-07T14:35:35.002Z</published>
+    <updated>2018-06-07T14:35:35.332Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本来不用Providor和connect也是可以实现store的改变的，但是今天在写播放器的时候遇到了在改变store的时候重新渲染DOM，所以就需要用到Providor和connect了&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Providor&lt;/strong&gt;&lt;/p&gt;
+&lt;figu
+      
+    
+    </summary>
+    
+    
+      <category term="redux" scheme="http://yoursite.com/tags/redux/"/>
+    
+  </entry>
   
   <entry>
     <title>Redux学习（三）</title>
@@ -162,11 +185,11 @@
     </summary>
     
     
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
       <category term="html" scheme="http://yoursite.com/tags/html/"/>
     
       <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
-      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
     
   </entry>
   
@@ -440,28 +463,6 @@
     
     
       <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ife_2018 设计师学院 No.7</title>
-    <link href="http://yoursite.com/2018/05/05/2018_5_5_1_ife_2018_%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E9%99%A2_No.7/"/>
-    <id>http://yoursite.com/2018/05/05/2018_5_5_1_ife_2018_设计师学院_No.7/</id>
-    <published>2018-05-05T13:55:06.984Z</published>
-    <updated>2018-05-05T13:55:07.151Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;No.7 - 使用 animate.css 实现一个优雅的登录框&lt;/p&gt;
-&lt;p&gt;任务七&lt;br&gt;&lt;a href=&quot;https://frattinor.github.io/IFE_2018/css/No.7/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;de
-      
-    
-    </summary>
-    
-    
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
     
   </entry>
   

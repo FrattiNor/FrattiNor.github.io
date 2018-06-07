@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="redux," />
 
 
 
@@ -96,13 +96,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="FrattiNor&#39;s Bolg">
-<meta property="og:url" content="http://yoursite.com/tags/第一/index.html">
+<meta name="description" content="本来不用Providor和connect也是可以实现store的改变的，但是今天在写播放器的时候遇到了在改变store的时候重新渲染DOM，所以就需要用到Providor和connect了 Providor 12345678import &amp;#123; Provider &amp;#125; from &amp;apos;react-redux&amp;apos;ReactDOM.render(    &amp;lt;Provid">
+<meta name="keywords" content="redux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redux学习（四）-- Providor和connect学习">
+<meta property="og:url" content="http://yoursite.com/2018/06/07/2018_6_7_1_redux学习（四）/index.html">
 <meta property="og:site_name" content="FrattiNor&#39;s Bolg">
+<meta property="og:description" content="本来不用Providor和connect也是可以实现store的改变的，但是今天在写播放器的时候遇到了在改变store的时候重新渲染DOM，所以就需要用到Providor和connect了 Providor 12345678import &amp;#123; Provider &amp;#125; from &amp;apos;react-redux&amp;apos;ReactDOM.render(    &amp;lt;Provid">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-06-07T14:35:35.332Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="FrattiNor&#39;s Bolg">
+<meta name="twitter:title" content="Redux学习（四）-- Providor和connect学习">
+<meta name="twitter:description" content="本来不用Providor和connect也是可以实现store的改变的，但是今天在写播放器的时候遇到了在改变store的时候重新渲染DOM，所以就需要用到Providor和connect了 Providor 12345678import &amp;#123; Provider &amp;#125; from &amp;apos;react-redux&amp;apos;ReactDOM.render(    &amp;lt;Provid">
 
 
 
@@ -131,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/第一/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/07/2018_6_7_1_redux学习（四）/"/>
 
 
 
 
 
-  <title>Tag: 第一 | FrattiNor's Bolg</title>
+  <title>Redux学习（四）-- Providor和connect学习 | FrattiNor's Bolg</title>
   
 
 
@@ -162,7 +167,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -280,54 +285,169 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>第一<small>Tag</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/07/2018_6_7_1_redux学习（四）/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/04/17/2018_4_17_1_第一篇博客_如何用github page+hexo制作个人博客/" itemprop="url">
-              
-                <span itemprop="name">我的第一篇博客</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Redux学习（四）-- Providor和connect学习</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-17T18:50:34+08:00"
-              content="2018-04-17" >
-          04-17
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-07T22:35:35+08:00">
+                2018-06-07
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本来不用Providor和connect也是可以实现store的改变的，但是今天在写播放器的时候遇到了在改变store的时候重新渲染DOM，所以就需要用到Providor和connect了</p>
+<p><strong>Providor</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Provider &#125; from &apos;react-redux&apos;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">        &lt;App /&gt;</span><br><span class="line">    &lt;/Provider&gt;,</span><br><span class="line">    document.getElementById(&apos;root&apos;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>Providor就是这样用，非常简单，把store通过props向子类传递，这样子类就可以通过connect来获取到store</p>
+<p><strong>connect</strong></p>
+<p>connect就比较难了，就先放个例子吧，最近看的教程都是讲coonect怎么用的，但都是部分，搞的我一直不明白</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import &#123; connect &#125; from &apos;react-redux&apos;</span><br><span class="line">import &#123;bindActionCreators&#125; from &apos;redux&apos;</span><br><span class="line"></span><br><span class="line">// 哪些 Redux 全局的 state 是我们组件想要通过 props 获取的？</span><br><span class="line">const mapStateToProps = (state) =&gt; &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">        songPlay: state.songPlay</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 哪些 action 创建函数是我们想要通过 props 获取的？</span><br><span class="line">const mapDispatchToProps = (dispatch) =&gt; &#123;</span><br><span class="line">    return bindActionCreators(&#123;</span><br><span class="line">	    // changeSong是引进的action函数</span><br><span class="line">        changeSong: (text, time) =&gt; changeSong(text, time)</span><br><span class="line">    &#125;, dispatch)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default connect(</span><br><span class="line">    mapStateToProps,</span><br><span class="line">    mapDispatchToProps</span><br><span class="line">)(songList)</span><br></pre></td></tr></table></figure>
+<p>然后来学习connect</p>
+<p>首先看下函数的签名：<br>connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])<br><code>connect()</code> 接收四个参数，它们分别是 <code>mapStateToProps</code> ， <code>mapDispatchToProps</code>， <code>mergeProps</code> 和 <code>options</code> 。</p>
+<p><strong><code>mapStateToProps(state, ownProps) : stateProps</code></strong><br>这个函数允许我们将 store 中的数据作为 props 绑定到组件上。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 哪些 Redux 全局的 state 是我们组件想要通过 props 获取的？</span><br><span class="line">const mapStateToProps = (state) =&gt; &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">        songPlay: state.songPlay</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>state是store的state<br>然后怎么去获取到这个songPlay呢<br>通过<code>this.props</code>来获取到</p>
+<p><strong><code>mapDispatchToProps(dispatch, ownProps): dispatchProps</code></strong></p>
+<p>它的功能是，将 action 作为props 绑定到   <strong>组件</strong>  上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 哪些 action 创建函数是我们想要通过 props 获取的？</span><br><span class="line">const mapDispatchToProps = (dispatch) =&gt; &#123;</span><br><span class="line">    return bindActionCreators(&#123;</span><br><span class="line">	    // changeSong是引进的action函数</span><br><span class="line">        changeSong: (text, time) =&gt; changeSong(text, time)</span><br><span class="line">    &#125;, dispatch)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我这里用到了<code>bindActionCreators</code>函数<br>不用的话就</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const mapDispatchToProps = (dispatch) =&gt; &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    changeSong: (...args) =&gt; dispatch(changeSong(...args))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>总之就是把<code>action</code>也绑到组件的<code>props</code>上</p>
+<p>然后前面2个参数的参数都有个<code>ownProps</code>加上这个参数会在，组件自己的props改变时也触发，别的具体有什么用，我还没不清楚</p>
+<p><strong><code>[mergeProps(stateProps, dispatchProps, ownProps): props]</code></strong></p>
+<p>不管是 stateProps 还是 dispatchProps ，都需要和 ownProps merge 之后才会被赋给 <strong>组件</strong> 。 connect 的第三个参数就是用来做这件事。通常情况下，你可以不传这个参数， connect 就会使用 Object.assign 替代该方法。<br>（还不太清楚这个到底什么用）</p>
+<p>最后还有一个 <code>options</code> 选项，比较简单，基本上也不大会用到（尤其是你遵循了其他的一些 React 的「最佳实践」的时候），本文就略过了。希望了解的同学可以直接看文档。<br>。。。。。。。。。好吧，我看的教程没有，就先不看了</p>
+<p>差不多会用connect了</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/redux/" rel="tag"># redux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/02/2018_6_2_2_redux学习（三）/" rel="next" title="Redux学习（三）">
+                <i class="fa fa-chevron-left"></i> Redux学习（三）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -335,6 +455,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -544,10 +668,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
