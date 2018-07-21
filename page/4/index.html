@@ -296,6 +296,135 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/11/2018_5_9_2ife_2018 MVVM学院 2-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/11/2018_5_9_2ife_2018 MVVM学院 2-4/" itemprop="url">ife_2018 MVVM学院 2-4</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-11T15:30:15+08:00">
+                2018-05-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>2.4事件处理</p>
+<p><a href="https://frattinor.github.io/IFE_2018/mvvm/myDist-2-4/" target="_blank" rel="noopener">demo</a></p>
+<p>对mvvm双向绑定以及san的事件通信有相关了解</p>
+<p><strong>我的思路</strong></p>
+<ol>
+<li>首先创建三个嵌套div</li>
+<li>然后在3个div里建立input，通过v-model双向绑定数据</li>
+</ol>
+<p>没有遇到问题</p>
+<p>最后附上我的代码<br>vue<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;div class=&quot;mvvm24_1&quot;&gt;</span><br><span class="line">    &lt;span&gt;我是更高层父组件:&lt;/span&gt;&lt;input v-model=&quot;far&quot; class=&quot;one&quot; type=&quot;text&quot; /&gt;</span><br><span class="line">    &lt;div class=&quot;mvvm24_2&quot;&gt;</span><br><span class="line">        &lt;span&gt;我是父组件:&lt;/span&gt;&lt;input v-model=&quot;far&quot; class=&quot;one&quot; type=&quot;text&quot; /&gt;</span><br><span class="line">        &lt;input v-model=&quot;val&quot; class=&quot;three&quot; type=&quot;text&quot; /&gt;</span><br><span class="line">        &lt;button v-on:click=&quot;submit&quot;&gt;提交给父组件&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">            val:&quot;&quot;,</span><br><span class="line">            far:&quot;&quot;,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        submit()&#123;</span><br><span class="line">            this.far = this.val;</span><br><span class="line">            console.log(this.val);</span><br><span class="line">            if(this.val == &quot;&quot;)&#123;</span><br><span class="line">                this.far = &quot;静静等待用户输入&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    watch: &#123;</span><br><span class="line">        far()&#123;</span><br><span class="line">            this.val = this.far;</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- Add &quot;scoped&quot; attribute to limit CSS to this component only --&gt;</span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">.mvvm24_1&#123;</span><br><span class="line">    width: 400px;</span><br><span class="line">    height: 400px;</span><br><span class="line">    border: 1px solid #ddd;</span><br><span class="line">    margin: auto;</span><br><span class="line">    padding: 5px;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm24_2&#123;</span><br><span class="line">    width: 300px;</span><br><span class="line">    height: 200px;</span><br><span class="line">    border: 1px solid #ddd;</span><br><span class="line">    margin: auto;</span><br><span class="line">    padding: 5px;</span><br><span class="line">&#125;</span><br><span class="line">.one&#123;</span><br><span class="line">    width: auto;</span><br><span class="line">    font-size: 16px;</span><br><span class="line">    outline: none;</span><br><span class="line">    /*border: 1px solid #000;*/</span><br><span class="line">    border: 0;</span><br><span class="line">&#125;</span><br><span class="line">.three&#123;</span><br><span class="line">    margin: 5px;</span><br><span class="line">    padding: 2px;</span><br><span class="line">    text-align: center;</span><br><span class="line">    outline: none;</span><br><span class="line">    border: 1px solid #ddd;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm24_1 button&#123;</span><br><span class="line">    margin: 5px;</span><br><span class="line">    padding: 5px;</span><br><span class="line">    border: 1px solid #ddd;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    outline: none;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm24_1 button:active&#123;</span><br><span class="line">    border: 1px solid #36f;</span><br><span class="line">&#125;</span><br><span class="line">span&#123;</span><br><span class="line">    /*border: 1px solid #000;*/</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/11/2018_5_9_1ife_2018 MVVM学院 2-3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -823,143 +952,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/05/2018_5_5_2_ife_2018_mvvm学院_2.1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/05/2018_5_5_2_ife_2018_mvvm学院_2.1/" itemprop="url">ife_2018 MVVM学院 2-1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-05T22:06:25+08:00">
-                2018-05-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>ife 的 mvvm使用的是百度的san框架，我不太了解，同时这个也不太火，所以我还是使用我在学习的vue框架</p>
-<p>1.x是看文档和安装环境我就没做了</p>
-<p>2.1 数据操作<br>1参考下方设计图，使用san实现一个功能<br>2输入姓名、年龄和简介信息，实时展示对应的信息<br>3点击移除信息按钮后，姓名、年龄和简介信息置空<br>4信息的数据类型为一个必须包含name、age和des三个属性的对象，其对应的数据类型分别为string、number和string</p>
-<p>2.1<br><a href="https://frattinor.github.io/IFE_2018/mvvm/myDist-2-1/index.html#/" target="_blank" rel="noopener">demo</a></p>
-<p>这个用vue也是非常的容易，毕竟vue使用会根据数据重新对页面进行渲染<br><strong>我的思路</strong></p>
-<ol>
-<li>首先写3个input，年龄的input type设置为number</li>
-<li>然后写一个button和3个p分别实现清除功能和显示功能</li>
-<li>然后在js里新建一个vue实例</li>
-<li>data设置3个空值的的值</li>
-<li>methods写一个del函数，设置3个this.var为””</li>
-<li>v-on:click给按钮绑定方法</li>
-<li>v-model双向绑定3个input和3个data值</li>
-<li>在3个p里用v-html单向绑定3个data值</li>
-</ol>
-<p>完成，没有什么问题</p>
-<p>因为我是用vue-cli建立的项目的，而且我打算mvvm的任务我都单独写一个router就好，所以代码格式是.vue文件格式</p>
-<p>mvvm2-1.vue<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;div class=&quot;mvvm2-1&quot;&gt;</span><br><span class="line">    &lt;input class=&quot;sr&quot; type=&quot;text&quot; placeholder=&quot;姓名&quot; v-model=&quot;name&quot;&gt;</span><br><span class="line">    &lt;input class=&quot;sr&quot; type=&quot;number&quot; placeholder=&quot;年龄&quot; v-model=&quot;age&quot;&gt;</span><br><span class="line">    &lt;input class=&quot;sr&quot; type=&quot;text&quot; placeholder=&quot;简介&quot; v-model=&quot;des&quot;&gt;</span><br><span class="line">    &lt;br&gt;</span><br><span class="line">    &lt;span&gt;信息：&lt;/span&gt;</span><br><span class="line">    &lt;button v-on:click=&quot;del&quot;&gt;移除信息&lt;/button&gt;</span><br><span class="line">    &lt;br&gt;</span><br><span class="line">    &lt;span&gt;姓名：&lt;/span&gt;&lt;span&gt;&#123;&#123;name&#125;&#125;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">    &lt;span&gt;年龄：&lt;/span&gt;&lt;span&gt;&#123;&#123;age&#125;&#125;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">    &lt;span&gt;简介：&lt;/span&gt;&lt;span&gt;&#123;&#123;des&#125;&#125;&lt;/span&gt;&lt;br&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">            name: &quot;&quot;,</span><br><span class="line">            age: &quot;&quot;,</span><br><span class="line">            des: &quot;&quot;,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        del()&#123;</span><br><span class="line">            this.name = &quot;&quot;;</span><br><span class="line">            this.age = &quot;&quot;;</span><br><span class="line">            this.des = &quot;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- Add &quot;scoped&quot; attribute to limit CSS to this component only --&gt;</span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line"></span><br><span class="line">input::-webkit-outer-spin-button,</span><br><span class="line">input::-webkit-inner-spin-button &#123;</span><br><span class="line">  -webkit-appearance: none;</span><br><span class="line">&#125;</span><br><span class="line">input[type=&quot;number&quot;]&#123;</span><br><span class="line">  -moz-appearance: textfield;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.mvvm2-1 input&#123;</span><br><span class="line">  padding: 5px;</span><br><span class="line">  border-radius: 4px;</span><br><span class="line">  border: 1px solid #ddd;</span><br><span class="line">  outline: none;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm2-1 input:hover&#123;</span><br><span class="line">  border: 1px solid #36f;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm2-1 input:focus&#123;</span><br><span class="line">  border: 1px solid #36f;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm2-1 span&#123;</span><br><span class="line">  display: inline-block;</span><br><span class="line">  margin-top: 5px;</span><br><span class="line">  padding: 5px;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm2-1 button&#123;</span><br><span class="line">  padding: 5px;</span><br><span class="line">  border: 1px solid #ddd;</span><br><span class="line">  border-radius: 4px;</span><br><span class="line">  outline: none;</span><br><span class="line">&#125;</span><br><span class="line">.mvvm2-1 button:active&#123;</span><br><span class="line">  border: 1px solid #36f;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1010,7 +1002,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1023,7 +1015,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

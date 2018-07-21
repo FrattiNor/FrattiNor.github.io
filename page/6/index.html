@@ -296,6 +296,140 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/03/2018_5_3_2_ife_2018_设计师学院_No.3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/03/2018_5_3_2_ife_2018_设计师学院_No.3/" itemprop="url">ife_2018 设计师学院 No.3</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-03T21:36:26+08:00">
+                2018-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>No.3 - CSS transition 和 CSS transform 配合制作动画</p>
+<p>任务三<br><a href="https://frattinor.github.io/IFE_2018/css/No.3/" target="_blank" rel="noopener">demo</a><br>任务目标：<br>在我们提供给你的 HTML 文件基础上，适当的添加 CSS transition 和 CSS transform 属性 ，实现视频 demo 中的效果；<br>鼠标 hover 上去的时候，出现小猫笑起来的动画；</p>
+<p>我的思路：</p>
+<ol>
+<li>给小猫的各个部位写过滤效果</li>
+<li>给左耳旋转45度，右耳旋转45度</li>
+<li>给猫眼变小，猫眼下部抬高，给腮红显示出来</li>
+<li>给嘴巴添加弧度</li>
+</ol>
+<p>动画的实现其实并不是很难，唯一有难度的嘴巴加弧度，我试了很久才写出来<br>猫耳旋转用transform: rotate实现<br>猫眼变小用transform: scale实现<br>眼底抬高用transform: translate实现<br>腮红显性用opacity实现<br>最后的嘴角用border-radius实现</p>
+<p>这些其实都只用了不多的时间</p>
+<p><strong>遇到的问题</strong>：然后我就遇到了问题，怎么样把这些hover一起触发。。。<br>我想了很久没有办法用css实现，就考虑用js实现，使用js强行更改css样式，这个办法确实可以实现，但是好像超出了任务的要求范围。。。</p>
+<p><strong>解决办法</strong>：然后就有了2.0版本，我看了别人的代码才发现原来这么简单，我一直都考虑错了方向，因为不是要同时触发这些元素的hover，而是在最外部的hover的同时改变这些元素的样式就好了使用css的选择器可以轻松搞定</p>
+<p>代码如下<br>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;!-- saved from url=(0055)http://jadyoap.bj.bcebos.com/ife%2FcssCatAnimation.html --&gt;</span><br><span class="line">&lt;html&gt;&lt;head&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/mycss.css&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;title&gt;纯 CSS 实现猫笑起来的动画&lt;/title&gt;</span><br><span class="line">        &lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">            body &#123;</span><br><span class="line">                background-color: #d69a44;</span><br><span class="line">            &#125;</span><br><span class="line">            /* face */</span><br><span class="line">            .face &#123;</span><br><span class="line">                position: absolute;</span><br><span class="line">                left: 50%;</span><br><span class="line">                margin-left: -175px;</span><br><span class="line">                top:40px;</span><br><span class="line">                width: 350px;</span><br><span class="line">                height: 250px;</span><br><span class="line">                border-radius: 50% 50% 30% 30%;</span><br><span class="line">                border: 2px solid #3f200b;</span><br><span class="line">                z-index: 10;</span><br><span class="line">                background: #fbf8f1;</span><br><span class="line">                overflow: hidden;</span><br><span class="line">            &#125;</span><br><span class="line">            /* ear */</span><br><span class="line">            .ear-wrap &#123;</span><br><span class="line">                position: absolute;</span><br><span class="line">                width: 300px;</span><br><span class="line">                left: 50%;</span><br><span class="line">                margin-left: -150px;</span><br><span class="line">                /*   top: 100px; */</span><br><span class="line">            &#125;</span><br><span class="line">            .ear-wrap&#123;</span><br><span class="line">                position: absolute;</span><br><span class="line">                left: 50%;</span><br><span class="line">                width: 300px;</span><br><span class="line">                margin-left: -150px;</span><br><span class="line">                margin-top: 20px;</span><br><span class="line">            &#125;</span><br><span class="line">            .ear &#123;</span><br><span class="line">                position: absolute;</span><br><span class="line">                width: 80px;</span><br><span class="line">                height: 100px;</span><br><span class="line">                border: 2px solid #000;</span><br><span class="line">                background: #fbf8f1;</span><br><span class="line">                border-radius: 100% 10% 50% 0% ;</span><br><span class="line">            &#125;</span><br><span class="line">            .ear-wrap .right &#123;</span><br><span class="line">                left: auto;</span><br><span class="line">                right: 0;</span><br><span class="line">                border-radius: 10% 100% 0% 50%;</span><br><span class="line">                background: #f1ac2b;</span><br><span class="line">            &#125;</span><br><span class="line">            /* 头发 */</span><br><span class="line">            .hair &#123;</span><br><span class="line">                position: absolute;</span><br><span class="line">                width: 120px;</span><br><span class="line">                height: 120px;</span><br><span class="line">                left: 50%;</span><br><span class="line">                margin-left: 50px;</span><br><span class="line">                margin-top: -40px;</span><br><span class="line">                background: #f3b32e;</span><br><span class="line">                border-radius: 50% 50% 50% 50%;</span><br><span class="line">            &#125;</span><br><span class="line">            /* 眼睛 */</span><br><span class="line">            .eye-wrap &#123;</span><br><span class="line">                position: absolute;</span><br><span class="line">                width: 280px;</span><br><span class="line">                height: 70px;</span><br><span class="line">                top: 90px;</span><br><span class="line">                left: 50%;</span><br><span class="line">                margin-left: -140px;</span><br><span class="line">                overflow: hidden;</span><br><span class="line">            &#125;</span><br><span class="line">            .eye &#123;</span><br><span class="line">                height: 100px;</span><br><span class="line">                width: 100px;</span><br><span class="line">                position: absolute;</span><br><span class="line">            &#125;</span><br><span class="line">            .eye-circle &#123;</span><br><span class="line">                width: 100px;</span><br><span class="line">                height: 80px;</span><br><span class="line">                border: 2px solid #482507;</span><br><span class="line">                overflow: hidden;</span><br><span class="line">                position: absolute;</span><br><span class="line">                background: #fff;</span><br><span class="line">                border-radius: 50% 50% 40% 40%;</span><br><span class="line">                box-sizing: border-box;</span><br><span class="line">            &#125;</span><br><span class="line">            .eye-core &#123;</span><br><span class="line">                height: 55px;</span><br><span class="line">                width: 46px;</span><br><span class="line">                border-radius: 50% 50% 50% 50%;</span><br><span class="line">                /* margin: 0 auto; */</span><br><span class="line">                background: #000;</span><br><span class="line">                position: absolute;</span><br><span class="line">                left: 50%;</span><br><span class="line">                margin-left: -23px;</span><br><span class="line">            &#125;</span><br><span class="line">            .eye-bottom &#123;</span><br><span class="line">                height: 50px;</span><br><span class="line">                width: 100px;</span><br><span class="line">                border-radius: 40% 40% 50% 50%;</span><br><span class="line">                position: absolute;</span><br><span class="line">                margin-top: 48px;</span><br><span class="line">                border-top: 2px solid #46240b;</span><br><span class="line">                background: #f6f7f2;</span><br><span class="line">            &#125;</span><br><span class="line">            .eye-wrap .right &#123;</span><br><span class="line">                left: auto;</span><br><span class="line">                right: 0px;</span><br><span class="line">            &#125;</span><br><span class="line">            .face-red &#123;</span><br><span class="line">                position: absolute;</span><br><span class="line">                height: 20px;</span><br><span class="line">                width: 70px;</span><br><span class="line">                background: red;</span><br><span class="line">                top: 45px;</span><br><span class="line">                /*top: 64px;*/</span><br><span class="line">                left: 18px;</span><br><span class="line">                border-radius: 50% 50% 50% 50%;</span><br><span class="line">                background: #e85a5e;</span><br><span class="line">                opacity: 0.0;</span><br><span class="line">            &#125;</span><br><span class="line">            /* 鼻子 */</span><br><span class="line">            .nose &#123;</span><br><span class="line">                width: 20px;</span><br><span class="line">                height: 10px;</span><br><span class="line">                border-bottom: 8px solid #000;</span><br><span class="line">                border-radius: 0% 0% 50% 50%;</span><br><span class="line">                top: 154px;</span><br><span class="line">                left: 50%;</span><br><span class="line">                margin-left: -10px;</span><br><span class="line">                position: absolute;</span><br><span class="line">            &#125;</span><br><span class="line">            /* 嘴巴 */</span><br><span class="line">            .mouth-wrap &#123;</span><br><span class="line">                position: absolute;</span><br><span class="line">                top: 168px;</span><br><span class="line">                width: 80px;</span><br><span class="line">                left: 50%;</span><br><span class="line">                margin-left: -40px;</span><br><span class="line">                height: 20px;</span><br><span class="line">                overflow: hidden;</span><br><span class="line">            &#125;</span><br><span class="line">            .mouth &#123;</span><br><span class="line">                width: 40px;</span><br><span class="line">                height: 40px;</span><br><span class="line">                border-bottom: 4px solid #000;</span><br><span class="line">                border-right: 4px solid #000;</span><br><span class="line">                border-radius: 0% 40% 50% 20%;</span><br><span class="line">                margin-top: -26px;</span><br><span class="line">                position: absolute;</span><br><span class="line">                left: 0;</span><br><span class="line">            &#125;</span><br><span class="line">            .mouth-wrap .right &#123;</span><br><span class="line">                border-bottom: 4px solid #000;</span><br><span class="line">                border-right: none;</span><br><span class="line">                border-left: 4px solid #000;</span><br><span class="line">                border-radius: 40% 0% 20% 50%;</span><br><span class="line">                position: absolute;</span><br><span class="line">                left: auto;</span><br><span class="line">                right: 0;</span><br><span class="line">            &#125;</span><br><span class="line">            /*鼠标hover样式 写在这里*/</span><br><span class="line">        &lt;/style&gt;</span><br><span class="line">    &lt;style type=&quot;text/css&quot; abt=&quot;234&quot;&gt;&lt;/style&gt;&lt;script&gt;//console.log(&apos;a&apos;)</span><br><span class="line">&lt;/script&gt;&lt;script&gt;doAdblock();</span><br><span class="line">function doAdblock()&#123;</span><br><span class="line">    (function() &#123;</span><br><span class="line">        function A() &#123;&#125;</span><br><span class="line">        A.prototype = &#123;</span><br><span class="line">            rules: &#123;</span><br><span class="line">                &apos;pps_pps&apos;: &#123;</span><br><span class="line">                    &apos;find&apos;: /^http:\/\/www\.iqiyi\.com\/player\/cupid\/common\/pps_flvplay_s\.swf/,</span><br><span class="line">                    &apos;replace&apos;: &apos;http://swf.adtchrome.com/pps_20140420.swf&apos;</span><br><span class="line">                &#125;,</span><br><span class="line">                &apos;17173_in&apos;:&#123;</span><br><span class="line">                    &apos;find&apos;:/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/PreloaderFile(Customer)?\.swf/,</span><br><span class="line">                    &apos;replace&apos;:&quot;http://swf.adtchrome.com/17173_in_20150522.swf&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &apos;17173_out&apos;:&#123;</span><br><span class="line">                    &apos;find&apos;:/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/PreloaderFileFirstpage\.swf/,</span><br><span class="line">                    &apos;replace&apos;:&quot;http://swf.adtchrome.com/17173_out_20150522.swf&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &apos;17173_live&apos;:&#123;</span><br><span class="line">                    &apos;find&apos;:/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/Player_stream(_firstpage)?\.swf/,</span><br><span class="line">                    &apos;replace&apos;:&quot;http://swf.adtchrome.com/17173_stream_20150522.swf&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &apos;17173_live_out&apos;:&#123;</span><br><span class="line">                    &apos;find&apos;:/http:\/\/f\.v\.17173cdn\.com\/(\d+\/)?flash\/Player_stream_(custom)?Out\.swf/,</span><br><span class="line">                    &apos;replace&apos;:&quot;http://swf.adtchrome.com/17173.out.Live.swf&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            _done: null,</span><br><span class="line">            get done() &#123;</span><br><span class="line">                if(!this._done) &#123;</span><br><span class="line">                    this._done = new Array();</span><br><span class="line">                &#125;</span><br><span class="line">                return this._done;</span><br><span class="line">            &#125;,</span><br><span class="line">            addAnimations: function() &#123;</span><br><span class="line">                var style = document.createElement(&apos;style&apos;);</span><br><span class="line">                style.type = &apos;text/css&apos;;</span><br><span class="line">                style.innerHTML = &apos;object,embed&#123;\</span><br><span class="line">                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;\</span><br><span class="line">                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;\</span><br><span class="line">                -o-animation-duration:.001s;-o-animation-name:playerInserted;\</span><br><span class="line">                animation-duration:.001s;animation-name:playerInserted;&#125;\</span><br><span class="line">                @-webkit-keyframes playerInserted&#123;from&#123;opacity:0.99;&#125;to&#123;opacity:1;&#125;&#125;\</span><br><span class="line">                @-ms-keyframes playerInserted&#123;from&#123;opacity:0.99;&#125;to&#123;opacity:1;&#125;&#125;\</span><br><span class="line">                @-o-keyframes playerInserted&#123;from&#123;opacity:0.99;&#125;to&#123;opacity:1;&#125;&#125;\</span><br><span class="line">                @keyframes playerInserted&#123;from&#123;opacity:0.99;&#125;to&#123;opacity:1;&#125;&#125;&apos;;</span><br><span class="line">                document.getElementsByTagName(&apos;head&apos;)[0].appendChild(style);</span><br><span class="line">            &#125;,</span><br><span class="line">            animationsHandler: function(e) &#123;</span><br><span class="line">                if(e.animationName === &apos;playerInserted&apos;) &#123;</span><br><span class="line">                    this.replace(e.target);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            replace: function(elem) &#123;</span><br><span class="line">                if (/http:\/\/v.youku.com\/v_show\/.*/.test(window.location.href))&#123;</span><br><span class="line">                    var tag = document.getElementById(&quot;playerBox&quot;).getAttribute(&quot;player&quot;)</span><br><span class="line">                    if (tag == &quot;adt&quot;)&#123;</span><br><span class="line">                        console.log(&quot;adt adv&quot;)</span><br><span class="line">                        return;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                if(this.done.indexOf(elem) != -1) return;</span><br><span class="line">                this.done.push(elem);</span><br><span class="line">                var player = elem.data || elem.src;</span><br><span class="line">                if(!player) return;</span><br><span class="line">                var i, find, replace = false;</span><br><span class="line">                for(i in this.rules) &#123;</span><br><span class="line">                    find = this.rules[i][&apos;find&apos;];</span><br><span class="line">                    if(find.test(player)) &#123;</span><br><span class="line">                        replace = this.rules[i][&apos;replace&apos;];</span><br><span class="line">                        if(&apos;function&apos; === typeof this.rules[i][&apos;preHandle&apos;]) &#123;</span><br><span class="line">                            this.rules[i][&apos;preHandle&apos;].bind(this, elem, find, replace, player)();</span><br><span class="line">                        &#125;else&#123;</span><br><span class="line">                            this.reallyReplace.bind(this, elem, find, replace)();</span><br><span class="line">                        &#125;</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            reallyReplace: function(elem, find, replace) &#123;</span><br><span class="line">                elem.data &amp;&amp; (elem.data = elem.data.replace(find, replace)) || elem.src &amp;&amp; ((elem.src = elem.src.replace(find, replace)) &amp;&amp; (elem.style.display = &apos;block&apos;));</span><br><span class="line">                var b = elem.querySelector(&quot;param[name=&apos;movie&apos;]&quot;);</span><br><span class="line">                this.reloadPlugin(elem);</span><br><span class="line">            &#125;,</span><br><span class="line">            reloadPlugin: function(elem) &#123;</span><br><span class="line">                var nextSibling = elem.nextSibling;</span><br><span class="line">                var parentNode = elem.parentNode;</span><br><span class="line">                parentNode.removeChild(elem);</span><br><span class="line">                var newElem = elem.cloneNode(true);</span><br><span class="line">                this.done.push(newElem);</span><br><span class="line">                if(nextSibling) &#123;</span><br><span class="line">                    parentNode.insertBefore(newElem, nextSibling);</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    parentNode.appendChild(newElem);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            init: function() &#123;</span><br><span class="line">                var handler = this.animationsHandler.bind(this);</span><br><span class="line">                document.body.addEventListener(&apos;webkitAnimationStart&apos;, handler, false);</span><br><span class="line">                document.body.addEventListener(&apos;msAnimationStart&apos;, handler, false);</span><br><span class="line">                document.body.addEventListener(&apos;oAnimationStart&apos;, handler, false);</span><br><span class="line">                document.body.addEventListener(&apos;animationstart&apos;, handler, false);</span><br><span class="line">                this.addAnimations();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        new A().init();</span><br><span class="line">    &#125;)();</span><br><span class="line">&#125;</span><br><span class="line">// 20140730</span><br><span class="line">(function cnbeta() &#123;</span><br><span class="line">    if (document.URL.indexOf(&apos;cnbeta.com&apos;) &gt;= 0) &#123;</span><br><span class="line">        var elms = document.body.querySelectorAll(&quot;p&gt;embed&quot;);</span><br><span class="line">        Array.prototype.forEach.call(elms, function(elm) &#123;</span><br><span class="line">            elm.style.marginLeft = &quot;0px&quot;;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br><span class="line">//baidu</span><br><span class="line">if(document.URL.indexOf(&apos;www.baidu.com&apos;) &gt;= 0)&#123;</span><br><span class="line">    if(document &amp;&amp; document.getElementsByTagName &amp;&amp; document.getElementById &amp;&amp; document.body)&#123;</span><br><span class="line">        var aa = function()&#123;</span><br><span class="line">            var all = document.body.querySelectorAll(&quot;#content_left div,#content_left table&quot;);</span><br><span class="line">            for(var i = 0; i &lt; all.length; i++)&#123;</span><br><span class="line">                if(/display:\s?(table|block)\s!important/.test(all[i].getAttribute(&quot;style&quot;)))&#123;all[i].style.display= &quot;none&quot;;all[i].style.visibility=&apos;hidden&apos;;&#125;</span><br><span class="line">            &#125;</span><br><span class="line">            all = document.body.querySelectorAll(&apos;.result.c-container[id=&quot;1&quot;]&apos;);</span><br><span class="line">            //if(all.length == 1) return;</span><br><span class="line">            for(var i = 0; i &lt; all.length; i++)&#123;</span><br><span class="line">                if(all[i].innerHTML &amp;&amp; all[i].innerHTML.indexOf(&apos;广告&apos;)&gt;-1)&#123;</span><br><span class="line">                    all[i].style.display= &quot;none&quot;;all[i].style.visibility=&apos;hidden&apos;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        aa();</span><br><span class="line">        document.getElementById(&apos;wrapper_wrapper&apos;).addEventListener(&apos;DOMSubtreeModified&apos;,aa)</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line">if (document.URL.indexOf(&quot;tv.sohu.com&quot;) &gt;= 0)&#123;</span><br><span class="line">    if (document.cookie.indexOf(&quot;fee_status=true&quot;)==-1)&#123;document.cookie=&apos;fee_status=true&apos;&#125;;</span><br><span class="line">&#125;</span><br><span class="line">if (document.URL.indexOf(&quot;56.com&quot;) &gt;= 0)&#123;</span><br><span class="line">    if (document.cookie.indexOf(&quot;fee_status=true&quot;)==-1)&#123;document.cookie=&apos;fee_status=true&apos;&#125;;</span><br><span class="line">&#125;</span><br><span class="line">if (document.URL.indexOf(&quot;iqiyi.com&quot;) &gt;= 0)&#123;</span><br><span class="line">    if (document.cookie.indexOf(&quot;player_forcedType=h5_VOD&quot;)==-1)&#123;</span><br><span class="line">        document.cookie=&apos;player_forcedType=h5_VOD&apos;</span><br><span class="line">        if(localStorage.reloadTime &amp;&amp; Date.now() - parseInt(localStorage.reloadTime)&lt;60000)&#123;</span><br><span class="line">            console.log(&apos;no reload&apos;)</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            location.reload()</span><br><span class="line">            localStorage.reloadTime = Date.now();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;&lt;style type=&quot;text/css&quot;&gt;object,embed&#123;                -webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;                -ms-animation-duration:.001s;-ms-animation-name:playerInserted;                -o-animation-duration:.001s;-o-animation-name:playerInserted;                animation-duration:.001s;animation-name:playerInserted;&#125;                @-webkit-keyframes playerInserted&#123;from&#123;opacity:0.99;&#125;to&#123;opacity:1;&#125;&#125;                @-ms-keyframes playerInserted&#123;from&#123;opacity:0.99;&#125;to&#123;opacity:1;&#125;&#125;                @-o-keyframes playerInserted&#123;from&#123;opacity:0.99;&#125;to&#123;opacity:1;&#125;&#125;                @keyframes playerInserted&#123;from&#123;opacity:0.99;&#125;to&#123;opacity:1;&#125;&#125;&lt;/style&gt;&lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">            &lt;!-- 脸 --&gt;</span><br><span class="line">            &lt;div class=&quot;face&quot;&gt;</span><br><span class="line">                &lt;!-- 头发 --&gt;</span><br><span class="line">                &lt;div class=&quot;hair&quot;&gt;</span><br><span class="line">                    &lt;div&gt;&lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;!-- 眼睛 --&gt;</span><br><span class="line">                &lt;div class=&quot;eye-wrap&quot;&gt;</span><br><span class="line">                    &lt;div class=&quot;eye left&quot;&gt;</span><br><span class="line">                        &lt;div class=&quot;eye-circle&quot;&gt;</span><br><span class="line">                            &lt;div class=&quot;eye-core</span><br><span class="line">                            eye-core2&quot;&gt;&lt;/div&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                        &lt;div class=&quot;eye-bottom eye-bottom2&quot;&gt;&lt;/div&gt;</span><br><span class="line">                        &lt;div class=&quot;face-red face-red2&quot;&gt;&lt;/div&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div class=&quot;eye right&quot;&gt;</span><br><span class="line">                        &lt;div class=&quot;eye-circle&quot;&gt;</span><br><span class="line">                            &lt;div class=&quot;eye-core</span><br><span class="line">                            eye-core2&quot;&gt;&lt;/div&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                        &lt;div class=&quot;eye-bottom</span><br><span class="line">                        eye-bottom2&quot;&gt;&lt;/div&gt;</span><br><span class="line">                        &lt;div class=&quot;face-red face-red2&quot;&gt;&lt;/div&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;!-- 鼻子 --&gt;</span><br><span class="line">                &lt;div class=&quot;nose&quot;&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;!-- 嘴巴 --&gt;</span><br><span class="line">                &lt;div class=&quot;mouth-wrap&quot;&gt;</span><br><span class="line">                    &lt;!-- &lt;div class=&quot;mouth-top&quot;&gt;&lt;/div&gt; --&gt;</span><br><span class="line">                    &lt;div class=&quot;mouth left mouth-ani&quot;&gt;&lt;/div&gt;</span><br><span class="line">                    &lt;div class=&quot;mouth right mouth-ani&quot;&gt;&lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;!-- 耳朵 --&gt;</span><br><span class="line">            &lt;div class=&quot;ear-wrap&quot;&gt;</span><br><span class="line">                &lt;div class=&quot;ear left ear-left&quot;&gt; &lt;/div&gt;</span><br><span class="line">                &lt;div class=&quot;ear right ear-right&quot;&gt; &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;js/myjs.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">.ear-left&#123;</span><br><span class="line">    transition: transform 2s;</span><br><span class="line">&#125;</span><br><span class="line">.face:hover+.ear-wrap .ear-left&#123;</span><br><span class="line">    transform: rotate(-45deg);</span><br><span class="line">&#125;</span><br><span class="line">.ear-right&#123;</span><br><span class="line">    transition: transform 2s;</span><br><span class="line">&#125;</span><br><span class="line">.face:hover+.ear-wrap .ear-right&#123;</span><br><span class="line">    transform: rotate(45deg);</span><br><span class="line">&#125;</span><br><span class="line">.eye-bottom2&#123;</span><br><span class="line">    transition: transform 2s;</span><br><span class="line">&#125;</span><br><span class="line">.face:hover .eye-bottom2&#123;</span><br><span class="line">    transform: translate(0px,-20px);</span><br><span class="line">&#125;</span><br><span class="line">.eye-core2&#123;</span><br><span class="line">    transition: transform 2s;</span><br><span class="line">&#125;</span><br><span class="line">.face:hover .eye-core2&#123;</span><br><span class="line">    transform: scale(0.7,1);</span><br><span class="line">&#125;</span><br><span class="line">.face-red2&#123;</span><br><span class="line">    transform: scale(0.7,1);</span><br><span class="line">    transition: opacity 2s;</span><br><span class="line">&#125;</span><br><span class="line">.face:hover .face-red2&#123;</span><br><span class="line">    opacity: 0.5;</span><br><span class="line">&#125;</span><br><span class="line">.mouth-ani&#123;</span><br><span class="line">    transition: border-radius 2s;</span><br><span class="line">&#125;</span><br><span class="line">.face:hover .mouth-ani&#123;</span><br><span class="line">    border-radius: 50%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/03/2018_5_3_1_ife_2018_设计师学院_No.1_No.2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -916,194 +1050,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/24/2018_4_24_1_vue-cli和webpack学习/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/24/2018_4_24_1_vue-cli和webpack学习/" itemprop="url">webpack和vue-cli学习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-24T14:43:24+08:00">
-                2018-04-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>前几天学习了Vue.js，使用起来确实是非常的便捷，不需要自己手动的去操作DOM，只需要改变数据就能实现DOM的改变。<br>然后我搜了一下Vue相关的项目，本来是打算自己先做着试试的，结果发现完全看不懂啊，一个完整的项目涉及到的东西还是非常的多。</p>
-<hr>
-<p>首先我看到的就是<strong>Vue-cli</strong>，这是一个vue官方提供的vue项目的脚手架工具，emmm。。。，看不懂，脚手架工具是个什么玩意，然后我就去搜了一下vue-cli相关的知识，大概的意思应该是<strong>快捷的创建好一个vue项目模板</strong>，差不多就是一个样本，你照着修改就行了。</p>
-<p>接下来就是要创建模板了，官方提供了2种模板使用：</p>
-<blockquote>
-<p>基于vue cli和browserify的项目模板<br>基于vue cli和webpack的项目模板</p>
-</blockquote>
-<p>emmm。。。<br>browserify是个什么东西，我还清楚，webpack呢有听说过，是个打包工具来着，所以我决定要创建webpack的项目模板</p>
-<p>安装vue-cli脚手架工具<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-cli -g</span><br></pre></td></tr></table></figure></p>
-<p>安装webpack打包工具<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack -g</span><br></pre></td></tr></table></figure></p>
-<p>创建webpack-simple模板<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue init webpack-simple my-webpack-simple-demo</span><br></pre></td></tr></table></figure></p>
-<p>会产生对应的my-webpack-simple-demo项目文件夹</p>
-<p>打开文件夹<br>文件树结构如下：</p>
-<blockquote>
-<p>├─.babelrc        // babel配置文件<br>├─.gitignore<br>├─index.html        // 主页<br>├─package.json        // 项目配置文件<br>├─README.md<br>├─webpack.config.js    // webpack配置文件<br>├─dist            // 发布目录<br>│   ├─.gitkeep<br>├─src            // 开发目录<br>│   ├─App.vue        // App.vue组件<br>│   ├─main.js        // 预编译入口</p>
-</blockquote>
-<p>。。。还是看不懂项目里的都是些啥，我只知道<br>index.html 是首页<br>README.md 是展示的makedown文件<br>package.josn 是json文件具体什么用也不清楚<br>其他一概不知，一个完整的项目东西也太多了，和做一个单独的网页配上css和js完全不一样</p>
-<p>所以大概还得一样一样学过来</p>
-<p>那么既然这个是基于vue-cli和webpack的项目模板，所以就先从webpack学起吧！</p>
-<p>跟着别人的教程走吧</p>
-<p>首先webpack是什么<br>1.一个打包工具<br>2.一个模块加载工具<br>3.各种资源都可以当成模块来处理</p>
-<blockquote>
-<p>emmm。。。，说真的，每次学新的东西的时候，都是看着这种很专业的术语来学习真的是非常的不明觉厉啊，前面看git命令的时候也是一样，所以还是先看后面的例子吧</p>
-</blockquote>
-<p>对于模块的组织，通常有如下几种方法：<br>1.通过书写在不同的文件中，使用script标签进行加载</p>
-<blockquote>
-<p>这个是我目前会的那种。。。</p>
-</blockquote>
-<p>2.CommonJS进行加载（NodeJS就是使用这种方式）</p>
-<blockquote>
-<p>CommonJS又是什么，nodejs还没开始看呢。。</p>
-</blockquote>
-<p>3.AMD进行加载（require.js使用这种方式）</p>
-<blockquote>
-<p>emmm…</p>
-</blockquote>
-<p>4.ES6模块</p>
-<blockquote>
-<p>es6也没怎么看</p>
-</blockquote>
-<p>算了，慢慢来吧</p>
-<p>webpack的特点</p>
-<p>1.丰富的插件，方便进行开发工作<br>2.大量的加载器，包括加载各种静态资源<br>3.代码分割，提供按需加载的能力<br>4.发布工具</p>
-<p>webpack的优势<br>1.webpack 是以 commonJS 的形式来书写脚本滴，但对 AMD/CMD 的支持也很全面，方便旧项目进行代码迁移。<br>2.能被模块化的不仅仅是 JS 了。<br>3.开发便捷，能替代部分 grunt/gulp 的工作，比如打包、压缩混淆、图片转base64等。<br>4.扩展性强，插件机制完善，特别是支持 React 热插拔（见 react-hot-loader ）的功能让人眼前一亮。</p>
-<blockquote>
-<p>大概是意思就是我要使用webpack还得先去学CommonJS</p>
-</blockquote>
-<p>ok！开始webpack的例子了<br>还是实际的代码比较容易理解</p>
-<p>安装webpack，前面安装过了</p>
-<p>使用webpack<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm init # 会自动生成一个package.json文件</span><br><span class="line">npm install webpack --save-dev #将webpack增加到package.json文件中</span><br></pre></td></tr></table></figure></p>
-<p>如果要安装开发工具<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack-dev-server --save-dev</span><br></pre></td></tr></table></figure></p>
-<p>webpack的配置<br>每个项目下都必须配置有一个webpack.config.js，它的作用如同常规的gulpfile.js/Gruntfile.js，就是一个配置项，告诉webpack他需要做什么<br>下面是个例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">var webpack = require(&apos;webpack&apos;);</span><br><span class="line">var commonsPlugin = new webpack.optimize.CommonsChunkPlugin(&apos;common.js&apos;);</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    //插件项</span><br><span class="line">    plugins: [commonsPlugin],</span><br><span class="line">    //页面入口文件配置</span><br><span class="line">    entry: &#123;</span><br><span class="line">        index : &apos;./src/js/page/index.js&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    //入口文件输出配置</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: &apos;dist/js/page&apos;,</span><br><span class="line">        filename: &apos;[name].js&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    module: &#123;</span><br><span class="line">        //加载器配置</span><br><span class="line">        loaders: [</span><br><span class="line">            &#123; test: /\.css$/, loader: &apos;style-loader!css-loader&apos; &#125;,</span><br><span class="line">            &#123; test: /\.js$/, loader: &apos;jsx-loader?harmony&apos; &#125;,</span><br><span class="line">            &#123; test: /\.scss$/, loader: &apos;style!css!sass?sourceMap&apos;&#125;,</span><br><span class="line">            &#123; test: /\.(png|jpg)$/, loader: &apos;url-loader?limit=8192&apos;&#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    //其它解决方案配置</span><br><span class="line">    resolve: &#123;</span><br><span class="line">        //查找module的话从这里开始查找</span><br><span class="line">        root: &apos;E:/github/flux-example/src&apos;, //绝对路径</span><br><span class="line">        //自动扩展文件后缀名，意味着我们require模块可以省略不写后缀名</span><br><span class="line">        extensions: [&apos;&apos;, &apos;.js&apos;, &apos;.json&apos;, &apos;.scss&apos;],</span><br><span class="line">        //模块别名定义，方便后续直接引用别名，无须多写长长的地址</span><br><span class="line">        alias: &#123;</span><br><span class="line">            AppStore : &apos;js/stores/AppStores.js&apos;,</span><br><span class="line">            ActionType : &apos;js/actions/ActionType.js&apos;,</span><br><span class="line">            AppAction : &apos;js/actions/AppAction.js&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>plugins 是插件项，这里我们使用了一个CommonsChunkPlugin的插件，它用于提取多个入口文件的公共脚本部分，然后生成一个common.js来方便多页面之间进行复用<br>entry 是页面的入口文件配置，output是对应的输出配置文件<br>（既入口文件最终要生成什么名字的文件，存放在哪里）<br>module.loaders 是最关键的一块配置，它告诉webpack每种文件都需要使用什么加载器来处理。加载器需要使用npm来加载<br>resolve模块 是查找模块的路径和扩展名和别名</p>
-<p>webpack开始使用<br>1.正确安装webpack<br>2.书写entry.js文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.write(&quot;entry&quot;);</span><br></pre></td></tr></table></figure></p>
-<p>3.书写index.html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line"> &lt;head&gt;</span><br><span class="line"> &lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line"> &lt;/head&gt;</span><br><span class="line"> &lt;body&gt;</span><br><span class="line"> &lt;script type=&quot;text/javascript&quot; src=&quot;bundle.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</span><br><span class="line"> &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
-<p>4.执行命令，生成bundle.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ webpack ./entry.js bundle.js</span><br></pre></td></tr></table></figure></p>
-<p>5.打开html文件，显示entry<br>6.增加content.js文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &quot;content&quot;</span><br></pre></td></tr></table></figure></p>
-<p>7.修改entry.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.write(require(&quot;./content.js&quot;));</span><br></pre></td></tr></table></figure></p>
-<p>8.打开html文件，显示content<br>9.增加css.css文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">	background:yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>10.修改entry.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">require(&quot;!style-loader!css-loader!./style.css&quot;);</span><br><span class="line">document.write(require(&quot;./content.js&quot;));</span><br></pre></td></tr></table></figure></p>
-<p>11.执行命令，安装加载器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install css-loader style-loader</span><br></pre></td></tr></table></figure></p>
-<p>12.执行webpack命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ webpack ./entry.js bundle.js --module-bind &quot;css=style-loader!css-loader&quot;</span><br></pre></td></tr></table></figure></p>
-<p>14.打开html文件，显示背景黄色<br>15.使用配置文件<br>默认配置文件为webpack.config.js<br>增加webpack.config.js文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">    entry: &quot;./entry.js&quot;,</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: __dirname,</span><br><span class="line">        filename: &quot;bundle.js&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    module: &#123;</span><br><span class="line">        loaders: [</span><br><span class="line">            &#123; test: /\.css$/, loader: &quot;style-loader!css-loader&quot; &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ webpack</span><br></pre></td></tr></table></figure></p>
-<p>16.发布服务器<br>安装服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install webpack-dev-server -g</span><br><span class="line">$ webpack-dev-server --progress --colors</span><br></pre></td></tr></table></figure></p>
-<p>服务器可以自动生成和刷新，修改代码保持后自动更新画面<br><a href="http://localhost:8080/webpack-dev-server/bundle" target="_blank" rel="noopener">http://localhost:8080/webpack-dev-server/bundle</a></p>
-<p>17.webpack常用命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ webpack --display-error-details</span><br></pre></td></tr></table></figure></p>
-<p>后面的参数“–display-error-details”是推荐加上的，方便出错时能查阅更详尽的信息（比如 webpack 寻找模块的过程），从而更好定位到问题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ webpack --config XXX.js //使用另一份配置文件（比如webpack.config2.js）来打包</span><br><span class="line">$ webpack --watch //监听变动并自动打包</span><br><span class="line">$ webpack -p //压缩混淆脚本，这个非常非常重要！</span><br><span class="line">$ webpack -d //生成map映射文件，告知哪些模块被最终打包到哪里了</span><br></pre></td></tr></table></figure></p>
-<p>总结一下吧：vue-cli是脚手架工具，用来创建vue项目模板，webpack是打包工具，总的来说就是把多个文件打包成一个文件，不仅仅是js文件，静态资源也可以打包，学习webpack有那么一点感觉，但又很模糊，先到这里吧。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1154,7 +1100,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1167,7 +1113,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

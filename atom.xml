@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-07T14:35:35.332Z</updated>
+  <updated>2018-07-21T13:49:04.792Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>学习DvaJS，JS的this和解耦</title>
+    <link href="http://yoursite.com/2018/07/21/2018_7_21_1_DvaJS%E5%AD%A6%E4%B9%A0%E5%92%8CJS%E7%9A%84this%E4%BB%A5%E5%8F%8A%E8%A7%A3%E8%80%A6%E6%A6%82%E5%BF%B5/"/>
+    <id>http://yoursite.com/2018/07/21/2018_7_21_1_DvaJS学习和JS的this以及解耦概念/</id>
+    <published>2018-07-21T13:49:28.703Z</published>
+    <updated>2018-07-21T13:49:04.792Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;&lt;h3&gt;学习DvaJS&lt;/h3&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在我看来&lt;strong&gt;DvaJS&lt;/strong&gt;相当是于集成了&lt;code&gt;Redux&lt;/code&gt;，&lt;code&gt;Router&lt;/code&gt;和&lt;code&gt;Fetch&lt;/code&gt;的状态管理器
+      
+    
+    </summary>
+    
+    
+      <category term="DvaJS" scheme="http://yoursite.com/tags/DvaJS/"/>
+    
+      <category term="ES6" scheme="http://yoursite.com/tags/ES6/"/>
+    
+  </entry>
   
   <entry>
     <title>Redux学习（四）-- Providor和connect学习</title>
@@ -185,11 +209,11 @@
     </summary>
     
     
-      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
-    
       <category term="html" scheme="http://yoursite.com/tags/html/"/>
     
       <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
     
   </entry>
   
@@ -440,29 +464,6 @@
     
     
       <category term="vue，jsonp" scheme="http://yoursite.com/tags/vue%EF%BC%8Cjsonp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ife_2018 MVVM学院 2-1</title>
-    <link href="http://yoursite.com/2018/05/05/2018_5_5_2_ife_2018_mvvm%E5%AD%A6%E9%99%A2_2.1/"/>
-    <id>http://yoursite.com/2018/05/05/2018_5_5_2_ife_2018_mvvm学院_2.1/</id>
-    <published>2018-05-05T14:06:25.469Z</published>
-    <updated>2018-05-05T14:06:25.668Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;ife 的 mvvm使用的是百度的san框架，我不太了解，同时这个也不太火，所以我还是使用我在学习的vue框架&lt;/p&gt;
-&lt;p&gt;1.x是看文档和安装环境我就没做了&lt;/p&gt;
-&lt;p&gt;2.1 数据操作&lt;br&gt;1参考下方设计图，使用san实现一个功能&lt;br&gt;2输入姓名、年龄和简介信息
-      
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
     
   </entry>
   
