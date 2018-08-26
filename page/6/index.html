@@ -296,6 +296,281 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/05/2018_5_4_1_ife_2018_设计师学院_No.5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/05/2018_5_4_1_ife_2018_设计师学院_No.5/" itemprop="url">ife_2018 设计师学院 No.5</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-05T21:26:52+08:00">
+                2018-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>No.5 - 纯 CSS 制作绕中轴旋转的立方体</p>
+<p>任务五<br><a href="https://frattinor.github.io/IFE_2018/css/No.5/" target="_blank" rel="noopener">demo</a></p>
+<p>任务要求：<br>通过纯CSS 实现一个立方体翻转的效果</p>
+<p><strong>我的思路</strong></p>
+<ol>
+<li>用绝对定位在同一个地方设置6个正方形div</li>
+<li>通过css3的3d效果去把上下左右后5块div进行旋转和3d位移</li>
+<li>在以底部为圆心写无穷旋转动画效果</li>
+</ol>
+<p>完成</p>
+<p><strong>遇到的问题</strong><br>1.旋转后div上的字也会翻转</p>
+<p>解决办法：<br>前面，上面，和下面这3块不动，左右2块都向后位移200px，再进行旋转，后面一块先向后位移200px然后原地转180度<br>这样从6个面看过去都是正的字</p>
+<p>2。无穷旋转动画以前面这块的中轴为中心旋转</p>
+<p>解决办法：<br>在这6块div外加一个div，然后前面这块向前移100px，后面那块向后移100px，其他4块以这2块为基准位移和旋转，然后把无穷旋转的动画加载在外部这个div里，这样就可以围绕底面的中心旋转了</p>
+<p>3.看起来没有3d效果，只有2d效果</p>
+<p>解决办法：<br>昨天使用过的perspective属性，简单的说就是增加屏幕到元素的距离，产生距离感</p>
+<p>4.使用perspective属性后，旋转起来，前大后小，不是立方体</p>
+<p>解决办法：<br>其实，这个问题是我自己还不太理解perspective属性，现在我对perspective属性的理解就是在元素的前方加了一对眼睛，然后改元素旋转的同时，眼睛也在旋转，也就是说本来是屏幕到元素的距离旋转后变成了侧面到元素产生了距离，emmm。。。，我自己也说不明白，反正就是这个意思，解决办法是在外部div的外部加个div，在最外面的这个div加上perspective属性，这样里面div旋转不会影响到外部的perspective属性。</p>
+<p>最后贴出我的代码<br>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/mycss.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;box0&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;box front&quot;&gt;front&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;box back&quot;&gt;back&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;box left&quot;&gt;left&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;box right&quot;&gt;right&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;box top&quot;&gt;top&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;box bottom&quot;&gt;bottom&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;js/myjs.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">    margin: 0;</span><br><span class="line">    padding: 0;</span><br><span class="line">&#125;</span><br><span class="line">.container&#123;</span><br><span class="line">    height: 200px;</span><br><span class="line">    text-align: center;</span><br><span class="line">    margin-top: 100px;</span><br><span class="line">    perspective: 400px;</span><br><span class="line">&#125;</span><br><span class="line">.box0&#123;</span><br><span class="line">    transform-style: preserve-3d;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 200px;</span><br><span class="line">    transform-origin: 50% 50%;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    animation: ani 4s infinite linear;</span><br><span class="line">    animation-play-state:paused;</span><br><span class="line">&#125;</span><br><span class="line">.box0:hover&#123;</span><br><span class="line">    animation-play-state:running;</span><br><span class="line">&#125;</span><br><span class="line">@keyframes ani&#123;</span><br><span class="line">    0%&#123;</span><br><span class="line">        transform: rotateY(0deg);</span><br><span class="line">    &#125;</span><br><span class="line">    100%&#123;</span><br><span class="line">        transform: rotateY(360deg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">.box&#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 200px;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    border: 2px solid #09f;</span><br><span class="line">    text-align: center;</span><br><span class="line">    line-height: 200px;</span><br><span class="line">    font-size: 30px;</span><br><span class="line">    color: RGBA(0,0,0,0.6);</span><br><span class="line">&#125;</span><br><span class="line">.front&#123;</span><br><span class="line">    transform: translateZ(102px);</span><br><span class="line">    background-color: RGBA(255,0,0,0.5);</span><br><span class="line">&#125;</span><br><span class="line">.top&#123;</span><br><span class="line">    transform-origin: 0% 0%;</span><br><span class="line">    transform: translateZ(102px) rotateX(270deg) ;</span><br><span class="line">    background-color: RGBA(0,255,0,0.5);</span><br><span class="line">&#125;</span><br><span class="line">.bottom&#123;</span><br><span class="line">    transform-origin: 0% 100%;</span><br><span class="line">    transform:translateZ(102px) rotateX(90deg);</span><br><span class="line">    background-color: RGBA(0,0,255,0.5);</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">    transform-origin: 0% 50%;</span><br><span class="line">    transform:translateZ(-102px) rotateY(270deg);</span><br><span class="line">    background-color: RGBA(255,255,0,0.5);</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">    transform-origin: 100% 0%;</span><br><span class="line">    transform:translateZ(-102px) rotateY(90deg);</span><br><span class="line">    background-color: RGBA(0,255,255,0.5);</span><br><span class="line">&#125;</span><br><span class="line">.back&#123;</span><br><span class="line">    transform: translateZ(-102px) rotateY(180deg);</span><br><span class="line">    background-color: RGBA(200,0,200,0.5);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/03/2018_5_3_3_ife_2018_设计师学院_No.4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/03/2018_5_3_3_ife_2018_设计师学院_No.4/" itemprop="url">ife_2018 设计师学院 No.4</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-03T21:54:51+08:00">
+                2018-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>No.4 - 3D 空间的卡片翻转动效</p>
+<p>任务四<br><a href="https://frattinor.github.io/IFE_2018/css/No.4/" target="_blank" rel="noopener">demo</a></p>
+<p>任务要求：<br>通过 CSS 实现一个卡片翻转的效果。</p>
+<p><strong>我的思路</strong></p>
+<ol>
+<li>首先先写一个div装“卡牌”</li>
+<li>在div里写一个div代表卡牌</li>
+<li>在卡牌div里写2个div代表卡牌的正面和反面</li>
+<li>在css里给卡牌div加个hover翻转180度</li>
+</ol>
+<p>我觉得差不多就完成了</p>
+<p><strong>遇到的问题</strong><br>翻转前后反面一直被覆盖，所以翻转前后都是正面</p>
+<p><strong>解决办法</strong><br>这个问题我修改了很多的css样式都不行，要不是没有效果就是效果突兀，没办法过渡，最后去百度了一下发现需要加2个属性<br>给卡牌添加<br>transform-style: preserve-3d;<br>使被转换的子元素保留其 3D 转换<br>给正面div加<br>backface-visibility:hidden;<br>时其背面变透明<br>缺一不可<br>因为需要在3d状态背面透明才会生效</p>
+<p><strong>遇到的问题2</strong><br>前面确实可以实现翻转效果<br>但是非常的平面，2d的感觉，没有3d的感觉</p>
+<p><strong>解决办法</strong><br>这个问题我以前也遇到过，当时我的解决办法是使其3d状态沿x轴转30度，但是会产生上小下大的视觉效果，但确实是有3d的效果，但肯定不是最好的<br>然后今天看见了更好的解决办法是给卡牌添加属性<br>perspective: 1200px;<br>设置元素被查看位置的视图，大概是让元素和屏幕产生距离的视觉效果吧<br>这样看起来有3d的效果</p>
+<p>最后附上代码<br>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/mycss.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;box&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;card&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;false&quot;&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;true&quot;&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;js/myjs.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">    margin: 0;</span><br><span class="line">    padding: 0;</span><br><span class="line">&#125;</span><br><span class="line">.box&#123;</span><br><span class="line">    perspective: 1200px;</span><br><span class="line">    margin: 20px;</span><br><span class="line">    text-align: center;</span><br><span class="line">&#125;</span><br><span class="line">.card&#123;</span><br><span class="line">    transform-style: preserve-3d;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    width: 250px;</span><br><span class="line">    height: 350px;</span><br><span class="line">    transition:transform 1s ease-in-out;</span><br><span class="line">&#125;</span><br><span class="line">.true&#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    width: 250px;</span><br><span class="line">    height: 350px;</span><br><span class="line">    background: url(../img/true.jpg);</span><br><span class="line">    backface-visibility:hidden;</span><br><span class="line">&#125;</span><br><span class="line">.false&#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    width: 250px;</span><br><span class="line">    height: 350px;</span><br><span class="line">    transform: rotateY(180deg);</span><br><span class="line">    background: url(../img/false.jpg);</span><br><span class="line">&#125;</span><br><span class="line">.card:hover&#123;</span><br><span class="line">    transform: rotateY(180deg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/03/2018_5_3_2_ife_2018_设计师学院_No.3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -693,363 +968,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/25/2018_4_25_1_vue项目入门和vue-router部分学习/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/25/2018_4_25_1_vue项目入门和vue-router部分学习/" itemprop="url">Vue项目入门和vue-router部分学习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-25T17:17:00+08:00">
-                2018-04-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>前段时间看的vue.js，然后也写了一个小页面来练练手，总的来说不是很难，再然后，我就看到了vue项目，接触到了vue-cli，webpack等等的，于是乎就看了很久的相关文档，说真的看文档真的看的我有点难受了，看文档确实是知道了具体的代码怎么实现等等的，虽然不能全部记住，但也能记个大概了。<br>今天又看了vuex，vue-router，axios的相关文档，但都没怎么仔细看，可能最近看文档看的有点烦了吧，看不太进去，也不想把看的都写一遍下来了。</p>
-<p>关于vuex<br>官方文档是这样介绍的：</p>
-<blockquote>
-<p>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 也集成到 Vue 的官方调试工具 devtools extension，提供了诸如零配置的 time-travel 调试、状态快照导入导出等高级调试功能。</p>
-</blockquote>
-<p>说真的完全完全完全看不懂是什么，后面讲的也不明觉厉，可能我还没到可以使用它的时候吧，跳过了。</p>
-<p>关于vue-router<br>前面学习vue的时候在最后有接触过，明白大概的意思，就是实现单页面的跳转效果，不是跳转页面，而是重新渲染页面来实现的<br>大概有那么6个步骤：<br>1 创建组件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var Home = Vue.extend(&#123;</span><br><span class="line">    template: &apos;&lt;div&gt;&lt;h1&gt;Home&lt;/h1&gt;&lt;p&gt;&#123;&#123;msg&#125;&#125;&lt;/p&gt;&lt;/div&gt;&apos;,</span><br><span class="line">    data: function() &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            msg: &apos;Hello, vue router!&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">var About = Vue.extend(&#123;</span><br><span class="line">    template: &apos;&lt;div&gt;&lt;h1&gt;About&lt;/h1&gt;&lt;p&gt;This is the tutorial about vue-router.&lt;/p&gt;&lt;/div&gt;&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>2 创建Router<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var router = new VueRouter()</span><br></pre></td></tr></table></figure></p>
-<p>调用构造器VueRouter，创建一个路由器实例router。</p>
-<p>3 映射路由<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">router.map(&#123;</span><br><span class="line">    &apos;/home&apos;: &#123; component: Home &#125;,</span><br><span class="line">    &apos;/about&apos;: &#123; component: About &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>4 使用v-link指令<br>在a元素上使用v-link指令跳转到指定路径。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;list-group&quot;&gt;</span><br><span class="line">    &lt;a class=&quot;list-group-item&quot; v-link=&quot;&#123; path: &apos;/home&apos;&#125;&quot;&gt;Home&lt;/a&gt;</span><br><span class="line">    &lt;a class=&quot;list-group-item&quot; v-link=&quot;&#123; path: &apos;/about&apos;&#125;&quot;&gt;About&lt;/a&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>5 使用<router-view>标签<br>在页面上使用<code>&lt;router-view&gt;&lt;/router-view&gt;</code>标签，它用于渲染匹配的组件。</router-view></p>
-<p>6 启动路由<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var App = Vue.extend(&#123;&#125;)</span><br><span class="line">router.start(App, &apos;#app&apos;)</span><br></pre></td></tr></table></figure></p>
-<p><strong>编写单页面的步骤</strong><br><img src="https://raw.githubusercontent.com/FrattiNor/picture/master/vue-router.png" alt="enter image description here"></p>
-<p>router.redirect<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.redirect(&#123;</span><br><span class="line">    &apos;/&apos;: &apos;/home&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>router.redirect方法用于为路由器定义全局的重定向规则，全局的重定向会在匹配当前路径之前执行。</p>
-<p>后面还有 嵌套路由，具名路径 等等，我没全部看，就不列举了</p>
-<p>关于axios<br>特色：</p>
-<blockquote>
-<p>浏览器端发起XMLHttpRequests请求<br>node端发起http请求<br>支持Promise API<br>拦截请求和返回<br>转化请求和返回（数据）<br>取消请求<br>自动转化json数据<br>客户端支持抵御XSRF（跨站请求伪造）</p>
-</blockquote>
-<p>具体的我也没仔细看，大概就是发起http请求以及获取结果吧。。。</p>
-<hr>
-<p>说真的看了这么多，都不知道应该写在哪，vue-cli创建的项目令我无从下手，不过今天总算是找到了最最基础的教程了，才知道原来是在app.vue文件下操作的。。。<br>这是一个慕课网的视频，讲的很基础，我也不知道讲的好不好，反正至少我知道vue的项目应该从哪下手了，也算是非常的有收获吧<br>视频网址：<a href="http://www.imooc.com/learn/694" target="_blank" rel="noopener">http://www.imooc.com/learn/694</a><br>然后我跟着做了一个todo list的小项目（可能也说不上是个项目吧。。）<br>怎么做的我就不多讲了，视频里讲的还算挺清楚的了<br>最后附上todolist的内容：<br>app.vue<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;title&#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; v-model=&quot;newItem&quot; v-on:keyup.enter=&quot;addNew&quot; /&gt;</span><br><span class="line">    &lt;li v-for=&quot;item in items&quot; v-bind:class=&quot;&#123;finished:item.isFinished&#125;&quot;&gt;&#123;&#123;item.label&#125;&#125;&lt;/li&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import store from &quot;./storage.js&quot;</span><br><span class="line">export default &#123;</span><br><span class="line">  data: function() &#123;</span><br><span class="line">  return&#123;</span><br><span class="line">    title: &quot;this is a todo list&quot;,</span><br><span class="line">    items: store.fetch(),</span><br><span class="line">    newItem: &quot;&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    addNew: function()&#123;</span><br><span class="line">      this.items.push(&#123;</span><br><span class="line">        label: this.newItem,</span><br><span class="line">        isFinished: false</span><br><span class="line">      &#125;);</span><br><span class="line">      this.newItem = &quot;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  watch: &#123;</span><br><span class="line">    items: &#123;</span><br><span class="line">      handler:function(val,oldval)&#123;</span><br><span class="line">        store.save(this.items)</span><br><span class="line">      &#125;,</span><br><span class="line">      deep: true</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.finished&#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line">#app &#123;</span><br><span class="line">  font-family: &apos;Avenir&apos;, Helvetica, Arial, sans-serif;</span><br><span class="line">  -webkit-font-smoothing: antialiased;</span><br><span class="line">  -moz-osx-font-smoothing: grayscale;</span><br><span class="line">  text-align: center;</span><br><span class="line">  color: #2c3e50;</span><br><span class="line">  margin-top: 60px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
-<p>storage.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">// const STORAGE_KEY = &quot;todo-vue.js&quot;</span><br><span class="line">// export default &#123;</span><br><span class="line">//     fetch() &#123;</span><br><span class="line">//         return JOSN.parse(window.localStorage.getItem(STORAGE_KEY) || &quot;[]&quot;)</span><br><span class="line">//     &#125;,</span><br><span class="line">//     save(items) &#123;</span><br><span class="line">//         window.localStorage.setItem(STORAGE_KEY,JSON.stringify(items))</span><br><span class="line">//     &#125;</span><br><span class="line">// &#125;</span><br><span class="line"></span><br><span class="line">const STORAGE_KEY=&quot;todos-vuejs&quot;</span><br><span class="line"></span><br><span class="line">export default&#123;</span><br><span class="line"></span><br><span class="line">fetch()&#123;</span><br><span class="line"></span><br><span class="line">return JSON.parse(window.localStorage.getItem(STORAGE_KEY)||&apos;[]&apos;)</span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">save (items)&#123;</span><br><span class="line"></span><br><span class="line">window.localStorage.setItem(STORAGE_KEY,JSON.stringify(</span><br><span class="line"></span><br><span class="line">      items))</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>也可以在我的github上查看<a href="https://github.com/FrattiNor/vue-project/tree/master/my-first-vue-project" target="_blank" rel="noopener">https://github.com/FrattiNor/vue-project/tree/master/my-first-vue-project</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/24/2018_4_24_2_CommonJS学习/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/24/2018_4_24_2_CommonJS学习/" itemprop="url">CommonJS学习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-24T21:29:28+08:00">
-                2018-04-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>今天学习了webpack的使用，虽然一知半解，但也还算有所收获，同时了解到webpack是以commonjs的形式来书写脚本的，然后node应用也采用commonjs模块规范，所以就来学习一下commonjs</p>
-<p>1.概述<br>每个文件就是一个模块，有自己的作用域。在一个文件里面定义的变量、函数、类，都是私有的，对其他文件不可见。<br>如果想在多个文件分享变量，必须定义为global对象的属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">global.warning = true;</span><br></pre></td></tr></table></figure></p>
-<p>上面代码的warning变量，可以被所有文件读取。当然，这样写法是不推荐的。</p>
-<p>CommonJS规范规定，每个模块内部，module变量代表当前模块。这个变量是一个对象，它的exports属性（即module.exports）是对外的接口。加载某个模块，其实是加载该模块的module.exports属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var x = 5;</span><br><span class="line">module.exports.x = x;</span><br></pre></td></tr></table></figure></p>
-<p>上面代码通过module.exports输出变量x<br>require方法用于加载模块。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var example = require(&apos;./example.js&apos;);</span><br><span class="line">console.log(example.x); // 5</span><br></pre></td></tr></table></figure></p>
-<p>CommonJS模块的特点如下:</p>
-<blockquote>
-<p>所有代码都运行在模块作用域，不会污染全局作用域。</p>
-</blockquote>
-<p>模块可以多次加载，但是只会在第一次加载时运行一次，然后运行结果就被缓存了，以后再加载，就直接读取缓存结果。要想让模块再次运行，必须清除缓存。</p>
-<blockquote>
-</blockquote>
-<p>模块加载的顺序，按照其在代码中出现的顺序。</p>
-<p>2.module对象<br>Node内部提供一个Module构建函数，所有模块都是Module的实例<br>每个模块内部，都有一个Module对象，代表当前模块，有以下属性：</p>
-<blockquote>
-<p>module.id 模块的识别符，通常是带有绝对路径的模块文件名。<br>module.filename 模块的文件名，带有绝对路径。<br>module.loaded 返回一个布尔值，表示模块是否已经完成加载。<br>module.parent 返回一个对象，表示调用该模块的模块。<br>module.children 返回一个数组，表示该模块要用到的其他模块。<br>module.exports 表示模块对外输出的值。</p>
-</blockquote>
-<p>下面是一个示例文件，最后一行输出module变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// example.js</span><br><span class="line">var jquery = require(&apos;jquery&apos;);</span><br><span class="line">exports.$ = jquery;</span><br><span class="line">console.log(module);</span><br></pre></td></tr></table></figure></p>
-<p>执行这个文件，命令行会输出如下信息。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123; id: &apos;.&apos;,</span><br><span class="line">  exports: &#123; &apos;$&apos;: [Function] &#125;,</span><br><span class="line">  parent: null,</span><br><span class="line">  filename: &apos;/path/to/example.js&apos;,</span><br><span class="line">  loaded: false,</span><br><span class="line">  children:</span><br><span class="line">   [ &#123; id: &apos;/path/to/node_modules/jquery/dist/jquery.js&apos;,</span><br><span class="line">       exports: [Function],</span><br><span class="line">       parent: [Circular],</span><br><span class="line">       filename: &apos;/path/to/node_modules/jquery/dist/jquery.js&apos;,</span><br><span class="line">       loaded: true,</span><br><span class="line">       children: [],</span><br><span class="line">       paths: [Object] &#125; ],</span><br><span class="line">  paths:</span><br><span class="line">   [ &apos;/home/user/deleted/node_modules&apos;,</span><br><span class="line">     &apos;/home/user/node_modules&apos;,</span><br><span class="line">     &apos;/home/node_modules&apos;,</span><br><span class="line">     &apos;/node_modules&apos; ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>如果在命令行下调用某个模块，比如node something.js，那么module.parent就是null。如果是在脚本之中调用，比如require(‘./something.js’)，那么module.parent就是调用它的模块。利用这一点，可以判断当前模块是否为入口脚本。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if (!module.parent) &#123;</span><br><span class="line">    // ran with `node something.js`</span><br><span class="line">    app.listen(8088, function() &#123;</span><br><span class="line">        console.log(&apos;app listening on port 8088&apos;);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    // used with `require(&apos;/.something.js&apos;)`</span><br><span class="line">    module.exports = app;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>2.1 module.exports属性<br>module.exports属性表示当前模块对外输出的接口，其他文件加载该模块，实际上就是读取module.exports变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var EventEmitter = require(&apos;events&apos;).EventEmitter;</span><br><span class="line">module.exports = new EventEmitter();</span><br><span class="line"></span><br><span class="line">setTimeout(function() &#123;</span><br><span class="line">  module.exports.emit(&apos;ready&apos;);</span><br><span class="line">&#125;, 1000);</span><br></pre></td></tr></table></figure></p>
-<p>上面模块会在加载后1秒后，发出ready事件。其他文件监听该事件，可以写成下面这样。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = require(&apos;./a&apos;);</span><br><span class="line">a.on(&apos;ready&apos;, function() &#123;</span><br><span class="line">  console.log(&apos;module a is ready&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>2.2 exports变量<br>为了方便，Node为每个模块提供一个exports变量，指向module.exports。<br>造成的结果是，在对外输出模块接口时，可以向exports对象添加方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.area = function (r) &#123;</span><br><span class="line">  return Math.PI * r * r;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p><strong>注意，不能直接将exports变量指向一个值，因为这样等于切断了exports与module.exports的联系。</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">exports.hello = function() &#123;</span><br><span class="line">  return &apos;hello&apos;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">module.exports = &apos;Hello world&apos;;</span><br></pre></td></tr></table></figure></p>
-<p>上面代码中，hello函数是无法对外输出的，因为module.exports被重新赋值了。</p>
-<p>这意味着，如果一个模块的对外接口，就是一个单一的值，不能使用exports输出，只能使用module.exports输出。</p>
-<p>如果你觉得，exports与module.exports之间的区别很难分清，一个简单的处理方法，就是放弃使用exports，只使用module.exports。</p>
-<p>3.AMD规范与CommonJS规范的兼容性<br>CommonJS规范加载模块是同步的，也就是说，只有加载完成，才能执行后面的操作。AMD规范则是非同步加载模块，允许指定回调函数。由于Node.js主要用于服务器编程，模块文件一般都已经存在于本地硬盘，所以加载起来比较快，不用考虑非同步加载的方式，所以CommonJS规范比较适用。但是，如果是浏览器环境，要从服务器端加载模块，这时就必须采用非同步模式，因此浏览器端一般采用AMD规范。</p>
-<blockquote>
-<p>amd规范还没看过，再说吧</p>
-</blockquote>
-<p>AMD规范使用define方法定义模块<br>AMD规范允许输出的模块兼容CommonJS规范，这时define方法需要写成下面这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">define(function (require, exports, module)&#123;</span><br><span class="line">  var someModule = require(&quot;someModule&quot;);</span><br><span class="line">  var anotherModule = require(&quot;anotherModule&quot;);</span><br><span class="line"></span><br><span class="line">  someModule.doTehAwesome();</span><br><span class="line">  anotherModule.doMoarAwesome();</span><br><span class="line"></span><br><span class="line">  exports.asplode = function ()&#123;</span><br><span class="line">    someModule.doTehAwesome();</span><br><span class="line">    anotherModule.doMoarAwesome();</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>4.require命令<br>4.1 基本用法<br>Node使用CommonJS模块规范，内置的require命令用于加载模块文件。<br>require命令的基本功能是，读入并执行一个JavaScript文件，然后返回该模块的exports对象。如果没有发现指定模块，会报错。<br>如果模块输出的是一个函数，那就不能定义在exports对象上面，而要定义在module.exports变量上面。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//example2.js</span><br><span class="line">module.exports = function () &#123;</span><br><span class="line">  console.log(&quot;hello world&quot;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">require(&apos;./example2.js&apos;)()</span><br></pre></td></tr></table></figure></p>
-<p>上面代码中，require命令调用自身，等于是执行module.exports，因此会输出 hello world。</p>
-<p>4.2 加载规则<br>require命令用于加载文件，后缀名默认为.js。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var foo = require(&apos;foo&apos;);</span><br><span class="line">//  等同于</span><br><span class="line">var foo = require(&apos;foo.js&apos;);</span><br></pre></td></tr></table></figure></p>
-<p>根据参数的不同格式，require命令去不同路径寻找模块文件。</p>
-<blockquote>
-<p>1）如果参数字符串以“/”开头，则表示加载的是一个位于绝对路径的模块文件。比如，require(‘/home/marco/foo.js’)将加载/home/marco/foo.js。</p>
-</blockquote>
-<p>（2）如果参数字符串以“./”开头，则表示加载的是一个位于相对路径（跟当前执行脚本的位置相比）的模块文件。比如，require(‘./circle’)将加载当前脚本同一目录的circle.js。</p>
-<blockquote>
-</blockquote>
-<p>（3）如果参数字符串不以“./“或”/“开头，则表示加载的是一个默认提供的核心模块（位于Node的系统安装目录中），或者一个位于各级node_modules目录的已安装模块（全局安装或局部安装）。<br>举例来说，脚本/home/user/projects/foo.js执行了require(‘bar.js’)命令，Node会依次搜索以下文件。</p>
-<blockquote>
-<blockquote>
-<p>/usr/local/lib/node/bar.js<br>/home/user/projects/node_modules/bar.js<br>/home/user/node_modules/bar.js<br>/home/node_modules/bar.js<br>/node_modules/bar.js</p>
-</blockquote>
-</blockquote>
-<p>（4）如果参数字符串不以“./“或”/“开头，而且是一个路径，比如require(‘example-module/path/to/file’)，则将先找到example-module的位置，然后再以它为参数，找到后续路径。</p>
-<blockquote>
-</blockquote>
-<p>（5）如果指定的模块文件没有发现，Node会尝试为文件名添加.js、.json、.node后，再去搜索。.js件会以文本格式的JavaScript脚本文件解析，.json文件会以JSON格式的文本文件解析，.node文件会以编译后的二进制文件解析。</p>
-<blockquote>
-</blockquote>
-<p>（6）如果想得到require命令加载的确切文件名，使用require.resolve()方法。</p>
-<p>4.3 目录的加载规则<br>通常，我们会把相关的文件会放在一个目录里面，便于组织。这时，最好为该目录设置一个入口文件，让require方法可以通过这个入口文件，加载整个目录。</p>
-<p>在目录中放置一个package.json文件，并且将入口文件写入main字段。下面是一个例子。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// package.json</span><br><span class="line">&#123; &quot;name&quot; : &quot;some-library&quot;,</span><br><span class="line">  &quot;main&quot; : &quot;./lib/some-library.js&quot; &#125;</span><br></pre></td></tr></table></figure></p>
-<p>require发现参数字符串指向一个目录以后，会自动查看该目录的package.json文件，然后加载main字段指定的入口文件。如果package.json文件没有main字段，或者根本就没有package.json文件，则会加载该目录下的index.js文件或index.node文件。</p>
-<p>4,4 模块的缓存<br>第一次加载某个模块时，Node会缓存该模块。以后再加载该模块，就直接从缓存取出该模块的module.exports属性。<br>如果想要多次执行某个模块，可以让该模块输出一个函数，然后每次require这个模块的时候，重新执行一下输出的函数。<br>所有缓存的模块保存在require.cache之中，如果想删除模块的缓存，可以像下面这样写。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 删除指定模块的缓存</span><br><span class="line">delete require.cache[moduleName];</span><br><span class="line"></span><br><span class="line">// 删除所有模块的缓存</span><br><span class="line">Object.keys(require.cache).forEach(function(key) &#123;</span><br><span class="line">  delete require.cache[key];</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p><strong>注意，缓存是根据绝对路径识别模块的，如果同样的模块名，但是保存在不同的路径，require命令还是会重新加载该模块。</strong></p>
-<p>4.5 环境变量NODE_PATH<br>Node执行一个脚本时，会先查看环境变量NODE_PATH。它是一组以冒号分隔的绝对路径。在其他位置找不到指定模块时，Node会去这些路径查找。</p>
-<p>可以将NODE_PATH添加到.bashrc。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export NODE_PATH=&quot;/usr/local/lib/node&quot;</span><br></pre></td></tr></table></figure></p>
-<p>所以，如果遇到复杂的相对路径，比如下面这样。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var myModule = require(&apos;../../../../lib/myModule&apos;);</span><br></pre></td></tr></table></figure></p>
-<p>有两种解决方法，一是将该文件加入node_modules目录，二是修改NODE_PATH环境变量，package.json文件可以采用下面的写法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;node_path&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</span><br><span class="line">  &quot;description&quot;: &quot;&quot;,</span><br><span class="line">  &quot;main&quot;: &quot;index.js&quot;,</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;start&quot;: &quot;NODE_PATH=lib node index.js&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;author&quot;: &quot;&quot;,</span><br><span class="line">  &quot;license&quot;: &quot;ISC&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>NODE_PATH是历史遗留下来的一个路径解决方案，通常不应该使用，而应该使用node_modules目录机制。</p>
-<p>4.6 模块的循环加载<br>如果发生模块的循环加载，即A加载B，B又加载A，则B将加载A的不完整版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// a.js</span><br><span class="line">exports.x = &apos;a1&apos;;</span><br><span class="line">console.log(&apos;a.js &apos;, require(&apos;./b.js&apos;).x);</span><br><span class="line">exports.x = &apos;a2&apos;;</span><br><span class="line"></span><br><span class="line">// b.js</span><br><span class="line">exports.x = &apos;b1&apos;;</span><br><span class="line">console.log(&apos;b.js &apos;, require(&apos;./a.js&apos;).x);</span><br><span class="line">exports.x = &apos;b2&apos;;</span><br><span class="line"></span><br><span class="line">// main.js</span><br><span class="line">console.log(&apos;main.js &apos;, require(&apos;./a.js&apos;).x);</span><br><span class="line">console.log(&apos;main.js &apos;, require(&apos;./b.js&apos;).x);</span><br></pre></td></tr></table></figure></p>
-<p>上面代码是三个JavaScript文件。其中，a.js加载了b.js，而b.js又加载a.js。这时，Node返回a.js的不完整版本，所以执行结果如下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ node main.js</span><br><span class="line">b.js  a1</span><br><span class="line">a.js  b2</span><br><span class="line">main.js  a2</span><br><span class="line">main.js  b2</span><br></pre></td></tr></table></figure></p>
-<p>修改main.js，再次加载a.js和b.js。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// main.js</span><br><span class="line">console.log(&apos;main.js &apos;, require(&apos;./a.js&apos;).x);</span><br><span class="line">console.log(&apos;main.js &apos;, require(&apos;./b.js&apos;).x);</span><br><span class="line">console.log(&apos;main.js &apos;, require(&apos;./a.js&apos;).x);</span><br><span class="line">console.log(&apos;main.js &apos;, require(&apos;./b.js&apos;).x);</span><br></pre></td></tr></table></figure></p>
-<p>执行上面代码，结果如下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ node main.js</span><br><span class="line">b.js  a1</span><br><span class="line">a.js  b2</span><br><span class="line">main.js  a2</span><br><span class="line">main.js  b2</span><br><span class="line">main.js  a2</span><br><span class="line">main.js  b2</span><br></pre></td></tr></table></figure></p>
-<p>上面代码中，第二次加载a.js和b.js时，会直接从缓存读取exports属性，所以a.js和b.js内部的console.log语句都不会执行了。</p>
-<p>4.7 require.main</p>
-<p>require方法有一个main属性，可以用来判断模块是直接执行，还是被调用执行。</p>
-<p>直接执行的时候（node module.js），require.main属性指向模块本身。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">require.main === module</span><br><span class="line">// true</span><br></pre></td></tr></table></figure></p>
-<p>调用执行的时候（通过require加载该脚本执行），上面的表达式返回false。</p>
-<p>5.模块的加载机制<br>CommonJS模块的加载机制是，输入的是被输出的值的拷贝。也就是说，一旦输出一个值，模块内部的变化就影响不到这个值。请看下面这个例子。</p>
-<p>下面是一个模块文件lib.js。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// lib.js</span><br><span class="line">var counter = 3;</span><br><span class="line">function incCounter() &#123;</span><br><span class="line">  counter++;</span><br><span class="line">&#125;</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  counter: counter,</span><br><span class="line">  incCounter: incCounter,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>上面代码输出内部变量counter和改写这个变量的内部方法incCounter。</p>
-<p>然后，加载上面的模块。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// main.js</span><br><span class="line">var counter = require(&apos;./lib&apos;).counter;</span><br><span class="line">var incCounter = require(&apos;./lib&apos;).incCounter;</span><br><span class="line"></span><br><span class="line">console.log(counter);  // 3</span><br><span class="line">incCounter();</span><br><span class="line">console.log(counter); // 3</span><br></pre></td></tr></table></figure></p>
-<p>上面代码说明，counter输出以后，lib.js模块内部的变化就影响不到counter了。</p>
-<p>5.1 require的内部处理流程<br>require命令是CommonJS规范之中，用来加载其他模块的命令。它其实不是一个全局命令，而是指向当前模块的module.require命令，而后者又调用Node的内部命令Module._load。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Module._load = function(request, parent, isMain) &#123;</span><br><span class="line">  // 1. 检查 Module._cache，是否缓存之中有指定模块</span><br><span class="line">  // 2. 如果缓存之中没有，就创建一个新的Module实例</span><br><span class="line">  // 3. 将它保存到缓存</span><br><span class="line">  // 4. 使用 module.load() 加载指定的模块文件，</span><br><span class="line">  //    读取文件内容之后，使用 module.compile() 执行文件代码</span><br><span class="line">  // 5. 如果加载/解析过程报错，就从缓存删除该模块</span><br><span class="line">  // 6. 返回该模块的 module.exports</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>上面的第4步，采用module.compile()执行指定模块的脚本，逻辑如下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Module.prototype._compile = function(content, filename) &#123;</span><br><span class="line">  // 1. 生成一个require函数，指向module.require</span><br><span class="line">  // 2. 加载其他辅助方法到require</span><br><span class="line">  // 3. 将文件内容放到一个函数之中，该函数可调用 require</span><br><span class="line">  // 4. 执行该函数</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>上面的第1步和第2步，require函数及其辅助方法主要如下。</p>
-<blockquote>
-<p>require(): 加载外部模块<br>require.resolve()：将模块名解析到一个绝对路径<br>require.main：指向主模块<br>require.cache：指向所有缓存的模块<br>require.extensions：根据文件的后缀名，调用不同的执行函数</p>
-</blockquote>
-<p>一旦require函数准备完毕，整个所要加载的脚本内容，就被放到一个新的函数之中，这样可以避免污染全局环境。该函数的参数包括require、module、exports，以及其他一些参数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(function (exports, require, module, __filename, __dirname) &#123;</span><br><span class="line">  // YOUR CODE INJECTED HERE!</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>Module._compile方法是同步执行的，所以Module._load要等它执行完成，才会向用户返回module.exports的值。</p>
-<hr>
-<p>emmm…，总结一下吧：看了这么长的一篇关于CommonJS的规范，大概有点清楚了。</p>
-<p>1.总之就是每个文件就一个模块，模块之间互不干扰，模块之间调用需要使用到exports和require，有点像是js里的函数，exports就像函数的返回值，require就像一个函数调用外部的函数，获得外部函数的返回值，区别也有，模块调用并改变另一个模块的值时，并不会干扰到另一个模块的内部。使用模块的好处是不会污染全局环境（emmm，并不知道什么意思）。<br>然后就是每个模块都有一个Module对象，exports和require是Module对象的属性。</p>
-<p>2.exports用于当前模块对外输出的接口，exports和module.exports不同，exports指向module.exports。</p>
-<p>3.require用于读入并执行一个JavaScript文件，然后返回该模块的exports对象。require加载规则，以“/”开头是绝对路径，以“./”开头是相对路径，不以“./“或”/“开头，则表示加载的是一个默认提供的核心模块。require目录加载规则，会自动查看该目录的package.json文件，然后加载main字段指定的入口文件。require加载的exports存在于缓存里，需要重新加载可以清除缓存，循环require会导致后加载会加载不完整模块，最后就是require加载机制，模块内部的变化就影响不到这个值本身。</p>
-<p>差不多就这些吧。。。还挺乱的。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1100,7 +1018,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">49</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1113,7 +1031,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-07-24T12:38:17.558Z</updated>
+  <updated>2018-08-26T06:23:08.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>学习JavaScript的内存空间和事件循环</title>
+    <link href="http://yoursite.com/2018/08/26/2018_8_26_1_%E5%AD%A6%E4%B9%A0JavaScript%E7%9A%84%E5%86%85%E5%AD%98%E7%A9%BA%E9%97%B4%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/"/>
+    <id>http://yoursite.com/2018/08/26/2018_8_26_1_学习JavaScript的内存空间和事件循环/</id>
+    <published>2018-08-26T07:07:22.959Z</published>
+    <updated>2018-08-26T06:23:08.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;JavaScript具有垃圾回收机制，所以对于前端开发来说，内存空间不是一个经常被提起的概念。所以我对于内存空间的了解也是非常的模糊。&lt;/p&gt;
+&lt;p&gt;学习内存空间，需要对堆，栈和队列有基本的了解&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;栈&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;栈和堆，可以
+      
+    
+    </summary>
+    
+    
+      <category term="JS的内存空间了" scheme="http://yoursite.com/tags/JS%E7%9A%84%E5%86%85%E5%AD%98%E7%A9%BA%E9%97%B4%E4%BA%86/"/>
+    
+      <category term="JS的事件循环" scheme="http://yoursite.com/tags/JS%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>学习JS基础数据类型和引用数据类型，内存空间管理</title>
+    <link href="http://yoursite.com/2018/08/26/2018_8_26_2_%E5%AD%A6%E4%B9%A0JS%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%8C%E5%86%85%E5%AD%98%E7%A9%BA%E9%97%B4%E7%AE%A1%E7%90%86/"/>
+    <id>http://yoursite.com/2018/08/26/2018_8_26_2_学习JS基础数据类型和引用数据类型，内存空间管理/</id>
+    <published>2018-08-26T07:07:22.957Z</published>
+    <updated>2018-08-26T07:06:03.323Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;基础数据类型&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;JavaScript的执行上下文生成之后会创建变量对象的特殊对象。&lt;br&gt;JavaScript的基础数据类型都保存在变量对象中。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;严格意义上来说，变量对象也是存放在推内存中的。&lt;/em&gt;&lt;/
+      
+    
+    </summary>
+    
+    
+      <category term="JS的数据类型" scheme="http://yoursite.com/tags/JS%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
+    
+      <category term="JS的内存空间管理" scheme="http://yoursite.com/tags/JS%E7%9A%84%E5%86%85%E5%AD%98%E7%A9%BA%E9%97%B4%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>学习DvaJS，JS的this和解耦</title>
@@ -420,50 +471,6 @@
     
     
       <category term="Vuex" scheme="http://yoursite.com/tags/Vuex/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ife_2018 MVVM学院 2-2</title>
-    <link href="http://yoursite.com/2018/05/08/2018_5_8_1_ife_2018%20MVVM%E5%AD%A6%E9%99%A2%202-2/"/>
-    <id>http://yoursite.com/2018/05/08/2018_5_8_1_ife_2018 MVVM学院 2-2/</id>
-    <published>2018-05-08T15:06:43.776Z</published>
-    <updated>2018-05-08T15:07:35.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;2.2 条件和循环&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://frattinor.github.io/IFE_2018/mvvm/myDist-2-2/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;demo&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;使用循环指令渲染表
-      
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue项目-豆瓣电影搜索-完善</title>
-    <link href="http://yoursite.com/2018/05/05/2018_5_5_3_%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1%E6%90%9C%E7%B4%A2vue%E9%A1%B9%E7%9B%AE%E6%94%B9%E5%96%84/"/>
-    <id>http://yoursite.com/2018/05/05/2018_5_5_3_豆瓣电影搜索vue项目改善/</id>
-    <published>2018-05-05T14:24:00.092Z</published>
-    <updated>2018-05-05T14:24:00.421Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;上次我写了这个豆瓣电影搜索的vue项目，最后完成的时候，发现打包后放到github上，不能获取到ajax的结果，原因呢我具体也不明白，大概就是存在跨域问题，上次我搜索跨域问题怎么解决，都是说反向代理什么的，我完全一脸懵逼啊，今天得知有另一种解决跨域问题的方法jsonp，所以
-      
-    
-    </summary>
-    
-    
-      <category term="vue，jsonp" scheme="http://yoursite.com/tags/vue%EF%BC%8Cjsonp/"/>
     
   </entry>
   

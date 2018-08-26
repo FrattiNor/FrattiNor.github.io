@@ -296,6 +296,293 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/26/2018_8_26_1_学习JavaScript的内存空间和事件循环/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/26/2018_8_26_1_学习JavaScript的内存空间和事件循环/" itemprop="url">学习JavaScript的内存空间和事件循环</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-26T15:07:22+08:00">
+                2018-08-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>JavaScript具有垃圾回收机制，所以对于前端开发来说，内存空间不是一个经常被提起的概念。所以我对于内存空间的了解也是非常的模糊。</p>
+<p>学习内存空间，需要对堆，栈和队列有基本的了解</p>
+<p><strong>栈</strong></p>
+<p>栈和堆，可以理解为存储数据的地方，声明一个变量并赋值，这个变量的key-value就存储在堆和栈中，js中没有严格意义上的区分堆内存和栈内存，所以可以简单的理解为变量都存储在推内存中，但是在js执行上下文的时候，我们需要栈数据结构的存取方式来帮助我们理解。</p>
+<p>简单理解栈的存取方式可以用八个字来表示，<strong>先进后出，后进先出</strong>。<br>用模型表示，可以用一个杯子来表示，往杯子加一样粗细的冰柱，先放进去的总算被后放进去的压住，所以先放的需要最后才能取出。</p>
+<p><strong>堆</strong></p>
+<p>堆的数据结构可以用书架来表示，书架上的书可以随意的取出，所以在对内存中，数据的存储是无序的。顺序不影响我们存取。</p>
+<p><strong>队列</strong></p>
+<p>理解队列的数据结构，主要是帮助理解js中的事件循环。<br>队列的数据结构和栈内存的数据结构相反，<strong>先进先出，后进后出</strong>，可以理解为一根水管，是有2个口的，一个入口和一个出口，而杯子只有一个出口，出口和入口在一起。</p>
+<p><strong>事件循环</strong></p>
+<p>js最大的特点是单线程的。也就是说，js的程序执行是线性的，不存在并发的情况，所以这个线程中只有位移的一个事件循环。</p>
+<p>js的代码执行过程中，除了函数调用栈来搞定函数的执行顺序外，还依靠队列结构搞定其他代码。</p>
+<blockquote>
+<p>任务队列分为宏进程 ( macro-task ) 和微进程 ( micro-task )。<br>宏进程大概包括：script（整体代码），setTimeout，setInterval，setImmediate，I/O，UI render。<br>微进程大概包括：process.nextTick，Promise，MutationObserver</p>
+</blockquote>
+<p>所以，事件循环从开始执行代码到最后结束代码，可以简单的理解为，js有2条队列。一条宏队列，一条微队列，开始的时候，宏队列只有一个进程。微进程是空的，当宏进程执行到setTimeout等往宏队列里添加一个宏进程，执行遇到Promise.then等往微进程里添加一个微进程。最后当前宏进程执行结束后，进入微队列。把微队列里的微进程全部执行完后，在回到宏队列，执行下一个宏进程，以此循环，到代码执行结束为止。</p>
+<p>需要注意的是，当执行微进程时，遇到微进程或宏进程时。跟在宏进程遇到它们一样，执行微进程时，遇到宏进程，依旧把宏进程丢进宏队列后面，但是遇到微进程时，也是会丢到微进程后面，但是会在这次微队列执行时一起执行掉，而不是到下一次的微进程。</p>
+<p>比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">new Promise((reject, resolve)=&gt;&#123;</span><br><span class="line">	reject()</span><br><span class="line">&#125;).then(()=&gt;&#123;</span><br><span class="line">	console.log(&apos;1&apos;)</span><br><span class="line">	new Promise((reject, resolve)=&gt;&#123;</span><br><span class="line">        reject()</span><br><span class="line">    &#125;).then(()=&gt;&#123;</span><br><span class="line">        console.log(&apos;4&apos;)</span><br><span class="line">    &#125;)</span><br><span class="line">	console.log(&apos;3&apos;)</span><br><span class="line">	setTimeout(()=&gt;&#123;</span><br><span class="line">		console.log(&apos;timeout&apos;)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;).then(()=&gt;&#123;</span><br><span class="line">	console.log(&apos;2&apos;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 1</span><br><span class="line">// 3</span><br><span class="line">// 4</span><br><span class="line">// 2</span><br><span class="line">// timeout</span><br></pre></td></tr></table></figure>
+<p>上面的then里的then会比第二个then先执行。</p>
+<p>最后再给附上一张图帮助我自己理解事件循环。<br><img src="https://raw.githubusercontent.com/FrattiNor/picture/master/js%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF.jpg" alt="enter image description here"></p>
+<p>+</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/26/2018_8_26_2_学习JS基础数据类型和引用数据类型，内存空间管理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/26/2018_8_26_2_学习JS基础数据类型和引用数据类型，内存空间管理/" itemprop="url">学习JS基础数据类型和引用数据类型，内存空间管理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-26T15:07:22+08:00">
+                2018-08-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>基础数据类型</strong></p>
+<p>JavaScript的执行上下文生成之后会创建变量对象的特殊对象。<br>JavaScript的基础数据类型都保存在变量对象中。</p>
+<p><em>严格意义上来说，变量对象也是存放在推内存中的。</em></p>
+<p>JS中的基础数据类型有5种</p>
+<blockquote>
+<p>Undefined<br>Null<br>Boolean<br>Number<br>String</p>
+</blockquote>
+<p>JS基础数据类型声明后存放在堆内存中，而变量对象存储的是变量的一些信息，内存位置，变量类型等等。。。</p>
+<p><strong>引用数据类型</strong></p>
+<p>与别的语言不同，JavaScript的引用数据类型的值的大小是不固定的，比如数组，声明一个数组时不必确定数据的索引有多大。引用数据类型的值是保存在堆内存中的对象。JS不允许直接访问堆内存中的位置。因此我们不能直接操作对象的堆内存空间。当我们操作一个引用变量对象时，我们实际上是在操作对象的引用而不是实际对象。这点与基础数据类型有本质区别。</p>
+<p>引用数据类型，可以理解为指针，我们可以拿到的key-value对中的value是一个指向内存中实际地址的指针。</p>
+<p>下面的一些代码可以帮助我更好的理解基础变量类型和引用数据类型的区别</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let a = 10;</span><br><span class="line">let b = a;</span><br><span class="line">b = 20;</span><br><span class="line">console.log(a)</span><br><span class="line">// 10</span><br></pre></td></tr></table></figure>
+<p>基础数据类型，当你把a赋值给b时，是把a的值给了b，所以ab之间并没有联系，所以b改变，并不影响a。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let a = &#123; x: 10, y: 20 &#125;;</span><br><span class="line">let b = a;</span><br><span class="line">b.x = 30;</span><br><span class="line">console.log(a.x)</span><br><span class="line">// 30</span><br></pre></td></tr></table></figure>
+<p>引用数据类型，当你把a赋值给b时，是把a的值的地址的指针给了b，也就是a与b共用一个地址，这时改变b的值，a同时也会改变。</p>
+<p>如果想要a于b没有关联，可以这样写。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let a = &#123; x: 10, y: 20 &#125;;</span><br><span class="line">let b = &#123; ...a &#125;;</span><br><span class="line">b.x = 30;</span><br><span class="line">console.log(a.x)</span><br><span class="line">// 10</span><br></pre></td></tr></table></figure>
+<p><strong>内存空间管理</strong></p>
+<p>JS有垃圾回收机制，所以我们在写代码的时候不会去关心内存使用的问题，但是了解内存机制有助于自己清晰的认识自己写的代码在执行过程中发生了什么。</p>
+<p>JS内存生命周期</p>
+<blockquote>
+<p>分配你所需要的内存<br>使用分配到的内存<br>在不需要时将内存释放</p>
+</blockquote>
+<p>JS在声明变量时就已经完成了前2步，最后一步需要我们重点理解。</p>
+<p>JS有垃圾回收机制，这个机制的原理是找出那些不再使用的值，然后将其释放，每隔固定的时间，垃圾回收就会执行一次。</p>
+<p>所以，虽然JS中没有手动释放内存的语句，但是我们可以利用垃圾回收机制来释放我们不需要的内存，我们 可以将变量赋值为null来，将其被垃圾回收机制发现，让变量原本的值失去引用，脱离执行环境，这个值将会在下次垃圾回收机制执行的时候被释放。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/21/2018_7_21_1_DvaJS学习和JS的this以及解耦概念/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -707,278 +994,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/2018_6_2_1_redux学习（二）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/02/2018_6_2_1_redux学习（二）/" itemprop="url">Redux学习（二）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-02T15:51:22+08:00">
-                2018-06-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>昨天学习了redux的基本知识，总感觉很迷糊。<br>大概就是action，reducers和store<br>今天跟着写了一个小例子大概有点了解了<br>今天写了一个计数器，大概的意思就是取出store的值，然后通过action来改变store的值<br>总的来说reducers和store是连在一起的，而action则是提供给组件的<br>stote通过reducers创建，然后reducers是根据action写的函数，最后组件使用action通过reducers来修改store的值，最后显示在view上<br>上个代码吧<br>main.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">'normalize.css/normalize.css'</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">'styles/App.css'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">'./stote'</span></span><br><span class="line"><span class="keyword">import</span> &#123;nTHE&#125; <span class="keyword">from</span> <span class="string">'./action'</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AppComponent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div className=<span class="string">"index"</span>&gt;</span><br><span class="line">        &lt;div&gt;&#123;store.getState().n&#125;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">        &lt;button onClick=&#123;() =&gt; store.dispatch(&#123; type: 'ADD' &#125;)&#125;&gt;ADD&lt;/</span>button&gt;</span><br><span class="line">        &lt;button onClick=&#123;() =&gt; store.dispatch(&#123; <span class="attr">type</span>: <span class="string">'DEL'</span> &#125;)&#125;&gt;DEL&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">        &lt;button onClick=&#123; () =&gt; &#123;store.dispatch(nTHE(0))&#125; &#125;&gt;ClEAN&lt;/</span>button&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">AppComponent.defaultProps = &#123;</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default AppComponent;</span></span><br></pre></td></tr></table></figure>
-<p>action.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> ADD = <span class="string">'ADD'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> DEL = <span class="string">'DEL'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> THE = <span class="string">'THE'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> nADD = &#123;</span><br><span class="line">    type: ADD</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> nDEL = &#123;</span><br><span class="line">    type: DEL</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">nTHE</span> (<span class="params">text</span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">"nthe"</span>)</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        type: THE,</span><br><span class="line">        text: text</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>reducers<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> defaultState = &#123;</span><br><span class="line">    n: <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> reducer = <span class="function">(<span class="params">state = defaultState, action</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'ADD'</span>:</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            n: state.n+<span class="number">1</span></span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'DEL'</span>:</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            n: <span class="number">-1</span></span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'THE'</span>:</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            n: action.text</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">return</span> state;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> reducer</span><br></pre></td></tr></table></figure></p>
-<p>store.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> reducer <span class="keyword">from</span> <span class="string">'./reducers'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = createStore(reducer);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> store</span><br></pre></td></tr></table></figure>
-<p>说真的，我也不是很讲的清楚，有个大概的理解吧。<br>然后就是要执行<code>store.subscribe(render)</code>，不然view不会变化</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/2018_6_1_1_redux学习/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/02/2018_6_1_1_redux学习/" itemprop="url">Redux学习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-02T13:52:19+08:00">
-                2018-06-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>现在还在写react-music这个的推荐页面，最近使用qq音乐的api访问资源时都是受限的，只能获得一点点数据，然后就一直在找可以用的api，花了很多时间来找api导致现在还在写推荐页面，不过好在，使用了多个api总算是把推荐页面写完了。<br>现在又遇到了一个问题就是点击歌单跳转到歌单细节页面时，我发现是应该是不用导航栏的，所以又把导航栏重新写到4大页面里，但是还是遇到了问题就是字体高亮的部分，本来是一个整体，所以我把字体高亮的状态写在state里，然后写到4个组件里去，就只有默认高亮状态了，也就是第一个是高亮的，所以这里要使用到redux，跟vuex差不多的一个东西，多个组件共用一个状态时可以使用</p>
-<p><strong>开始学习redux</strong></p>
-<p>redux  有3个部分</p>
-<blockquote>
-<p>Action<br>Reducer<br>Store</p>
-</blockquote>
-<hr>
-<p><strong>Action</strong></p>
-<p>Action 是把数据从应用传到 store 的有效载荷。它是 store 数据的唯一来源。一般来说你会通过 store.dispatch() 将 action 传到 store。<br>Action 本质上是 JavaScript 普通对象。我们约定，action 内必须使用一个字符串类型的 type 字段来表示将要执行的动作。多数情况下，type 会被定义成字符串常量。当应用规模越来越大时，建议使用单独的模块或文件来存放 action。<br>除了 type 字段外，action 对象的结构完全由你自己决定。参照 Flux 标准 Action 获取关于如何构造 action 的建议。<br>这时，我们还需要再添加一个 action index 来表示用户完成任务的动作序列号。因为数据是存放在数组中的，所以我们通过下标 index 来引用特定的任务。而实际项目中一般会在新建数据的时候生成唯一的 ID 作为数据的引用标识。<br><strong>我们应该尽量减少在 action 中传递的数据</strong>。<br>最后，再添加一个 action type 来表示当前的任务展示选项。</p>
-<p><strong>Action 创建函数</strong> 就是生成 action 的方法。“action” 和 “action 创建函数” 这两个概念很容易混在一起，使用时最好注意区分。</p>
-<hr>
-<p><strong>Reducer</strong></p>
-<p>Reducers 指定了应用状态的变化如何响应 actions 并发送到 store 的，记住 actions 只是描述了有事情发生了这一事实，并没有描述应用如何更新 state。<br><strong>设计 State 结构</strong><br>在 Redux 应用中，所有的 state 都被保存在一个单一对象中。建议在写代码前先想一下这个对象的结构。如何才能以最简的形式把应用的 state 用对象描述出来？<br>通常，这个 state 树还需要存放其它一些数据，以及一些 UI 相关的 state。这样做没问题，但尽量把这些数据与 UI 相关的 state 分开。</p>
-<p><strong>Action 处理</strong><br>现在我们已经确定了 state 对象的结构，就可以开始开发 reducer。reducer 就是一个纯函数，接收旧的 state 和 action，返回新的 state。<br><strong>永远不要在 reducer 里做这些操作：</strong></p>
-<blockquote>
-<p>修改传入参数；<br>执行有副作用的操作，如 API 请求和路由跳转；<br>调用非纯函数，如 Date.now() 或 Math.random()</p>
-</blockquote>
-<p>开始编写 reducer，并让它来处理之前定义过的 action。<br>我们将以指定 state 的初始状态作为开始。Redux 首次执行时，state 为 undefined，此时我们可借机设置并返回应用的初始 state。</p>
-<p><strong>Store</strong><br>Store 就是把action和reducers联系到一起的对象。Store 有以下职责：</p>
-<blockquote>
-<p>维持应用的 state；<br>提供 getState() 方法获取 state；<br>提供 dispatch(action) 方法更新 state；<br>通过 subscribe(listener) 注册监听器;<br>通过 subscribe(listener) 返回的函数注销监听器。</p>
-</blockquote>
-<p>再次强调一下 Redux 应用只有一个单一的 store。当需要拆分数据处理逻辑时，你应该使用 reducer 组合 而不是创建多个 store。</p>
-<p>根据已有的 reducer 来创建 store 是非常容易的。在前一个章节中，我们使用 combineReducers() 将多个 reducer 合并成为一个。现在我们将其导入，并传递 createStore()</p>
-<p>createStore() 的第二个参数是可选的, 用于设置 state 初始状态。这对开发同构应用时非常有用，服务器端 redux 应用的 state 结构可以与客户端保持一致, 那么客户端可以将从网络接收到的服务端 state 直接用于本地数据初始化。</p>
-<p>感觉上可以理解，但是又完全不知道怎么写。。。<br>store是存放数据的地方<br>action是发布的命令<br>reducers是根据action发布的命令来执行修改store的内容的函数<br>我差不多是这样理解的吧</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1029,7 +1044,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">49</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1042,7 +1057,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

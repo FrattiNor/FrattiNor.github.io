@@ -296,6 +296,259 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/25/2018_5_25_1_无缝轮播图/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/25/2018_5_25_1_无缝轮播图/" itemprop="url">无缝轮播图</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-25T16:34:07+08:00">
+                2018-05-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://frattinor.github.io/practice/RotationMap/" target="_blank" rel="noopener">demo</a><br>昨天想做一个轮播图，无缝的那种，然后就想了一种办法<br>首先我原来的写法是把图片摆成一排，然后修改左右外边距来使图片的位置得到修改，然后给图片加上过渡，就有动画效果了，有一个缺陷就是最右边的图片回到最左边是回滚回去的，没办法做到无缝，取消过渡效果，到是可以无缝，但是没有动画效果就更加不行了</p>
+<p>然后我今天想的一种方法是把图片全部绝对定位到一起，然后修改z-index属性来让需要使用的图片来显示在最上面，动画效果就写好左右移动，给需要的2张图片加上就可以了。简单的说就是用哪张取哪张图片来添加动画就好。</p>
+<p>还挺简单的吧，也没有什么问题，最后就是把几个函数整合在一起缩减了一下代码量。</p>
+<p>然后我还遇到了一个问题就是子类的上外边距影响父类的高度，。。。大概是这个意思吧，我百度了一下，得到几种解决办法我这里记录一下</p>
+<p><strong>1、修改父元素的高度，增加padding-top样式模拟（padding-top：1px；常用）</strong><br><strong>2、为父元素添加overflow：hidden；样式即可（完美）</strong><br><strong>3、为父元素或者子元素声明浮动（float：left；可用）</strong><br><strong>4、为父元素添加border（border:1px solid transparent可用）</strong><br><strong>5、为父元素或者子元素声明绝对定位</strong></p>
+<p>最后附上我的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/mycss.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;box&quot;&gt;</span><br><span class="line">        &lt;img index=&quot;1&quot; src=&quot;img/1.jpg&quot; /&gt;</span><br><span class="line">        &lt;img index=&quot;2&quot; src=&quot;img/2.jpg&quot; /&gt;</span><br><span class="line">        &lt;img index=&quot;3&quot; src=&quot;img/3.jpg&quot; /&gt;</span><br><span class="line">        &lt;img index=&quot;4&quot; src=&quot;img/4.jpg&quot; /&gt;</span><br><span class="line">        &lt;img index=&quot;5&quot; src=&quot;img/5.jpg&quot; /&gt;</span><br><span class="line"></span><br><span class="line">        &lt;div class=&quot;button_box next&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;button_box prev&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">        &lt;div class=&quot;point_box&quot;&gt;</span><br><span class="line">            &lt;div index=&quot;1&quot; class=&quot;on&quot;&gt;&lt;/div&gt;</span><br><span class="line">            &lt;div index=&quot;2&quot;&gt;&lt;/div&gt;</span><br><span class="line">            &lt;div index=&quot;3&quot;&gt;&lt;/div&gt;</span><br><span class="line">            &lt;div index=&quot;4&quot;&gt;&lt;/div&gt;</span><br><span class="line">            &lt;div index=&quot;5&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script src=&quot;js/myjs.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">    margin: 0;</span><br><span class="line">    padding: 0;</span><br><span class="line">&#125;</span><br><span class="line">body, html &#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.box &#123;</span><br><span class="line">    box-sizing: content-box;</span><br><span class="line">    height: 0;</span><br><span class="line">    width: 50%;</span><br><span class="line">    padding-bottom: 28.125%;</span><br><span class="line">    margin: auto;</span><br><span class="line">    margin-top: 10%;</span><br><span class="line">    margin-bottom: 10%;</span><br><span class="line">    border: 1px solid #aaa;</span><br><span class="line">    position: relative;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">&#125;</span><br><span class="line">.box img &#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    z-index: 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.button_box &#123;</span><br><span class="line">    cursor: pointer;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 50%;</span><br><span class="line">    width: 6%;</span><br><span class="line">    height: 0;</span><br><span class="line">    padding-bottom: 6%;</span><br><span class="line">    margin-top: -3%;</span><br><span class="line">    /*border: 1px solid #999;*/</span><br><span class="line">    background: url(../img/arrow_2.png);</span><br><span class="line">    background-color: RGBA(0,0,0,0.3);</span><br><span class="line">    background-size: 100% 100%;</span><br><span class="line">    z-index: 10;</span><br><span class="line">&#125;</span><br><span class="line">.next &#123;</span><br><span class="line">    right: 0;</span><br><span class="line">    transform: rotate(90deg);</span><br><span class="line">&#125;</span><br><span class="line">.prev &#123;</span><br><span class="line">    left: 0;</span><br><span class="line">    transform: rotate(-90deg);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.point_box &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    bottom: 10%;</span><br><span class="line">    left: 50%;</span><br><span class="line">    margin-left: -10%;</span><br><span class="line">    width: 20%;</span><br><span class="line">    height: 0;</span><br><span class="line">    padding-bottom: 2%;</span><br><span class="line">    z-index: 10;</span><br><span class="line">    /*border: 1px solid #000;*/</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.point_box div &#123;</span><br><span class="line">    box-sizing: border-box;</span><br><span class="line">    cursor: pointer;</span><br><span class="line">    position: relative;</span><br><span class="line">    float: left;</span><br><span class="line">    height: 0;</span><br><span class="line">    width: 10%;</span><br><span class="line">    padding-bottom: 10%;</span><br><span class="line">    margin-right: 10%;</span><br><span class="line">    border-radius: 50%;</span><br><span class="line">    border: 0.5px solid #aaa;</span><br><span class="line">    background-color: #aaa;</span><br><span class="line">    transition: 1s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.on&#123;</span><br><span class="line">    background-color: #fff !important;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.next_ani_1 &#123;</span><br><span class="line">    animation: next_one 1s both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@keyframes next_one &#123;</span><br><span class="line">    0% &#123;</span><br><span class="line">        margin-left: 0;</span><br><span class="line">    &#125;</span><br><span class="line">    100% &#123;</span><br><span class="line">        margin-left: -100%;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.next_ani_2 &#123;</span><br><span class="line">    animation: next_two 1s both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@keyframes next_two &#123;</span><br><span class="line">    0% &#123;</span><br><span class="line">        margin-left: 100%;</span><br><span class="line">    &#125;</span><br><span class="line">    100% &#123;</span><br><span class="line">        margin-left: 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.prev_ani_1 &#123;</span><br><span class="line">    animation: prev_one 1s both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@keyframes prev_one &#123;</span><br><span class="line">    0% &#123;</span><br><span class="line">        margin-left: 0;</span><br><span class="line">    &#125;</span><br><span class="line">    100% &#123;</span><br><span class="line">        margin-left: 100%;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.prev_ani_2 &#123;</span><br><span class="line">    animation: prev_two 1s both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@keyframes prev_two &#123;</span><br><span class="line">    0% &#123;</span><br><span class="line">        margin-left: -100%;</span><br><span class="line">    &#125;</span><br><span class="line">    100% &#123;</span><br><span class="line">        margin-left: 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line">// 获得对应节点</span><br><span class="line">let img = document.getElementsByClassName(&quot;box&quot;)[0].getElementsByTagName(&quot;img&quot;)</span><br><span class="line">let next = document.getElementsByClassName(&quot;next&quot;)[0]</span><br><span class="line">let prev = document.getElementsByClassName(&quot;prev&quot;)[0]</span><br><span class="line">let point = document.getElementsByClassName(&quot;point_box&quot;)[0].getElementsByTagName(&quot;div&quot;)</span><br><span class="line"></span><br><span class="line">// 定义各项数据</span><br><span class="line">let state = 0  // 定义状态</span><br><span class="line">let index = 0  // 定义图片当前位置</span><br><span class="line">let nextIndex = 1 // 定义图片跳转的位置</span><br><span class="line"></span><br><span class="line">// 定义函数</span><br><span class="line">// 跳转完成后获得重新获得当前位置</span><br><span class="line">function getIndex () &#123;</span><br><span class="line">    index = nextIndex</span><br><span class="line">&#125;</span><br><span class="line">// 获得跳转位置</span><br><span class="line">function getNextIndex (i) &#123;</span><br><span class="line">    // 没传入参数为左右跳转，传入参数为间隔多点跳转</span><br><span class="line">    if (i == undefined) &#123;</span><br><span class="line">        if (state === 0) &#123;</span><br><span class="line">            if ((index + 1) &gt; 4) &#123;</span><br><span class="line">                nextIndex = 0;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                nextIndex = index + 1</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if (state === 1) &#123;</span><br><span class="line">            if ((index - 1) &lt; 0) &#123;</span><br><span class="line">                nextIndex = 4;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                nextIndex = index - 1</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        nextIndex = i</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 修改当前位置和跳转位置的图层</span><br><span class="line">function changeZIndex () &#123;</span><br><span class="line">    img[index].style.zIndex = &quot;2&quot;</span><br><span class="line">    img[nextIndex].style.zIndex = &quot;2&quot;</span><br><span class="line">    for (let i = 0; i &lt; img.length; i++) &#123;</span><br><span class="line">        if (i != index &amp;&amp; i != nextIndex) &#123;</span><br><span class="line">            img[i].style.zIndex = &quot;1&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 设置点跟随图片位置跳转</span><br><span class="line">function showPiont () &#123;</span><br><span class="line">    for (let i = 0; i &lt; point.length; i++) &#123;</span><br><span class="line">        if (i === index) &#123;</span><br><span class="line">            point[i].className = &apos;on&apos;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            point[i].className = &apos;&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 动画函数</span><br><span class="line">function ani (i) &#123;</span><br><span class="line">    img[index].className = &apos;&apos;</span><br><span class="line">    img[nextIndex].className = &apos;&apos;</span><br><span class="line">    getNextIndex(i)</span><br><span class="line">    changeZIndex()</span><br><span class="line">    if (state === 0) &#123;</span><br><span class="line">        img[index].className = &apos;next_ani_1&apos;</span><br><span class="line">        img[nextIndex].className = &apos;next_ani_2&apos;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        img[index].className = &apos;prev_ani_1&apos;</span><br><span class="line">        img[nextIndex].className = &apos;prev_ani_2&apos;</span><br><span class="line">    &#125;</span><br><span class="line">    getIndex()</span><br><span class="line">    showPiont()</span><br><span class="line">&#125;</span><br><span class="line">// 5s自动轮播</span><br><span class="line">function autoPlay () &#123;</span><br><span class="line">    state = 0</span><br><span class="line">    setInterval(() =&gt; &#123;</span><br><span class="line">        ani()</span><br><span class="line">    &#125;,5000)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 添加监听器</span><br><span class="line">// 右按钮添加点击事件</span><br><span class="line">next.addEventListener(&quot;click&quot;, () =&gt; &#123;</span><br><span class="line">    state = 0</span><br><span class="line">    ani()</span><br><span class="line">&#125;, false)</span><br><span class="line">// 左按钮添加点击事件</span><br><span class="line">prev.addEventListener(&quot;click&quot;, () =&gt; &#123;</span><br><span class="line">    state = 1</span><br><span class="line">    ani()</span><br><span class="line">&#125;, false)</span><br><span class="line">// 对应点添加点击事件</span><br><span class="line">for (let i = 0; i &lt; point.length; i++) &#123;</span><br><span class="line">    point[i].addEventListener(&quot;click&quot;, () =&gt; &#123;</span><br><span class="line">        if (i &gt; index) &#123;</span><br><span class="line">            state = 0</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            state = 1</span><br><span class="line">        &#125;</span><br><span class="line">        ani(i)</span><br><span class="line">    &#125;, false)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 初始化执行</span><br><span class="line">// 修改第一张图片为最上层</span><br><span class="line">img[0].style.zIndex = 2</span><br><span class="line">// 自动轮播函数执行</span><br><span class="line">autoPlay()</span><br></pre></td></tr></table></figure>
+<p><strong>最后我知道那个摆成一排的轮播图怎么无缝了，只是我的想法太局限了，动画效果只想到了css方面，如果是js给dom添加的动画，那么你直接修改样式是不会产生动画的，所以就可以解决这个问题。</strong></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/24/2018_5_24_2_css做div高宽成比例/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/24/2018_5_24_2_css做div高宽成比例/" itemprop="url">css定义高宽成比例</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-24T20:33:53+08:00">
+                2018-05-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>今天突然想写一个无缝的轮播图了，因为以前写的轮播图都不是无缝的，在结尾的地方会回滚回第一张图，所以就想试试除了设置外边距的方法来解决这个办法。<br>然后我就想啊，用绝对定位来把图片都放一起，然后要用到什么图片就给什么图片添加动画就好，然后发现一个问题，因为是绝对定位，所以不能把div撑开，所以容器div就没有高度了，这就很难受了，所以就把div自己写一个高度出来，但是图片是16:9的，然后我又想写相对宽度，所以得想办法把div的高宽写成比例关系的，这就很难办了，因为高度百分比是相对父容器的高度的，宽度百分比是相对父容器的宽度的，然后把控制台拉出来，会改变宽度或高度，所以父容器的高宽比例是不定的，然后我就Bing了一下，发现一个神奇的办法</p>
+<p><strong>百分比来做,这里需要运用一个小技巧,padding用百分比做单位时是相对于容器的宽度来算的,所以你可以把高度设为0,内容自然溢出,设置个padding-bottom</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">height: 0;</span><br><span class="line">width: 50%;</span><br><span class="line">padding-bottom: 30%</span><br></pre></td></tr></table></figure>
+<p><strong>那么这个div的高宽比就是30%:50%</strong></p>
+<p>这个办法真的不错，我想可以记一下</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/24/2018_5_24_1_React学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -808,339 +1061,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/17/2018_5_15_1_ES6学习/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/17/2018_5_15_1_ES6学习/" itemprop="url">ES6学习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-17T14:03:57+08:00">
-                2018-05-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>ES6学习</p>
-<p><strong>1.let</strong><br>let与var都是变量声明的方式<br>let与var的区别</p>
-<ol>
-<li>let是只在块级作用域（花括号）起作用</li>
-<li>let不存在变量提升<br>“函数声明和变量声明总是会被解释器悄悄地被”提升”到方法体的最顶部”</li>
-<li><p>let存在暂时性死区<br>“要块级作用域存在let命令，它所声明的变量就绑定在这个区域，不再受外部影响”<br>（外部声明的相同变量不会影响到块级作用域内部）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">&#123;</span><br><span class="line">	var a;</span><br><span class="line">	&#123;</span><br><span class="line">		console.log(a) //undefined</span><br><span class="line">		let a = 100;</span><br><span class="line">		console.log(a) //100</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>let不允许重复声明<br>“同一个块级作用域内不允许声明相同变量”</p>
-</li>
-</ol>
-<p><strong>2.块级作用域</strong><br>es5只有全局作用域和函数作用域<br>es6多了块级作用域（let实际上为js新增了块级作用域）<br>没有块级作用域时可能造成的不合理现象：</p>
-<ol>
-<li>内层变量覆盖外层变量</li>
-<li>计数的变量泄露为全局变量（浪费内存）</li>
-</ol>
-<p>块级作用域的作用：<br>有块级作用域不用立即执行函数了</p>
-<p><strong>3.const</strong></p>
-<ol>
-<li>const用来声明常量</li>
-<li>const也会产生块级作用域</li>
-<li>const也存在暂时性死区</li>
-<li>const也不可重复声明</li>
-<li>const一旦声明不可改变，但是const数组和对象，可以对内部的值进行赋值。</li>
-<li>const对象冻结</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cosnt obj = Object.freeze(&#123;</span><br><span class="line">		name: &quot;ZhangSan&quot;,</span><br><span class="line">		age: 30</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<ol start="7">
-<li>彻底冻结对象<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var constantize = (obj) =&gt; &#123;</span><br><span class="line">        Object.freeze(obj);</span><br><span class="line">        Object.keys(obj).forEach(</span><br><span class="line">            (key,value) =&gt; &#123;</span><br><span class="line">                if(typeof obj[key] === &apos;object&apos;)&#123;</span><br><span class="line">                    constantize(obj[key]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>即对象的属性也是对象时重新调用函数，冻结对象的对象属性并且检查对象属性的属性</p>
-<p><strong>4.跨模块常量</strong><br>module.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export const Name = &quot;name&quot;;</span><br><span class="line">export const Age = 30;</span><br></pre></td></tr></table></figure></p>
-<p>use_1.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import * as Use from &quot;./module&quot;;</span><br><span class="line">console.log(Use.Name);</span><br><span class="line">console.log(Use.Age);</span><br></pre></td></tr></table></figure></p>
-<p>use_2.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import &#123;Name&#125; as Use from &quot;./module&quot;;</span><br><span class="line">console.log(Use.Name);</span><br></pre></td></tr></table></figure></p>
-<p>这个跟vue里的模块一样的用法</p>
-<p><strong>5.全局变量的属性</strong><br>全局对象是最顶层的对象，浏览器环境指的是window对象，在Node.js指的是global对象。<br>ES6规定，var命令和function命令声明的全局变量，属于全局对象的属性，let，const和class命令声明的全局变量，不属于全局对象的属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var newName = &quot;name&quot;;</span><br><span class="line">console.log(window.newName); //name</span><br><span class="line">let newName_2 = &quot;name2&quot;;</span><br><span class="line">console.log(window.newName_2); //undefined</span><br></pre></td></tr></table></figure>
-<p><strong>6.解构赋值</strong><br>ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构赋值（Destructuring）</p>
-<p>数组结构赋值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let [x,y] = [1,2];</span><br><span class="line">console.log(x); // 1</span><br><span class="line">console.log(y); // 2</span><br></pre></td></tr></table></figure></p>
-<p>也就是说左边的变量匹配右边的值</p>
-<p><strong>7.不完全解构</strong><br>等号左边的模式，只匹配一部分的等号右边的数组</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let [x,y] = [1,2,3];</span><br><span class="line">    console.log(x); // 1</span><br><span class="line">    console.log(y); // 2</span><br><span class="line">    let [a,b,c] = [1,2];</span><br><span class="line">    console.log(a); // 1</span><br><span class="line">    console.log(b); // 2</span><br><span class="line">    console.log(c); // undefined</span><br></pre></td></tr></table></figure>
-<p><strong>8.指定默认值</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let [temp = &quot;string&quot;] = [];</span><br><span class="line">console.log(temp); // string</span><br><span class="line">let [temp2 = &quot;string&quot;] = [&quot;newString&quot;];</span><br><span class="line">console.log(temp2); // newString</span><br></pre></td></tr></table></figure>
-<p>只要某种数据解构具有lterator借口，都可以采用数组形式的结构赋值</p>
-<p><strong>9.对象的结构赋值</strong><br>对象的属性没有次序，变量必须与属性名同名才能取到正确的值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let node = &#123;</span><br><span class="line">    type: &quot;Identifier&quot;,</span><br><span class="line">    name: &quot;foo&quot;</span><br><span class="line">&#125;,</span><br><span class="line">(&#123; type, name &#125; = node);</span><br><span class="line">console.log(type); // &quot;Identifier&quot;</span><br><span class="line">console.log(name); // &quot;foo&quot;</span><br></pre></td></tr></table></figure>
-<p><strong>10.对象的结构赋值指定默认值</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var &#123;x = 3&#125; = &#123;&#125;;</span><br><span class="line">console.log(x); // 3</span><br><span class="line">var &#123;msg = &quot;you are a person&quot;&#125; = &#123;&#125;;</span><br><span class="line">console.log(msg);// you are a person</span><br></pre></td></tr></table></figure></p>
-<p>默认值生效的条件是，对象的属性严格等于undefined</p>
-<p><strong>11.现有对象的方法</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">console.log(Math.sin(Math.PI/6)); // 0.4999999</span><br><span class="line"></span><br><span class="line">let &#123;sin,cos,tan,log&#125; = Math;</span><br><span class="line">console.log(sin(Math.PI/6)); // 0.4999999</span><br></pre></td></tr></table></figure>
-<p><strong>12.字符串的解构赋值</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const [a,b,c,d,c] = &quot;hello&quot;;</span><br><span class="line">console.log(a); // h</span><br><span class="line">console.log(b); // e</span><br><span class="line">console.log(c); // l</span><br><span class="line">console.log(d); // l</span><br><span class="line">console.log(e); // o</span><br></pre></td></tr></table></figure></p>
-<p>类似与数组的解构赋值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const &#123;length: len&#125; = &quot;HELLO&quot;;</span><br><span class="line">console.log(len); // 5</span><br><span class="line">const &#123;length&#125; = &quot;</span><br><span class="line">HELLO WORLD&quot; ;</span><br><span class="line">console.log(length); // 12</span><br></pre></td></tr></table></figure></p>
-<p>字符串解构赋值可以取出长度</p>
-<p><strong>13.函数参数的解构赋值</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function sum ([x,y]) &#123;</span><br><span class="line">	return x+y;</span><br><span class="line">&#125;;</span><br><span class="line">console.log(sum([1,2])); // 3</span><br></pre></td></tr></table></figure></p>
-<p>函数声明时的参数和对应使用时赋予的参数是对应的，就可以解构赋值</p>
-<p><strong>14.函数参数的解构赋值的默认值</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function fun (&#123;x = 0, y = 0&#125; = &#123;&#125;)&#123;</span><br><span class="line">        return [x,y];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(fun(&#123;x:100, y:200&#125;)); // [100,200]</span><br><span class="line">console.log(fun(&#123;x:100&#125;)); // [100,0]</span><br><span class="line">console.log(fun(&#123;&#125;)); // [0,0]</span><br><span class="line">console.log(fun()); // [0,0]</span><br></pre></td></tr></table></figure>
-<p><strong>15.解构赋值的用途</strong></p>
-<ol>
-<li><p>交换变量的值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let x = 100;</span><br><span class="line">let y = 200;</span><br><span class="line">[x,y] = [y,x]; </span><br><span class="line">console.log(x); // 200</span><br><span class="line">console.log(y); // 100</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>函数返回多个值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function fun()&#123;</span><br><span class="line">	return [1,2,3];</span><br><span class="line">&#125;</span><br><span class="line">let [x,y,z] = fun();</span><br><span class="line">console.log(x); // 1</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>函数参数的定义</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function fun ([x,y,z])&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br><span class="line">function fun2 (&#123;id, name, age&#125;)&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>提取json数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let jsonDate = &#123;</span><br><span class="line">	id: &quot;007&quot;,</span><br><span class="line">	age: &quot;30&quot;,</span><br><span class="line">	number: &quot;200&quot;</span><br><span class="line">&#125;</span><br><span class="line">let &#123;id, age, number&#125; = jsonDate;</span><br><span class="line">console.log(id); // 007</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>遍历map解构</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">let map = new Map();</span><br><span class="line">map.set(&quot;id&quot;,&quot;007&quot;);</span><br><span class="line">map.set(&quot;name&quot;,&quot;myName&quot;);</span><br><span class="line"></span><br><span class="line">console.log(map);</span><br><span class="line">console.log(typeof(map));</span><br><span class="line">for(let [key, value] of map)&#123;</span><br><span class="line">	console.log(key + &quot;:&quot; + value);</span><br><span class="line">&#125;;</span><br><span class="line">for(let [key] of map) &#123;</span><br><span class="line">	console.log(key);</span><br><span class="line">&#125;</span><br><span class="line">for(let [,value] of map) &#123;</span><br><span class="line">	console.log(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/11/2018_5_10_1ife_2018 MVVM学院 3-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/11/2018_5_10_1ife_2018 MVVM学院 3-1/" itemprop="url">ife_2018 MVVM学院 3-1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-11T15:44:51+08:00">
-                2018-05-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>3.1 用递归的方式实现级联组件</p>
-<p><a href="https://frattinor.github.io/IFE_2018/mvvm/myDist-3-1/" target="_blank" rel="noopener">demo</a></p>
-<p>实现一个简单的Cascader级联组件</p>
-<p><strong>我的思路</strong></p>
-<ol>
-<li>首先创建一个div，用v-for循环渲染数据，</li>
-<li>通过router-link标签在router-view标签里显示第二个组件，并传递子数组</li>
-<li>模仿第一个组件再写2个组件，通过vue-router连接起来</li>
-</ol>
-<p><strong>遇到的问题</strong><br>1.vue-router嵌套问题</p>
-<p>解决办法：<br>在对应的路由里用children注册子路由<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">      path: &apos;/MVVM3_1&apos;,</span><br><span class="line">      name: &apos;MVVM3_1&apos;,</span><br><span class="line">      component: MVVM3_1,</span><br><span class="line">      children: [</span><br><span class="line">        &#123;</span><br><span class="line">          path: &apos;/select_2_1&apos;,</span><br><span class="line">          name: &apos;select_2_1&apos;,</span><br><span class="line">          component: select_2_1,</span><br><span class="line">          children:[</span><br><span class="line">            &#123;</span><br><span class="line">              path: &apos;/select_3&apos;,</span><br><span class="line">              name: &apos;select_3&apos;,</span><br><span class="line">              component: select_3,</span><br><span class="line">            &#125;</span><br><span class="line">          ]</span><br><span class="line">        &#125;,</span><br><span class="line">      ],</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure></p>
-<p>2.vue-router数据传递后刷新后变空白数据，但还存在</p>
-<p>解决办法：<br>可能是传递数据是数组的原因还是什么，反正刷新后确实是变成了空白数据，最后我是把数据单独写了一个js文件，然后再导入到组件里，通过传递数组下标的方式来确定数据的</p>
-<p>然后我还了解了一下query和params<br>query和params类似与get和post，query在地址栏有数据，params没有，但是刷新后query数据还在，params会消失。大概是这样的区别</p>
-<p>3.我没有想到的一个问题，就是子组件把数据传回给父组件</p>
-<p>解决办法：使用vuex来解决，现在在学习vuex</p>
-<p>最后附上我的代码<br>mvvm3_1.vue<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;div class=&quot;mm31&quot;&gt;</span><br><span class="line">    &lt;div v-on:click=&quot;changeArrow&quot; class=&quot;selecter&quot;&gt;</span><br><span class="line">        &lt;span&gt;请选择&lt;/span&gt;</span><br><span class="line">        &lt;span class=&quot;arrow&quot;&gt;&amp;lt&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;theSelect&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;theRouter&quot;&gt;</span><br><span class="line">            &lt;router-view /&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;select_1&quot;&gt;</span><br><span class="line">            &lt;ul&gt;</span><br><span class="line">                &lt;router-link v-for=&quot;item in items&quot; tag=&quot;li&quot; v-bind:to=&quot;&#123;name:&apos;select_2_1&apos; , query: &#123;id_1: item.id&#125;&#125;&quot;&gt;</span><br><span class="line">                    &#123;&#123;item.name&#125;&#125;&lt;span&gt;&amp;gt&lt;/span&gt;</span><br><span class="line">                &lt;/router-link&gt;</span><br><span class="line">            &lt;/ul&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import &#123;data&#125; from &quot;./MVVM31/mm31_data.js&quot;</span><br><span class="line"></span><br><span class="line">export default&#123;</span><br><span class="line">    data() &#123;</span><br><span class="line">        return&#123;</span><br><span class="line">            items: [],</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        changeArrow()&#123;</span><br><span class="line">            let x = document.getElementsByClassName(&quot;arrow&quot;)[0];</span><br><span class="line">            let y = document.getElementsByClassName(&quot;theSelect&quot;)[0];</span><br><span class="line">            let z = document.getElementsByClassName(&quot;theRouter&quot;)[0];</span><br><span class="line">            let u = document.getElementsByClassName(&quot;select_1&quot;)[0];</span><br><span class="line">            if(x.style.transform != &quot;&quot;)&#123;</span><br><span class="line">                x.style.transform = &quot;&quot;;</span><br><span class="line">                y.style.height = &quot;0&quot;;</span><br><span class="line">                z.style.height = &quot;0&quot;;</span><br><span class="line">                u.style.height = &quot;0&quot;;</span><br><span class="line">                y.style.boxShadow = &quot;0 0 0 0 #fff&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                x.style.transform = &quot;rotate(-90deg)&quot;</span><br><span class="line">                y.style.height = &quot;300px&quot;;</span><br><span class="line">                z.style.height = &quot;100%&quot;;</span><br><span class="line">                u.style.height = &quot;100%&quot;;</span><br><span class="line">                y.style.boxShadow = &quot;0 0 5px 10px #ddd&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted()&#123;</span><br><span class="line">        this.items = data();</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- Add &quot;scoped&quot; attribute to limit CSS to this component only --&gt;</span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">.mm31&#123;</span><br><span class="line">    width: 800px;</span><br><span class="line">    height: 400px;</span><br><span class="line">    border: 1px solid #000;</span><br><span class="line">    text-align: left;</span><br><span class="line">    margin: auto;</span><br><span class="line">&#125;</span><br><span class="line">.selecter&#123;</span><br><span class="line">    margin: 10px;</span><br><span class="line">    width: 300px;</span><br><span class="line">    height: 30px;</span><br><span class="line">    line-height: 30px;</span><br><span class="line">    padding-left: 10px;</span><br><span class="line">    border: 1px solid #ddd;</span><br><span class="line">    user-select: none;</span><br><span class="line">    cursor: pointer;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">&#125;</span><br><span class="line">.arrow&#123;</span><br><span class="line">    width: 30px;</span><br><span class="line">    height: 30px;</span><br><span class="line">    text-align: center;</span><br><span class="line">    float: right;</span><br><span class="line">    transition: 0.5s;</span><br><span class="line">&#125;</span><br><span class="line">.theSelect&#123;</span><br><span class="line">    width: 600px;</span><br><span class="line">    height: 0;</span><br><span class="line">    margin: 20px;</span><br><span class="line">    box-shadow: 0 0 0 0 #fff;</span><br><span class="line">    position: relative;</span><br><span class="line">    transition: 0.5s;</span><br><span class="line">&#125;</span><br><span class="line">.theRouter&#123;</span><br><span class="line">    width: 400px;</span><br><span class="line">    height: 0;</span><br><span class="line">    float: right;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">&#125;</span><br><span class="line">.select_1&#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 0;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    float: left;</span><br><span class="line">    background-color: #ddd;</span><br><span class="line">    /*border: 1px solid #ddd;*/</span><br><span class="line">&#125;</span><br><span class="line">.select_1 ul&#123;</span><br><span class="line">    list-style-type: none;</span><br><span class="line">&#125;</span><br><span class="line">.select_1 li&#123;</span><br><span class="line">    padding: 10px;</span><br><span class="line">    color: #aaa;</span><br><span class="line">    cursor: pointer;</span><br><span class="line">&#125;</span><br><span class="line">.select_1 span&#123;</span><br><span class="line">    float: right;</span><br><span class="line">    margin-right: 10px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
-<p>select2_1.vue<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div class=&quot;select_2&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;select_2_1&quot;&gt;</span><br><span class="line">            &lt;ul&gt;</span><br><span class="line">                &lt;router-link v-for=&quot;item in items&quot; tag=&quot;li&quot; v-bind:to=&quot;&#123;name:&apos;select_3&apos; , query: &#123;id_1: id_1,id_2: item.id&#125;&#125;&quot;&gt;</span><br><span class="line">                    &#123;&#123;item.name&#125;&#125;&lt;span&gt;&amp;gt&lt;/span&gt;</span><br><span class="line">                &lt;/router-link&gt;</span><br><span class="line">            &lt;/ul&gt;</span><br><span class="line">            &lt;!-- &lt;button v-on:click=&quot;show&quot;&gt;show&lt;/button&gt; --&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;select_2_1&quot;&gt;</span><br><span class="line">            &lt;router-view /&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import &#123;data&#125; from &quot;./mm31_data.js&quot;</span><br><span class="line"></span><br><span class="line">export default&#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">            items: [],</span><br><span class="line">            id_1: &quot;&quot;,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted()&#123;</span><br><span class="line">        this.id_1 = this.$route.query.id_1;</span><br><span class="line">        this.items = data()[this.id_1-1].children;</span><br><span class="line">    &#125;,</span><br><span class="line">    watch: &#123;</span><br><span class="line">        $route()&#123;</span><br><span class="line">            this.id_1 = this.$route.query.id_1;</span><br><span class="line">            this.items = data()[this.id_1-1].children;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        show()&#123;</span><br><span class="line">            console.log(this.items[this.id_1].children);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">.select_2&#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">    background-color: #eee;</span><br><span class="line">&#125;</span><br><span class="line">.select_2_1&#123;</span><br><span class="line">    width: 50%;</span><br><span class="line">    height: 100%;</span><br><span class="line">    float: left;</span><br><span class="line">&#125;</span><br><span class="line">.select_2 ul&#123;</span><br><span class="line">    list-style-type: none;</span><br><span class="line">&#125;</span><br><span class="line">.select_2 li&#123;</span><br><span class="line">    padding: 10px;</span><br><span class="line">    color: #aaa;</span><br><span class="line">    cursor: pointer;</span><br><span class="line">&#125;</span><br><span class="line">.select_2 span&#123;</span><br><span class="line">    float: right;</span><br><span class="line">    margin-right: 10px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
-<p>select_3.vue<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div class=&quot;select_3&quot;&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li v-for=&quot;item in items&quot;&gt;</span><br><span class="line">                &#123;&#123;item.name&#125;&#125;&lt;span&gt;&amp;gt&lt;/span&gt;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import &#123;data&#125; from &quot;./mm31_data.js&quot;</span><br><span class="line"></span><br><span class="line">export default&#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">            items: [],</span><br><span class="line">            id_1: &quot;&quot;,</span><br><span class="line">            id_2: &quot;&quot;,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted()&#123;</span><br><span class="line">        this.id_1 = this.$route.query.id_1;</span><br><span class="line">        this.id_2 = this.$route.query.id_2;</span><br><span class="line">        this.items = data()[this.id_1-1].children[this.id_2-1].children;</span><br><span class="line">    &#125;,</span><br><span class="line">    watch: &#123;</span><br><span class="line">        $route()&#123;</span><br><span class="line">            this.id_1 = this.$route.query.id_1;</span><br><span class="line">            this.id_2 = this.$route.query.id_2;</span><br><span class="line">            this.items = data()[this.id_1-1].children[this.id_2-1].children;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">.select_3&#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">    background-color: #fff;</span><br><span class="line">&#125;</span><br><span class="line">.select_3 ul&#123;</span><br><span class="line">    list-style-type: none;</span><br><span class="line">&#125;</span><br><span class="line">.select_3 li&#123;</span><br><span class="line">    padding: 10px;</span><br><span class="line">    color: #aaa;</span><br><span class="line">    cursor: pointer;</span><br><span class="line">&#125;</span><br><span class="line">.select_3 span&#123;</span><br><span class="line">    float: right;</span><br><span class="line">    margin-right: 10px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1191,7 +1111,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">49</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1204,7 +1124,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
