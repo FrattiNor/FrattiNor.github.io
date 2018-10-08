@@ -78,12 +78,10 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript," />
 
 
 
-
-  
 
 
   <link rel="alternate" href="/atom.xml" title="FrattiNor's Bolg" type="application/atom+xml" />
@@ -99,15 +97,16 @@
 
 
 <meta name="description" content="##JavaScript函数式编程和函数柯里化  关于函数在实际开发中的应用，大体可以总结为函数声明、函数表达式、匿名函数、自执行函数。  函数声明  JavaScript中，有两种声明方式，一个是使用var、let或者count的变量声明，另一个是使用function的函数声明。 变量对象的创建过程中，函数声明比变量声明具有更为优先的执行顺序，即我们常常提到的函数声明提前，也就是变量提升的一部分">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="FrattiNor&#39;s Bolg">
+<meta property="og:title" content="JavaScript函数式编程和函数柯里化">
 <meta property="og:url" content="http://yoursite.com/2018/10/08/JavaScript函数式编程和函数柯里化/index.html">
 <meta property="og:site_name" content="FrattiNor&#39;s Bolg">
 <meta property="og:description" content="##JavaScript函数式编程和函数柯里化  关于函数在实际开发中的应用，大体可以总结为函数声明、函数表达式、匿名函数、自执行函数。  函数声明  JavaScript中，有两种声明方式，一个是使用var、let或者count的变量声明，另一个是使用function的函数声明。 变量对象的创建过程中，函数声明比变量声明具有更为优先的执行顺序，即我们常常提到的函数声明提前，也就是变量提升的一部分">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-08T12:43:15.578Z">
+<meta property="og:updated_time" content="2018-10-08T12:52:39.935Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="FrattiNor&#39;s Bolg">
+<meta name="twitter:title" content="JavaScript函数式编程和函数柯里化">
 <meta name="twitter:description" content="##JavaScript函数式编程和函数柯里化  关于函数在实际开发中的应用，大体可以总结为函数声明、函数表达式、匿名函数、自执行函数。  函数声明  JavaScript中，有两种声明方式，一个是使用var、let或者count的变量声明，另一个是使用function的函数声明。 变量对象的创建过程中，函数声明比变量声明具有更为优先的执行顺序，即我们常常提到的函数声明提前，也就是变量提升的一部分">
 
 
@@ -143,7 +142,7 @@
 
 
 
-  <title> | FrattiNor's Bolg</title>
+  <title>JavaScript函数式编程和函数柯里化 | FrattiNor's Bolg</title>
   
 
 
@@ -317,7 +316,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">JavaScript函数式编程和函数柯里化</h1>
         
 
         <div class="post-meta">
@@ -490,11 +489,11 @@
 </li>
 </ol>
 <blockquote>
-<p>这个函数支持3个数字求和<br><code>add(1)(2)(3)</code><br>如果对调用的次数不加限制，比如 四次，那上面的代码就不行了。那该怎么办。<br>我们可以返回函数本身就行了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function add(a)&#123;</span><br><span class="line">    var sum = 0;</span><br><span class="line">    sum += a; </span><br><span class="line">    return function add_(b) &#123;</span><br><span class="line">        sum += b;</span><br><span class="line">        return add_;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这个函数支持3个数字求和<br><code>add(1)(2)(3)</code><br>如果对调用的次数不加限制，比如 四次，那上面的代码就不行了。那该怎么办。<br>我们可以返回函数本身就行了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function add(a)&#123;</span><br><span class="line">    var sum = 0;</span><br><span class="line">    sum += a;</span><br><span class="line">    return function add_(b) &#123;</span><br><span class="line">        sum += b;</span><br><span class="line">        return add_;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <blockquote>
 <p>这样最后的返回是一个函数。</p>
-<p>这个可以通过<strong>隐式转换</strong>来解决。当我们直接将函数参与其他的计算时，函数会默认调用toString方法，直接将函数体转换为字符串参与计算。返回函数的时候也会隐式转换。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function add(a) &#123;</span><br><span class="line">    var sum = 0; </span><br><span class="line">        sum += a;   </span><br><span class="line">    let add_ = function(b) &#123;</span><br><span class="line">        if(arguments.length===0)&#123; //判断是否结束</span><br><span class="line">            return sum;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            sum = sum+ b;</span><br><span class="line">            return add_;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    add_.toString = add_.valueOf = function() &#123;</span><br><span class="line">        return sum; </span><br><span class="line">    &#125;</span><br><span class="line">    return add_;</span><br><span class="line">&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这个可以通过<strong>隐式转换</strong>来解决。当我们直接将函数参与其他的计算时，函数会默认调用toString方法，直接将函数体转换为字符串参与计算。返回函数的时候也会隐式转换。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function add(a) &#123;</span><br><span class="line">    var sum = 0;</span><br><span class="line">        sum += a;</span><br><span class="line">    let add_ = function(b) &#123;</span><br><span class="line">        if(arguments.length===0)&#123; //判断是否结束</span><br><span class="line">            return sum;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            sum = sum+ b;</span><br><span class="line">            return add_;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    add_.toString = add_.valueOf = function() &#123;</span><br><span class="line">        return sum;</span><br><span class="line">    &#125;</span><br><span class="line">    return add_;</span><br><span class="line">&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <blockquote>
 <p>使用时需要在最后传入<code>()</code>空的参数</p>
@@ -529,6 +528,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
 
       
       
@@ -548,8 +553,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/08/CSS3 @media/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/08/CSS3 @media/" rel="prev" title="CSS3 @media">
+                CSS3 @media <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -631,7 +636,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
