@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-08T12:51:58.821Z</updated>
+  <updated>2018-10-08T13:09:24.829Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,13 +21,15 @@
     <link href="http://yoursite.com/2018/10/08/CSS3%20@media/"/>
     <id>http://yoursite.com/2018/10/08/CSS3 @media/</id>
     <published>2018-10-08T12:43:47.680Z</published>
-    <updated>2018-10-08T12:51:58.821Z</updated>
+    <updated>2018-10-08T13:09:24.829Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;CSS3-media&quot;&gt;&lt;a href=&quot;#CSS3-media&quot; class=&quot;headerlink&quot; title=&quot;##CSS3 @media&quot;&gt;&lt;/a&gt;##CSS3 @media&lt;/h2&gt;&lt;p&gt;可视区域的宽度大于960px小于1200px设置body的背景颜
+        &lt;hr&gt;
+&lt;p&gt;可视区域的宽度大于960px小于1200px设置body的背景颜色为黄色&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/sp
       
     
     </summary>
