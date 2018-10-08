@@ -296,6 +296,301 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/21/2018_4_21_2_数组函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/21/2018_4_21_2_数组函数/" itemprop="url">js数组函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-21T16:17:49+08:00">
+                2018-04-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>push：将参数添加到原数组末尾，并返回数组的长度   </p>
+<p>concat：返回一个新数组，是将参数添加到原数组中构成的   </p>
+<p>splice(start,deleteCount,val1,val2,…)：从start位置开始删除deleteCount项，并从该位置起插入val1,val2,…   </p>
+<p>reverse：将数组反序   </p>
+<p>sort(orderfunction)：按指定的参数对数组进行排序   </p>
+<p>slice(start,end)：返回从原数组中指定开始下标到结束下标之间的项组成的新数组 </p>
+</blockquote>
+<p>实例：  </p>
+<p>1、数组的创建<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arrayObj = new Array();　//创建一个数组  </span><br><span class="line">var arrayObj = new Array([size]);　//创建一个数组并指定长度，注意不是上限，是长度  </span><br><span class="line">var arrayObj = new Array([element0[, element1[, ...[, elementN]]]]);　创建一个数组并赋值</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>要说明的是，虽然第二种方法创建数组指定了长度，但实际上所有情况下数组都是变长的，也就是说即使指定了长度为5，仍然可以将元素存储在规定长度以外的，注意：这时长度会随之改变。  </p>
+</blockquote>
+<p>2、数组的元素的访问<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var testGetArrValue=arrayObj[1]; //获取数组的元素值  </span><br><span class="line">arrayObj[1]= &quot;这是新值&quot;; //给数组元素赋予新的值</span><br></pre></td></tr></table></figure></p>
+<p>3、数组元素的添加  </p>
+<blockquote>
+<p>arrayObj. push([item1 [item2 [. . . [itemN ]]]]);// 将一个或多个新元素添加到数组结尾，并返回数组新长度<br>arrayObj.unshift([item1 [item2 [. . . [itemN ]]]]);// 将一个或多个新元素添加到数组开始，数组中的元素自动后移，返回数组新长度<br>arrayObj.splice(insertPos,0,[item1[, item2[, . . . [,itemN]]]]);//将一个或多个新元素插入到数组的指定位置，插入位置的元素自动后移，返回””。  </p>
+</blockquote>
+<p>4、数组元素的删除<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arrayObj.pop(); //移除最后一个元素并返回该元素值  </span><br><span class="line">arrayObj.shift(); //移除最前一个元素并返回该元素值，数组中元素自动前移  </span><br><span class="line">arrayObj.splice(deletePos,deleteCount); //删除从指定位置deletePos开始的指定数量deleteCount的元素，数组形式返回所移除的元素</span><br></pre></td></tr></table></figure></p>
+<p>5、数组的截取和合并  </p>
+<blockquote>
+<p>arrayObj.slice(start, [end]); //以数组的形式返回数组的一部分，注意不包括 end 对应的元素，如果省略 end 将复制 start 之后的所有元素<br>arrayObj.concat([item1[, item2[, . . . [,itemN]]]]); //将多个数组（也可以是字符串，或者是数组和字符串的混合）连接为一个数组，返回连接好的新的数组  </p>
+</blockquote>
+<p>6、数组的拷贝<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arrayObj.slice(0); //返回数组的拷贝数组，注意是一个新的数组，不是指向  </span><br><span class="line">arrayObj.concat(); //返回数组的拷贝数组，注意是一个新的数组，不是指向</span><br></pre></td></tr></table></figure></p>
+<p>7、数组元素的排序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arrayObj.reverse(); //反转元素（最前的排到最后、最后的排到最前），返回数组地址  </span><br><span class="line">arrayObj.sort(); //对数组元素排序，返回数组地址</span><br></pre></td></tr></table></figure></p>
+<p>8、数组元素的字符串化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arrayObj.join(separator); //返回字符串，这个字符串将数组的每一个元素值连接在一起，中间用 separator 隔开。  </span><br><span class="line">toLocaleString 、toString 、valueOf：可以看作是join的特殊用法，不常用</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/21/2018_4_21_1_vue练习_图书管理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/21/2018_4_21_1_vue练习_图书管理/" itemprop="url">vue小练习_图书管理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-21T16:17:45+08:00">
+                2018-04-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这个是最后完成的样子<br><a href="https://frattinor.github.io/practice/Vue练习_图书管理" target="_blank" rel="noopener">demo</a></p>
+<p>昨天学习看完了基本的Vue.js的知识点，今天开始做一些vue小练习</p>
+<p>小练习目标：</p>
+<blockquote>
+<p>实现动态渲染html页面的图书<br>实现图书的添加和删除</p>
+</blockquote>
+<p>差不多就这样吧，<br>这个练习刚刚看到是时候还是觉得挺简单的，但是实际写起来就是觉得无从下手，大概是刚刚看完vue吧，没办法直接使用。<br>所以我就先写了html和css<br>大概这样吧<br><img src="https://raw.githubusercontent.com/FrattiNor/picture/master/picture_2.png" alt="Alt text"></p>
+<p>接下来就是写js了</p>
+<p>我的想法如下:<br>1 写一个vue实例vm对应图书的div<br>2 在vm里写一个books数组，数组里写图书的信息，<br>3 然后在html里通过v-for渲染<br>4 然后创建一个对象（newBook），然后给newBook写上书名（bookName），作者（author），价格（price）等属性<br>5 给删除按钮写删除对应行的函数（del），写在methods里<br>6 添加书籍里的书名，作者，价格用v-model对应起newBook.bookName，newBook.author，newBook.price。<br>7 给添加按钮写添加函数（add）</p>
+<p>大概的想法是这样的</p>
+<p>然后我开始实现我的想法<br>遇到了很多问题，这大概就是第一使用vue吧</p>
+<p>遇到的问题如下:<br>1 js文件里的vue实例或在html属性里写错，可能会导致实例对应的DOM元素直接消失。我接二连三的遇到这个问题，一直不知道错在哪，然后就浪费了很多时间，比如v-model=”newbook.bookname”这个大小写问题，我一直没有发现</p>
+<blockquote>
+<p>解决办法：不要写错咯</p>
+</blockquote>
+<p>2 在写del函数的时候没办法删除对应行，暂时还不知道怎么解决，不过同时也学会了一个新的js的数组操作函数<strong>Array.splice(x,y)</strong>x对应的是数组的位置，y是要删除的数量，想到解决办法我会写上去的。</p>
+<blockquote>
+<p>解决办法：目前的想法是在渲染的时候给button添加一个index属性，来确定是哪一行<br>前面的想法不知道可不可行，我给books添加了index属性，我是用event.target确定当前button的，但是target.index不能使用，所以我把button的index属性改为了id属性，通过target.id确定是数组的哪个位置，然后把删除掉数组对应的位置<br>不过只是删除数组元素还是会产生问题，就是删除一个元素后，会打乱原来的index，产生断层，所以还要在del函数里给数组对应位置后面的所有对象的index都减一，才能保证index不会产生断层。</p>
+</blockquote>
+<p>3 在写add函数的时候，遇到这样一个问题，就是把newBook对象通过push函数添加进books数组里的时候，我再改变newBook对象的属性，books数组里对应的位置也会发生改变，这大概就是响应式吧，原来还会这样的。</p>
+<blockquote>
+<p>解决办法：在add函数里重新let一个对象，把newBook的属性全部copy一份给新对象，然后把新对象push进数组就没有这个问题了</p>
+</blockquote>
+<p>4 在写add函数的时候，还有遇到了一个问题，就是明明我在data里申明了newBook这个对象，但是在push的时候使用this.books.push(newBook)时报错说newBook没有申明，后来我想了想，大概是newBook不是全局变量的原因吧</p>
+<blockquote>
+<p>解决办法：使用时要用this.newBook，this代表当前实例</p>
+</blockquote>
+<p>最后附上我的代码<br>index.html（html）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;book&quot;&gt;</span><br><span class="line">        &lt;table&gt;</span><br><span class="line">            &lt;thead&gt;</span><br><span class="line">                &lt;tr&gt;&lt;td&gt;书名&lt;/td&gt;&lt;td&gt;作者&lt;/td&gt;&lt;td&gt;价格&lt;/td&gt;&lt;td&gt;操作&lt;/td&gt;&lt;/tr&gt;</span><br><span class="line">            &lt;/thead&gt;</span><br><span class="line">            &lt;tbody&gt;</span><br><span class="line">                &lt;tr  v-for=&quot;book in books&quot;&gt;</span><br><span class="line">                    &lt;td&gt;&#123;&#123; book.bookName &#125;&#125;&lt;/td&gt;</span><br><span class="line">                    &lt;td&gt;&#123;&#123; book.author &#125;&#125;&lt;/td&gt;</span><br><span class="line">                    &lt;td&gt;&#123;&#123; book.price &#125;&#125;&lt;/td&gt;</span><br><span class="line">                    &lt;td&gt;&lt;button v-bind:id=&quot;book.index&quot; v-on:click=&quot;del&quot;&gt;删除&lt;/button&gt;&lt;/td&gt;</span><br><span class="line">                &lt;/tr&gt;</span><br><span class="line">            &lt;/tbody&gt;</span><br><span class="line">        &lt;/table&gt;</span><br><span class="line">        &lt;p&gt;添加书籍&lt;/p&gt;</span><br><span class="line">        &lt;label&gt;书名&lt;/label&gt;</span><br><span class="line">        &lt;input v-model=&quot;bookName&quot; type=&quot;text&quot; /&gt;</span><br><span class="line">        &lt;label&gt;作者&lt;/label&gt;</span><br><span class="line">        &lt;input v-model=&quot;author&quot; type=&quot;text&quot; /&gt;</span><br><span class="line">        &lt;label&gt;价格&lt;/label&gt;</span><br><span class="line">        &lt;input v-model.number=&quot;price&quot; type=&quot;number&quot; /&gt;</span><br><span class="line">        &lt;button v-on:click=&quot;add&quot;&gt;添加&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;script src=&quot;js/myjs.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>mycss.css（css）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">    margin: 0;</span><br><span class="line">    padding: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">html,body&#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#book&#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">h1&#123;</span><br><span class="line">    margin: 20px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">div&#123;</span><br><span class="line">    margin: 20px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">table&#123;</span><br><span class="line">    width: 95%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">tr&#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">td&#123;</span><br><span class="line">    width: 25%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">td,table&#123;</span><br><span class="line">    border-collapse: collapse;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">thead td&#123;</span><br><span class="line">    font-weight:bold;</span><br><span class="line">    font-size: 18px;</span><br><span class="line">    height: 30px;</span><br><span class="line">    border-bottom: 2px solid #ddd;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">tbody td&#123;</span><br><span class="line">    padding-bottom: 10px;</span><br><span class="line">    font-size: 13px;</span><br><span class="line">    height: 40px;</span><br><span class="line">    border-top: 1px solid #ddd;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">label&#123;</span><br><span class="line">    /*display: block;*/</span><br><span class="line">    font-weight:bold;</span><br><span class="line">    /*margin: 5px 0;*/</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">p&#123;</span><br><span class="line">    margin: 20px 0 10px 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">input::-webkit-outer-spin-button,</span><br><span class="line">input::-webkit-inner-spin-button &#123;</span><br><span class="line">    -webkit-appearance: none !important;</span><br><span class="line">    margin: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">input[type=&quot;text&quot;],input[type=&quot;number&quot;]&#123;</span><br><span class="line">    display: block;</span><br><span class="line">    margin: 3px 0 10px 0;</span><br><span class="line">    width: 95%;</span><br><span class="line">    padding: 8px;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    border: 1px solid #ddd;</span><br><span class="line">    outline:none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">input[type=&quot;text&quot;]:focus,input[type=&quot;number&quot;]:focus&#123;</span><br><span class="line">    border: 1px solid #3af;</span><br><span class="line">    box-shadow: 0 0 10px 1px #ddd;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">button&#123;</span><br><span class="line">    background-color: #3E74B5;</span><br><span class="line">    border: 1px solid #3868A3;</span><br><span class="line">    padding: 7px 14px;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    color: #fff;</span><br><span class="line">    outline: none;</span><br><span class="line">&#125;</span><br><span class="line">button:hover&#123;</span><br><span class="line">    background-color:#325C8F;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>myjs.js（js）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">var vm = new Vue(&#123;</span><br><span class="line">    el: &quot;#book&quot;,</span><br><span class="line">    data: &#123;</span><br><span class="line">        bookName:&quot;&quot;,</span><br><span class="line">        author:&quot;&quot;,</span><br><span class="line">        price:&quot;&quot;,</span><br><span class="line">        index: &quot;3&quot;,</span><br><span class="line">        books: [</span><br><span class="line">            &#123;</span><br><span class="line">                bookName: &quot;红楼梦&quot;,</span><br><span class="line">                author: &quot;曹雪芹&quot;,</span><br><span class="line">                price: &quot;32&quot;,</span><br><span class="line">                index: &quot;0&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                bookName: &quot;水浒传&quot;,</span><br><span class="line">                author: &quot;施耐庵&quot;,</span><br><span class="line">                price: &quot;30&quot;,</span><br><span class="line">                index: &quot;1&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                bookName: &quot;三国演义&quot;,</span><br><span class="line">                author: &quot;罗贯中&quot;,</span><br><span class="line">                price: &quot;24&quot;,</span><br><span class="line">                index: &quot;2&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                bookName: &quot;西游记&quot;,</span><br><span class="line">                author: &quot;吴承恩&quot;,</span><br><span class="line">                price: &quot;20&quot;,</span><br><span class="line">                index: &quot;3&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        del: function(event)&#123;</span><br><span class="line">            let tar = event.target;</span><br><span class="line">            this.books.splice(tar.id,1);</span><br><span class="line">            for(let i = tar.id;i &lt; this.index;i++)&#123;</span><br><span class="line">                this.books[i].index--;</span><br><span class="line">            &#125;</span><br><span class="line">            this.index--;</span><br><span class="line">        &#125;,</span><br><span class="line">        add: function()&#123;</span><br><span class="line">            this.index++;</span><br><span class="line">            let newBook = new Object();</span><br><span class="line">            newBook.bookName = this.bookName;</span><br><span class="line">            newBook.author = this.author;</span><br><span class="line">            newBook.price = this.price;</span><br><span class="line">            newBook.index = this.index;</span><br><span class="line">            if(newBook.bookName == &quot;&quot;)&#123;</span><br><span class="line">                alert(&quot;书名为空&quot;);</span><br><span class="line">                return;</span><br><span class="line">            &#125;</span><br><span class="line">            if(newBook.author == &quot;&quot;)&#123;</span><br><span class="line">                alert(&quot;作者为空&quot;);</span><br><span class="line">                return;</span><br><span class="line">            &#125;</span><br><span class="line">            this.books.push(newBook);</span><br><span class="line">            this.bookName = &quot;&quot;;</span><br><span class="line">            this.author = &quot;&quot;;</span><br><span class="line">            this.price = &quot;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>最后总结一下吧：<br>1.vue的响应式渲染确实非常的好用，改变实例的属性就能动态渲染html页面<br>2.我还不太熟悉vue的写法，经常漏写逗号，写多了就好<br>3.今天还知道了一些新的数组函数，过会我把今天看的数组函数都列一下吧<br>4.总的来说vue还是非常便利的</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/20/2018_4_20_5_Javascript闭包问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -815,369 +1110,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/20/2018_4_20_2_Vue.js学习总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/20/2018_4_20_2_Vue.js学习总结/" itemprop="url">Vue.js 学习总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-20T15:59:33+08:00">
-                2018-04-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>已经学习了基本的Vue.js<br>我来总结一下具体学了什么<br>我把Vue.js分成几类<br>1<code>Vue实例</code></p>
-<blockquote>
-<p>Vue实例写在js文件里<br>Vue实例有以下的属性</p>
-<blockquote>
-<p>el：<br>对应具体的DOM</p>
-<p>data：<br>写实例的变量</p>
-<p>methods：<br>写实例的函数</p>
-<p>computed：<br>写实例的计算属性（计算属性类似methods，区别是 computed 是基于它的依赖缓存，只有相关依赖发生改变时才会重新取值。而使用 methods ，在重新渲染的时候，函数总会重新调用执行）</p>
-<p>watch：<br>给对应的实例变量写回调函数，在变量发生改变时触发</p>
-</blockquote>
-</blockquote>
-<p>暂时只学习了这些属性</p>
-<hr>
-<p>Vue实例有以下的方法</p>
-<blockquote>
-<p>vm.\$watch( expOrFn, callback, [options] )：<br>对应watch，再实例变量发生改变时触发，回调函数得到的参数为新值和旧值。</p>
-<p>vm.\$set( target, key, value )：<br>这是全局 Vue.set 的别名。设置对象的属性。</p>
-<p>vm.\$delete：<br>这是全局 Vue.delete 的别名。删除对象的属性。</p>
-<p>vm.\$on( event, callback )：<br>给实例绑定一个自定义事件。</p>
-<p>vm.\$once( event, callback )：<br>给实例绑定一个自定义事件，但是只触发一次，在第一次触发之后移除监听器。</p>
-<p>vm.\$off( [event, callback] )：<br>移除自定义事件监听器。</p>
-<p>vm.\$emit( event, […args] )：<br>触发当前实例上的事件。附加参数都会传给监听器回调。</p>
-</blockquote>
-<p>暂时只学习了这些方法</p>
-<hr>
-<p>Vue实例的生命周期</p>
-<p>关于Vue的生命周期我还是不太理解，所以就先放上dalao的解释了</p>
-<blockquote>
-<p>Vue实例有一个完整的生命周期，也就是从开始创建、初始化数据、编译模板、挂载Dom、渲染→更新→渲染、卸载等一系列过程，我们称这是Vue的生命周期。<br>在这些事件响应方法中的this直接指向的是vue的实例。<br><img src="https://raw.githubusercontent.com/FrattiNor/new-project/master/picture_1.png" alt="Alt text"></p>
-</blockquote>
-<blockquote>
-<p>Vue提供的可以注册的钩子：</p>
-<blockquote>
-<p>beforeCreate<br>在实例初始化之后，数据观测(data observer) 和 event/watcher 事件配置之前被调用。</p>
-<p>created<br>实例已经创建完成之后被调用。在这一步，实例已完成以下的配置：数据观测(data observer)，属性和方法的运算， watch/event 事件回调。然而，挂载阶段还没开始，\$el 属性目前不可见。</p>
-<p>beforeMount<br>在挂载开始之前被调用：相关的 render 函数首次被调用。</p>
-<p>mounted<br>el 被新创建的 vm.\$el 替换，并挂载到实例上去之后调用该钩子。如果 root 实例挂载了一个文档内元素，当 mounted 被调用时 vm.\$el 也在文档内。</p>
-<p>beforeUpdate<br>数据更新时调用，发生在虚拟 DOM 重新渲染和打补丁之前。 你可以在这个钩子中进一步地更改状态，这不会触发附加的重渲染过程。</p>
-<p>updated<br>由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。<br>当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作。然而在大多数情况下，你应该避免在此期间更改状态，因为这可能会导致更新无限循环。<br>该钩子在服务器端渲染期间不被调用。</p>
-<p>beforeDestroy<br>实例销毁之前调用。在这一步，实例仍然完全可用。</p>
-<p>destroyed<br>Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。 该钩子在服务器端渲染期间不被调用。</p>
-</blockquote>
-</blockquote>
-<p>2<code>Vue指令</code></p>
-<blockquote>
-<p>指令：是带有V-前缀的特殊属性，通过属性来操作元素<br>Vue基本指令</p>
-<blockquote>
-<p>v-text:<br>在元素当中插入值,只能是文本<br>v-html:<br>在元素不中不仅可以插入文本，还可以插入标签</p>
-<p>v-if<br>根据表达式的true或false来动态插入和移除元素（代码注释）</p>
-<p>v-show<br>根据表达式的true或false来隐藏和显示元素（css：display:none）</p>
-<p>v-for<br>根据变量的值来循环渲染元素（用法类似for in）</p>
-<p>v-on<br>监听元素事件，并执行相应的操作（相当于给元素添加监听器）<br>v-on 缩写（v-on:click  ==  @click）</p>
-<p>v-bind<br>给元素绑定属性，可以添加表达式动态的判断是否添加<br>v-bind 缩写（v-bind:href  ==  :href）</p>
-<p>v-model<br>实现了数据和视图的双向绑定<br>分成了3步：<br> 1）把元素的值和数据相绑定<br> 2）当输入内容时，数据同步发生变化，视图  —数据的驱动<br> 3）当改变数据时，输入内容也会发生变化，数据 -&gt; 视图的驱动</p>
-<p>自定义指令<br>通过directive来注册指令，可以注册全局指令和局部指令</p>
-</blockquote>
-</blockquote>
-<p>Vue指令除了可以添加表示式，还可以添加修饰符</p>
-<blockquote>
-<p>Vue.js 为 v-on 提供了 事件修饰符</p>
-<blockquote>
-<p>.stop<br>阻止事件冒泡</p>
-<p>.prevent<br>不再重载页面</p>
-<p>.capture<br>添加事件侦听器时使用时间捕获模式</p>
-<p>.self<br>只当事件在该元素本身（而不是子元素）触发时触发回调</p>
-<p>.once<br>事件只能点击一次</p>
-</blockquote>
-</blockquote>
-<p>修饰符例子如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">&lt;!-- 阻止单击事件冒泡 --&gt;</span><br><span class="line">&lt;a v-on:click.stop=&quot;doThis&quot;&gt;&lt;/a&gt;</span><br><span class="line">&lt;!-- 提交事件不再重载页面 --&gt;</span><br><span class="line">&lt;form v-on:submit.prevent=&quot;onSubmit&quot;&gt;&lt;/form&gt;</span><br><span class="line">&lt;!-- 修饰符可以串联  --&gt;</span><br><span class="line">&lt;a v-on:click.stop.prevent=&quot;doThat&quot;&gt;&lt;/a&gt;</span><br><span class="line">&lt;!-- 只有修饰符 --&gt;</span><br><span class="line">&lt;form v-on:submit.prevent&gt;&lt;/form&gt;</span><br><span class="line">&lt;!-- 添加事件侦听器时使用时间捕获模式 --&gt;</span><br><span class="line">&lt;div v-on:click.capture=&quot;doThis&quot;&gt;...&lt;/div&gt;</span><br><span class="line">&lt;!-- 只当事件在该元素本身（而不是子元素）触发时触发回调 --&gt;</span><br><span class="line">&lt;div v-on:click.self=&quot;doThat&quot;&gt;...&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- click 事件只能点击一次，2.1.4版本新增 --&gt;</span><br><span class="line">&lt;a v-on:click.once=&quot;doThis&quot;&gt;&lt;/a&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>按键修饰符<br>v-on:keyup.13=”submit”<br>只有在 keyCode 是 13 时调用 vm.submit()</p>
-</blockquote>
-<p>因为记住全部按键太难了，所以Vue提供了按键别名</p>
-<blockquote>
-<p>全部的按键别名：</p>
-<blockquote>
-<p>.enter<br>.tab<br>.delete (捕获 “删除” 和 “退格” 键)<br>.esc<br>.space<br>.up<br>.down<br>.left<br>.right<br>.ctrl<br>.alt<br>.shift<br>.meta</p>
-</blockquote>
-</blockquote>
-<p>3<code>其他</code><br>Vue除了实例和指令外，还有一些其他的知识点</p>
-<blockquote>
-<p>3.1 数据绑定最常见的形式就是使用 &#123;&#123;…&#125;&#125;（双大括号）的文本插值：</p>
-<p>3.2 Vue组件<br>组件可以扩展 HTML 元素，封装可重用的代码。</p>
-</blockquote>
-<p>我个人对组件的看法是类似于DOM元素的东西，通俗的讲就是HTMl的标签</p>
-<blockquote>
-<p>component可以用来注册组件，可以注册全局组件和局部组件<br>父组件的数据需要通过 props 把数据传给子组件，子组件需要显式地用 props 选项声明 “prop”：<br><strong>注意: prop 是单向绑定的：当父组件的属性变化时，将传导给子组件，但是不会反过来。</strong><br>但如果子组件要把数据传递回去，就需要使用自定义事件！<br>我们可以使用 v-on 绑定自定义事件</p>
-<p>3.3 Vue.js 路由<br>通过 Vue.js 可以实现多视图的单页Web应用（single page web application，SPA）。<br>Vue.js 路由需要载入 vue-router 库</p>
-</blockquote>
-<p>暂时应该就学了这些东西。。。以后学的再补充吧。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/20/2018_4_20_1_Vue.js学习（四）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/20/2018_4_20_1_Vue.js学习（四）/" itemprop="url">Vue.js 学习（四）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-20T14:10:36+08:00">
-                2018-04-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>14<code>Vue.js 自定义指令</code></p>
-<blockquote>
-<p>Vue 允许注册自定义指令。<br>指令（v-model v-show 等。。）<br>使用 directives 来注册指令<br>我们也可以在实例使用 directives 选项来注册局部指令，这样指令只能在这个实例中使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;p&gt;页面载入时，input 元素自动获取焦点：&lt;/p&gt;</span><br><span class="line">    &lt;input v-focus&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"> </span><br><span class="line">&lt;script&gt;</span><br><span class="line">// 注册一个全局自定义指令 v-focus</span><br><span class="line">Vue.directive(&apos;focus&apos;, &#123;</span><br><span class="line">  // 当绑定元素插入到 DOM 中。</span><br><span class="line">  inserted: function (el) &#123;</span><br><span class="line">    // 聚焦元素</span><br><span class="line">    el.focus()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">// 创建根实例</span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: &apos;#app&apos;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>钩子函数<br>bind: 只调用一次，指令第一次绑定到元素时调用，用这个钩子函数可以定义一个在绑定时执行一次的初始化动作。<br>inserted: 被绑定元素插入父节点时调用（父节点存在即可调用，不必存在于 document 中）。<br>update: 被绑定元素所在的模板更新时调用，而不论绑定值是否变化。通过比较更新前后的绑定值，可以忽略不必要的模板更新（详细的钩子函数参数见下）。<br>componentUpdated: 被绑定元素所在模板完成一次更新周期时调用。<br>unbind: 只调用一次， 指令与元素解绑时调用。</p>
-</blockquote>
-<blockquote>
-<p>钩子函数参数<br>el: 指令所绑定的元素，可以用来直接操作 DOM 。<br>binding: 一个对象，包含以下属性：</p>
-<blockquote>
-<p>name: 指令名，不包括 v- 前缀。<br>value: 指令的绑定值， 例如： v-my-directive=”1 + 1”, value 的值是 2。<br>oldValue: 指令绑定的前一个值，仅在 update 和 componentUpdated 钩子中可用。无论值是否改变都可用。<br>expression: 绑定值的字符串形式。 例如 v-my-directive=”1 + 1” ， expression 的值是 “1 + 1”。<br>arg: 传给指令的参数。例如 v-my-directive:foo， arg 的值是 “foo”。<br>modifiers: 一个包含修饰符的对象。 例如： v-my-directive.foo.bar, 修饰符对象 modifiers 的值是 { foo: true, bar: true }。</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>vnode: Vue 编译生成的虚拟节点。<br>oldVnode: 上一个虚拟节点，仅在 update 和 componentUpdated 钩子中可用。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;  v-runoob:hello.a.b=&quot;message&quot;&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"> </span><br><span class="line">&lt;script&gt;</span><br><span class="line">Vue.directive(&apos;runoob&apos;, &#123;</span><br><span class="line">  bind: function (el, binding, vnode) &#123;</span><br><span class="line">    var s = JSON.stringify</span><br><span class="line">    el.innerHTML =</span><br><span class="line">      &apos;name: &apos;       + s(binding.name) + &apos;&lt;br&gt;&apos; +</span><br><span class="line">      &apos;value: &apos;      + s(binding.value) + &apos;&lt;br&gt;&apos; +</span><br><span class="line">      &apos;expression: &apos; + s(binding.expression) + &apos;&lt;br&gt;&apos; +</span><br><span class="line">      &apos;argument: &apos;   + s(binding.arg) + &apos;&lt;br&gt;&apos; +</span><br><span class="line">      &apos;modifiers: &apos;  + s(binding.modifiers) + &apos;&lt;br&gt;&apos; +</span><br><span class="line">      &apos;vnode keys: &apos; + Object.keys(vnode).join(&apos;, &apos;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: &apos;#app&apos;,</span><br><span class="line">  data: &#123;</span><br><span class="line">    message: &apos;xxxx!&apos;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>有时候我们不需要其他钩子函数，我们可以简写函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Vue.directive(&apos;runoob&apos;, function (el, binding) &#123;</span><br><span class="line">  // 设置指令的背景颜色</span><br><span class="line">  el.style.backgroundColor = binding.value.color</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p>总结：Vue支持写自定义函数，同样也是响应式的函数，根据参数的变化而变化。具体的还不太清楚。</p>
-<p>15<code>Vue.js 路由</code></p>
-<blockquote>
-<p>Vue.js 路由允许我们通过不同的 URL 访问不同的内容。<br>通过 Vue.js 可以实现多视图的单页Web应用（single page web application，SPA）。<br>Vue.js 路由需要载入 vue-router 库<br>Vue.js + vue-router 可以很简单的实现单页应用。</p>
-</blockquote>
-<p>html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://unpkg.com/vue/dist/vue.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;https://unpkg.com/vue-router/dist/vue-router.js&quot;&gt;&lt;/script&gt;</span><br><span class="line"> </span><br><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">  &lt;h1&gt;Hello App!&lt;/h1&gt;</span><br><span class="line">  &lt;p&gt;</span><br><span class="line">    &lt;!-- 使用 router-link 组件来导航. --&gt;</span><br><span class="line">    &lt;!-- 通过传入 `to` 属性指定链接. --&gt;</span><br><span class="line">    &lt;!-- &lt;router-link&gt; 默认会被渲染成一个 `&lt;a&gt;` 标签 --&gt;</span><br><span class="line">    &lt;router-link to=&quot;/foo&quot;&gt;Go to Foo&lt;/router-link&gt;</span><br><span class="line">    &lt;router-link to=&quot;/bar&quot;&gt;Go to Bar&lt;/router-link&gt;</span><br><span class="line">  &lt;/p&gt;</span><br><span class="line">  &lt;!-- 路由出口 --&gt;</span><br><span class="line">  &lt;!-- 路由匹配到的组件将渲染在这里 --&gt;</span><br><span class="line">  &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">// 0. 如果使用模块化机制编程，導入Vue和VueRouter，要调用 Vue.use(VueRouter)</span><br><span class="line"> </span><br><span class="line">// 1. 定义（路由）组件。</span><br><span class="line">// 可以从其他文件 import 进来</span><br><span class="line">const Foo = &#123; template: &apos;&lt;div&gt;foo&lt;/div&gt;&apos; &#125;</span><br><span class="line">const Bar = &#123; template: &apos;&lt;div&gt;bar&lt;/div&gt;&apos; &#125;</span><br><span class="line"> </span><br><span class="line">// 2. 定义路由</span><br><span class="line">// 每个路由应该映射一个组件。 其中&quot;component&quot; 可以是</span><br><span class="line">// 通过 Vue.extend() 创建的组件构造器，</span><br><span class="line">// 或者，只是一个组件配置对象。</span><br><span class="line">// 我们晚点再讨论嵌套路由。</span><br><span class="line">const routes = [</span><br><span class="line">  &#123; path: &apos;/foo&apos;, component: Foo &#125;,</span><br><span class="line">  &#123; path: &apos;/bar&apos;, component: Bar &#125;</span><br><span class="line">]</span><br><span class="line"> </span><br><span class="line">// 3. 创建 router 实例，然后传 `routes` 配置</span><br><span class="line">// 你还可以传别的配置参数, 不过先这么简单着吧。</span><br><span class="line">const router = new VueRouter(&#123;</span><br><span class="line">  routes // （缩写）相当于 routes: routes</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line">// 4. 创建和挂载根实例。</span><br><span class="line">// 记得要通过 router 配置参数注入路由，</span><br><span class="line">// 从而让整个应用都有路由功能</span><br><span class="line">const app = new Vue(&#123;</span><br><span class="line">  router</span><br><span class="line">&#125;).$mount(&apos;#app&apos;)</span><br><span class="line"> </span><br><span class="line">// 现在，应用已经启动了！</span><br></pre></td></tr></table></figure></p>
-<p>总结：Vue.js路由很好理解，就是本来是多页面的网页，可以通过单页来实现，根据点击的router-link的url不同，在下面router-view处会渲染不同的页面来实现单页面跳转效果。<br>还有就是使用起来可能有点小困难吧。。。意思很好理解，实际操作应该不简单</p>
-<p>到这里基础的Vue.js已经学完了，感觉上和以前学JQuery没什么差别，感觉上就是看了的，基本都看懂了，但是实际使用起来就是无从下手的感觉，总感觉看了跟没有看一样，所以还是找点Vue的练习做做吧。。。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1223,7 +1160,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
