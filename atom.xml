@@ -42,19 +42,18 @@
     <link href="http://yoursite.com/2018/10/08/JavaScript%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8C%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/"/>
     <id>http://yoursite.com/2018/10/08/JavaScript函数式编程和函数柯里化/</id>
     <published>2018-10-08T12:43:47.675Z</published>
-    <updated>2018-10-08T12:52:39.935Z</updated>
+    <updated>2018-10-08T13:06:01.861Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;##JavaScript函数式编程和函数柯里化&lt;/p&gt;
-&lt;hr&gt;
+        &lt;hr&gt;
 &lt;p&gt;关于函数在实际开发中的应用，大体可以总结为函数声明、函数表达式、匿名函数、自执行函数。&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;函数声明&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;JavaScript中，有两种声
+&lt;li&gt;函数声明&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;JavaScript中，有两种声明方式，一个是使用var、let或者count的变量声明，另一个是使用funct
       
     
     </summary>
