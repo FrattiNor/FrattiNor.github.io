@@ -296,6 +296,165 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/21/2018_7_21_1_DvaJS学习和JS的this以及解耦概念/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/21/2018_7_21_1_DvaJS学习和JS的this以及解耦概念/" itemprop="url">学习DvaJS，JS的this和解耦</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-21T21:49:28+08:00">
+                2018-07-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong><h3>学习DvaJS</h3></strong></p>
+<p>在我看来<strong>DvaJS</strong>相当是于集成了<code>Redux</code>，<code>Router</code>和<code>Fetch</code>的状态管理器。</p>
+<p><strong>DvaJS</strong>主要是定义了<code>Model</code>这样一个概念，差不多就是把<code>Redux</code>的<code>Action</code>，<code>Reducer</code>和<code>Store</code>放在了一个文件里。</p>
+<p>Model里包含了</p>
+<blockquote>
+<p>State - 表示 Model 的状态数据<br>namespace - 表示命名空间，用来区分多个不同的Model<br>Reducer - Action处理器，用来算出新的State<br>Effect - Action处理器，用来进行异步操作<br>Subscription - 用于订阅一个数据源</p>
+</blockquote>
+<p><em>整个应用的 State（状态），由多个小的 Model 的 State 以 namespace 为 key 合成</em></p>
+<p>一个简单的<code>Model</code>如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  namespace: &apos;count&apos;,</span><br><span class="line">  state: 0,</span><br><span class="line">  reducers: &#123;</span><br><span class="line">    add(state) &#123; return state + 1 &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  effects: &#123;</span><br><span class="line">    *addAfter1Second(action, &#123; call, put &#125;) &#123;</span><br><span class="line">      yield call(delay, 1000);</span><br><span class="line">      yield put(&#123; type: &apos;add&apos; &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>创建完的<code>Model</code>需要在入口文件<code>index.js</code>中引入，路由文件同样需要在入口文件中引入。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// Model</span><br><span class="line">app.model(require(&apos;./models/products&apos;).default);</span><br><span class="line"></span><br><span class="line">// Router</span><br><span class="line">app.router(require(&apos;./router&apos;).default);</span><br></pre></td></tr></table></figure>
+<p>最后在不同的模块中通过<code>connect</code>连接<code>Model</code>。<br>连接<code>Model</code>的模块可以通过<code>this.props</code>获取到 State 里的值和<code>dispatch</code> 函数</p>
+<p><code>dispatch</code> 函数相当于发起一个请求，这个请求通过传入的<code>Action</code>在<code>Model</code>中寻找合适的<code>Action</code>处理器（Reducer和Effect），<code>payload</code>里则是传递的信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import React from &apos;react&apos;;</span><br><span class="line">import &#123; connect &#125; from &apos;dva&apos;;</span><br><span class="line"></span><br><span class="line">class Demo extends React.Component &#123;</span><br><span class="line">	componentWillMount() &#123;</span><br><span class="line">		this.props.dispatch(&#123;</span><br><span class="line">			type: &apos;add&apos;,</span><br><span class="line">			payload: &#123;&#125;</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">	render() &#123;</span><br><span class="line">		return(</span><br><span class="line">			&lt;p&gt;demo&lt;/p&gt;</span><br><span class="line">		);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default connect((&#123; modelNameSpace &#125;) =&gt; (&#123;&#125;))(Demo);</span><br></pre></td></tr></table></figure>
+<p>在模块里发起请求，最后<code>dispatch</code> 函数通过type的值（<code>Action</code>）去寻找对应的<code>Action</code>处理器，然后修改State（全局状态）或请求数据，最后重新渲染DOM。</p>
+<p>其实<strong>DvaJS</strong>和<strong>Redux</strong>没有很大区别，<strong>DvaJS</strong>就是把<strong>Redux</strong>的3个文件合为了一个文件，然后并在<strong>Redux</strong>的基础上集成了<code>fetch</code>和<code>router</code>。<br><code>fetch</code>是在<code>Action</code>处理器<strong>Effect</strong>上，<strong>Effect</strong>里可以进行异步操作，一般就是进行<code>fetch</code>的请求了，请求完还可以再进行<code>dispatch</code>函数，再去<strong>Reducer</strong>进行修改<strong>State</strong>。<br>而之所以要集成<code>router</code>，我个人觉得是为了方便Model的引入，必进不同的模块引入的Model多半是不一样的，所以不用在入口里一次性引入所有的Model，而改成是在<code>router</code>里进行引入Model。Redux里也有类似的操作，因为redux只有一个store，所以需要在<code>connect</code>里通过<code>mapStateToProps</code>方法按需引入变量。</p>
+<hr>
+<p><strong><h3>JS的this</h3></strong></p>
+<p>在讲JS的this的时候，有这样一句话<strong>this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function test()&#123;</span><br><span class="line">    let val = &quot;value&quot;;</span><br><span class="line">    console.log(this.val); //undefined</span><br><span class="line">    console.log(this); //Window</span><br><span class="line">&#125;</span><br><span class="line">test();</span><br></pre></td></tr></table></figure>
+<p>这里执行test，相当于执行了window.test，JS中全局对象就是window，也就是调用test的window对象，所以this指向window。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var test = &#123;</span><br><span class="line">    val: &quot;value&quot;,</span><br><span class="line">    fn:function()&#123;</span><br><span class="line">        console.log(this.val);  //value</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">test.fn();</span><br></pre></td></tr></table></figure></p>
+<p>这里调用fn的是test，所以this指向test，所以相当于输出了test.val。</p>
+<p><strong>当this遇到return时</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function test()</span><br><span class="line">&#123;</span><br><span class="line">    this.val = &apos;value&apos;;</span><br><span class="line">    return &#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line">let test2 = new test;</span><br><span class="line">console.log(test2.val); //undefined</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function test()</span><br><span class="line">&#123;</span><br><span class="line">    this.val = &apos;value&apos;;</span><br><span class="line">    return 1;</span><br><span class="line">&#125;</span><br><span class="line">let test2 = new test;</span><br><span class="line">console.log(test2.val); //value</span><br></pre></td></tr></table></figure>
+<p>如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function test()</span><br><span class="line">&#123;</span><br><span class="line">    fn = function() &#123;</span><br><span class="line">        console.log(this);// window</span><br><span class="line">    &#125;</span><br><span class="line">    return fn();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test()</span><br></pre></td></tr></table></figure>
+<p>return函数时，函数内的this指向window。<br><strong>this遇到new时</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function test()&#123;</span><br><span class="line">　　this.val = &quot;value&quot;;</span><br><span class="line">&#125;</span><br><span class="line">let test2 = new test();</span><br><span class="line">console.log(test2.val); //value</span><br></pre></td></tr></table></figure>
+<p>this遇到new，this会指向new出来的新的对象。</p>
+<p><strong>ES6箭头函数中的this</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">let test = &#123;</span><br><span class="line">    val: &quot;value&quot;,</span><br><span class="line">    fn: function () &#123;</span><br><span class="line">        let fn2 = () =&gt; &#123;</span><br><span class="line">            console.log(this.val) //value</span><br><span class="line">        &#125;</span><br><span class="line">        return fn2();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">test.fn();</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">let test = &#123;</span><br><span class="line">    val: &quot;value&quot;,</span><br><span class="line">    fn: function () &#123;</span><br><span class="line">        let fn2 = function() &#123;</span><br><span class="line">	        console.log(this) //window</span><br><span class="line">            console.log(this.val) //undefined</span><br><span class="line">        &#125;</span><br><span class="line">        return fn2();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">test.fn();</span><br></pre></td></tr></table></figure>
+<p>箭头函数完全修复了this的指向，this总是指向词法作用域，也就是外层调用者。return fn2时，调用fn2的是fn。</p>
+<hr>
+<p><strong><h3>解耦</h3></strong></p>
+<p><strong>耦合</strong>是指两个或两个以上的体系间通过相互作用而彼此影响以至联合起来的现象。<br>在工程中，模块之间的耦合度就是模块之间的依赖性。模块之间的耦合越高，维护成本越高，因为修改一个模块会需要修改所有依赖该模块的模块，牵一发而动全身。</p>
+<p><strong>解耦</strong>，字面意思就是解除耦合关系。<br>在工程中，降低耦合度即可以理解为解耦，模块间有依赖关系必然存在耦合，理论上的绝对零耦合是做不到的，但可以通过一些现有的方法将耦合度降至最低。</p>
+<p><strong>解耦的方法</strong><br>高内聚，往往会带来一定程度的低耦合度。高内聚决定了内部自行依赖，对外只提供必须的接口或消息对象，那么由此即可达成较低的耦合度。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/07/2018_6_7_1_redux学习（四）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -820,135 +979,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/30/2018_5_29_1_react-music（二）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/30/2018_5_29_1_react-music（二）/" itemprop="url">React-music（二）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-30T12:56:07+08:00">
-                2018-05-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>继续写music-player项目<br>我又发现一个容易出错的地方，就是组件import的首字母必须大写，不然无效</p>
-<p>写完头和导航栏，这几天写轮播图又有一个问题就是ajax获取数据然后传给state后不能渲染到DOM里。<br>然后我就看了别人项目的代码吧，算是，发现就是别人导入数据是通过setState来实现的，我差点忘记了，我是直接用=来传递值的。。。React还是有很多地方不太一样啊</p>
-<p>然后继续写轮播图<br>移动端的轮播图涉及到触摸事件，说真的我不太理解触摸事件，而且感觉参数很复杂所以就没有怎么了解过，现在来写移动端的轮播图一脸懵逼啊，然后我就去看了别人写的移动端的轮播图，其中涉及到的方法有<br>onTouchStart：触摸开始的时候触发<br>onTouchMove：手指在屏幕上滑动的时候触发<br>onTouchEnd：触摸结束的时候触发<br>onTransitionEnd：css3的过渡动画结束触发</p>
-<p>所以我就需要去了解一下这个touch事件<br>我大概了解了这个touch事件，start是点击开始，通过e.touches[0]来获得touch对象然后获得各种坐标，move是移动，移动期间会一直触发这个函数，跟start一样来获得各种坐标，最后是end事件，touch停止事件，根据获得的坐标比来确定触不触发移动事件。这个就是最简单的touch事件了吧。</p>
-<p>然后还有一点就是，又有一个问题就是图片可以在展示框里滑动，这个无关touch，就是单纯的css问题，DOM是固定的，那么要怎么样才能让DOM可以滑动呢。<br>好吧我错了，我去看别人的轮播图，为什么他的图片可以滑动，就是因为他在touchMove里写了图片跟随touch位置移动的函数<br>然后我还发现了一个css就是</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">white-space</span>: <span class="selector-tag">nowrap</span></span><br></pre></td></tr></table></figure>
-<p>设置子类不换行</p>
-<p>最后我写了轮播图是完成了，图片可移动是使用的touchMove里设置图片跟随touch坐标移动。然后根据移动的距离来判断是否需要切换到下一张，最后就是轮播图无缝的解决了，这个我是在开始和最后都添加了一张图片完成的，最后写一个函数当显示最后和第一张图片时设置过渡0s然后回到原来图片的位置。其中还有很多细节问题我不知道应该怎么说。</p>
-<p>然后就是感觉我写的轮播图很复杂感觉</p>
-<p>最后附上我的代码<br>react组件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123;getSlider&#125; <span class="keyword">from</span> <span class="string">'../api/recommend'</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">slider</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    state = &#123;</span><br><span class="line">        theSilder: [],</span><br><span class="line">        SilderFirst: [],</span><br><span class="line">        SilderLast: [],</span><br><span class="line">        baseWidth: <span class="built_in">document</span>.body.clientWidth,</span><br><span class="line">        autoPlay: <span class="string">''</span>, <span class="comment">// 自动循环播放函数</span></span><br><span class="line">        setTimeout: <span class="string">''</span>, <span class="comment">// 延迟生效的函数</span></span><br><span class="line">        length: <span class="string">''</span>, <span class="comment">// slider长度</span></span><br><span class="line">        time: <span class="number">0</span>, <span class="comment">// 动画时间</span></span><br><span class="line">        index: <span class="number">1</span>, <span class="comment">// 图片索引</span></span><br><span class="line">        distance: <span class="number">0</span>, <span class="comment">// 图片跟随distance移动，也就是设置图片可以滑动</span></span><br><span class="line">        minX: <span class="number">40</span>, <span class="comment">// 移动最低距离触发滑动</span></span><br><span class="line">        startX: <span class="string">''</span>, <span class="comment">// touch开始坐标</span></span><br><span class="line">        moveX: <span class="string">''</span> <span class="comment">// touch移动的距离</span></span><br><span class="line">    &#125;</span><br><span class="line">    componentWillMount () &#123;</span><br><span class="line">        getSlider().then(<span class="function">(<span class="params">msg</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> sliderLength = msg.data.slider.length</span><br><span class="line">            <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">                distance: -(<span class="keyword">this</span>.state.index * <span class="keyword">this</span>.state.baseWidth),</span><br><span class="line">                length: sliderLength,</span><br><span class="line">                SilderFirst: msg.data.slider[<span class="number">0</span>],</span><br><span class="line">                SilderLast: msg.data.slider[sliderLength<span class="number">-1</span>],</span><br><span class="line">                theSilder: msg.data.slider</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">this</span>.autoPlay()</span><br><span class="line">    &#125;</span><br><span class="line">    touchStart (e) &#123;</span><br><span class="line">        clearInterval(<span class="keyword">this</span>.state.autoPlay) <span class="comment">// 清除自动循环函数</span></span><br><span class="line">        clearTimeout(<span class="keyword">this</span>.state.setTimeout) <span class="comment">// 清除延迟函数</span></span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">            time: <span class="number">0</span>,</span><br><span class="line">            <span class="comment">// 获得点击的位置</span></span><br><span class="line">            startX: e.touches[<span class="number">0</span>].pageX</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">this</span>.changeFirstLast()</span><br><span class="line">    &#125;</span><br><span class="line">    touchMove (e) &#123;</span><br><span class="line">        <span class="comment">// 获得移动的位置</span></span><br><span class="line">        <span class="keyword">let</span> _nextX = e.touches[<span class="number">0</span>].pageX</span><br><span class="line">        <span class="comment">// 获得移动的距离</span></span><br><span class="line">        <span class="keyword">let</span> _moveX = _nextX - <span class="keyword">this</span>.state.startX</span><br><span class="line">        <span class="comment">// 设置图片移动</span></span><br><span class="line">        <span class="keyword">let</span> _distance = -(<span class="keyword">this</span>.state.index * <span class="keyword">this</span>.state.baseWidth - _moveX)</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">            moveX: _moveX,</span><br><span class="line">            distance: _distance</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    touchEnd () &#123;</span><br><span class="line">        <span class="keyword">this</span>.autoPlay()</span><br><span class="line">        <span class="keyword">let</span> _index</span><br><span class="line">        <span class="keyword">let</span> _moveX = <span class="keyword">this</span>.state.moveX</span><br><span class="line">        <span class="keyword">let</span> _minX = <span class="keyword">this</span>.state.minX</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">Math</span>.abs(_moveX) &lt; _minX) &#123;</span><br><span class="line">            _index = <span class="string">'noEnough'</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (_moveX &gt; _minX) &#123;</span><br><span class="line">                _index = <span class="keyword">this</span>.state.index - <span class="number">1</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                _index = <span class="keyword">this</span>.state.index + <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">            time: <span class="number">0.3</span>,</span><br><span class="line">            moveX: <span class="number">0</span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">this</span>.sliderMove(_index)</span><br><span class="line">    &#125;</span><br><span class="line">    sliderMove (newIndex) &#123;</span><br><span class="line">        <span class="keyword">if</span> (newIndex == <span class="string">'noEnough'</span>) &#123;</span><br><span class="line">            newIndex = <span class="keyword">this</span>.state.index</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">            time: <span class="number">0.3</span>,</span><br><span class="line">            index: newIndex,</span><br><span class="line">            distance: -(newIndex * <span class="keyword">this</span>.state.baseWidth)</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="comment">// 移动函数结束后判断图片是否在最左或最右边</span></span><br><span class="line">        <span class="keyword">let</span> setTime = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">this</span>.changeFirstLast()</span><br><span class="line">        &#125;, <span class="number">300</span>)</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">            setTimeout: setTime</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 当图片在最左或最右边时修改到正确位置</span></span><br><span class="line">    changeFirstLast () &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.state.index == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">                time: <span class="number">0</span>,</span><br><span class="line">                index: <span class="number">5</span>,</span><br><span class="line">                distance: -(<span class="number">5</span> * <span class="keyword">this</span>.state.baseWidth)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.state.index == <span class="number">6</span>) &#123;</span><br><span class="line">             <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">                time: <span class="number">0</span>,</span><br><span class="line">                index: <span class="number">1</span>,</span><br><span class="line">                distance: -(<span class="number">1</span> * <span class="keyword">this</span>.state.baseWidth)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 自动播放函数</span></span><br><span class="line">    autoPlay () &#123;</span><br><span class="line">        <span class="keyword">let</span> SlideInter = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> _index = <span class="keyword">this</span>.state.index + <span class="number">1</span></span><br><span class="line">            <span class="keyword">this</span>.sliderMove(_index)</span><br><span class="line">        &#125;, <span class="number">3000</span>)</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">            autoPlay: SlideInter</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    render () &#123;</span><br><span class="line">        <span class="keyword">let</span> slideBoxStyle = &#123;</span><br><span class="line">            marginLeft: <span class="keyword">this</span>.state.distance + <span class="string">'px'</span>,</span><br><span class="line">            width: (<span class="keyword">this</span>.state.length + <span class="number">2</span>)*<span class="number">100</span>+<span class="string">'%'</span>,</span><br><span class="line">            transition: <span class="keyword">this</span>.state.time + <span class="string">'s'</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> sliderPicStyle = &#123;</span><br><span class="line">            width: <span class="number">1</span>/(<span class="keyword">this</span>.state.length + <span class="number">2</span>)*<span class="number">100</span>+<span class="string">'%'</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> onPointStyle = &#123;</span><br><span class="line">            borderRadius: <span class="number">25</span> + <span class="string">'% / '</span> + <span class="number">50</span> + <span class="string">'%'</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> pointStyle = &#123;</span><br><span class="line">            borderRadius: <span class="number">50</span> + <span class="string">'%'</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div className=<span class="string">"slider"</span>&gt;</span><br><span class="line">                &lt;div className=<span class="string">"sliderBox"</span> style=&#123;slideBoxStyle&#125; onTouchStart=&#123;e=&gt;<span class="keyword">this</span>.touchStart(e)&#125; onTouchMove=&#123;e=&gt;<span class="keyword">this</span>.touchMove(e)&#125; onTouchEnd=&#123;e=&gt;<span class="keyword">this</span>.touchEnd(e)&#125;&gt;</span><br><span class="line">                    &lt;a href=&#123;<span class="keyword">this</span>.state.SilderLast.linkUrl&#125;&gt;</span><br><span class="line">                        &lt;img style=&#123;sliderPicStyle&#125; src=&#123;<span class="keyword">this</span>.state.SilderLast.picUrl&#125; /&gt;</span><br><span class="line">                    &lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">                    &#123;</span></span><br><span class="line"><span class="regexp">                        this.state.theSilder.map((item, number) =&gt; &#123;</span></span><br><span class="line"><span class="regexp">                            return (</span></span><br><span class="line"><span class="regexp">                                &lt;a href=&#123;item.linkUrl&#125; key=&#123;number&#125;&gt;</span></span><br><span class="line"><span class="regexp">                                    &lt;img style=&#123;sliderPicStyle&#125; src=&#123;item.picUrl&#125;  /</span>&gt;</span><br><span class="line">                                &lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">                            )</span></span><br><span class="line"><span class="regexp">                        &#125;)</span></span><br><span class="line"><span class="regexp">                    &#125;</span></span><br><span class="line"><span class="regexp">                    &lt;a href=&#123;this.state.SilderFirst.linkUrl&#125;&gt;</span></span><br><span class="line"><span class="regexp">                        &lt;img style=&#123;sliderPicStyle&#125; src=&#123;this.state.SilderFirst.picUrl&#125; /</span>&gt;</span><br><span class="line">                    &lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">                &lt;/</span>div&gt;</span><br><span class="line">                &lt;div className=<span class="string">"pointBox"</span>&gt;</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="keyword">this</span>.state.theSilder.map(<span class="function">(<span class="params">item, number</span>) =&gt;</span> &#123;</span><br><span class="line">                            <span class="keyword">return</span>(</span><br><span class="line">                                &lt;div key=&#123;number&#125; style=&#123;</span><br><span class="line">                                    (((number+<span class="number">1</span>) == <span class="keyword">this</span>.state.index) ||</span><br><span class="line">                                        (number == <span class="number">4</span> &amp;&amp; <span class="keyword">this</span>.state.index == <span class="number">0</span>) ||</span><br><span class="line">                                        (number == <span class="number">0</span> &amp;&amp; <span class="keyword">this</span>.state.index == <span class="number">6</span>)) ?</span><br><span class="line">                                    onPointStyle : pointStyle</span><br><span class="line">                                &#125;</span><br><span class="line">                                className=&#123;</span><br><span class="line">                                    (((number+<span class="number">1</span>) == <span class="keyword">this</span>.state.index) ||</span><br><span class="line">                                        (number == <span class="number">4</span> &amp;&amp; <span class="keyword">this</span>.state.index == <span class="number">0</span>) ||</span><br><span class="line">                                        (number == <span class="number">0</span> &amp;&amp; <span class="keyword">this</span>.state.index == <span class="number">6</span>)) ?</span><br><span class="line">                                    <span class="string">'point on'</span> : <span class="string">'point'</span></span><br><span class="line">                                &#125;&gt;&lt;/div&gt;</span><br><span class="line">                            )</span><br><span class="line">                        &#125;)</span><br><span class="line">                    &#125;</span><br><span class="line">                &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">            &lt;/</span>div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> slider;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -999,7 +1029,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">52</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

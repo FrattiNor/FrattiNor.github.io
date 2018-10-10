@@ -299,6 +299,34 @@
 
       <h2 class="post-title">
         
+            <a class="post-title-link" href="/2018/10/10/JavaScript函数式编程和函数柯里化/" itemprop="url">
+              
+                <span itemprop="name">JavaScript函数式编程和函数柯里化</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-10-10T20:46:20+08:00"
+              content="2018-10-10" >
+          10-10
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
             <a class="post-title-link" href="/2018/10/10/JavaScript对象和原型链/" itemprop="url">
               
                 <span itemprop="name">JavaScript对象和原型链（_proto_和prototype的区别）</span>
@@ -371,7 +399,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">52</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -920,21 +948,7 @@
 
 </body>
 </html>
-r resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
+/li>";
                   resultItems.push({
                     item: resultItem,
                     searchTextCount: searchTextCount,
