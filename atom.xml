@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-09T12:27:29.969Z</updated>
+  <updated>2018-10-10T12:30:54.382Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript对象和原型链（_proto_和prototype的区别）</title>
+    <link href="http://yoursite.com/2018/10/10/JavaScript%E5%AF%B9%E8%B1%A1%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
+    <id>http://yoursite.com/2018/10/10/JavaScript对象和原型链/</id>
+    <published>2018-10-10T12:31:29.017Z</published>
+    <updated>2018-10-10T12:30:54.382Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;h2 id=&quot;JavaScript对象和原型链&quot;&gt;&lt;a href=&quot;#JavaScript对象和原型链&quot; class=&quot;headerlink&quot; title=&quot;JavaScript对象和原型链&quot;&gt;&lt;/a&gt;&lt;strong&gt;JavaScript对象和原型链&lt;/strong&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>CSS3 @media</title>
@@ -35,27 +57,6 @@
     
     
       <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript函数式编程和函数柯里化</title>
-    <link href="http://yoursite.com/2018/10/08/JavaScript%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8C%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/"/>
-    <id>http://yoursite.com/2018/10/08/JavaScript函数式编程和函数柯里化/</id>
-    <published>2018-10-08T12:43:47.675Z</published>
-    <updated>2018-10-09T12:18:36.504Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;JavaScript函数式编程和函数柯里化&quot;&gt;&lt;a href=&quot;#JavaScript函数式编程和函数柯里化&quot; class=&quot;headerlink&quot; title=&quot;JavaScript函数式编程和函数柯里化&quot;&gt;&lt;/a&gt;JavaScript函数式编程和函数柯里化&lt;/
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
   </entry>
   
