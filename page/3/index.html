@@ -296,6 +296,151 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/02/2018_6_1_1_redux学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FrattiNor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FrattiNor's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/02/2018_6_1_1_redux学习/" itemprop="url">Redux学习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-02T13:52:19+08:00">
+                2018-06-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>现在还在写react-music这个的推荐页面，最近使用qq音乐的api访问资源时都是受限的，只能获得一点点数据，然后就一直在找可以用的api，花了很多时间来找api导致现在还在写推荐页面，不过好在，使用了多个api总算是把推荐页面写完了。<br>现在又遇到了一个问题就是点击歌单跳转到歌单细节页面时，我发现是应该是不用导航栏的，所以又把导航栏重新写到4大页面里，但是还是遇到了问题就是字体高亮的部分，本来是一个整体，所以我把字体高亮的状态写在state里，然后写到4个组件里去，就只有默认高亮状态了，也就是第一个是高亮的，所以这里要使用到redux，跟vuex差不多的一个东西，多个组件共用一个状态时可以使用</p>
+<p><strong>开始学习redux</strong></p>
+<p>redux  有3个部分</p>
+<blockquote>
+<p>Action<br>Reducer<br>Store</p>
+</blockquote>
+<hr>
+<p><strong>Action</strong></p>
+<p>Action 是把数据从应用传到 store 的有效载荷。它是 store 数据的唯一来源。一般来说你会通过 store.dispatch() 将 action 传到 store。<br>Action 本质上是 JavaScript 普通对象。我们约定，action 内必须使用一个字符串类型的 type 字段来表示将要执行的动作。多数情况下，type 会被定义成字符串常量。当应用规模越来越大时，建议使用单独的模块或文件来存放 action。<br>除了 type 字段外，action 对象的结构完全由你自己决定。参照 Flux 标准 Action 获取关于如何构造 action 的建议。<br>这时，我们还需要再添加一个 action index 来表示用户完成任务的动作序列号。因为数据是存放在数组中的，所以我们通过下标 index 来引用特定的任务。而实际项目中一般会在新建数据的时候生成唯一的 ID 作为数据的引用标识。<br><strong>我们应该尽量减少在 action 中传递的数据</strong>。<br>最后，再添加一个 action type 来表示当前的任务展示选项。</p>
+<p><strong>Action 创建函数</strong> 就是生成 action 的方法。“action” 和 “action 创建函数” 这两个概念很容易混在一起，使用时最好注意区分。</p>
+<hr>
+<p><strong>Reducer</strong></p>
+<p>Reducers 指定了应用状态的变化如何响应 actions 并发送到 store 的，记住 actions 只是描述了有事情发生了这一事实，并没有描述应用如何更新 state。<br><strong>设计 State 结构</strong><br>在 Redux 应用中，所有的 state 都被保存在一个单一对象中。建议在写代码前先想一下这个对象的结构。如何才能以最简的形式把应用的 state 用对象描述出来？<br>通常，这个 state 树还需要存放其它一些数据，以及一些 UI 相关的 state。这样做没问题，但尽量把这些数据与 UI 相关的 state 分开。</p>
+<p><strong>Action 处理</strong><br>现在我们已经确定了 state 对象的结构，就可以开始开发 reducer。reducer 就是一个纯函数，接收旧的 state 和 action，返回新的 state。<br><strong>永远不要在 reducer 里做这些操作：</strong></p>
+<blockquote>
+<p>修改传入参数；<br>执行有副作用的操作，如 API 请求和路由跳转；<br>调用非纯函数，如 Date.now() 或 Math.random()</p>
+</blockquote>
+<p>开始编写 reducer，并让它来处理之前定义过的 action。<br>我们将以指定 state 的初始状态作为开始。Redux 首次执行时，state 为 undefined，此时我们可借机设置并返回应用的初始 state。</p>
+<p><strong>Store</strong><br>Store 就是把action和reducers联系到一起的对象。Store 有以下职责：</p>
+<blockquote>
+<p>维持应用的 state；<br>提供 getState() 方法获取 state；<br>提供 dispatch(action) 方法更新 state；<br>通过 subscribe(listener) 注册监听器;<br>通过 subscribe(listener) 返回的函数注销监听器。</p>
+</blockquote>
+<p>再次强调一下 Redux 应用只有一个单一的 store。当需要拆分数据处理逻辑时，你应该使用 reducer 组合 而不是创建多个 store。</p>
+<p>根据已有的 reducer 来创建 store 是非常容易的。在前一个章节中，我们使用 combineReducers() 将多个 reducer 合并成为一个。现在我们将其导入，并传递 createStore()</p>
+<p>createStore() 的第二个参数是可选的, 用于设置 state 初始状态。这对开发同构应用时非常有用，服务器端 redux 应用的 state 结构可以与客户端保持一致, 那么客户端可以将从网络接收到的服务端 state 直接用于本地数据初始化。</p>
+<p>感觉上可以理解，但是又完全不知道怎么写。。。<br>store是存放数据的地方<br>action是发布的命令<br>reducers是根据action发布的命令来执行修改store的内容的函数<br>我差不多是这样理解的吧</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/30/2018_5_29_1_react-music（二）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -835,130 +980,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/24/2018_5_24_2_css做div高宽成比例/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FrattiNor">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FrattiNor's Bolg">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/24/2018_5_24_2_css做div高宽成比例/" itemprop="url">css定义高宽成比例</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-24T20:33:53+08:00">
-                2018-05-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>今天突然想写一个无缝的轮播图了，因为以前写的轮播图都不是无缝的，在结尾的地方会回滚回第一张图，所以就想试试除了设置外边距的方法来解决这个办法。<br>然后我就想啊，用绝对定位来把图片都放一起，然后要用到什么图片就给什么图片添加动画就好，然后发现一个问题，因为是绝对定位，所以不能把div撑开，所以容器div就没有高度了，这就很难受了，所以就把div自己写一个高度出来，但是图片是16:9的，然后我又想写相对宽度，所以得想办法把div的高宽写成比例关系的，这就很难办了，因为高度百分比是相对父容器的高度的，宽度百分比是相对父容器的宽度的，然后把控制台拉出来，会改变宽度或高度，所以父容器的高宽比例是不定的，然后我就Bing了一下，发现一个神奇的办法</p>
-<p><strong>百分比来做,这里需要运用一个小技巧,padding用百分比做单位时是相对于容器的宽度来算的,所以你可以把高度设为0,内容自然溢出,设置个padding-bottom</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">height: 0;</span><br><span class="line">width: 50%;</span><br><span class="line">padding-bottom: 30%</span><br></pre></td></tr></table></figure>
-<p><strong>那么这个div的高宽比就是30%:50%</strong></p>
-<p>这个办法真的不错，我想可以记一下</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1009,7 +1030,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">53</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-09T12:18:36.504Z</updated>
+  <updated>2018-10-19T12:05:30.265Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSS Gradient和Background</title>
+    <link href="http://yoursite.com/2018/10/19/CSS%20Gradient%E5%92%8CBackground/"/>
+    <id>http://yoursite.com/2018/10/19/CSS Gradient和Background/</id>
+    <published>2018-10-19T12:05:57.068Z</published>
+    <updated>2018-10-19T12:05:30.265Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;CSS-Gradient和Background&quot;&gt;&lt;a href=&quot;#CSS-Gradient和Background&quot; class=&quot;headerlink&quot; title=&quot;CSS Gradient和Background&quot;&gt;&lt;/a&gt;CSS Gradient和Back
+      
+    
+    </summary>
+    
+    
+      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript函数式编程和函数柯里化</title>
@@ -446,29 +467,6 @@
     
     
       <category term="ECMAScript 6" scheme="http://yoursite.com/tags/ECMAScript-6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ife_2018 MVVM学院 3-1</title>
-    <link href="http://yoursite.com/2018/05/11/2018_5_10_1ife_2018%20MVVM%E5%AD%A6%E9%99%A2%203-1/"/>
-    <id>http://yoursite.com/2018/05/11/2018_5_10_1ife_2018 MVVM学院 3-1/</id>
-    <published>2018-05-11T07:44:51.597Z</published>
-    <updated>2018-05-11T07:44:51.771Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;3.1 用递归的方式实现级联组件&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://frattinor.github.io/IFE_2018/mvvm/myDist-3-1/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;demo&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;实现
-      
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
     
   </entry>
   

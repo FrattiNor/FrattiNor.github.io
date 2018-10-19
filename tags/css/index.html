@@ -299,6 +299,34 @@
 
       <h2 class="post-title">
         
+            <a class="post-title-link" href="/2018/10/19/CSS Gradient和Background/" itemprop="url">
+              
+                <span itemprop="name">CSS Gradient和Background</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-10-19T20:05:57+08:00"
+              content="2018-10-19" >
+          10-19
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
             <a class="post-title-link" href="/2018/10/08/CSS3 @media/" itemprop="url">
               
                 <span itemprop="name">CSS3 @media</span>
@@ -371,7 +399,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">53</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -920,27 +948,7 @@
 
 </body>
 </html>
-{
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
+        while (indexOfContent.length != 0) {
                     var item = indexOfContent[indexOfContent.length - 1];
                     var position = item.position;
                     var word = item.word;
