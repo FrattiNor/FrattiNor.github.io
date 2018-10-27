@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-19T12:05:30.265Z</updated>
+  <updated>2018-10-10T12:30:54.382Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,52 +17,10 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>CSS Gradient和Background</title>
-    <link href="http://yoursite.com/2018/10/19/CSS%20Gradient%E5%92%8CBackground/"/>
-    <id>http://yoursite.com/2018/10/19/CSS Gradient和Background/</id>
-    <published>2018-10-19T12:05:57.068Z</published>
-    <updated>2018-10-19T12:05:30.265Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;CSS-Gradient和Background&quot;&gt;&lt;a href=&quot;#CSS-Gradient和Background&quot; class=&quot;headerlink&quot; title=&quot;CSS Gradient和Background&quot;&gt;&lt;/a&gt;CSS Gradient和Back
-      
-    
-    </summary>
-    
-    
-      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript函数式编程和函数柯里化</title>
-    <link href="http://yoursite.com/2018/10/10/JavaScript%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8C%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/"/>
-    <id>http://yoursite.com/2018/10/10/JavaScript函数式编程和函数柯里化/</id>
-    <published>2018-10-10T12:46:20.755Z</published>
-    <updated>2018-10-09T12:18:36.504Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;JavaScript函数式编程和函数柯里化&quot;&gt;&lt;a href=&quot;#JavaScript函数式编程和函数柯里化&quot; class=&quot;headerlink&quot; title=&quot;JavaScript函数式编程和函数柯里化&quot;&gt;&lt;/a&gt;JavaScript函数式编程和函数柯里化&lt;/
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
     <title>JavaScript对象和原型链（_proto_和prototype的区别）</title>
-    <link href="http://yoursite.com/2018/10/10/JavaScript%E5%AF%B9%E8%B1%A1%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
-    <id>http://yoursite.com/2018/10/10/JavaScript对象和原型链/</id>
-    <published>2018-10-10T12:31:29.017Z</published>
+    <link href="http://yoursite.com/2018/10/27/JavaScript%E5%AF%B9%E8%B1%A1%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
+    <id>http://yoursite.com/2018/10/27/JavaScript对象和原型链/</id>
+    <published>2018-10-27T06:57:18.786Z</published>
     <updated>2018-10-10T12:30:54.382Z</updated>
     
     <summary type="html">
@@ -81,10 +39,31 @@
   </entry>
   
   <entry>
+    <title>JavaScript函数式编程和函数柯里化</title>
+    <link href="http://yoursite.com/2018/10/27/JavaScript%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%92%8C%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/"/>
+    <id>http://yoursite.com/2018/10/27/JavaScript函数式编程和函数柯里化/</id>
+    <published>2018-10-27T06:57:18.783Z</published>
+    <updated>2018-10-09T12:18:36.504Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;JavaScript函数式编程和函数柯里化&quot;&gt;&lt;a href=&quot;#JavaScript函数式编程和函数柯里化&quot; class=&quot;headerlink&quot; title=&quot;JavaScript函数式编程和函数柯里化&quot;&gt;&lt;/a&gt;JavaScript函数式编程和函数柯里化&lt;/
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CSS3 @media</title>
-    <link href="http://yoursite.com/2018/10/08/CSS3%20@media/"/>
-    <id>http://yoursite.com/2018/10/08/CSS3 @media/</id>
-    <published>2018-10-08T12:43:47.680Z</published>
+    <link href="http://yoursite.com/2018/10/27/CSS3%20@media/"/>
+    <id>http://yoursite.com/2018/10/27/CSS3 @media/</id>
+    <published>2018-10-27T06:57:18.780Z</published>
     <updated>2018-10-09T12:27:29.969Z</updated>
     
     <summary type="html">
@@ -103,10 +82,56 @@
   </entry>
   
   <entry>
+    <title>CSS Gradient和Background</title>
+    <link href="http://yoursite.com/2018/10/27/CSS%20Gradient%E5%92%8CBackground/"/>
+    <id>http://yoursite.com/2018/10/27/CSS Gradient和Background/</id>
+    <published>2018-10-27T06:57:18.777Z</published>
+    <updated>2018-10-19T12:05:30.265Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;CSS-Gradient和Background&quot;&gt;&lt;a href=&quot;#CSS-Gradient和Background&quot; class=&quot;headerlink&quot; title=&quot;CSS Gradient和Background&quot;&gt;&lt;/a&gt;CSS Gradient和Back
+      
+    
+    </summary>
+    
+    
+      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>学习JS基础数据类型和引用数据类型，内存空间管理</title>
+    <link href="http://yoursite.com/2018/10/27/2018_8_26_2_%E5%AD%A6%E4%B9%A0JS%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%8C%E5%86%85%E5%AD%98%E7%A9%BA%E9%97%B4%E7%AE%A1%E7%90%86/"/>
+    <id>http://yoursite.com/2018/10/27/2018_8_26_2_学习JS基础数据类型和引用数据类型，内存空间管理/</id>
+    <published>2018-10-27T06:57:18.775Z</published>
+    <updated>2018-08-26T07:06:03.323Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;基础数据类型&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;JavaScript的执行上下文生成之后会创建变量对象的特殊对象。&lt;br&gt;JavaScript的基础数据类型都保存在变量对象中。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;严格意义上来说，变量对象也是存放在推内存中的。&lt;/em&gt;&lt;/
+      
+    
+    </summary>
+    
+    
+      <category term="JS的数据类型" scheme="http://yoursite.com/tags/JS%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
+    
+      <category term="JS的内存空间管理" scheme="http://yoursite.com/tags/JS%E7%9A%84%E5%86%85%E5%AD%98%E7%A9%BA%E9%97%B4%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title>学习JavaScript的内存空间和事件循环</title>
-    <link href="http://yoursite.com/2018/08/26/2018_8_26_1_%E5%AD%A6%E4%B9%A0JavaScript%E7%9A%84%E5%86%85%E5%AD%98%E7%A9%BA%E9%97%B4%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/"/>
-    <id>http://yoursite.com/2018/08/26/2018_8_26_1_学习JavaScript的内存空间和事件循环/</id>
-    <published>2018-08-26T07:07:22.959Z</published>
+    <link href="http://yoursite.com/2018/10/27/2018_8_26_1_%E5%AD%A6%E4%B9%A0JavaScript%E7%9A%84%E5%86%85%E5%AD%98%E7%A9%BA%E9%97%B4%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/"/>
+    <id>http://yoursite.com/2018/10/27/2018_8_26_1_学习JavaScript的内存空间和事件循环/</id>
+    <published>2018-10-27T06:57:18.772Z</published>
     <updated>2018-08-26T06:23:08.000Z</updated>
     
     <summary type="html">
@@ -129,35 +154,10 @@
   </entry>
   
   <entry>
-    <title>学习JS基础数据类型和引用数据类型，内存空间管理</title>
-    <link href="http://yoursite.com/2018/08/26/2018_8_26_2_%E5%AD%A6%E4%B9%A0JS%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%8C%E5%86%85%E5%AD%98%E7%A9%BA%E9%97%B4%E7%AE%A1%E7%90%86/"/>
-    <id>http://yoursite.com/2018/08/26/2018_8_26_2_学习JS基础数据类型和引用数据类型，内存空间管理/</id>
-    <published>2018-08-26T07:07:22.957Z</published>
-    <updated>2018-08-26T07:06:03.323Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;strong&gt;基础数据类型&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;JavaScript的执行上下文生成之后会创建变量对象的特殊对象。&lt;br&gt;JavaScript的基础数据类型都保存在变量对象中。&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;严格意义上来说，变量对象也是存放在推内存中的。&lt;/em&gt;&lt;/
-      
-    
-    </summary>
-    
-    
-      <category term="JS的数据类型" scheme="http://yoursite.com/tags/JS%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
-    
-      <category term="JS的内存空间管理" scheme="http://yoursite.com/tags/JS%E7%9A%84%E5%86%85%E5%AD%98%E7%A9%BA%E9%97%B4%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
     <title>学习DvaJS，JS的this和解耦</title>
-    <link href="http://yoursite.com/2018/07/21/2018_7_21_1_DvaJS%E5%AD%A6%E4%B9%A0%E5%92%8CJS%E7%9A%84this%E4%BB%A5%E5%8F%8A%E8%A7%A3%E8%80%A6%E6%A6%82%E5%BF%B5/"/>
-    <id>http://yoursite.com/2018/07/21/2018_7_21_1_DvaJS学习和JS的this以及解耦概念/</id>
-    <published>2018-07-21T13:49:28.703Z</published>
+    <link href="http://yoursite.com/2018/10/27/2018_7_21_1_DvaJS%E5%AD%A6%E4%B9%A0%E5%92%8CJS%E7%9A%84this%E4%BB%A5%E5%8F%8A%E8%A7%A3%E8%80%A6%E6%A6%82%E5%BF%B5/"/>
+    <id>http://yoursite.com/2018/10/27/2018_7_21_1_DvaJS学习和JS的this以及解耦概念/</id>
+    <published>2018-10-27T06:57:18.769Z</published>
     <updated>2018-07-24T12:38:17.558Z</updated>
     
     <summary type="html">
@@ -179,9 +179,9 @@
   
   <entry>
     <title>Redux学习（四）-- Providor和connect学习</title>
-    <link href="http://yoursite.com/2018/06/07/2018_6_7_1_redux%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
-    <id>http://yoursite.com/2018/06/07/2018_6_7_1_redux学习（四）/</id>
-    <published>2018-06-07T14:35:35.002Z</published>
+    <link href="http://yoursite.com/2018/10/27/2018_6_7_1_redux%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
+    <id>http://yoursite.com/2018/10/27/2018_6_7_1_redux学习（四）/</id>
+    <published>2018-10-27T06:57:18.764Z</published>
     <updated>2018-06-07T14:35:35.332Z</updated>
     
     <summary type="html">
@@ -202,9 +202,9 @@
   
   <entry>
     <title>Redux学习（三）</title>
-    <link href="http://yoursite.com/2018/06/02/2018_6_2_2_redux%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89/"/>
-    <id>http://yoursite.com/2018/06/02/2018_6_2_2_redux学习（三）/</id>
-    <published>2018-06-02T08:15:09.735Z</published>
+    <link href="http://yoursite.com/2018/10/27/2018_6_2_2_redux%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89/"/>
+    <id>http://yoursite.com/2018/10/27/2018_6_2_2_redux学习（三）/</id>
+    <published>2018-10-27T06:57:18.760Z</published>
     <updated>2018-06-02T08:15:09.930Z</updated>
     
     <summary type="html">
@@ -223,9 +223,9 @@
   
   <entry>
     <title>Redux学习（二）</title>
-    <link href="http://yoursite.com/2018/06/02/2018_6_2_1_redux%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>http://yoursite.com/2018/06/02/2018_6_2_1_redux学习（二）/</id>
-    <published>2018-06-02T07:51:22.799Z</published>
+    <link href="http://yoursite.com/2018/10/27/2018_6_2_1_redux%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <id>http://yoursite.com/2018/10/27/2018_6_2_1_redux学习（二）/</id>
+    <published>2018-10-27T06:57:18.755Z</published>
     <updated>2018-06-02T07:51:23.046Z</updated>
     
     <summary type="html">
@@ -244,9 +244,9 @@
   
   <entry>
     <title>Redux学习</title>
-    <link href="http://yoursite.com/2018/06/02/2018_6_1_1_redux%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://yoursite.com/2018/06/02/2018_6_1_1_redux学习/</id>
-    <published>2018-06-02T05:52:19.094Z</published>
+    <link href="http://yoursite.com/2018/10/27/2018_6_1_1_redux%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://yoursite.com/2018/10/27/2018_6_1_1_redux学习/</id>
+    <published>2018-10-27T06:57:18.750Z</published>
     <updated>2018-06-02T05:52:19.433Z</updated>
     
     <summary type="html">
@@ -264,154 +264,131 @@
   </entry>
   
   <entry>
-    <title>React-music（二）</title>
-    <link href="http://yoursite.com/2018/05/30/2018_5_29_1_react-music%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>http://yoursite.com/2018/05/30/2018_5_29_1_react-music（二）/</id>
-    <published>2018-05-30T04:56:07.818Z</published>
-    <updated>2018-05-30T04:55:08.933Z</updated>
+    <title>ife_2018 MVVM学院 2-4</title>
+    <link href="http://yoursite.com/2018/10/27/2018_5_9_2ife_2018%20MVVM%E5%AD%A6%E9%99%A2%202-4/"/>
+    <id>http://yoursite.com/2018/10/27/2018_5_9_2ife_2018 MVVM学院 2-4/</id>
+    <published>2018-10-27T06:57:18.746Z</published>
+    <updated>2018-05-11T07:30:16.142Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;继续写music-player项目&lt;br&gt;我又发现一个容易出错的地方，就是组件import的首字母必须大写，不然无效&lt;/p&gt;
-&lt;p&gt;写完头和导航栏，这几天写轮播图又有一个问题就是ajax获取数据然后传给state后不能渲染到DOM里。&lt;br&gt;然后我就看了别人项目的代码吧，算
+        &lt;p&gt;2.4事件处理&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://frattinor.github.io/IFE_2018/mvvm/myDist-2-4/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;demo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;对mvvm双向绑定以及
       
     
     </summary>
     
     
-      <category term="react" scheme="http://yoursite.com/tags/react/"/>
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
     
   </entry>
   
   <entry>
-    <title>React-music</title>
-    <link href="http://yoursite.com/2018/05/26/2018_5_26_1_react-music%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://yoursite.com/2018/05/26/2018_5_26_1_react-music（一）/</id>
-    <published>2018-05-26T08:10:43.741Z</published>
-    <updated>2018-05-26T08:10:43.952Z</updated>
+    <title>ife_2018 MVVM学院 2-3</title>
+    <link href="http://yoursite.com/2018/10/27/2018_5_9_1ife_2018%20MVVM%E5%AD%A6%E9%99%A2%202-3/"/>
+    <id>http://yoursite.com/2018/10/27/2018_5_9_1ife_2018 MVVM学院 2-3/</id>
+    <published>2018-10-27T06:57:18.741Z</published>
+    <updated>2018-05-11T07:28:23.096Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;本来这个 &lt;code&gt;music-player&lt;/code&gt; 的项目是打算看着vue视频，用vue来写的，后来因为要学react，所以就把原项目用react来写了。vue-music已经写了顶部，导航栏以及部分推荐页面。&lt;/p&gt;
-&lt;p&gt;所以就直接把写好的部分移植过来就好了&lt;
+        &lt;p&gt;2.3 样式控制&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://frattinor.github.io/IFE_2018/mvvm/myDist-2-3/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;demo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;点击方块，修改方块的
       
     
     </summary>
     
     
-      <category term="react" scheme="http://yoursite.com/tags/react/"/>
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
     
   </entry>
   
   <entry>
-    <title>React-router</title>
-    <link href="http://yoursite.com/2018/05/25/2018_5_25_2_react-router%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://yoursite.com/2018/05/25/2018_5_25_2_react-router学习/</id>
-    <published>2018-05-25T10:17:35.519Z</published>
-    <updated>2018-05-25T10:17:35.745Z</updated>
+    <title>ife_2018 MVVM学院 2-2</title>
+    <link href="http://yoursite.com/2018/10/27/2018_5_8_1_ife_2018%20MVVM%E5%AD%A6%E9%99%A2%202-2/"/>
+    <id>http://yoursite.com/2018/10/27/2018_5_8_1_ife_2018 MVVM学院 2-2/</id>
+    <published>2018-10-27T06:57:18.738Z</published>
+    <updated>2018-05-08T15:07:35.000Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;react-router应该是react的路由插件吧，就跟vue-router一样，用来实现页面的跳转功能&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;安装&lt;/strong&gt;&lt;br&gt;React Router已被拆分成三个包：react-router,react-router-dom和re
+        &lt;p&gt;2.2 条件和循环&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://frattinor.github.io/IFE_2018/mvvm/myDist-2-2/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;demo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;使用循环指令渲染表
       
     
     </summary>
     
     
-      <category term="react" scheme="http://yoursite.com/tags/react/"/>
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
     
   </entry>
   
   <entry>
-    <title>无缝轮播图</title>
-    <link href="http://yoursite.com/2018/05/25/2018_5_25_1_%E6%97%A0%E7%BC%9D%E8%BD%AE%E6%92%AD%E5%9B%BE/"/>
-    <id>http://yoursite.com/2018/05/25/2018_5_25_1_无缝轮播图/</id>
-    <published>2018-05-25T08:34:07.527Z</published>
-    <updated>2018-05-25T08:34:07.719Z</updated>
+    <title>vue项目-豆瓣电影搜索-完善</title>
+    <link href="http://yoursite.com/2018/10/27/2018_5_5_3_%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1%E6%90%9C%E7%B4%A2vue%E9%A1%B9%E7%9B%AE%E6%94%B9%E5%96%84/"/>
+    <id>http://yoursite.com/2018/10/27/2018_5_5_3_豆瓣电影搜索vue项目改善/</id>
+    <published>2018-10-27T06:57:18.733Z</published>
+    <updated>2018-05-05T14:24:00.421Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;a href=&quot;https://frattinor.github.io/practice/RotationMap/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;demo&lt;/a&gt;&lt;br&gt;昨天想做一个轮播图，无缝的那种，然后就想了一种办法&lt;br&gt;首先我原来
+        &lt;p&gt;上次我写了这个豆瓣电影搜索的vue项目，最后完成的时候，发现打包后放到github上，不能获取到ajax的结果，原因呢我具体也不明白，大概就是存在跨域问题，上次我搜索跨域问题怎么解决，都是说反向代理什么的，我完全一脸懵逼啊，今天得知有另一种解决跨域问题的方法jsonp，所以
       
     
     </summary>
     
     
-      <category term="html" scheme="http://yoursite.com/tags/html/"/>
-    
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
-    
-      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+      <category term="vue，jsonp" scheme="http://yoursite.com/tags/vue%EF%BC%8Cjsonp/"/>
     
   </entry>
   
   <entry>
-    <title>css定义高宽成比例</title>
-    <link href="http://yoursite.com/2018/05/24/2018_5_24_2_css%E5%81%9Adiv%E9%AB%98%E5%AE%BD%E6%88%90%E6%AF%94%E4%BE%8B/"/>
-    <id>http://yoursite.com/2018/05/24/2018_5_24_2_css做div高宽成比例/</id>
-    <published>2018-05-24T12:33:53.969Z</published>
-    <updated>2018-05-24T12:33:54.168Z</updated>
+    <title>ife_2018 MVVM学院 2-1</title>
+    <link href="http://yoursite.com/2018/10/27/2018_5_5_2_ife_2018_mvvm%E5%AD%A6%E9%99%A2_2.1/"/>
+    <id>http://yoursite.com/2018/10/27/2018_5_5_2_ife_2018_mvvm学院_2.1/</id>
+    <published>2018-10-27T06:57:18.729Z</published>
+    <updated>2018-05-05T14:06:25.668Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;今天突然想写一个无缝的轮播图了，因为以前写的轮播图都不是无缝的，在结尾的地方会回滚回第一张图，所以就想试试除了设置外边距的方法来解决这个办法。&lt;br&gt;然后我就想啊，用绝对定位来把图片都放一起，然后要用到什么图片就给什么图片添加动画就好，然后发现一个问题，因为是绝对定位，所以
+        &lt;p&gt;ife 的 mvvm使用的是百度的san框架，我不太了解，同时这个也不太火，所以我还是使用我在学习的vue框架&lt;/p&gt;
+&lt;p&gt;1.x是看文档和安装环境我就没做了&lt;/p&gt;
+&lt;p&gt;2.1 数据操作&lt;br&gt;1参考下方设计图，使用san实现一个功能&lt;br&gt;2输入姓名、年龄和简介信息
       
     
     </summary>
     
     
-      <category term="css" scheme="http://yoursite.com/tags/css/"/>
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
     
   </entry>
   
   <entry>
-    <title>react学习</title>
-    <link href="http://yoursite.com/2018/05/24/2018_5_24_1_React%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://yoursite.com/2018/05/24/2018_5_24_1_React学习/</id>
-    <published>2018-05-24T11:38:47.179Z</published>
-    <updated>2018-05-24T11:38:47.485Z</updated>
+    <title>ife_2018 设计师学院 No.7</title>
+    <link href="http://yoursite.com/2018/10/27/2018_5_5_1_ife_2018_%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E9%99%A2_No.7/"/>
+    <id>http://yoursite.com/2018/10/27/2018_5_5_1_ife_2018_设计师学院_No.7/</id>
+    <published>2018-10-27T06:57:18.724Z</published>
+    <updated>2018-05-05T13:55:07.151Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;React&lt;br&gt;React 是一个用于构建用户界面的 JAVASCRIPT 库&lt;br&gt;React主要用于构建UI&lt;br&gt;React 拥有较高的性能，代码逻辑非常简单&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;React 特点&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;声明式设计 −
-      
-    
-    </summary>
-    
-    
-      <category term="react" scheme="http://yoursite.com/tags/react/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>less学习</title>
-    <link href="http://yoursite.com/2018/05/17/2018_5_17_2_less%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://yoursite.com/2018/05/17/2018_5_17_2_less学习/</id>
-    <published>2018-05-17T06:55:59.670Z</published>
-    <updated>2018-05-17T06:55:59.829Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Less 是一门 CSS 预处理语言，它扩充了 CSS 语言，增加了诸如变量、混合（mixin）、函数等功能，让 CSS 更易维护、方便制作主题、扩充。&lt;/p&gt;
-&lt;p&gt;Less 可以通过 npm 在命令行上运行；在浏览器上作为脚本文件下载；或者集成在广大的第三方工具内。&lt;/
+        &lt;p&gt;No.7 - 使用 animate.css 实现一个优雅的登录框&lt;/p&gt;
+&lt;p&gt;任务七&lt;br&gt;&lt;a href=&quot;https://frattinor.github.io/IFE_2018/css/No.7/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;de
       
     
     </summary>
@@ -419,54 +396,72 @@
     
       <category term="css" scheme="http://yoursite.com/tags/css/"/>
     
-      <category term="less" scheme="http://yoursite.com/tags/less/"/>
-    
   </entry>
   
   <entry>
-    <title>ES6学习（二）</title>
-    <link href="http://yoursite.com/2018/05/17/2018_5_17_1_ES6%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>http://yoursite.com/2018/05/17/2018_5_17_1_ES6学习（二）/</id>
-    <published>2018-05-17T06:14:24.089Z</published>
-    <updated>2018-05-17T06:14:24.244Z</updated>
+    <title>ife_2018 设计师学院 No.6</title>
+    <link href="http://yoursite.com/2018/10/27/2018_5_4_2_ife_2018_%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E9%99%A2_No.6/"/>
+    <id>http://yoursite.com/2018/10/27/2018_5_4_2_ife_2018_设计师学院_No.6/</id>
+    <published>2018-10-27T06:57:18.719Z</published>
+    <updated>2018-05-05T13:42:55.520Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;ES6新特性&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;1.箭头操作符（=&amp;gt;）&lt;/strong&gt;&lt;br&gt;操作符左边为输入的参数，而右边则是进行的操作以及返回的值Inputs=&amp;gt;outputs。&lt;br&gt;&lt;strong&gt;2.类的支持&lt;/strong&gt;&lt;br&gt;ES6中添加了对类的
+        &lt;p&gt;No.6 - 利用 CSS animation 制作一个炫酷的 Slider&lt;/p&gt;
+&lt;p&gt;任务六&lt;br&gt;&lt;a href=&quot;https://frattinor.github.io/IFE_2018/css/No.6/&quot; target=&quot;_blank&quot; rel=&quot;noopen
       
     
     </summary>
     
     
-      <category term="ECMAScript 6" scheme="http://yoursite.com/tags/ECMAScript-6/"/>
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
     
   </entry>
   
   <entry>
-    <title>ES6学习</title>
-    <link href="http://yoursite.com/2018/05/17/2018_5_15_1_ES6%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://yoursite.com/2018/05/17/2018_5_15_1_ES6学习/</id>
-    <published>2018-05-17T06:03:57.765Z</published>
-    <updated>2018-05-17T06:03:57.980Z</updated>
+    <title>ife_2018 设计师学院 No.5</title>
+    <link href="http://yoursite.com/2018/10/27/2018_5_4_1_ife_2018_%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E9%99%A2_No.5/"/>
+    <id>http://yoursite.com/2018/10/27/2018_5_4_1_ife_2018_设计师学院_No.5/</id>
+    <published>2018-10-27T06:57:18.715Z</published>
+    <updated>2018-05-05T13:26:53.016Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;ES6学习&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;1.let&lt;/strong&gt;&lt;br&gt;let与var都是变量声明的方式&lt;br&gt;let与var的区别&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;let是只在块级作用域（花括号）起作用&lt;/li&gt;
-&lt;li&gt;let不存在变量提升&lt;br&gt;“函数声明和变量声明总
+        &lt;p&gt;No.5 - 纯 CSS 制作绕中轴旋转的立方体&lt;/p&gt;
+&lt;p&gt;任务五&lt;br&gt;&lt;a href=&quot;https://frattinor.github.io/IFE_2018/css/No.5/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;demo&lt;/a&gt;&lt;/
       
     
     </summary>
     
     
-      <category term="ECMAScript 6" scheme="http://yoursite.com/tags/ECMAScript-6/"/>
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ife_2018 设计师学院 No.4</title>
+    <link href="http://yoursite.com/2018/10/27/2018_5_3_3_ife_2018_%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E9%99%A2_No.4/"/>
+    <id>http://yoursite.com/2018/10/27/2018_5_3_3_ife_2018_设计师学院_No.4/</id>
+    <published>2018-10-27T06:57:18.709Z</published>
+    <updated>2018-05-03T13:54:51.390Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;No.4 - 3D 空间的卡片翻转动效&lt;/p&gt;
+&lt;p&gt;任务四&lt;br&gt;&lt;a href=&quot;https://frattinor.github.io/IFE_2018/css/No.4/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;demo&lt;/a&gt;&lt;/p&gt;
+&lt;p
+      
+    
+    </summary>
+    
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
     
   </entry>
   
